@@ -1,26 +1,32 @@
-=AssistedBoardGames Cahier des Charges
+= AssistedBoardGames Cahier des Charges
 
 Par Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa
 
-==Specification - Itération 1
+== Description du projet
+Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. + 
 
-Tâche 1 : ChessStateTxt
-Tâche 2 : ChessMoveTxt
-Tâche 3 : SetDB
-Tâche 4 : ShowClient
+Pour ce projet, on utilisera au maximum les librairies existantes, ainsi que les bonnes pratiques.
 
-==Specification - Itération 2
+== Déroulement en 3 itérations
+=== Specification - Itération 1
 
-Tâche 1 : StateServlet
-Tâche 2 : ObjectsXml
-Tâche 3 : UseDB
-Tâche 4 : Player
-Tâche 5 : AddServlets
+Tâche 1 : ChessStateTxt +
+Tâche 2 : ChessMoveTxt +
+Tâche 3 : SetDB +
+Tâche 4 : ShowClient + 
 
-==Specification - Itération 3
+=== Specification - Itération 2
 
-Tâche 1 : SendMessage
-Tâche 2 : Help
-Tâche 3 : HelpAsync
-Tâche 4 : Online
-Tâche 5 : ExtServletState
+Tâche 1 : StateServlet +
+Tâche 2 : ObjectsXml +
+Tâche 3 : UseDB +
+Tâche 4 : Player +
+Tâche 5 : AddServlets +
+
+=== Specification - Itération 3
+
+Tâche 1 : SendMessage +
+Tâche 2 : Help +
+Tâche 3 : HelpAsync +
+Tâche 4 : Online +
+Tâche 5 : ExtServletState +
