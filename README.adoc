@@ -15,6 +15,8 @@ Tâche 2 : ChessMoveTxt +
 Tâche 3 : SetDB +
 Tâche 4 : ShowClient + 
 
+Description générale : Mise en place des bases du projet (état, mouvement et base de données)
+
 === Specification - Itération 2
 
 Tâche 1 : StateServlet +
@@ -23,6 +25,8 @@ Tâche 3 : UseDB +
 Tâche 4 : Player +
 Tâche 5 : AddServlets +
 
+Description générale : Ajout des servlets (d'état, de calculs d'état à partir d'un mouvement, représentation du jeu) + implémentation BDD
+
 === Specification - Itération 3
 
 Tâche 1 : SendMessage +
@@ -30,3 +34,5 @@ Tâche 2 : Help +
 Tâche 3 : HelpAsync +
 Tâche 4 : Online +
 Tâche 5 : ExtServletState +
+
+Description générale : Mise en place de la suggestion online, améliorer les servlets
