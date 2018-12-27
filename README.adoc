@@ -15,6 +15,9 @@ Pour ce projet, on utilisera au maximum les librairies existantes, ainsi que les
 Tâche 1 : ChessStateTxt +
 Tâche 2 : ChessMoveTxt +
 Tâche 3 : SetDB +
+          - construire un modèle relationnel pour stocker les états des parties +
+          - Implémenter une entité JPA +
+          - Implémenter les guetters et setters +
 Tâche 4 : ShowClient + 
 
 Description générale : Mise en place des bases du projet (état, mouvement et base de données)
