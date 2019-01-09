@@ -1,0 +1,86 @@
+= AssistedBoardGames Cahier des Charges
+
+Par Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa +
+MASTER MIAGE SITN en apprentissage
+Université Paris Dauphine
+
+== Description du projet
+Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. + 
+
+Pour ce projet, on utilisera au maximum les librairies existantes, ainsi que les bonnes pratiques.
+
+== Déroulement en 3 itérations
+=== Specification - Itération 1
+
+Tâche 1 : ChessStateTxt +
+- Représenter et afficher un état du jeu ( = position des pions et joueur) grâce à une bibliotheque existante + 
+- Choisir un format pour encoder ( ChessStateTxt => Format) et décoder ( Format => ChessStateTxt) un état de jeu +
+
+Tâche 2 : ChessMoveTxt +
+- Représenter un coup pour un joueur+ 
+- Calculer l'état résultant d'un coup joué sur un état +
+- Calculer le coup permettant de passer d'un état à un autre à partir de ces deux états +
+
+          
+Tâche 3 : SetDB +
+          - construire un modèle relationnel pour stocker les états des parties +
+          - Implémenter une entité JPA +
+          - Implémenter les guetters et setters +
+          
+Tâche 4 : ShowClient + 
+- Récupérer le dernier état d'un jeu à partir de son identifiant et l'afficher +
+- Récupérer un état precis d'un jeu à partir de l'identifiant de la partie et de l'identifiant de l'état +
+
+Description générale : Mise en place des bases du projet (état, mouvement et base de données)
+
+=== Specification - Itération 2
+
+Tâche 1 : StateServlet +
+- Ajout d'un état à une partie grâce à son id( à condition qu'il soit possible de passer du dernier état de la partie à celui spécifié) +
+- Si l'id de la partie spécifiée n'existe pas, l'état à ajouter doit obligatoirement être un état initial. Dans ce cas la partie est créée +
+
+Tâche 2 : ObjectsXml 
+- Encoder les coup et états en XML +
+- Décoder les coups et états représenté en XML +
+
+Tâche 3 : UseDB +
+- Utilisation de la base de donnée definie dans SetDB +
+- Modification des servlets pour alimenter la base de donnée +
+
+Tâche 4 : Player +
+- Affichage du plateau de jeu pour un client +
+- Permettre au joueur d'appliquer des coups +
+- Calculer l'état résultant lorsqu'un coup est joué +
+- Afficher l'etat résultant du coup de l'adversaire +
+- Anoncer la fin du jeu +
+
+Tâche 5 : AddServlets +
+- Créer un jeu et son identifiant à partir d'une liste d'états +
+- Retourner un coup à partir de son identifiant et de l'identifiant de la partie correspondante +
+- Création de l'identifiant coup correspondant à l'ajout d'un coup par un joueur à partir d'un certain état +
+- Différents formats doivent être acceptés (pour coup et état) +
+- Transformer en REST +
+
+Description générale : Ajout des servlets (d'état, de calculs d'état à partir d'un mouvement, représentation du jeu) + implémentation BDD
+
+=== Specification - Itération 3
+
+
+Tâche 1 : Help +
+- Calculer les meilleurs coups à jouer selon un état pour un joueur +
+
+Tâche 2 : HelpAsync +
+- Suggestion d'une liste de coups permettant au joueur de gagner à partir d'un état +
+- Récupérer un état et une liste de coups suggérés à partir d'un identifiant de suggestion (id ticket) +
+
+Tâche 3 : SendMessage +
+- Envoie des nouveaux coups suggérés au joueur lorsque ceux-ci changent +
+
+Tâche 4 : Online +
+- Utiliser le service d'IBM pou faire tourner notre serveur de jeu en ligne +
+
+Tâche 5 : ExtServletState +
+- Transformer en REST +
+- Pouvoir à la demande accepter ou envoyer du XML ou JSON ( état, coup) +
+
+Description générale : Mise en place de la suggestion online, améliorer les servlets
