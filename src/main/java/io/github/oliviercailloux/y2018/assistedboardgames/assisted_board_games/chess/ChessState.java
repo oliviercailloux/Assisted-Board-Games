@@ -1,6 +1,6 @@
 package io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.chess;
 
-import org.json.simple.JSONObject;
+//import org.json.simple.JSONObject;
 
 public class ChessState {
 	private int idState;
