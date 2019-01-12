@@ -1,0 +1,64 @@
+= Itération 1 +
+== Rappel travail à faire + 
+
+Tâche 1 : ChessStateTxt +
+
+-  Représenter et afficher un état du jeu ( = position des pions et joueur) grâce à une bibliotheque existante + 
+-  Choisir un format pour encoder ( ChessStateTxt ⇒ Format) et décoder ( Format ⇒ ChessStateTxt) un état de jeu + 
+
+
+Tâche 2 : ChessMoveTxt + 
+
+- Représenter un coup pour un joueur +
+- Calculer l’état résultant d’un coup joué sur un état + 
+- Calculer le coup permettant de passer d’un état à un autre à partir de ces deux états + 
+
+
+Tâche 3 : SetDB + 
+
+-  Construire un modèle relationnel pour stocker les états des parties + 
+-  Implémenter une entité JPA + 
+-  Implémenter les getters et setters + 
+
+Tâche 4 : ShowClient + 
+
+-  Récupérer le dernier état d’un jeu à partir de son identifiant et l’afficher + 
+-  Récupérer un état precis d’un jeu à partir de l’identifiant de la partie et de l’identifiant de l’état + 
+
+
+Description générale : Mise en place des bases du projet (état, mouvement et base de données) + 
+
+
+== Realisation : + 
+
+
+-  Recherche en groupe de la librairie à utiliser. Notre choix s'est porté sur JnegaChess : https://github.com/loopfz/JnegaChess. + 
+Cette librairie fournit une représentation des pièces, d'un jeu avec son plateau, des coups et permet de jouer contre une intelligence artificielle.+ 
+Cette librairie est aussi OpenSource et sous licence MIT. + 
+
+- Architecture générale +
+
+- "ChessStateTxt" et "ChessMoveTxt" réalisés en collaboration par Brassard Megan et Fremin du Sartel Thibaud + 
+
+	   - Contributeur majeur de ChessStateTxt ( ChessState/ChessStateTest ) Thibaud Fremin du Sartel + 
+	   - Contributeur majeur de ChessMoveTxt ( ChessMove/ChessMoveTest ) Megan Brassard. + 
+
+
+
+- "SetDB" et "ShowClient" réalisés en collaboration par Lourenço Andréa et Douo Bougna Delmas + 
+	  - Contributeur majeur de ShowClient (StateServlet ) Andréa Lourenço  + 
+	  - Contributeur majeur de SetDB (ChessStateEntity/ChessGameEntity) Delmas Douo Bougna + 
+
+
+
+
+== Difficultés  rencontrées  : + 
+
+	- Notion de "State" non présente dans la librairie +
+	- Représentation des States dans la base de donnée : Nous avons réfléchis à plusieurs possibilités : +
+	A - Un état dépend d'une partie, la clé primaire dans la base de donnée est donc composée de l'identifiant de la partie et de l'identifiant de l'état +
+	B - Un état est indépendant d'une partie : On peux calculer tout les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. +
+	C - Associer une liste de identifiants State dans une partie. +
+	Nous avons opté pour la solution C. +
+	- Décision sur l'architecture : Nous souhaitions mettre en place une architecture qui soit assez facilement généralisable ( pour pouvoir implementer un jeu de Poker plus tard par exemple) +
+	tout en étant simple. Nous nous sommes finalement focalisé sur la représentation du jeu d'echec. Nous sommes cependant conscients que le but de ce projet et de pouvoir généraliser le concepte d'Assited Board Game. + 
