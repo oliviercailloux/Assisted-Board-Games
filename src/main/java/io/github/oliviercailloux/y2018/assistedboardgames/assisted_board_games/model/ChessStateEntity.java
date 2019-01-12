@@ -26,11 +26,11 @@ public class ChessStateEntity {
 		return id_state;
 	}
 
-	public String getStates() {
+	public String getJsonState() {
 		return jsonState;
 	}
 
-	public void setName(String stateJson) {
+	public void setStateJson(String stateJson) {
 		this.jsonState = stateJson;
 	}
 

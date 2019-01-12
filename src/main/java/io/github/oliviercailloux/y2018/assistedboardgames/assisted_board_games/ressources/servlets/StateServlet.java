@@ -1,12 +1,14 @@
 package io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.servlets;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.exception.MissingArgumentException;
-import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.utils.QueryHelper;
+import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.model.ChessStateEntity;
+import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.model.ChessGameEntity;
 import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.utils.ServletHelper;
 
 @WebServlet("/state")
@@ -34,7 +36,6 @@ public class StateServlet extends HttpServlet {
 			if (request.getParameter("game") == null) {
 				throw new IllegalArgumentException();
 			} else {
-				String stateToSend = "le json à récupérer";
 				
 				final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
 
@@ -42,33 +43,27 @@ public class StateServlet extends HttpServlet {
 						.createEntityManagerFactory("Assited-Boards-Servlets");
 				final EntityManager em = emFactory.createEntityManager();
 
-				final QueryHelper queryHelper = new QueryHelper();
-				queryHelper.setEmFactory(emFactory);
-
 				final EntityTransaction transaction = em.getTransaction();
 				transaction.begin();
 				
-				final TypedQuery<ChessGameEntity> query = em.createQuery(
-						"SELECT g FROM ChessGameEntity g WHERE id=" + request.getParameter("game"),
-						ChessGameEntity.class);		
+				@SuppressWarnings("unchecked")
+				final TypedQuery<ChessGameEntity> query = (TypedQuery<ChessGameEntity>) em.createQuery("SELECT g FROM ChessGameEntity g WHERE id=" + request.getParameter("game"));		
 				
-				final ChessGameEntity game = query.getResult();
+				final ChessGameEntity game = (ChessGameEntity) query.getResultList();
 				
 				transaction.commit();
 				
 				if (request.getParameter("state") == null) {
-					// recupérer le dernier etat du game
-					out.println(game.getStates().getLast().getStateJson());
-
+					out.println(game.getStates().get(game.getStates().size()-1).getJsonState()); 
 				} else {
-					// récupérer letat state de la partie game
 					try {
 						boolean flag = false;
 						List<ChessStateEntity> allStates = game.getStates(); 
+						
 						for (ChessStateEntity state : allStates) {
-							if(state.getId() == request.getParameter("state")) {
+							if(state.getId() == Integer.parseInt(request.getParameter("state"))) {
 								flag = true;
-								out.println(state.getStateJson());
+								out.println(state.getJsonState());
 							}
 						}
 						if(!flag) {

@@ -25,5 +25,10 @@ public class ChessGameEntity {
 	public int getId() {
 		return id;
 	}
+	
+
+	public List<ChessStateEntity> getStates() {
+		return states;
+	}
 
 }

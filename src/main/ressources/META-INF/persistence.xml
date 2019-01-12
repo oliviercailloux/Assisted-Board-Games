@@ -5,8 +5,8 @@
 	<persistence-unit name="JavaEE-JPA-resource-local-Servlets"
 		transaction-type="RESOURCE_LOCAL">
 		<non-jta-data-source>java:comp/DefaultDataSource</non-jta-data-source>
-		<class>io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.entities.ChessStateEntity</class>
-		<class>io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.entities.ChessGameEntity</class>
+		<class>io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.model.ChessStateEntity</class>
+		<class>io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.model.ChessGameEntity</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"
 				value="drop-and-create" />
