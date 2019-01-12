@@ -23,6 +23,9 @@
  */
 package io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.chess;
 
+import org.json.simple.JSONObject;
+
+
 /**
  *
  * @author Thomas Schaffer <thomas.schaffer@epitech.eu>
@@ -54,4 +57,65 @@ public class ChessMove {
     public int getDestY() {
         return _destY;
     }
+    
+    /**Megan Brassard feature "ChessMoveTXT **/
+    public static ChessMove getMove(ChessState state1 , ChessState state2) {
+    	IChessPiece[][] board1 = state1.get_board();
+    	IChessPiece[][] board2 = state2.get_board();
+    	int origX = -1;
+    	int origY = -1;
+    	int destX = -1;
+    	int destY = -1; 
+    	
+    	for (int i =0;i<board1.length ; i++) {
+    		for (int j =0;j< board1[0].length; j++) {
+    				if (board1[i][j] == null && board2[i][j] != null) {
+    					
+    					destX=i;
+    					destY=j;
+    				}
+    				if (board1[i][j] != null && board2[i][j] == null) {
+    					origX=i;
+    					origY=j;
+    					
+    				}
+    			}
+    		}
+    	if (origX != -1)
+    		return new ChessMove (origX, origY, destX, destY);
+    	else return null;
+    }
+    /**Megan Brassard feature "ChessMoveTXT **/
+    @SuppressWarnings("unchecked")
+	public JSONObject encode ( ) {
+    	JSONObject j = new JSONObject();
+		j.put("OrigX", getOrigX());
+		j.put("OrigY", getOrigY());
+    	j.put("DestX", getDestX());
+    	j.put("DestY", getDestY());	
+    	return j; 
+    	
+    }
+    /**Megan Brassard feature "ChessMoveTXT **/
+    public static ChessMove decode (JSONObject json) {	
+		int origx=(int)json.get("OrigX");
+		int origy=(int)json.get("OrigY");
+		int destx=(int)json.get("DestX");
+		int desty=(int)json.get("DestY");
+	    return new ChessMove ( origx, origy, destx, desty);
+   	
+    }
+    
+    @Override
+    public boolean equals (Object o) {
+    	if ( o instanceof ChessMove) {
+    		ChessMove move=((ChessMove)o);
+    		return move.getOrigX()==_origX 
+    				&&move.getOrigY()==_origY
+    						&&move.getDestX()==_destX
+    								&&move.getDestY()==_destY;
+    	}
+    	return false;
+    }
+  
 }
