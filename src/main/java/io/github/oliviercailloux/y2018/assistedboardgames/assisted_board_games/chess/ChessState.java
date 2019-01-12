@@ -113,5 +113,28 @@ public class ChessState {
 	public void set_board(IChessPiece[][] _board) {
 		this._board = _board;
 	}
+	/**Megan Brassard feature "ChessMoveTXT **/
+	public ChessState doMove(ChessMove move) {
+		if (move == null) return null; 
+      	 IChessPiece movingPiece =get_board()[move.getOrigX()][move.getOrigY()];
+      	 if (movingPiece == null) {
+           return this;
+      	 }
+      	 IChessPiece [][]copy= new IChessPiece [8][8] ;
+      	 for (int i = 0;i < 8 ;i++) {
+      		 for (int j = 0; j< 8; j++) {
+      			 if( _board[i][j]!= null)
+      			 copy[i][j]=_board[i][j].copyPiece();
+      		 }
+      	 }
+      	 IChessPiece tomove =copy[move.getOrigX()][move.getOrigY()]; 
+      	 copy[move.getOrigX()][move.getOrigY()]= null;
+      	 copy[move.getDestX()][move.getDestY()]= tomove;
+      	 tomove.setX(move.getDestX());
+      	 tomove.setY(move.getDestY());
+      	 
+      	 return  new ChessState( -1, copy);
+		
+	}
 
 }
