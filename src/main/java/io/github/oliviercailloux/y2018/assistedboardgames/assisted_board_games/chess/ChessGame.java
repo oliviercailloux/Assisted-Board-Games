@@ -47,7 +47,12 @@ public class ChessGame implements IGameTree, IChessBoard {
     private boolean _wasEval;
     private IChessPiece[][] _board;
     private boolean _player;
-    private boolean _isRoot;
+    
+    public IChessPiece[][] get_board() {
+		return _board;
+	}
+
+	private boolean _isRoot;
     private ChessMove _lastMove;
     private IChessPiece _whiteKing;
     private IChessPiece _blackKing;
