@@ -38,14 +38,14 @@ Cette librairie est aussi OpenSource et sous licence MIT. +
 
 - Architecture générale +
 
-- "ChessStateTxt" et "ChessMoveTxt" réalisés en collaboration par Brassard Megan et Fremin du Sartel Thibaud + 
+- "ChessStateTxt" et "ChessMoveTxt" réalisées en collaboration par Brassard Megan et Fremin du Sartel Thibaud + 
 
 	   - Contributeur majeur de ChessStateTxt ( ChessState/ChessStateTest ) Thibaud Fremin du Sartel + 
 	   - Contributeur majeur de ChessMoveTxt ( ChessMove/ChessMoveTest ) Megan Brassard. + 
 
 
 
-- "SetDB" et "ShowClient" réalisés en collaboration par Lourenço Andréa et Douo Bougna Delmas + 
+- "SetDB" et "ShowClient" réalisées en collaboration par Lourenço Andréa et Douo Bougna Delmas + 
 	  - Contributeur majeur de ShowClient (StateServlet ) Andréa Lourenço  + 
 	  - Contributeur majeur de SetDB (ChessStateEntity/ChessGameEntity) Delmas Douo Bougna + 
 
@@ -55,10 +55,10 @@ Cette librairie est aussi OpenSource et sous licence MIT. +
 == Difficultés  rencontrées  : + 
 
 	- Notion de "State" non présente dans la librairie +
-	- Représentation des States dans la base de donnée : Nous avons réfléchis à plusieurs possibilités : +
+	- Représentation des States dans la base de donnée : Nous avons réfléchi à plusieurs possibilités : +
 	A - Un état dépend d'une partie, la clé primaire dans la base de donnée est donc composée de l'identifiant de la partie et de l'identifiant de l'état +
-	B - Un état est indépendant d'une partie : On peux calculer tout les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. +
-	C - Associer une liste de identifiants State dans une partie. +
+	B - Un état est indépendant d'une partie : On peut calculer tous les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. +
+	C - Associer une liste d'identifiants State dans une partie. +
 	Nous avons opté pour la solution C. +
-	- Décision sur l'architecture : Nous souhaitions mettre en place une architecture qui soit assez facilement généralisable ( pour pouvoir implementer un jeu de Poker plus tard par exemple) +
-	tout en étant simple. Nous nous sommes finalement focalisé sur la représentation du jeu d'echec. Nous sommes cependant conscients que le but de ce projet et de pouvoir généraliser le concepte d'Assited Board Game. + 
+	- Décision sur l'architecture : Nous souhaitions mettre en place une architecture qui soit assez facilement généralisable ( pour pouvoir implémenter un jeu de Poker plus tard par exemple) +
+	tout en étant simple. Nous nous sommes finalement focalisés sur la représentation du jeu d'echec. Nous sommes cependant conscients que le but de ce projet est de pouvoir généraliser le concept d'Assisted Board Game. + 
