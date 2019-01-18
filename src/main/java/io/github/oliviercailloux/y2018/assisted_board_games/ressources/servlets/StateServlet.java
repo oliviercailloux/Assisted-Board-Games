@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.servlets;
+package io.github.oliviercailloux.y2018.assisted_board_games.ressources.servlets;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.model.ChessStateEntity;
-import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.model.ChessGameEntity;
-import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.utils.ServletHelper;
+import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessStateEntity;
+import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessGameEntity;
+import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.ServletHelper;
 
 @WebServlet("/state")
 public class StateServlet extends HttpServlet {

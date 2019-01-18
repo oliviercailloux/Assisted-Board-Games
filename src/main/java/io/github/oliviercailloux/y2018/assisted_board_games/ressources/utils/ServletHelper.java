@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.utils;
+package io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +11,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import io.github.oliviercailloux.y2018.assistedboardgames.assisted_board_games.ressources.servlets.StateServlet;
+import io.github.oliviercailloux.y2018.assisted_board_games.ressources.servlets.StateServlet;
 
 @RequestScoped
 public class ServletHelper {
