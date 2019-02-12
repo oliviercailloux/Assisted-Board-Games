@@ -1,10 +1,13 @@
 package io.github.oliviercailloux.y2018.assisted_board_games.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ChessStateEntity {
@@ -13,25 +16,23 @@ public class ChessStateEntity {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id_state;
 
-	private String jsonState;
-
 	@ManyToOne
 	private ChessGameEntity game;
+	
+	@OneToMany(mappedBy = "state")
+	private List<ChessPieceEntity> pieces;
 
 	public ChessStateEntity() {
 
 	}
 
-	public int getId() {
+	public int getId_state() {
 		return id_state;
 	}
-
-	public String getJsonState() {
-		return jsonState;
+	
+	public List<ChessPieceEntity> getPieces() {
+		return pieces;
 	}
 
-	public void setStateJson(String stateJson) {
-		this.jsonState = stateJson;
-	}
 
 }
