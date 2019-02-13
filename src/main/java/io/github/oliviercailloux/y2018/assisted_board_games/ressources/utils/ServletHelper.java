@@ -13,6 +13,10 @@ import javax.ws.rs.core.MediaType;
 
 import io.github.oliviercailloux.y2018.assisted_board_games.ressources.servlets.StateServlet;
 
+/***
+ * Code From https://github.com/oliviercailloux/javaee-jpa-resource-local-servlets/blob/master/src/main/java/io/github/oliviercailloux/javaee_jpa_resource_local_servlets/utils/ServletHelper.java
+ * @Author : Olivier Cailloux
+ */
 @RequestScoped
 public class ServletHelper {
 
