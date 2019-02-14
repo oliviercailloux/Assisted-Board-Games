@@ -17,10 +17,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.github.bhlangonijr.chesslib.Board;
+import com.github.bhlangonijr.chesslib.Square;
+import com.github.bhlangonijr.chesslib.move.Move;
 import com.google.common.primitives.Ints;
 
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessStateEntity;
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessGameEntity;
+import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessMoveEntity;
 import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.ServletHelper;
 
 @WebServlet("/state")
@@ -57,21 +61,12 @@ public class StateServlet extends HttpServlet {
 			transaction.commit();
 
 			if (!stateParam.isPresent()) {
-				out.println(game.getStates().get(game.getStates().size() - 1).getJsonState());
+				ChessStateEntity lastState = game.getStates().get(game.getStates().size()-1);
+				out.println(playMoves(lastState.getMoves()).toString());
+				
 			} else {
-
-				boolean flag = false;
-				List<ChessStateEntity> allStates = game.getStates();
-
-				for (ChessStateEntity state : allStates) {
-					if (state.getId() == stateParam.getAsInt()) {
-						flag = true;
-						out.println(state.getJsonState());
-					}
-				}
-				if (!flag) {
-					response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Exécution impossible, paramètre invalide.");
-				}
+				ChessStateEntity state = game.getStates().get(stateParam.getAsInt());
+				out.println(playMoves(state.getMoves()).toString());
 			}
 			em.close();
 		}
@@ -97,6 +92,15 @@ public class StateServlet extends HttpServlet {
 		}
 
 		return param;
+	}
+	
+	private Board playMoves(List<ChessMoveEntity> allMoves) {
+		Board board = new Board();
+		
+		for(ChessMoveEntity move : allMoves) {
+			board.doMove(new Move(Square.valueOf(move.getFrom()), Square.valueOf(move.getTo())));	
+		}
+		return board;
 	}
 
 }
