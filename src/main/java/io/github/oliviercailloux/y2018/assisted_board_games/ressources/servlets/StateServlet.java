@@ -27,6 +27,11 @@ import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessGameEntit
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessMoveEntity;
 import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.ServletHelper;
 
+/***
+ * 
+ * @author Andréa Lourenço
+ *
+ */
 @WebServlet("/state")
 public class StateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
