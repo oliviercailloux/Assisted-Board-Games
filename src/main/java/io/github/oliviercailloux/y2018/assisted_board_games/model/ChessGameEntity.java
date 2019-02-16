@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+/***
+ * 
+ * @author Delmas Douo Bougna
+ *
+ */
 @Entity
 public class ChessGameEntity {
 

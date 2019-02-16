@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+/***
+ * 
+ * @author Delmas Douo Bougna
+ *
+ */
 @Entity
 public class ChessStateEntity {
 
@@ -22,10 +27,14 @@ public class ChessStateEntity {
 	@OneToMany(mappedBy = "state")
 	private List<ChessMoveEntity> moves;
 
+	public ChessStateEntity() {
+
+	}
+
 	public int getId_state() {
 		return id_state;
 	}
-	
+
 	public List<ChessMoveEntity> getMoves() {
 		return moves;
 	}
@@ -37,7 +46,6 @@ public class ChessStateEntity {
 	public void addMove(ChessMoveEntity move) {
 		this.moves.add(move);
 	}
-
 	
 }
 
