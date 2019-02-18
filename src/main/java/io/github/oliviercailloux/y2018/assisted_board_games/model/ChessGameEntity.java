@@ -24,14 +24,12 @@ public class ChessGameEntity {
 	private List<ChessStateEntity> states;
 
 	public ChessGameEntity() {
-
 	}
 
 	public int getId() {
 		return id;
 	}
 	
-
 	public List<ChessStateEntity> getStates() {
 		return states;
 	}

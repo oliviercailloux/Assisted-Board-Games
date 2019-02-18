@@ -77,6 +77,15 @@ public class StateServlet extends HttpServlet {
 		}
 
 	}
+	
+	private Board playMoves(List<ChessMoveEntity> allMoves) {
+		Board board = new Board();
+		
+		for(ChessMoveEntity move : allMoves) {
+			board.doMove(new Move(Square.valueOf(move.getFrom()), Square.valueOf(move.getTo())));	
+		}
+		return board;
+	}
 
 	/***
 	 * Method From
@@ -99,13 +108,4 @@ public class StateServlet extends HttpServlet {
 		return param;
 	}
 	
-	private Board playMoves(List<ChessMoveEntity> allMoves) {
-		Board board = new Board();
-		
-		for(ChessMoveEntity move : allMoves) {
-			board.doMove(new Move(Square.valueOf(move.getFrom()), Square.valueOf(move.getTo())));	
-		}
-		return board;
-	}
-
 }

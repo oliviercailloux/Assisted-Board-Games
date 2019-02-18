@@ -14,19 +14,7 @@ import com.github.bhlangonijr.chesslib.move.MoveException;
  *
  */
 public class ChessMove {
-	// private Move move;
-
-	/**
-	 * public ChessMoveTXT ( String from, String To, Piece promotion) { move= new
-	 * Move( Square.fromValue(from), Square.fromValue(To), promotion);
-	 * 
-	 * } public Square getFrom() { return move.getFrom(); } public Square getTo() {
-	 * return move.getTo(); } public Piece getPromotion() { return
-	 * move.getPromotion(); }
-	 * 
-	 * public Board doMove() { return null; } public static Move getMove(Board
-	 * board1, Board board2) { return null; }
-	 **/
+	
 
 	public static JsonObject encode(Move move) {
 		JsonObject object = Json.createObjectBuilder().add("Square From", move.getFrom().value())
@@ -62,7 +50,7 @@ public class ChessMove {
 			promotion = board2.getPiece(to);
 		}
 		Move m = new Move(from, to, promotion);
-		System.out.println(m);
+	
 		if (from == Square.NONE)
 			return m;
 		if (board1.isMoveLegal(m, false))

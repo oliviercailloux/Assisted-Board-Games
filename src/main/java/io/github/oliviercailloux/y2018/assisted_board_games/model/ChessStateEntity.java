@@ -28,7 +28,6 @@ public class ChessStateEntity {
 	private List<ChessMoveEntity> moves;
 
 	public ChessStateEntity() {
-
 	}
 
 	public int getId_state() {

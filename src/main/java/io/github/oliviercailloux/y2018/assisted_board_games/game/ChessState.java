@@ -18,10 +18,7 @@ public class ChessState {
 		
 		for (int i=0; i<pieces.length; i++) {
 			Piece p = pieces[i];
-//			if(!Square.values()[i].value().equals("NONE")) {
-//				obj.add(Square.values()[i].value(), p.value());
-//				
-//			}
+
 			
 			obj.add(Integer.toString(i), p.value());
 			
@@ -177,19 +174,5 @@ public class ChessState {
 		return board;
 	}
 	
-	public static void main(String args[]) {
-		Board board = new Board();
-//		Piece[] p = board.boardToArray();
-//		for(int i = 0; i<p.length; i++) {
-//			System.out.println(" " + p[i]);
-//		}
-		
-		System.out.println(board);
-		JsonObject json = encodeState(board);
-		System.out.println(json);
-		
-		System.out.println(decodeFromJson(json));
-		
-	}
 
 }

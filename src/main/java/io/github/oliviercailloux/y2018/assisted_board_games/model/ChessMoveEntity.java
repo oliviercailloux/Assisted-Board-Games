@@ -25,6 +25,8 @@ public class ChessMoveEntity {
 	@ManyToOne
 	private ChessStateEntity state;
 	
+	public ChessMoveEntity() {
+	}
 	
 	public int getId_move() {
 		return id_move;
