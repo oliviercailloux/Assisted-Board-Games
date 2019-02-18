@@ -32,7 +32,7 @@ import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.Ser
  * @author Andréa Lourenço
  *
  */
-@WebServlet("/state")
+@WebServlet(value="/state")
 public class StateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -79,7 +79,7 @@ public class StateServlet extends HttpServlet {
 	}
 
 	/***
-	 * Code From
+	 * Method From
 	 * https://github.com/oliviercailloux/JavaEE-Servlets/blob/additioner/src/main/java/io/github/oliviercailloux/javaee_servlets/servlets/AdditionerServlet.java
 	 * 
 	 * @Author : Olivier Cailloux
