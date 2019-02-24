@@ -1,35 +1,35 @@
-= Itération 1 +
-== Rappel travail à faire + 
+= Itération 1 
+== Rappel travail à faire 
 
-Tâche 1 : ChessStateTxt +
+Tâche 1 : ChessStateTxt 
 
--  Représenter et afficher un état du jeu ( = position des pions et joueur) grâce à une bibliotheque existante + 
--  Choisir un format pour encoder ( ChessStateTxt ⇒ Format) et décoder ( Format ⇒ ChessStateTxt) un état de jeu + 
-
-
-Tâche 2 : ChessMoveTxt + 
-
-- Représenter un coup pour un joueur +
-- Calculer l’état résultant d’un coup joué sur un état + 
-- Calculer le coup permettant de passer d’un état à un autre à partir de ces deux états + 
+-  Représenter et afficher un état du jeu ( = position des pions et joueur) grâce à une bibliotheque existante 
+-  Choisir un format pour encoder ( ChessStateTxt ⇒ Format) et décoder ( Format ⇒ ChessStateTxt) un état de jeu  
 
 
-Tâche 3 : SetDB + 
+Tâche 2 : ChessMoveTxt 
 
--  Construire un modèle relationnel pour stocker les états des parties + 
--  Implémenter une entité JPA + 
--  Implémenter les getters et setters + 
-
-Tâche 4 : ShowClient + 
-
--  Récupérer le dernier état d’un jeu à partir de son identifiant et l’afficher + 
--  Récupérer un état precis d’un jeu à partir de l’identifiant de la partie et de l’identifiant de l’état + 
+- Représenter un coup pour un joueur 
+- Calculer l’état résultant d’un coup joué sur un état 
+- Calculer le coup permettant de passer d’un état à un autre à partir de ces deux états 
 
 
-Description générale : Mise en place des bases du projet (état, mouvement et base de données) + 
+Tâche 3 : SetDB 
+
+-  Construire un modèle relationnel pour stocker les états des parties 
+-  Implémenter une entité JPA 
+-  Implémenter les getters et setters 
+
+Tâche 4 : ShowClient 
+
+-  Récupérer le dernier état d’un jeu à partir de son identifiant et l’afficher 
+-  Récupérer un état precis d’un jeu à partir de l’identifiant de la partie et de l’identifiant de l’état 
 
 
-== Realisation : + 
+Description générale : Mise en place des bases du projet (état, mouvement et base de données) 
+
+
+== Realisation : 
 
 
 == Recherche en groupe de la librairie à utiliser.
@@ -64,29 +64,29 @@ Chesslib est une librairie régulièrement mise à jour, sous licence Apache. El
 
 Chesslib nous semble être la meilleure solution pour notre projet, puisqu’il existe une dépendance Maven et qu’elle est facile à comprendre. Concernant la représentation graphique, celle-ci nous convient pour la première itération. Cependant, nous devrons sûrement créer une interface par la suite.  
 
-- Architecture générale +
+- Architecture générale 
 
-- "ChessStateTxt" et "ChessMoveTxt" réalisées en collaboration par Brassard Megan et Fremin du Sartel Thibaud + 
+- "ChessStateTxt" et "ChessMoveTxt" réalisées en collaboration par Brassard Megan et Fremin du Sartel Thibaud 
 
-	   - Contributeur majeur de ChessStateTxt ( ChessState/ChessStateTest ) Thibaud Fremin du Sartel + 
-	   - Contributeur majeur de ChessMoveTxt ( ChessMove/ChessMoveTest ) Megan Brassard. + 
-
-
-
-- "SetDB" et "ShowClient" réalisées en collaboration par Lourenço Andréa et Douo Bougna Delmas + 
-	  - Contributeur majeur de ShowClient (StateServlet ) Andréa Lourenço  + 
-	  - Contributeur majeur de SetDB (ChessStateEntity/ChessGameEntity) Delmas Douo Bougna + 
+	   - Contributeur majeur de ChessStateTxt ( ChessState/ChessStateTest ) Thibaud Fremin du Sartel 
+	   - Contributeur majeur de ChessMoveTxt ( ChessMove/ChessMoveTest ) Megan Brassard. 
 
 
 
+- "SetDB" et "ShowClient" réalisées en collaboration par Lourenço Andréa et Douo Bougna Delmas 
+	  - Contributeur majeur de ShowClient (StateServlet ) Andréa Lourenço  
+	  - Contributeur majeur de SetDB (ChessStateEntity/ChessGameEntity) Delmas Douo Bougna 
 
-== Difficultés  rencontrées  : + 
 
-	- Notion de "State" non présente dans la librairie +
-	- Représentation des States dans la base de donnée : Nous avons réfléchi à plusieurs possibilités : +
-	A - Un état dépend d'une partie, la clé primaire dans la base de donnée est donc composée de l'identifiant de la partie et de l'identifiant de l'état +
-	B - Un état est indépendant d'une partie : On peut calculer tous les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. +
-	C - Associer une liste d'identifiants State dans une partie. +
-	Nous avons opté pour la solution C. +
-	- Décision sur l'architecture : Nous souhaitions mettre en place une architecture qui soit assez facilement généralisable ( pour pouvoir implémenter un jeu de Poker plus tard par exemple) +
-	tout en étant simple. Nous nous sommes finalement focalisés sur la représentation du jeu d'echec. Nous sommes cependant conscients que le but de ce projet est de pouvoir généraliser le concept d'Assisted Board Game. + 
+
+
+== Difficultés  rencontrées  : 
+
+	- Notion de "State" non présente dans la librairie
+	- Représentation des States dans la base de donnée : Nous avons réfléchi à plusieurs possibilités : 
+	A - Un état dépend d'une partie, la clé primaire dans la base de donnée est donc composée de l'identifiant de la partie et de l'identifiant de l'état 
+	B - Un état est indépendant d'une partie : On peut calculer tous les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. 
+	C - Associer une liste d'identifiants State dans une partie. 
+	Nous avons opté pour la solution C. 
+	- Décision sur l'architecture : Nous souhaitions mettre en place une architecture qui soit assez facilement généralisable ( pour pouvoir implémenter un jeu de Poker plus tard par exemple) 
+	tout en étant simple. Nous nous sommes finalement focalisés sur la représentation du jeu d'echec. Nous sommes cependant conscients que le but de ce projet est de pouvoir généraliser le concept d'Assisted Board Game. 
