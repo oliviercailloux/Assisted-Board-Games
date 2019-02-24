@@ -83,9 +83,9 @@ Chesslib nous semble être la meilleure solution pour notre projet, puisqu’il 
 == Difficultés  rencontrées  : 
 
 	- Notion de "State" non présente dans la librairie
-	- Représentation des States dans la base de donnée : Nous avons réfléchi à plusieurs possibilités : 
-	A - Un état dépend d'une partie, la clé primaire dans la base de donnée est donc composée de l'identifiant de la partie et de l'identifiant de l'état 
-	B - Un état est indépendant d'une partie : On peut calculer tous les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. 
+	- Représentation des States dans la base de donnée : Nous avons réfléchi à plusieurs possibilités : +
+	A - Un état dépend d'une partie, la clé primaire dans la base de donnée est donc composée de l'identifiant de la partie et de l'identifiant de l'état +
+	B - Un état est indépendant d'une partie : On peut calculer tous les états possibles et les stocker avec un identifiant. On ajoute par la suite une table de jointure. +
 	C - Associer une liste d'identifiants State dans une partie. 
 	Nous avons opté pour la solution C. 
 	- Décision sur l'architecture : Nous souhaitions mettre en place une architecture qui soit assez facilement généralisable ( pour pouvoir implémenter un jeu de Poker plus tard par exemple) 
