@@ -6,9 +6,9 @@ import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
+import com.github.bhlangonijr.chesslib.move.MoveException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import javax.json.*;
 import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessMove;
@@ -47,31 +47,24 @@ public class ChessMoveTest {
 	}
 
 	@Test
-	public void testGetMove() {
-		assertDoesNotThrow(()-> {
-			m=ChessMove.getMove(a, b);
-		});
+	public void testGetMove() throws MoveException{
+		m=ChessMove.getMove(a, b);
 		assertEquals(m, new Move(Square.NONE, Square.NONE, Piece.NONE));
 	}
 
 	@Test
-	public void testGetMove1() {
+	public void testGetMove1() throws MoveException {
 		b.setPiece(Piece.WHITE_PAWN, Square.C3);
 		b.unsetPiece(Piece.WHITE_PAWN, Square.C2);
-		assertDoesNotThrow(()-> {
-			m=ChessMove.getMove(a, b);
-		});
+		m=ChessMove.getMove(a, b);
 		assertEquals(m, new Move(Square.C2, Square.C3, Piece.NONE));
 	}
 
 	@Test
-	public void testDoMove() {
-		
-		assertDoesNotThrow(()-> {
-			b = ChessMove.doMove(a, new Move(Square.C2, Square.C3, Piece.NONE));
-		});
-		assertAll(() -> assertEquals(b.getPiece(Square.C2), Piece.NONE),
-				() -> assertEquals(b.getPiece(Square.C3), Piece.WHITE_PAWN));
+	public void testDoMove() throws MoveException {
+		b = ChessMove.doMove(a, new Move(Square.C2, Square.C3, Piece.NONE));
+		assertEquals(b.getPiece(Square.C2), Piece.NONE);
+		assertEquals(b.getPiece(Square.C3), Piece.WHITE_PAWN);
 
 	}
 }
