@@ -2,20 +2,22 @@ package io.github.oliviercailloux.y2018.assisted_board_games.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 import javax.json.JsonObject;
 
 
-import org.apache.commons.io.IOUtils;
-//import org.eclipse.persistence.jpa.jpql.tools.model.EclipseLinkConditionalStateObjectBuilder;
 import org.junit.jupiter.api.Test;
 
 import com.github.bhlangonijr.chesslib.Board;
 import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessState;
 //import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.JsonHelper;
+import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.JsonHelper;
 
 /***
  * @author Thibaud Fremin du Sartel
@@ -23,23 +25,37 @@ import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessState;
  */
 class ChessStateTest {
 	
-	private final String fileTest = "src/main/ressources/junit_utils/initialJsonBoard.txt";
+	private final String fileTest = "initialJsonBoard.txt";
 
 	@Test
 	public void testEncodeState() throws IOException, FileNotFoundException {
-//		JsonHelper jsonHelper = new JsonHelper();
+		JsonHelper jsonHelper = new JsonHelper();
 		Board board = new Board();
 		JsonObject encodedBoard = ChessState.encodeState(board);
-//		String result = jsonHelper.asPrettyString(encodedBoard);
-
-		FileInputStream fis = new FileInputStream(fileTest);
-		String expectedResult = IOUtils.toString(fis, "UTF-8");
+		String result = jsonHelper.asPrettyString(encodedBoard);
 		
-//		System.out.println("expected:\n" + expectedResult);
-//		System.out.println("result:\n" + result);
-//		System.out.println("result2:\n" + result2);
+		URL resourceUrl = ChessStateTest.class.getResource("initialJsonBoard.txt");
+		BufferedReader in;
+		in = new BufferedReader(new InputStreamReader(resourceUrl.openStream()));
+		String expectedResult = "";
+		String inputLine;
+		boolean firstLine = true;
 		
-		assertEquals(expectedResult, encodedBoard.toString());
+		try {
+			while((inputLine = in.readLine()) != null) {
+				if(!firstLine) {
+					expectedResult += "\n";
+				}else {
+					firstLine = false;
+				}
+	        	expectedResult += inputLine;
+			}
+		}
+		catch(IOException e){
+			
+		}
+		
+		assertEquals(expectedResult, result);
 	}
 
 	@Test
