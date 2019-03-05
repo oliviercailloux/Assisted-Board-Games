@@ -5,18 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 import javax.json.JsonObject;
 
-
 import org.junit.jupiter.api.Test;
 
 import com.github.bhlangonijr.chesslib.Board;
 import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessState;
-//import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.JsonHelper;
 import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.JsonHelper;
 
 /***
@@ -24,7 +21,7 @@ import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.Jso
  * 
  */
 class ChessStateTest {
-	
+
 	private final String fileTest = "initialJsonBoard.txt";
 
 	@Test
@@ -33,42 +30,37 @@ class ChessStateTest {
 		Board board = new Board();
 		JsonObject encodedBoard = ChessState.encodeState(board);
 		String result = jsonHelper.asPrettyString(encodedBoard);
-		
-		URL resourceUrl = ChessStateTest.class.getResource("initialJsonBoard.txt");
+
+		URL resourceUrl = ChessStateTest.class.getResource(fileTest);
 		BufferedReader in;
 		in = new BufferedReader(new InputStreamReader(resourceUrl.openStream()));
 		String expectedResult = "";
 		String inputLine;
 		boolean firstLine = true;
-		
-		try {
-			while((inputLine = in.readLine()) != null) {
-				if(!firstLine) {
-					expectedResult += "\n";
-				}else {
-					firstLine = false;
-				}
-	        	expectedResult += inputLine;
+
+		while ((inputLine = in.readLine()) != null) {
+			if (!firstLine) {
+				expectedResult += "\n";
+			} else {
+				firstLine = false;
 			}
+			expectedResult += inputLine;
 		}
-		catch(IOException e){
-			
-		}
-		
+
 		assertEquals(expectedResult, result);
 	}
 
 	@Test
 	public void testDecodeFromJson() {
-		String boardString = "rnbqkbnr\n" + 
-				"pppppppp\n" + 
-				"        \n" + 
-				"        \n" + 
-				"        \n" + 
-				"        \n" + 
-				"PPPPPPPP\n" + 
-				"RNBQKBNR\n" + 
-				"Side: WHITE";
+		String boardString = "rnbqkbnr\n" 
+							+ "pppppppp\n" 
+							+ "        \n"
+							+ "        \n" 
+							+ "        \n" 
+							+ "        \n"
+							+ "PPPPPPPP\n" 
+							+ "RNBQKBNR\n"
+							+ "Side: WHITE";
 		Board firstBoard = new Board();
 		JsonObject obj = ChessState.encodeState(firstBoard);
 
@@ -78,6 +70,5 @@ class ChessStateTest {
 		assertEquals(boardString, boardTest);
 
 	}
-	
 
 }
