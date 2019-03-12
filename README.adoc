@@ -40,10 +40,6 @@ Tâche 1 : StateServlet - Responsable Megan Brassard
 - Ajout d'un état à une partie grâce à son id (à condition qu'il soit possible de passer du dernier état de la partie à celui spécifié) 
 - Si l'id de la partie spécifiée n'existe pas, l'état à ajouter doit obligatoirement être un état initial. Dans ce cas la partie est créée 
 
-Tâche 2 : ObjectsXml (SUPPRIMEE)
-- Encoder les coup et états en XML 
-- Décoder les coups et états représenté en XML 
-
 Tâche 3 : UseDB - Responsable Delmas Douo Bougna 
 - Utilisation de la base de donnée definie dans SetDB 
 - Modification des servlets pour alimenter la base de données 
