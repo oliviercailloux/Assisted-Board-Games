@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import com.github.bhlangonijr.chesslib.Board;
 import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessState;
-import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.JsonHelper;
+import io.github.oliviercailloux.y2018.assisted_board_games.utils.JsonHelper;
 
 /***
  * @author Thibaud Fremin du Sartel

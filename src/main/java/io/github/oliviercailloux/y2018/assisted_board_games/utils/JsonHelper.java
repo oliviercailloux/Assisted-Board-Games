@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils;
+package io.github.oliviercailloux.y2018.assisted_board_games.utils;
 
 import java.io.StringWriter;
 
