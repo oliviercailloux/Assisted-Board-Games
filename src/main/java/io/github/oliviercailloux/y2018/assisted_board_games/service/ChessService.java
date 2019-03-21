@@ -1,9 +1,5 @@
 package io.github.oliviercailloux.y2018.assisted_board_games.service;
 
-
-import io.github.oliviercailloux.y2018.assisted_board_games.utils.QueryHelper;
-
-
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -13,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import io.github.oliviercailloux.y2018.assisted_board_games.model.*;
+import io.github.oliviercailloux.y2018.assisted_board_games.utils.QueryHelper;
 
 
 @RequestScoped

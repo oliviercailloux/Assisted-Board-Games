@@ -2,81 +2,76 @@ package io.github.oliviercailloux.y2018.assisted_board_games.servlets;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.OptionalInt;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.persistence.PersistenceContext;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.Encoded;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
-import com.google.common.primitives.Ints;
 
-import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessStateEntity;
+import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessMove;
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessGameEntity;
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessMoveEntity;
-import io.github.oliviercailloux.y2018.assisted_board_games.utils.ServletHelper;
+import io.github.oliviercailloux.y2018.assisted_board_games.service.ChessService;
+
 
 /***
  * 
  * @author Andréa Lourenço
  *
  */
-@WebServlet(value="/state")
-public class StateServlet extends HttpServlet {
+@Path("game")
+public class StateServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOGGER = Logger.getLogger(StateServlet.class.getCanonicalName());
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Inject
+	private ChessService chessService;
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.info("Request GET on StateServlet with game = " + request.getParameter("game") + " and state = " + request.getParameter("state"));
+	@Inject
+	private ChessMove chessMove;
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getGame (@QueryParam("idGame") int idGame, @DefaultValue("0") @QueryParam("idState") int idState) throws IOException {
+		LOGGER.info("Request GET on StateServlet with game = " + idGame + " and state = " + idState);
 
-		final OptionalInt gameParam = tryParse("game", request);
-		final OptionalInt stateParam = tryParse("state", request);
-
-		if (!gameParam.isPresent()) {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Exécution impossible, paramètre manquant.");
-			return;
-		} else {
-
-			final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
-
-			final EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Assited-Boards-Servlets");
-			final EntityManager em = emFactory.createEntityManager();
-
-			final EntityTransaction transaction = em.getTransaction();
-			transaction.begin();
-
-			@SuppressWarnings("unchecked")
-			final TypedQuery<ChessGameEntity> query = (TypedQuery<ChessGameEntity>) em.createQuery("SELECT g FROM ChessGameEntity g WHERE id=" + gameParam);
-
-			final ChessGameEntity game = (ChessGameEntity) query.getResultList();
-
-			transaction.commit();
-
-			if (!stateParam.isPresent()) {
-				ChessStateEntity lastState = game.getStates().get(game.getStates().size()-1);
-				out.println(playMoves(lastState.getMoves()).toString());
-				
-			} else {
-				ChessStateEntity state = game.getStates().get(stateParam.getAsInt());
-				out.println(playMoves(state.getMoves()).toString());
-			}
-			em.close();
-		}
+		final ChessGameEntity game = chessService.getGame(idGame);		
+		Board board = playMoves(game.getStates().get(idState).getMoves());		
+		return board.toString();
 
 	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response addGame(@Encoded String req) {
+		LOGGER.info("Request POST on StateServlet : Adding a comment");
+		// Créer un jeu et son identifiant à partir d’une liste d’états -
+		final ChessGameEntity chessGame = new ChessGameEntity();
+		
+		
+		
+		return Response.ok().build();		
+	}
+	
+	
 	
 	private Board playMoves(List<ChessMoveEntity> allMoves) {
 		Board board = new Board();
@@ -85,27 +80,6 @@ public class StateServlet extends HttpServlet {
 			board.doMove(new Move(Square.valueOf(move.getFrom()), Square.valueOf(move.getTo())));	
 		}
 		return board;
-	}
-
-	/***
-	 * Method From
-	 * https://github.com/oliviercailloux/JavaEE-Servlets/blob/additioner/src/main/java/io/github/oliviercailloux/javaee_servlets/servlets/AdditionerServlet.java
-	 * 
-	 * @Author : Olivier Cailloux
-	 */
-	private OptionalInt tryParse(String parameterName, HttpServletRequest request) {
-		final String parameter = request.getParameter(parameterName);
-		final Integer parsed = parameter == null ? null : Ints.tryParse(parameter);
-
-		final OptionalInt param;
-		if (parsed == null) {
-			param = OptionalInt.empty();
-			LOGGER.info("No valid " + parameterName + " in request.");
-		} else {
-			param = OptionalInt.of(parsed);
-		}
-
-		return param;
 	}
 	
 }
