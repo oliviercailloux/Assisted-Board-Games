@@ -51,6 +51,12 @@ public class ChessService {
 		return em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(idGame);
 	}
 	
+	@Transactional 
+	public ChessStateEntity getLastState(int idGame) {
+		ChessGameEntity game = em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(idGame);
+		return game.getStates().get(game.getStates().size()-1);
+	}
+	
 	@Transactional
 	public void persist(ChessGameEntity game) {
 		em.persist(game);
