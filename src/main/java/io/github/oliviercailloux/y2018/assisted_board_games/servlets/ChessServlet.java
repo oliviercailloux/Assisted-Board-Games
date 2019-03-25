@@ -89,13 +89,14 @@ public class ChessServlet {
 	@POST
 	@Path("move")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addMove(@QueryParam("idGame") int idGame, @DefaultValue("0") @QueryParam("idMove") int idMove, @Encoded JsonObject jsonMove) {
+	public Response addMove(@QueryParam("idGame") int idGame, @Encoded JsonObject jsonMove) {
 		LOGGER.info("Request POST on StateServlet : Adding a move");
 
 		final ChessGameEntity game = new ChessGameEntity();
 		final ChessStateEntity state = new ChessStateEntity();
 		final ChessMoveEntity move = new ChessMoveEntity();
 		// transform json on move
+		
 		Move moveBussiness = chessMoveUtil.decode(jsonMove);
 
 		chessService.persist(move);
