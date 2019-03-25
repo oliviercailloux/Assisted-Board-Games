@@ -41,6 +41,9 @@ public class ChessStateEntity {
 	public void setMoves(List<ChessMoveEntity> moves) {
 		this.moves = moves;
 	}
+	public void setGame(ChessGameEntity game) {
+		this.game= game;
+	}
 	
 	public void addMove(ChessMoveEntity move) {
 		this.moves.add(move);
