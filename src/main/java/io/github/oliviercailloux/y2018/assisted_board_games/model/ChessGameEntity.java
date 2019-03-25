@@ -34,7 +34,7 @@ public class ChessGameEntity {
 		return states;
 	}
 	
-	public ChessStateEntity gestLastState() {
+	public ChessStateEntity getLastState() {
 		return states.get(states.size() -1);
 	}
 
