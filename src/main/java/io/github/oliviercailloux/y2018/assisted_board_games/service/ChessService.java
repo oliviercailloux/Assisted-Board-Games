@@ -1,7 +1,7 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.ressources.service;
+package io.github.oliviercailloux.y2018.assisted_board_games.service;
 
 
-import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.QueryHelper;
+import io.github.oliviercailloux.y2018.assisted_board_games.utils.QueryHelper;
 
 
 import java.util.List;

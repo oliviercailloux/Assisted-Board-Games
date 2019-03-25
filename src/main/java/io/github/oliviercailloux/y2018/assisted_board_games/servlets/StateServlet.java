@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.ressources.servlets;
+package io.github.oliviercailloux.y2018.assisted_board_games.servlets;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,7 +25,7 @@ import com.google.common.primitives.Ints;
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessStateEntity;
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessGameEntity;
 import io.github.oliviercailloux.y2018.assisted_board_games.model.ChessMoveEntity;
-import io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils.ServletHelper;
+import io.github.oliviercailloux.y2018.assisted_board_games.utils.ServletHelper;
 
 /***
  * 
