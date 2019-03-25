@@ -55,6 +55,17 @@ public class ChessService {
 	}
 	
 	@Transactional
+	public ChessStateEntity getLastState (int idgame) {
+		return em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(idgame).gestLastState();
+		
+	}
+	
+	@Transactional 
+	public ChessGameEntity getLastGame() {
+		return em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(em.createQuery("select max(game.id) from ChessGameEntity game", Integer.class).getSingleResult());
+	}
+	
+	@Transactional
 	public void persist(ChessGameEntity game) {
 		em.persist(game);
 	}
