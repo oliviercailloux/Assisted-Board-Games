@@ -51,12 +51,6 @@ public class ChessService {
 		return em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(idGame);
 	}
 	
-	@Transactional 
-	public ChessStateEntity getLastState(int idGame) {
-		ChessGameEntity game = em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(idGame);
-		return game.getStates().get(game.getStates().size()-1);
-	}
-	
 	@Transactional
 	public ChessStateEntity getLastState (int idgame) {
 		return em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList().get(idgame).getLastState();
