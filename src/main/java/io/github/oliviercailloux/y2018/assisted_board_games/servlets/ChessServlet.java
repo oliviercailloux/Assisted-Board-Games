@@ -44,9 +44,6 @@ public class ChessServlet {
 	@Inject
 	private ChessService chessService;
 	
-	@Inject 
-	private ChessMove chessMoveUtil;
-
 	@GET
 	@Path("game")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -64,27 +61,12 @@ public class ChessServlet {
 	@Path("move")
 	@Consumes(MediaType.TEXT_PLAIN)
 	public ChessMoveEntity getMove(@QueryParam("idGame") int idGame, @DefaultValue("0") @QueryParam("idMove") int idMove) {
-		// Retourner un coup à partir de son identifiant et de l’identifiant de la
-		// partie correspondante
 		LOGGER.info("Request GET on ChessServlet with move = " + idMove + " and game = " + idGame);
 		final ChessStateEntity lastState = chessService.getLastState(idGame);
 
 		return lastState.getMoves().get(lastState.getMoves().size()-1);
 	}
 
-	@POST
-	@Path("game")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addGame(@Encoded JsonObject stateList) {
-		LOGGER.info("Request POST on ChessServlet : Adding a comment");
-
-		final ChessGameEntity game = new ChessGameEntity();
-		final ChessStateEntity state = new ChessStateEntity();
-		// transform json on game
-
-		chessService.persist(game);
-		return Response.ok().build();
-	}
 	
 	@POST
 	@Path("move")
