@@ -92,13 +92,12 @@ public class ChessServlet {
 	public Response addMove(@QueryParam("idGame") int idGame, @Encoded JsonObject jsonMove) {
 		LOGGER.info("Request POST on StateServlet : Adding a move");
 
-		final ChessGameEntity game = new ChessGameEntity();
-		final ChessStateEntity state = new ChessStateEntity();
 		final ChessMoveEntity move = new ChessMoveEntity();
-		// transform json on move
 		
-		Move moveBussiness = chessMoveUtil.decode(jsonMove);
-
+		Move moveBussiness = ChessMove.decode(jsonMove);
+		move.setFrom(moveBussiness.getFrom().toString());
+		move.setTo(moveBussiness.getTo().toString());
+		
 		chessService.persist(move);
 		return Response.ok().build();
 	}
