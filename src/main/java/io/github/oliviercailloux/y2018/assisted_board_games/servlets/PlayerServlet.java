@@ -20,7 +20,7 @@ import com.github.bhlangonijr.chesslib.move.Move;
 public class PlayerServlet{
 
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = Logger.getLogger(StateServlet.class.getCanonicalName());
+	private static final Logger LOGGER = Logger.getLogger(PlayerServlet.class.getCanonicalName());
 
 	@GET
     protected void getBoard(@Context final HttpServletRequest request, @Context final HttpServletResponse response) throws Exception {
