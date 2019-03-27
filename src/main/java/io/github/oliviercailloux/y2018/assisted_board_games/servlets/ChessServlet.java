@@ -43,13 +43,14 @@ public class ChessServlet {
 
 	@Inject
 	private ChessService chessService;
-	
+
 	@GET
 	@Path("game")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getGame(@QueryParam("idGame") int idGame, @DefaultValue("0") @QueryParam("idState") int idState)
-			throws IOException {
-		LOGGER.info("Request GET on ChessServlet with game = " + idGame + " and state = " + idState);
+	public String getGame(@QueryParam("idGame") int idGame,
+			@DefaultValue("0") @QueryParam("idState") int idState) throws IOException {
+		LOGGER.info(
+				"Request GET on ChessServlet with game = " + idGame + " and state = " + idState);
 
 		final ChessGameEntity game = chessService.getGame(idGame);
 		Board board = playMoves(game.getStates().get(idState).getMoves());
@@ -60,14 +61,14 @@ public class ChessServlet {
 	@GET
 	@Path("move")
 	@Consumes(MediaType.TEXT_PLAIN)
-	public ChessMoveEntity getMove(@QueryParam("idGame") int idGame, @DefaultValue("0") @QueryParam("idMove") int idMove) {
+	public ChessMoveEntity getMove(@QueryParam("idGame") int idGame,
+			@DefaultValue("0") @QueryParam("idMove") int idMove) {
 		LOGGER.info("Request GET on ChessServlet with move = " + idMove + " and game = " + idGame);
 		final ChessStateEntity lastState = chessService.getLastState(idGame);
 
-		return lastState.getMoves().get(lastState.getMoves().size()-1);
+		return lastState.getMoves().get(lastState.getMoves().size() - 1);
 	}
 
-	
 	@POST
 	@Path("move")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -75,11 +76,11 @@ public class ChessServlet {
 		LOGGER.info("Request POST on StateServlet : Adding a move");
 
 		final ChessMoveEntity move = new ChessMoveEntity();
-		
+
 		Move moveBussiness = ChessMove.decode(jsonMove);
 		move.setFrom(moveBussiness.getFrom().toString());
 		move.setTo(moveBussiness.getTo().toString());
-		
+
 		chessService.persist(move);
 		return Response.ok().build();
 	}

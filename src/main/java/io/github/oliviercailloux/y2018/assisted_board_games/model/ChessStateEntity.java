@@ -30,7 +30,7 @@ public class ChessStateEntity {
 	public ChessStateEntity() {
 	}
 
-	public int getId_state() {
+	public int getId() {
 		return id_state;
 	}
 

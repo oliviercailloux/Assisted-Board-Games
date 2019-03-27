@@ -28,44 +28,46 @@ import io.github.oliviercailloux.y2018.assisted_board_games.service.ChessService
  *
  */
 @Path("board")
-public class PlayerServlet{
+public class PlayerServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(PlayerServlet.class.getCanonicalName());
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Inject
 	private ChessService chessService;
 
 	@GET
-    protected void getNewBoard(@Context final HttpServletRequest request, @Context final HttpServletResponse response) throws ServletException, IOException {
+	protected void getNewBoard(@Context final HttpServletRequest request,
+			@Context final HttpServletResponse response) throws ServletException, IOException {
 		LOGGER.info("Request GET on PlayerServlet ");
 		Board board = new Board();
 		String boardString = board.toString();
 		String cleanBoard = boardString.replaceAll("\n", "<br/>");
 
-        request.setAttribute("board", cleanBoard);
-        request.getRequestDispatcher("/PlayerView.jsp").forward(request, response);
-    }
-	
+		request.setAttribute("board", cleanBoard);
+		request.getRequestDispatcher("/PlayerView.jsp").forward(request, response);
+	}
+
 	@POST
-	protected void play(@Context final HttpServletRequest request, @Context final HttpServletResponse response) throws ServletException, IOException {
+	protected void play(@Context final HttpServletRequest request,
+			@Context final HttpServletResponse response) throws ServletException, IOException {
 		String startSquare = request.getParameter("start");
 		String arrivalSquare = request.getParameter("end");
-		
+
 		Square start = Square.fromValue(startSquare);
 		Square end = Square.fromValue(arrivalSquare);
 		Board board = new Board();
 		board.doMove(new Move(start, end));
-		
+
 		String boardString = board.toString();
 		String cleanBoard = boardString.replaceAll("\n", "<br/>");
 
-        request.setAttribute("board", cleanBoard);
-        request.getRequestDispatcher("/PlayerView.jsp").forward(request, response);
-		
+		request.setAttribute("board", cleanBoard);
+		request.getRequestDispatcher("/PlayerView.jsp").forward(request, response);
+
 	}
-	
+
 }
