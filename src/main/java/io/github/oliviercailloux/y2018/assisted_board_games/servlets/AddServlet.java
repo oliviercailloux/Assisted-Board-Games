@@ -102,7 +102,7 @@ public class AddServlet {
 				chessS.persist(newMove);
 
 				return Response.ok()
-						.entity("game : " + idGame + " state : " + newState.getId_state()).build();
+						.entity("game : " + idGame + " state : " + newState.getId()).build();
 			}
 		}
 	}
