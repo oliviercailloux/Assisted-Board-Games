@@ -25,6 +25,10 @@ import io.github.oliviercailloux.y2018.assisted_board_games.service.ChessService
 /**
  * 
  * @author Thibaud Fremin du sartel
+ * 
+ * Ces servlets ont été conçus initialement pour communiquer avec une vue JSP.
+ * Suite à notre discussion en cours, la vue JSP a été supprimée et ces servlets seront mis à jour dans l'itération 3 
+ * pour communiquer avec les vues HTML.
  *
  */
 @Path("board")
