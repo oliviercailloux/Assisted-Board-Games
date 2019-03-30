@@ -32,6 +32,8 @@ import io.github.oliviercailloux.y2018.assisted_board_games.service.ChessService
  */
 @Path("/add")
 public class AddServlet {
+
+	private static final String INITIAL_STATE = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 	@SuppressWarnings("unused")
 	private static final Logger LOGGER = Logger.getLogger(AddServlet.class.getCanonicalName());
 
@@ -43,7 +45,6 @@ public class AddServlet {
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
-	@Consumes(MediaType.TEXT_PLAIN)
 	public Response addState(@QueryParam("game") int idGame, @QueryParam("state") String state)
 			throws MoveException {
 
@@ -51,7 +52,7 @@ public class AddServlet {
 		ChessGameEntity game = chessS.getGame(idGame);
 		// idGame of the request does not exist
 		if (game.equals(null)) {
-			if (state.equals("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")) {
+			if (state.equals(INITIAL_STATE)) {
 				// Create a new game if state is the initial board
 				ChessGameEntity newGame = new ChessGameEntity();
 				ChessStateEntity newState = new ChessStateEntity();
@@ -101,8 +102,8 @@ public class AddServlet {
 				chessS.persist(newState);
 				chessS.persist(newMove);
 
-				return Response.ok()
-						.entity("game : " + idGame + " state : " + newState.getId()).build();
+				return Response.ok().entity("game : " + idGame + " state : " + newState.getId())
+						.build();
 			}
 		}
 	}

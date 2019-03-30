@@ -19,17 +19,19 @@ import com.github.bhlangonijr.chesslib.move.MoveList;
  * @author Megan Brassard
  *
  */
-@Path("suggest")
-public class SuggestServlet {
+@Path("help")
+public class HelpServlet {
 
-	private static final Logger LOGGER = Logger.getLogger(SuggestServlet.class.getCanonicalName());
+	private static final Logger LOGGER = Logger.getLogger(HelpServlet.class.getCanonicalName());
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String suggestMove(@QueryParam("state") String s) throws MoveGeneratorException, MoveConversionException {
-		LOGGER.info("Request GET on SuggestServlet with state :" + s);
+	public String suggestMove(@QueryParam("state") String s)
+			throws MoveGeneratorException, MoveConversionException {
+		LOGGER.info("Request GET on HelpServlet with state :" + s);
 		Board b = new Board();
 		b.loadFromFen(s);
+		// Generate possible moves
 		final MoveList l = MoveGenerator.generateLegalMoves(b);
 		return l.toSan();
 	}
