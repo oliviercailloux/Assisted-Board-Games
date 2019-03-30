@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.ressources.utils;
+package io.github.oliviercailloux.y2018.assisted_board_games.utils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +11,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import io.github.oliviercailloux.y2018.assisted_board_games.ressources.servlets.StateServlet;
+import io.github.oliviercailloux.y2018.assisted_board_games.servlets.ChessServlet;
 
 /***
  * Code From https://github.com/oliviercailloux/javaee-jpa-resource-local-servlets/blob/master/src/main/java/io/github/oliviercailloux/javaee_jpa_resource_local_servlets/utils/ServletHelper.java
@@ -28,7 +28,7 @@ public class ServletHelper {
 	}
 
 	public String getRedirectURL(ServletContext context) {
-		Collection<String> mappings = context.getServletRegistration(StateServlet.class.getCanonicalName()).getMappings();
+		Collection<String> mappings = context.getServletRegistration(ChessServlet.class.getCanonicalName()).getMappings();
 		assert (mappings.size() == 1);
 		final String urlMapping = mappings.iterator().next();
 		assert (urlMapping.charAt(0) == '/');

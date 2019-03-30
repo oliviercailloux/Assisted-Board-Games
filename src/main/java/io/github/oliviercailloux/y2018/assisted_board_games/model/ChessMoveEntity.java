@@ -27,6 +27,10 @@ public class ChessMoveEntity {
 	
 	public ChessMoveEntity() {
 	}
+	public ChessMoveEntity(String from, String to) {
+		this.from=from;
+		this.to=to;
+	}
 	
 	public int getId_move() {
 		return id_move;
@@ -46,6 +50,9 @@ public class ChessMoveEntity {
 	
 	public void setTo(String to) {
 		this.to = to ;
+	}
+	public void setState(ChessStateEntity state) {
+		this.state=state;
 	}
 
 }
