@@ -32,11 +32,6 @@ public class ChessService {
 	}
 	
 	@Transactional
-	public List<ChessStateEntity> getAllStates() {
-		return em.createQuery(helper.selectAll(ChessStateEntity.class)).getResultList();
-	}
-	
-	@Transactional
 	public List<ChessMoveEntity> getAllMoves() {
 		return em.createQuery(helper.selectAll(ChessMoveEntity.class)).getResultList();
 	}
@@ -47,27 +42,33 @@ public class ChessService {
 		return (ChessGameEntity) q.getSingleResult();
 	}
 	
-	@Transactional
-	public ChessStateEntity getLastState (int idGame) {		
-		Query q = em.createNamedQuery("ChessStateEntity.getLastState").setParameter("gameId", idGame);
-		return (ChessStateEntity) q.getSingleResult();		
+	@Transactional 
+	public int getLastGameId() {		
+		Query q = em.createNamedQuery("ChessGameEntity.getLastGameId");
+		return  (Integer)q.getSingleResult();
 	}
 	
 	@Transactional 
-	public ChessGameEntity getLastGame() {		
-		Query q = em.createNamedQuery("ChessGameEntity.getLastGame");
-		return (ChessGameEntity) q.getSingleResult();
-	}	
-	
+	public ChessMoveEntity getMove(int idMove) {
+		Query q = em.createNamedQuery("ChessMoveEntity.find").setParameter("id", idMove); 
+		return (ChessMoveEntity) q.getSingleResult();
+	}
+	/**
+	 * 
+	 * @param idGame
+	 * @return id of the last Move played for the given game
+	 */
+	@Transactional 
+	public int getLastMoveId(int idGame) {		
+		Query q = em.createNamedQuery("ChessMoveEntity.getLastMoveId").setParameter("id", idGame);;
+		return  (Integer)q.getSingleResult();
+	}
 	@Transactional
 	public void persist(ChessGameEntity game) {
 		em.persist(game);
 	}
 	
-	@Transactional
-	public void persist(ChessStateEntity state) {
-		em.persist(state);
-	}
+	
 	
 	@Transactional
 	public void persist(ChessMoveEntity move) {
