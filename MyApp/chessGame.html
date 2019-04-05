@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="script.js"></script>
+<title>ChessGame</title>
+</head>
+
+<body>
+	<h1>Welcome to ChessGame</h1>
+	<div id="choiceOfGame">
+		<br />
+		<h3>What would you like to do ?</h3>
+			Start a new game : <input type="submit" value="New game" onclick = "createNewBoard()"/>
+		<br /><br />
+			Load an existing game : <br /> Please set the Id of the game : 
+			<input id="idGame" type="text" /> <input type="submit" value="Load" onclick="loadGame()"/><br />
+		<br />
+	</div>
+	<div id="playGame">
+		<table border="1">
+			<tr>
+				<th width=200>Suggested</th>
+				<th width=500>Board</th>
+				<th width=300>Make a move</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" value="Show suggestions" onclick="getSuggestedMoves()" />
+					<p id="suggestions"></p>
+				</td>
+				<td>
+					<p id="board"></p>
+				</td>
+				<td>
+					<form onsubmit="newMove()">
+						From : <input id="from" type="text" /> <br /> 
+						To : <input	id="to" type="text" /> <input type="submit" value="Move" />
+					</form>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+
+</body>
+</html>
