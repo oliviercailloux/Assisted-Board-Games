@@ -65,12 +65,9 @@ public class GameServlet {
 
 	@POST
 	@Path("addMove")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String addMove(@QueryParam("game") int idGame, @FormParam("from") String from,
-			@FormParam("to") String to) throws MoveException {
-		LOGGER.info("Request POST on GameServlet : Adding a move to game :" + idGame
-				+ " with from = " + from + " with to = " + to);
+	public String addMove(@QueryParam("game") int idGame, @QueryParam("from") String from, @QueryParam("to") String to) throws MoveException {
+		LOGGER.info("Request POST on GameServlet : Adding a move to game :" + idGame + " with from = " + from + " with to = " + to);
 		ChessGameEntity game = chessS.getGame(idGame);
 		ChessMoveEntity move = new ChessMoveEntity(from, to);
 		game.addMove(move);

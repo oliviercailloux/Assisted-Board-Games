@@ -1,13 +1,17 @@
 /*** Global Vars ***/
-var idGame;
+var ID_GAME;
 
 function createNewBoard() {
-    idGame = createNewGameReq().then(function(res){
-        idGame = res;
-        getGameReq(idGame).then(function(res){
-            document.getElementById("board").innerHTML = res;
+    createNewGameReq().then(function(res){
+        //sleep(10000);
+        ID_GAME = res;
+        console.log("createNewGame : ", res);
+        getGameReq(res).then(function(resp){
+            console.log(resp);
+            document.getElementById("board").innerHTML = resp;
         });
     });
+
 }
 
 function getSuggestedMoves() {
@@ -15,15 +19,29 @@ function getSuggestedMoves() {
 }
 
 function newMove() {
-    var from = document.getElementById("from");
-    var to = document.getElementById("to");
-    servletAddMove(idGame, from, to);
-    document.getElementById("board").innerHTML = servletGetGame(idGame);
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
+    var move = "{'Square From':'A2', 'Square To':'A4','Piece promotion':'WHITE_PAWN'}";
+    addMoveReqBIS("1", from, to).then(function(res){ //TODO replace 1 par ID_GAME
+        console.log("New move REs : ",res);
+        document.getElementById("board").innerHTML = res;
+    });
 }
 
 function loadGame() {
-	idGame = document.getElementById("idGame");
-    document.getElementById("board").innerHTML = servletGetGame(idGame);
+	idGameToLoad = document.getElementById("idGame").value;
+    getGameReq(idGameToLoad).then(function(res){
+        document.getElementById("board").innerHTML = res;
+    });
+}
+
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+            break;
+        }
+    }
 }
 
 /********* REQUEST PART ***********/
@@ -60,9 +78,69 @@ function getGameReq(idGame){
     })
         .then(response => response.text())
         .then(function(response){
+            console.log("getGame Req : ", response);
+            return response.toString();
+        })
+        .catch(function (error){
+            console.log("An error occurend : ", error);
+        });
+}
+
+function getHelpReq(idGame){
+    return fetch("http://localhost:8080/mychessgame/v1/game/getGame?game="+idGame, {
+        method: "GET",
+        mode: "no-cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "text/plain",
+        },
+        redirect: "follow",
+        referrer: "no-referrer",
+    })
+        .then(response => response.text())
+        .then(function(response){
             return response.toString();
         }).catch(function (error){
             console.log("An error occurend : ", error);
         });
 }
 
+function addMoveReq(idGame, move){
+    return fetch("http://localhost:8080/mychessgame/v1/game/move?game="+idGame, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "text/plain",
+        },
+        redirect: "follow",
+        referrer: "no-referrer",
+        body:move,
+    })
+        .then(response => response.text())
+        .then(function(response){
+            sleep(10000);
+            return response.toString();
+        }).catch(function (error){
+            console.log("An error occurend : ", error);
+        });
+}
+
+function addMoveReqBIS(idGame,from,to){
+    return fetch("http://localhost:8080/mychessgame/v1/game/addMove?game="+idGame+"&from="+from+"&to="+to, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "text/plain",
+        },
+        redirect: "follow",
+        referrer: "no-referrer",
+        })
+        .then(response => response.text())
+        .then(function(response){
+            return response.toString();
+        }).catch(function (error){
+            console.log("An error occurend : ", error);
+        });
+}
