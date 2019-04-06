@@ -35,7 +35,7 @@ function loadGame() {
 }
 
 function displayBoard(board){
-	board.replace(/\n/g, "");
+	board = board.replace(/\n/g, "");
 	var pieces = board.split('');
 	var position;
 	for(var i=0; i<64; i++){
