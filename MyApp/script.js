@@ -113,7 +113,7 @@ function getHtmlCode(piece){
 		return "&#9817;";
 	case 'p':
 		return "&#9823;";
-	case '':
+	case ' ':
 		return "&nbsp;";
 	case 'S':
 		return "-1";
