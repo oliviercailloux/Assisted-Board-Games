@@ -1,0 +1,39 @@
+.chessboard {
+	width: 500px;
+	height: 450px;
+	margin: 10px;
+	border-collapse: collapse;
+}
+
+.black {
+	float: left;
+	width: 50px;
+	height: 50px;
+	background-color: #999;
+	font-size: 30px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	border: 1px solid #333;
+	border-collapse: collapse;
+
+}
+
+.white {
+	float: left;
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	font-size: 30px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	border: 1px solid #333;
+	border-collapse: collapse;
+}
+
+.chessboard th {
+	float: left;
+	width: 52px;
+	font-size: 20px;
+}
