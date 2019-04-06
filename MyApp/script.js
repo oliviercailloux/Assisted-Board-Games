@@ -42,6 +42,7 @@ function sleep(milliseconds) {
 }
 
 function displayBoard(board){
+	board = board.replace(/\n/g, "");
 	var pieces = board.split('');
 	var position;
 	for(var i=0; i<64; i++){
