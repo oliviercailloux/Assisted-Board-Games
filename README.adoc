@@ -77,3 +77,4 @@ Tâche 2 : Front-end - Responsable Thibaud Fremin du Sartel et Andréa Lourenço
 
 Description générale : restructuration du back-end et développement d'un front
 
+
