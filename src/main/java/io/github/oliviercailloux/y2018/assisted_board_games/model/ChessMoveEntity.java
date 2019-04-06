@@ -38,7 +38,7 @@ public class ChessMoveEntity {
 		this.to = to;
 	}
 
-	public int getId_move() {
+	public int getId() {
 		return id;
 	}
 
@@ -64,7 +64,7 @@ public class ChessMoveEntity {
 
 	@Override
 	public String toString() {
-		return this.getId_move() + " : from" + getFrom() + "to" + getTo() + "\n";
+		return this.getId() + " : from" + getFrom() + "to" + getTo() + "\n";
 	}
 
 }
