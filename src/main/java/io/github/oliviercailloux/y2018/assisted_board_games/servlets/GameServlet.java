@@ -8,8 +8,6 @@ import javax.json.JsonObject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.Encoded;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -82,7 +80,7 @@ public class GameServlet {
 	@POST
 	@Path("addMove/json")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response addMove(@QueryParam("idGame") int idGame, @Encoded JsonObject jsonMove) {
+	public Response addMove(@QueryParam("idGame") int idGame, JsonObject jsonMove) {
 		LOGGER.info("Request POST on StateServlet : Adding a move");
 
 		final ChessMoveEntity move = new ChessMoveEntity();

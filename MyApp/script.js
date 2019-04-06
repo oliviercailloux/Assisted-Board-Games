@@ -129,9 +129,6 @@ function createNewGameReq () {
         headers: {
             "Content-Type": "text/plain",
         },
-        redirect: "follow",
-        referrer: "no-referrer",
-        //body: JSON.stringify(data), // body data type must match "Content-Type" header
     })
         .then(response => response.text())
         .then(function(response){
@@ -149,8 +146,6 @@ function getGameReq(idGame){
         headers: {
             "Content-Type": "text/plain",
         },
-        redirect: "follow",
-        referrer: "no-referrer",
     })
         .then(response => response.text())
         .then(function(response){
@@ -169,8 +164,6 @@ function getHelpReq(idGame){
         headers: {
             "Content-Type": "text/plain",
         },
-        redirect: "follow",
-        referrer: "no-referrer",
     })
         .then(response => response.text())
         .then(function(response){
@@ -188,8 +181,6 @@ function addMoveReq(idGame, move){
         headers: {
             "Content-Type": "text/plain",
         },
-        redirect: "follow",
-        referrer: "no-referrer",
         body:move,
     })
         .then(response => response.text())
@@ -208,8 +199,6 @@ function addMoveReqBIS(idGame,from,to){
         headers: {
             "Content-Type": "text/plain",
         },
-        redirect: "follow",
-        referrer: "no-referrer",
         })
         .then(response => response.text())
         .then(function(response){
