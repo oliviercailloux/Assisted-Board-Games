@@ -18,9 +18,8 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-	@NamedQuery(name="ChessGameEntity.find", query="SELECT c FROM ChessGameEntity c WHERE c.id = :id")	,	
+	@NamedQuery(name="ChessGameEntity.find", query="SELECT c FROM ChessGameEntity c WHERE c.id = :id"),	
 	@NamedQuery(name="ChessGameEntity.getLastGameId", query="SELECT MAX(id) FROM ChessGameEntity") 
-	
 })
 public class ChessGameEntity {
 
@@ -49,6 +48,7 @@ public class ChessGameEntity {
 	public ChessMoveEntity getLastMoves() {
 		return moves.get(moves.size() -1);
 	}
+	
 	public void addMove(ChessMoveEntity move) {
 		this.moves.add(move);
 	}
