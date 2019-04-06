@@ -63,7 +63,7 @@ public class GameServlet {
 
 	}
 
-	@POST
+	@GET
 	@Path("addMove")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String addMove(@QueryParam("game") int idGame, @QueryParam("from") String from, @QueryParam("to") String to) throws MoveException {

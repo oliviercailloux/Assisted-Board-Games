@@ -12,7 +12,9 @@ function createNewBoard() {
 }
 
 function getSuggestedMoves() {
-	document.getElementById("suggestions").innerHTML = servletGetHelp();
+    getHelpReq("1").then(function(res){ //TODO replace 1 par id_game
+        document.getElementById("suggestions").innerHTML = res;
+    });
 }
 
 function newMove() {
@@ -30,15 +32,6 @@ function loadGame() {
     getGameReq(idGameToLoad).then(function(res){
         displayBoard(res);
     });
-}
-
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds){
-            break;
-        }
-    }
 }
 
 function displayBoard(board){
@@ -121,7 +114,7 @@ function getHtmlCode(piece){
 	case 'P':
 		return "&#9823;";
 	case '':
-		return "";
+		return "&nbsp;";
 	case 'S':
 		return "-1";
 	default:
@@ -174,7 +167,7 @@ function getGameReq(idGame){
 function getHelpReq(idGame){
     return fetch("http://localhost:8080/mychessgame/v1/game/getGame?game="+idGame, {
         method: "GET",
-        mode: "no-cors",
+        mode: "cors",
         cache: "no-cache",
         headers: {
             "Content-Type": "text/plain",
@@ -193,7 +186,7 @@ function getHelpReq(idGame){
 function addMoveReq(idGame, move){
     return fetch("http://localhost:8080/mychessgame/v1/game/move?game="+idGame, {
         method: "POST",
-        mode: "no-cors",
+        mode: "cors",
         cache: "no-cache",
         headers: {
             "Content-Type": "text/plain",
@@ -204,7 +197,6 @@ function addMoveReq(idGame, move){
     })
         .then(response => response.text())
         .then(function(response){
-            sleep(10000);
             return response.toString();
         }).catch(function (error){
             console.log("An error occurend : ", error);
@@ -213,8 +205,8 @@ function addMoveReq(idGame, move){
 
 function addMoveReqBIS(idGame,from,to){
     return fetch("http://localhost:8080/mychessgame/v1/game/addMove?game="+idGame+"&from="+from+"&to="+to, {
-        method: "POST",
-        mode: "no-cors",
+        method: "GET",
+        mode: "cors",
         cache: "no-cache",
         headers: {
             "Content-Type": "text/plain",
