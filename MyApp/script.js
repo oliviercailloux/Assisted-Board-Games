@@ -35,7 +35,7 @@ function loadGame() {
 }
 
 function displayBoard(board){
-	board = board.replace(/\n/g, "");
+	board.replace(/\n/g, "");
 	var pieces = board.split('');
 	var position;
 	for(var i=0; i<64; i++){
@@ -89,29 +89,29 @@ function getPosition(n){
 
 function getHtmlCode(piece){
 	switch(piece){
-	case 'r':
-		return "&#9814;";
 	case 'R':
+		return "&#9814;";
+	case 'r':
 		return "&#9820;";
-	case 'n':
-		return "&#9816;";
 	case 'N':
+		return "&#9816;";
+	case 'n':
 		return "&#9822;";
-	case 'b':
-		return "&#9815;";
 	case 'B':
+		return "&#9815;";
+	case 'b':
 		return "&#9821;";
-	case 'q':
-		return "&#9813;";
 	case 'Q':
+		return "&#9813;";
+	case 'q':
 		return "&#9819;";
-	case 'k':
-		return "&#9812;";
 	case 'K':
+		return "&#9812;";
+	case 'k':
 		return "&#9818;";
-	case 'p':
-		return "&#9817;";
 	case 'P':
+		return "&#9817;";
+	case 'p':
 		return "&#9823;";
 	case '':
 		return "&nbsp;";
