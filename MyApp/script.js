@@ -12,7 +12,7 @@ function createNewBoard() {
 }
 
 function getSuggestedMoves() {
-    getHelpReq("1").then(function(res){ //TODO replace 1 par id_game
+    getHelpReq(id_game).then(function(res){
         document.getElementById("suggestions").innerHTML = res;
     });
 }
@@ -21,14 +21,14 @@ function newMove() {
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
 
-    addMoveReqBIS("1", from, to).then(function(res){ //TODO replace 1 par id_game
-        console.log("New move, new board res : ",res);
+    addMoveReqBIS(id_game, from, to).then(function(res){ 
         displayBoard(res);
     });
 }
 
 function loadGame() {
 	idGameToLoad = document.getElementById("idGame").value;
+    id_game = idGameToLoad;
     getGameReq(idGameToLoad).then(function(res){
         displayBoard(res);
     });
@@ -165,7 +165,7 @@ function getGameReq(idGame){
 }
 
 function getHelpReq(idGame){
-    return fetch("http://localhost:8080/mychessgame/v1/game/getGame?game="+idGame, {
+    return fetch("http://localhost:8080/mychessgame/v1/help?game="+idGame, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
