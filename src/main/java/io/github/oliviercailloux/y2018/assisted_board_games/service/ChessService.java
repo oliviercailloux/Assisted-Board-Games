@@ -37,31 +37,36 @@ public class ChessService {
 
 	@Transactional
 	public ChessGameEntity getGame(int idGame) {
-		Query q = em.createNamedQuery("ChessGameEntity.find").setParameter("id", idGame);
-		return (ChessGameEntity) q.getSingleResult();
+		ChessGameEntity game = em.createNamedQuery("ChessGameEntity.find", ChessGameEntity.class)
+				.setParameter("id", idGame).getSingleResult();
+		return game;
 	}
 
 	@Transactional
 	public int getLastGameId() {
-		Query q = em.createNamedQuery("ChessGameEntity.getLastGameId");
-		return (Integer) q.getSingleResult();
+
+		return em.createNamedQuery("ChessGameEntity.getLastGameId", Integer.class)
+				.getSingleResult();
 	}
 
 	@Transactional
 	public ChessMoveEntity getMove(int idMove) {
-		Query q = em.createNamedQuery("ChessMoveEntity.find").setParameter("id", idMove);
-		return (ChessMoveEntity) q.getSingleResult();
+		ChessMoveEntity q = em.createNamedQuery("ChessMoveEntity.find", ChessMoveEntity.class)
+				.setParameter("id", idMove).getSingleResult();
+		return q;
 	}
 
 	/**
 	 * Gets the id of the last move played for the given game
+	 * 
 	 * @param idGame
 	 * @return id of the last Move played for the given game
 	 */
 	@Transactional
 	public int getLastMoveId(int idGame) {
-		Query q = em.createNamedQuery("ChessMoveEntity.getLastMoveId").setParameter("id", idGame);
-		return (Integer) q.getSingleResult();
+		int q = em.createNamedQuery("ChessMoveEntity.getLastMoveId", Integer.class)
+				.setParameter("id", idGame).getSingleResult();
+		return q;
 	}
 
 	@Transactional

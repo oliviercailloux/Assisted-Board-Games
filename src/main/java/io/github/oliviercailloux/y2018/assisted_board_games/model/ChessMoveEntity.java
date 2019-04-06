@@ -17,14 +17,13 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "ChessMoveEntity.find", query = "SELECT c FROM ChessMoveEntity c WHERE c.id = :id"),
-		@NamedQuery(name = "ChessMoveEntity.getLastMoveId", query = "SELECT MAX(id) FROM ChessMoveEntity c WHERE c.game.id = :id"),
-		@NamedQuery(name = "ChessMoveEntity.getLastMove", query = "SELECT MAX(id) FROM ChessMoveEntity ")
-		})
+		@NamedQuery(name = "ChessMoveEntity.getLastMoveId", query = "SELECT MAX(c.id) FROM ChessMoveEntity c WHERE c.game.id = :id"),
+		@NamedQuery(name = "ChessMoveEntity.getLastMove", query = "SELECT MAX(c.id) FROM ChessMoveEntity  c ") })
 public class ChessMoveEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int id_move;
+	private int id;
 	private String from;
 	private String to;
 
@@ -40,7 +39,7 @@ public class ChessMoveEntity {
 	}
 
 	public int getId_move() {
-		return id_move;
+		return id;
 	}
 
 	public String getFrom() {
