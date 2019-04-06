@@ -8,7 +8,6 @@ function createNewBoard() {
             displayBoard(resp);
         });
     });
-
 }
 
 function getSuggestedMoves() {
@@ -83,7 +82,6 @@ function getPosition(n){
 	default:
 		letter = "";
 	}
-
 	return letter + number.toString();
 }
 
