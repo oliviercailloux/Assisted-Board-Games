@@ -11,6 +11,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.github.bhlangonijr.chesslib.Board;
+import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveConversionException;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.github.bhlangonijr.chesslib.move.MoveGenerator;
@@ -40,12 +41,29 @@ public class HelpServlet {
 			throws MoveGeneratorException, MoveConversionException, MoveException {
 		
 		LOGGER.info("Request GET on HelpServlet with state :" + idGame);
-		System.out.println("suggesssst");
 		ChessGameEntity game= chessS.getGame(idGame);
 		List<ChessMoveEntity> moves=game.getMoves();
 		Board b= GameHelper.playMoves(moves);
 		// Generate possible moves
 		final MoveList l = MoveGenerator.generateLegalMoves(b);
-		return l.toSan();
+		
+		MoveList mated = new MoveList();
+		MoveList staleMate = new MoveList();
+		
+		for (Move m : l) {
+			b.doMove(m);
+			if (b.isMated()) {
+				mated.add(m);
+				l.remove(m);
+			}
+			if (b.isStaleMate()) {
+				staleMate.add(m);
+				l.remove(m);
+			}
+			b.undoMove();
+		}
+		return "Move to mate opponent : "+ mated.toString()+"\n"
+				+ "Move leading to stalemate : "+ staleMate.toString()+"\n"
+				+ "Other legal move : "+ l.toString();
 	}
 }
