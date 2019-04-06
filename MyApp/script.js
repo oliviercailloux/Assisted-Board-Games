@@ -21,7 +21,7 @@ function newMove() {
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
 
-    addMoveReqBIS(id_game, from, to).then(function(res){ 
+    addMoveReqBIS(id_game, from, to).then(function(res){
         displayBoard(res);
     });
 }
@@ -156,7 +156,6 @@ function getGameReq(idGame){
     })
         .then(response => response.text())
         .then(function(response){
-            console.log("getGame Req : ", response);
             return response.toString();
         })
         .catch(function (error){
