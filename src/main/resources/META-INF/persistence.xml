@@ -12,6 +12,8 @@
 			<property name="eclipselink.logging.parameters" value="true" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
+			<!--  Added due to  error when column name are "from" and "to" cf https://hibernate.atlassian.net/browse/HHH-13347 -->  
+			<property name="hibernate.globally_quoted_identifiers" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>

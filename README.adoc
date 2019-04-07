@@ -4,6 +4,8 @@ Par Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço An
 MASTER MIAGE SITN en apprentissage
 Université Paris Dauphine
 
+image:https://travis-ci.com/LoatR/AssistedBoardGames.svg?branch=master["Build Status", link="https://travis-ci.com/LoatR/AssistedBoardGames"]
+
 == Description du projet
 Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. 
 
@@ -23,7 +25,7 @@ Tâche 2 : ChessMoveTxt - Responsable Megan Brassard
 
           
 Tâche 3 : SetDB - Responsable Delmas Douo Bougna
-- construire un modèle relationnel pour stocker les états des parties 
+- Construire un modèle relationnel pour stocker les états des parties 
 - Implémenter une entité JPA 
 - Implémenter les guetters et setters 
 
@@ -64,18 +66,15 @@ Description générale : Ajout des servlets (d'état, de calculs d'état à part
 
 == Specification - Itération 3
 
-Tâche 1 : HelpAsync 
-- Suggestion d'une liste de coups permettant au joueur de gagner à partir d'un état 
-- Récupérer un état et une liste de coups suggérés à partir d'un identifiant de suggestion (id ticket) 
+Tâche 1 : Back-end - Responsable Megan Brassard et Delmas Douo Bougna
+- Suppression de la notion de "state"
+- Réorganisation des servlets
+- Amélioration partielle du servlet help
 
-Tâche 2 : SendMessage 
-- Envoie des nouveaux coups suggérés au joueur lorsque ceux-ci changent 
+Tâche 2 : Front-end - Responsable Thibaud Fremin du Sartel et Andréa Lourenço 
+- Interface (HTML/CSS)
+- Requêtes au serveur (Javascript)
 
-Tâche 3 : Online 
-- Utiliser le service d'IBM pou faire tourner notre serveur de jeu en ligne 
+Description générale : restructuration du back-end et développement d'un front
 
-Tâche 4 : ExtServletState 
-- Transformer en REST 
-- Pouvoir à la demande accepter ou envoyer du XML ou JSON ( état, coup) 
 
-Description générale : Mise en place de la suggestion online, améliorer les servlets

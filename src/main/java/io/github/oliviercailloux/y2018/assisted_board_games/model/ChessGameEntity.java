@@ -3,6 +3,7 @@ package io.github.oliviercailloux.y2018.assisted_board_games.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,8 +18,8 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-	@NamedQuery(name="ChessGameEntity.find", query="SELECT c FROM ChessGameEntity c WHERE c.id = :id"),		
-	@NamedQuery(name="ChessStateEntity.getLastGame", query="SELECT c FROM ChessGameEntity c WHERE c.id = (SELECT MAX(c.id) FROM ChessGameEntity c") 
+	@NamedQuery(name="ChessGameEntity.find", query="SELECT c FROM ChessGameEntity c WHERE c.id = :id"),	
+	@NamedQuery(name="ChessGameEntity.getLastGameId", query="SELECT MAX(c.id) FROM ChessGameEntity c") 
 })
 public class ChessGameEntity {
 
@@ -26,8 +27,8 @@ public class ChessGameEntity {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 
-	@OneToMany(mappedBy = "game")
-	private List<ChessStateEntity> states;
+	@OneToMany(mappedBy = "game",fetch = FetchType.EAGER)
+	private List<ChessMoveEntity> moves;
 
 	public ChessGameEntity() {
 	}
@@ -36,15 +37,21 @@ public class ChessGameEntity {
 		return id;
 	}
 	
-	public List<ChessStateEntity> getStates() {
-		return states;
+	public List<ChessMoveEntity> getMoves() {
+		return moves;
 	}
 	
-	public ChessStateEntity getLastState() {
-		return states.get(states.size() -1);
+	public void setMoves(List<ChessMoveEntity> moves) {
+		this.moves = moves;
 	}
-	public void addState(ChessStateEntity state) {
-		this.states.add(state);
+	
+	public ChessMoveEntity getLastMoves() {
+		return moves.get(moves.size() -1);
 	}
+	
+	public void addMove(ChessMoveEntity move) {
+		this.moves.add(move);
+	}
+	
 
 }

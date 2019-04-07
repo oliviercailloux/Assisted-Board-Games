@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /***
  * 
@@ -13,46 +15,56 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "ChessMoveEntity.find", query = "SELECT c FROM ChessMoveEntity c WHERE c.id = :id"),
+		@NamedQuery(name = "ChessMoveEntity.getLastMoveId", query = "SELECT MAX(c.id) FROM ChessMoveEntity c WHERE c.game.id = :id"),
+		@NamedQuery(name = "ChessMoveEntity.getLastMove", query = "SELECT MAX(c.id) FROM ChessMoveEntity  c ") })
 public class ChessMoveEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int id_move;
-	
-	private String  from ;
-	private String  to ; 
-	
+	private int id;
+	private String from;
+	private String to;
+
 	@ManyToOne
-	private ChessStateEntity state;
-	
+	private ChessGameEntity game;
+
 	public ChessMoveEntity() {
 	}
+
 	public ChessMoveEntity(String from, String to) {
-		this.from=from;
-		this.to=to;
+		this.from = from;
+		this.to = to;
 	}
-	
-	public int getId_move() {
-		return id_move;
-	} 
+
+	public int getId() {
+		return id;
+	}
 
 	public String getFrom() {
-		return from ;
+		return from;
 	}
-	
+
 	public String getTo() {
-		return to ;
+		return to;
 	}
-	
+
 	public void setFrom(String from) {
-		this.from = from ;
+		this.from = from;
 	}
-	
+
 	public void setTo(String to) {
-		this.to = to ;
+		this.to = to;
 	}
-	public void setState(ChessStateEntity state) {
-		this.state=state;
+
+	public void setGame(ChessGameEntity game) {
+		this.game = game;
+	}
+
+	@Override
+	public String toString() {
+		return this.getId() + " : from" + getFrom() + "to" + getTo() + "\n";
 	}
 
 }
