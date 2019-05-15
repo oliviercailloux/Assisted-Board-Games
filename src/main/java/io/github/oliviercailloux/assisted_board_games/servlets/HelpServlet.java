@@ -19,8 +19,8 @@ import com.github.bhlangonijr.chesslib.move.MoveGenerator;
 import com.github.bhlangonijr.chesslib.move.MoveGeneratorException;
 import com.github.bhlangonijr.chesslib.move.MoveList;
 
-import io.github.oliviercailloux.assisted_board_games.model.ChessGameEntity;
-import io.github.oliviercailloux.assisted_board_games.model.ChessMoveEntity;
+import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
+import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
@@ -42,8 +42,8 @@ public class HelpServlet {
     public String suggestMove(@QueryParam("game") int idGame)
             throws MoveGeneratorException, MoveConversionException, MoveException {
         LOGGER.info("Request GET on HelpServlet with state :" + idGame);
-        ChessGameEntity game = chessS.getGame(idGame);
-        List<ChessMoveEntity> moves = game.getMoves();
+        GameEntity game = chessS.getGame(idGame);
+        List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
         // Generate possible moves
         final MoveList l = MoveGenerator.generateLegalMoves(b);

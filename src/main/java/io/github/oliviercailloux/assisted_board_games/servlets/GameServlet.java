@@ -20,8 +20,8 @@ import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.game.ChessMove;
-import io.github.oliviercailloux.assisted_board_games.model.ChessGameEntity;
-import io.github.oliviercailloux.assisted_board_games.model.ChessMoveEntity;
+import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
+import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
@@ -38,7 +38,7 @@ public class GameServlet {
     @Produces(MediaType.TEXT_PLAIN)
     public String createGame() {
         LOGGER.info("Request GET on GameServlet : Adding a new game");
-        ChessGameEntity game = new ChessGameEntity();
+        GameEntity game = new GameEntity();
         chessS.persist(game);
         return String.valueOf(chessS.getLastGameId());
     }
@@ -48,8 +48,8 @@ public class GameServlet {
     @Produces(MediaType.TEXT_PLAIN)
     public String getGame(@QueryParam("game") int idGame) throws MoveException {
         LOGGER.info("Request GET on GameServlet : Returning game :" + idGame);
-        ChessGameEntity game = chessS.getGame(idGame);
-        List<ChessMoveEntity> moves = game.getMoves();
+        GameEntity game = chessS.getGame(idGame);
+        List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
         return b.toString();
     }
@@ -61,11 +61,11 @@ public class GameServlet {
             throws MoveException {
         LOGGER.info("Request POST on GameServlet : Adding a move to game :" + idGame + " with from = " + from
                 + " with to = " + to);
-        ChessGameEntity game = chessS.getGame(idGame);
-        ChessMoveEntity move = new ChessMoveEntity(from, to);
+        GameEntity game = chessS.getGame(idGame);
+        MoveEntity move = new MoveEntity(from, to);
         game.addMove(move);
         move.setGame(game);
-        List<ChessMoveEntity> moves = game.getMoves();
+        List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
         chessS.persist(move);
         return b.toString();
@@ -76,11 +76,12 @@ public class GameServlet {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addMove(@QueryParam("idGame") int idGame, JsonObject jsonMove) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
-        final ChessMoveEntity move = new ChessMoveEntity();
+        final MoveEntity move = new MoveEntity();
         Move moveBussiness = ChessMove.decode(jsonMove);
-        move.setFrom(moveBussiness.getFrom().toString());
-        move.setTo(moveBussiness.getTo().toString());
-        ChessGameEntity game = chessS.getGame(idGame);
+        move.setFrom(moveBussiness.getFrom());
+        move.setTo(moveBussiness.getTo());
+        move.setPromotion(moveBussiness.getPromotion());
+        GameEntity game = chessS.getGame(idGame);
         game.addMove(move);
         move.setGame(game);
         chessS.persist(move);
@@ -92,9 +93,9 @@ public class GameServlet {
     @Produces(MediaType.TEXT_PLAIN)
     public String getMoves(@QueryParam("game") int idGame) {
         LOGGER.info("Request GET on GameServlet : Returning moves for game :" + idGame);
-        List<ChessMoveEntity> moves = chessS.getGame(idGame).getMoves();
+        List<MoveEntity> moves = chessS.getGame(idGame).getMoves();
         String movesStr = "";
-        for (ChessMoveEntity move : moves) {
+        for (MoveEntity move : moves) {
             movesStr += move.toString();
         }
         return movesStr;
@@ -106,7 +107,7 @@ public class GameServlet {
     public String getLastMove(@QueryParam("game") int idGame) {
         LOGGER.info("Request GET on GameServlet : Returning last move : for game :" + idGame);
         int idMove = chessS.getLastMoveId(idGame);
-        ChessMoveEntity move = chessS.getMove(idMove);
+        MoveEntity move = chessS.getMove(idMove);
         return move.toString();
     }
 }
