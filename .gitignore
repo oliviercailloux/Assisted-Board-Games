@@ -6,3 +6,4 @@
 .settings/
 bin/
 *.log
+.DS_Store
