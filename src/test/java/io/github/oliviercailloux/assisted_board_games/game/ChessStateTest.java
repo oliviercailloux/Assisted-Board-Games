@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.game;
+package io.github.oliviercailloux.assisted_board_games.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,8 +13,8 @@ import javax.json.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import com.github.bhlangonijr.chesslib.Board;
-import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessState;
-import io.github.oliviercailloux.y2018.assisted_board_games.utils.JsonHelper;
+import io.github.oliviercailloux.assisted_board_games.game.ChessState;
+import io.github.oliviercailloux.assisted_board_games.utils.JsonHelper;
 
 /***
  * @author Thibaud Fremin du Sartel

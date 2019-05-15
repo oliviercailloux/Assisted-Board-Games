@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.game;
+package io.github.oliviercailloux.assisted_board_games.game;
 
 import javax.json.*;
 
