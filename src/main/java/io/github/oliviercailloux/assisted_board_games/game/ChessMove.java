@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.game;
 
-import javax.json.*;
+import javax.json.Json;
+import javax.json.JsonObject;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Piece;
@@ -11,59 +12,60 @@ import com.github.bhlangonijr.chesslib.move.MoveException;
 /**
  * 
  * @author Megan Brassard
+ * @author Theophile Dano
  *
  */
 public class ChessMove {
-	
 
-	public static JsonObject encode(Move move) {
-		JsonObject object = Json.createObjectBuilder().add("Square From", move.getFrom().value())
-				.add("Square To", move.getTo().value()).add("Piece promotion", move.getPromotion().name()).build();
+    public static JsonObject encode(Move move) {
+        return Json.createObjectBuilder()
+                .add("from", move.getFrom().toString())
+                .add("to", move.getTo().toString())
+                .add("promotion", move.getPromotion().toString())
+                .build();
+    }
 
-		return object;
+    public static Move decode(JsonObject json) {
+        String from = json.getString("from");
+        String to = json.getString("to");
+        String promotion = json.getString("promotion");
+        return new Move(Square.valueOf(from), Square.valueOf(to), Piece.valueOf(promotion));
+    }
 
-	}
+    public static Move getMove(Board fromPosition, Board toPosition) throws MoveException {
+        Piece[] fromPieces = fromPosition.boardToArray();
+        Piece[] toPieces = toPosition.boardToArray();
+        Square from = Square.NONE;
+        Square to = Square.NONE;
+        Piece promotion = Piece.NONE;
+        for (int i = 0; i < fromPieces.length; i++) {
+            if (fromPieces[i] != toPieces[i]) {
+                if (Piece.NONE == toPieces[i]) {
+                    from = Square.values()[i];
+                }
+                if (Piece.NONE == fromPieces[i]) {
+                    to = Square.values()[i];
+                }
+            }
+        }
+        if (fromPosition.getPiece(from) != toPosition.getPiece(to)) {
+            promotion = toPosition.getPiece(to);
+        }
+        Move move = new Move(from, to, promotion);
+        if (Square.NONE == from) {
+            return move;
+        }
+        if (fromPosition.isMoveLegal(move, false)) {
+            return move;
+        }
+        throw new MoveException("Move is not legal");
+    }
 
-	public static Move decode(JsonObject json) {
-		String sFrom = json.getString("Square From");
-		String sTo = json.getString("Square To");
-		String piece = json.getString("Piece promotion");
-		return new Move(Square.fromValue(sFrom), Square.fromValue(sTo), Piece.fromValue(piece));
-
-	}
-
-	public static Move getMove(Board board1, Board board2) throws MoveException {
-		Piece[] pieces1 = board1.boardToArray();
-		Piece[] pieces2 = board2.boardToArray();
-		Square from = Square.NONE;
-		Square to = Square.NONE;
-		Piece promotion = Piece.NONE;
-		for (int i = 0; i < pieces1.length; i++) {
-			if (!(pieces1[i].equals(pieces2[i]))) {
-				if (pieces2[i].equals(Piece.NONE))
-					from = Square.values()[i];
-				if (pieces1[i].equals(Piece.NONE))
-					to = Square.values()[i];
-			}
-		}
-		if (!board1.getPiece(from).equals(board2.getPiece(to))) {
-			promotion = board2.getPiece(to);
-		}
-		Move m = new Move(from, to, promotion);
-	
-		if (from == Square.NONE)
-			return m;
-		if (board1.isMoveLegal(m, false))
-			return m;
-		throw new MoveException("Move is not legal");
-
-	}
-
-	public static Board doMove(Board b, Move move) throws MoveException {
-		Board bis = b.clone();
-		if (bis.doMove(move))
-			return bis;
-		return null;
-	}
-
+    public static Board doMove(Board board, Move move) throws MoveException {
+        Board boardCopy = board.clone();
+        if (boardCopy.doMove(move)) {
+            return boardCopy;
+        }
+        return null;
+    }
 }

@@ -7,51 +7,46 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import io.github.oliviercailloux.assisted_board_games.model.ChessGameEntity;
-import io.github.oliviercailloux.assisted_board_games.model.ChessMoveEntity;
+import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
+import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.utils.QueryHelper;
 
 @RequestScoped
 public class ChessService {
 
-    /***
-     * 
-     * @author Delmas Douo Bougna
-     *
-     */
     @Inject
     EntityManager em;
     @Inject
     QueryHelper helper;
 
     @Transactional
-    public List<ChessGameEntity> getAllGames() {
-        return em.createQuery(helper.selectAll(ChessGameEntity.class)).getResultList();
+    public List<GameEntity> getAllGames() {
+        return em.createQuery(helper.selectAll(GameEntity.class)).getResultList();
     }
 
     @Transactional
-    public List<ChessMoveEntity> getAllMoves() {
-        return em.createQuery(helper.selectAll(ChessMoveEntity.class)).getResultList();
+    public List<MoveEntity> getAllMoves() {
+        return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
     }
 
     @Transactional
-    public ChessGameEntity getGame(int idGame) {
-        ChessGameEntity game = em.createNamedQuery("ChessGameEntity.find", ChessGameEntity.class)
-                .setParameter("id", idGame).getSingleResult();
-        return game;
-    }
-
-    @Transactional
-    public int getLastGameId() {
-        return em.createNamedQuery("ChessGameEntity.getLastGameId", Integer.class)
+    public GameEntity getGame(int gameId) {
+        return em.createNamedQuery("Game.find", GameEntity.class)
+                .setParameter("id", gameId)
                 .getSingleResult();
     }
 
     @Transactional
-    public ChessMoveEntity getMove(int idMove) {
-        ChessMoveEntity q = em.createNamedQuery("ChessMoveEntity.find", ChessMoveEntity.class)
-                .setParameter("id", idMove).getSingleResult();
-        return q;
+    public int getLastGameId() {
+        return em.createNamedQuery("Game.getLastGameId", Integer.class)
+                .getSingleResult();
+    }
+
+    @Transactional
+    public MoveEntity getMove(int idMove) {
+        return em.createNamedQuery("Move.find", MoveEntity.class)
+                .setParameter("id", idMove)
+                .getSingleResult();
     }
 
     /**
@@ -62,20 +57,20 @@ public class ChessService {
      */
     @Transactional
     public int getLastMoveId(int idGame) {
-        int q = em.createNamedQuery("ChessMoveEntity.getLastMoveId", Integer.class)
-                .setParameter("id", idGame).getSingleResult();
-        return q;
+        return em.createNamedQuery("Move.getLastMoveId", Integer.class)
+                .setParameter("id", idGame)
+                .getSingleResult();
     }
 
     @Transactional
-    public void persist(ChessGameEntity game) {
+    public void persist(GameEntity game) {
         em.getTransaction().begin();
         em.persist(game);
         em.getTransaction().commit();
     }
 
     @Transactional
-    public void persist(ChessMoveEntity move) {
+    public void persist(MoveEntity move) {
         em.getTransaction().begin();
         em.persist(move);
         em.getTransaction().commit();
