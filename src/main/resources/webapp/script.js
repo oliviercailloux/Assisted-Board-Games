@@ -122,7 +122,7 @@ function getHtmlCode(piece){
 
 /********* REQUEST PART ***********/
 function createNewGameReq () {
-      return fetch("http://localhost:8080/mychessgame/v1/game", {
+      return fetch("http://localhost:8080/game/new", {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
@@ -139,7 +139,7 @@ function createNewGameReq () {
 }
 
 function getGameReq(idGame){
-    return fetch("http://localhost:8080/mychessgame/v1/game/getGame?game="+idGame, {
+    return fetch("http://localhost:8080/game/get?gid="+idGame, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
@@ -157,7 +157,7 @@ function getGameReq(idGame){
 }
 
 function getHelpReq(idGame){
-    return fetch("http://localhost:8080/mychessgame/v1/help?game="+idGame, {
+    return fetch("http://localhost:8080/help?gid="+idGame, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
@@ -174,7 +174,7 @@ function getHelpReq(idGame){
 }
 
 function addMoveReq(idGame, move){
-    return fetch("http://localhost:8080/mychessgame/v1/game/move?game="+idGame, {
+    return fetch("http://localhost:8080/game/move?gid="+idGame, {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -192,7 +192,7 @@ function addMoveReq(idGame, move){
 }
 
 function addMoveReqBIS(idGame,from,to){
-    return fetch("http://localhost:8080/mychessgame/v1/game/addMove?game="+idGame+"&from="+from+"&to="+to, {
+    return fetch("http://localhost:8080/game/move?gid="+idGame+"&from="+from+"&to="+to, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
