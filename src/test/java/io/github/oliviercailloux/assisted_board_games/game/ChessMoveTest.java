@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.game;
+package io.github.oliviercailloux.assisted_board_games.game;
 
 import org.junit.jupiter.api.*;
 
@@ -11,7 +11,7 @@ import com.github.bhlangonijr.chesslib.move.MoveException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.json.*;
-import io.github.oliviercailloux.y2018.assisted_board_games.game.ChessMove;
+import io.github.oliviercailloux.assisted_board_games.game.ChessMove;
 
 /**
  * 

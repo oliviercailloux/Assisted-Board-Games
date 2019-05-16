@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2018.assisted_board_games.model;
+package io.github.oliviercailloux.assisted_board_games.model;
 
 import java.util.List;
 
