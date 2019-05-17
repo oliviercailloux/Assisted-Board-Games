@@ -24,4 +24,14 @@ public class WebResource {
         }
         return Response.ok().entity(file).build();
     }
+
+    @GET
+    @Path("{path}/{file}")
+    public Response getResource(@PathParam("path") String path, @PathParam("file") String file) {
+        File res = new File("./src/main/resources/webapp/" + path, file);
+        if (!res.exists()) {
+            return Response.status(404).build();
+        }
+        return Response.ok().entity(res).build();
+    }
 }
