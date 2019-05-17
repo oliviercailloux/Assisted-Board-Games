@@ -34,4 +34,14 @@ public class WebResource {
         }
         return Response.ok().entity(res).build();
     }
+
+    @GET
+    @Path("img/chesspieces/{theme}/{img}")
+    public Response getImageResource(@PathParam("theme") String theme, @PathParam("img") String img) {
+        File file = new File("./src/main/resources/webapp/img/chesspieces/" + theme, img);
+        if (!file.exists()) {
+            return Response.status(404).build();
+        }
+        return Response.ok().entity(file).build();
+    }
 }
