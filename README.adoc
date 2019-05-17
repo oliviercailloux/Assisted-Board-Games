@@ -1,10 +1,15 @@
-= AssistedBoardGames Cahier des Charges
+= Assisted-Board-Games
 
-Par Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa +
+Projet maintenu par :
+Baylot Eliott, Chen Maryline, Dano Théophile, Peynet Emilie et Piganneau Thaïs
+L3 MIAGE en apprentissage
+
+Projet initiallement développé par : 
+Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa +
 MASTER MIAGE SITN en apprentissage
 Université Paris Dauphine
 
-image:https://travis-ci.com/LoatR/AssistedBoardGames.svg?branch=master["Build Status", link="https://travis-ci.com/LoatR/AssistedBoardGames"]
+image:https://travis-ci.com/busychess/AssistedBoardGames.svg?branch=master["Build Status", link="https://travis-ci.com/busychess/AssistedBoardGames"]
 
 == Description du projet
 Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. 
@@ -14,67 +19,11 @@ Déroulement en 3 itérations
 
 == Specification - Itération 1
 
-Tâche 1 : ChessStateTxt  - Responsable Thibaud Fremin du Sartel 
-- Représenter et afficher un état du jeu ( = position des pions et joueur) grâce à une bibliotheque existante 
-- Choisir un format pour encoder ( ChessStateTxt => Format) et décoder ( Format => ChessStateTxt) un état de jeu 
+- *Tache 1 : Migrer depuis J2E vers JPA/Hibernate, Jersey et Jetty*. Le but de cette tache est de rendre viable l'utilisation du projet quasiment tel quel. => Théophile Dano
 
-Tâche 2 : ChessMoveTxt - Responsable Megan Brassard
-- Représenter un coup pour un joueur+ 
-- Calculer l'état résultant d'un coup joué sur un état 
-- Calculer le coup permettant de passer d'un état à un autre à partir de ces deux états 
+- *Tache 2 : Refactoring global du code, changements mineurs et réorganisation de packages, formattage systématique des fichiers*. => Théophile Dano & Maryline Chen
 
-          
-Tâche 3 : SetDB - Responsable Delmas Douo Bougna
-- Construire un modèle relationnel pour stocker les états des parties 
-- Implémenter une entité JPA 
-- Implémenter les guetters et setters 
+- *Tache 3 : Implémentation d'une WebResource* visant à servir des resources web statiques liées à l'interface du jeu. Une sous-tâche consiste à modifier le fichier JavaScript de l'interface pour faire appel aux bons endpoints.
 
-Tâche 4 : ShowClient - Responsable Andréa Lourenço
-- Créer les Servlets permettant les deux fonctionnalités suivantes : 
-- Récupérer le dernier état d'un jeu à partir de son identifiant 
-- Récupérer un état precis d'un jeu à partir de l'identifiant de la partie et de l'identifiant de l'état 
-
-Description générale : Mise en place des bases du projet (état, mouvement et base de données)
-
-== Specification - Itération 2
-
-Tâche 1 : StateServlet - Responsable Megan Brassard 
-- Ajout d'un état à une partie grâce à son id (à condition qu'il soit possible de passer du dernier état de la partie à celui spécifié) 
-- Si l'id de la partie spécifiée n'existe pas, l'état à ajouter doit obligatoirement être un état initial. Dans ce cas la partie est créée 
-
-Tâche 3 : UseDB - Responsable Delmas Douo Bougna 
-- Utilisation de la base de donnée definie dans SetDB 
-- Modification des servlets pour alimenter la base de données 
-
-Tâche 4 : Player - Responsable Thibaud Fremin du Sartel 
-- Affichage du plateau de jeu pour un client (à l'aide d'un String simple) 
-- Permettre au joueur d'appliquer des coups 
-- Calculer l'état résultant lorsqu'un coup est joué 
-- Afficher l'état résultant du coup de l'adversaire 
-
-Tâche 5 : AddServlets - Responsable Andréa Lourenço 
-- Créer un jeu et son identifiant à partir d'une liste d'états 
-- Retourner un coup à partir de son identifiant et de l'identifiant de la partie correspondante 
-- Création de l'identifiant coup correspondant à l'ajout d'un coup par un joueur à partir d'un certain état 
-- Différents formats doivent être acceptés (pour coup et état) 
-- Transformer en REST 
-
-Tâche 6 : Help - Responsable Mégan Brassard
-- Calculer les meilleurs coups à jouer selon un état pour un joueur 
-
-Description générale : Ajout des servlets (d'état, de calculs d'état à partir d'un mouvement, représentation du jeu) + implémentation BDD
-
-== Specification - Itération 3
-
-Tâche 1 : Back-end - Responsable Megan Brassard et Delmas Douo Bougna
-- Suppression de la notion de "state"
-- Réorganisation des servlets
-- Amélioration partielle du servlet help
-
-Tâche 2 : Front-end - Responsable Thibaud Fremin du Sartel et Andréa Lourenço 
-- Interface (HTML/CSS)
-- Requêtes au serveur (Javascript)
-
-Description générale : restructuration du back-end et développement d'un front
-
+- *Tache 4 : Migration du front-end vers 2 libs adaptées*. L'objectif ici est de migrer depuis un plateau de jeu codé à la main et pauvre en fonctionnalités vers les bibliothèques chessboard.js et chess.js qui permettent de gérer de manière satisfaisante l'état d'une partie sur le navigateur tout en gardant la flexibilité de contacter le serveur. 
 
