@@ -16,6 +16,8 @@
 	<h1>My Assisted Board Games</h1>
 	<div id="board" style="width:400px">
 	</div>
+	<p> STATUS: <span id="status"> </span></p> 	
+	<p> PGN: <span id="pgn"> </span></p> 
 	<script type="text/javascript">
 		var board;
 		var game=Chess();
@@ -33,9 +35,38 @@
 				promotion:'q'
 			});
 			if (move===null) return 'snapback';
+			update();
 		};
 		var onSnapEnd=function(){
 			board.position(game.fen());
+		};
+		var update=function(){
+			var status = '';
+
+			var color = game.turn() === 'w' ? 'White' : 'Black';
+
+			// checkmate?
+			if (game.in_checkmate()) {
+				status = 'Game over, ' + color + ' is in checkmate.';
+			}
+
+			// draw?
+			else if (game.in_draw()) {
+				status = 'Game over, drawn position';
+			}
+
+			// game still on
+			else {
+				status = color + ' to move';
+
+			// check?
+				if (game.in_check()) {
+					status += ', ' + color + ' is in check';
+				}
+			}
+
+			$('#status').html(status);
+			$('#pgn').html(game.pgn());
 		};
 		var config={
 			draggable: true,
