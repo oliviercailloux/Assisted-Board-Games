@@ -17,13 +17,35 @@
 	<div id="board" style="width:400px">
 	</div>
 	<script type="text/javascript">
+		var board;
 		var game=Chess();
+		var onDragStart=function(src,piece,pos,o){
+			if (game.game_over() ||
+				(game.turn()==='w' && piece.search(/^b/)!==-1)||
+				(game.turn()==='b' && piece.search(/^w/)!==-1)){
+				return false;
+			}
+		};
+		var onDrop=function(src,dst){
+			var move=game.move({
+				from:src,
+				to:dst,
+				promotion:'q'
+			});
+			if (move===null) return 'snapback';
+		};
+		var onSnapEnd=function(){
+			board.position(game.fen());
+		};
 		var config={
 			draggable: true,
 			dropOffBoard: 'snapback',
 			position: 'start',
+			onDragStart: onDragStart,
+			onDrop: onDrop,
+			onSnapEnd: onSnapEnd,
 		};
-		var board=ChessBoard('board',config);
+		board=ChessBoard('board',config);
 	</script>
 </body>
 </html>
