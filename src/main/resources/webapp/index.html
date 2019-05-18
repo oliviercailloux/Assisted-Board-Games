@@ -9,15 +9,17 @@
   crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/chess.js"></script>
 <script type="text/javascript" src="js/chessboard-0.3.0.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <title>My Assisted Board Games</title>
 </head>
 
 <body>
 	<h1>My Assisted Board Games</h1>
-	<div id="board" style="width:400px">
-	</div>
-	<p> STATUS: <span id="status"> </span></p> 	
-	<p> PGN: <span id="pgn"> </span></p> 
+	<button onclick="newGame()">New Game</button><br/>
+	<input type="text" id="game-id"/><button onclick="loadGame()">Load Game</button>
+	<div id="board" style="width:400px"></div>
+	<p>STATUS: <span id="status"> </span></p> 	
+	<p>PGN: <span id="pgn"> </span></p> 
 	<script type="text/javascript">
 		var board;
 		var game=Chess();
@@ -35,6 +37,7 @@
 				promotion:'q'
 			});
 			if (move===null) return 'snapback';
+			playMove(src,dst);
 			update();
 		};
 		var onSnapEnd=function(){
