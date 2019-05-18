@@ -1,7 +1,7 @@
 = Assisted-Board-Games
 
 Projet maintenu par :
-Baylot Eliott, Chen Maryline, Dano Théophile, Peynet Emilie et Piganneau Thaïs
+Baylot Eliott, Chen Maryline, Dano Théophile, Peynet Emilie et Piganeau Thaïs
 L3 MIAGE en apprentissage
 
 Projet initiallement développé par : 
