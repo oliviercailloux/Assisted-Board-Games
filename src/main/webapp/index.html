@@ -2,22 +2,84 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/chessboard-0.3.0.css" />
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/chess.js"></script>
+<script type="text/javascript" src="js/chessboard-0.3.0.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <title>My Assisted Board Games</title>
 </head>
 
 <body>
 	<h1>My Assisted Board Games</h1>
-	<div id="choiceOfGame">
-		<form action="chessGame.html">
-			<input type="submit" value="Play Chess" />
-		</form>
-		<br/>
-		<form>
-			<input disabled type="submit" value="Play Poker" /> (coming later)
-		</form>
-	</div>
+	<button onclick="newGame()">New Game</button><br/>
+	<input type="text" id="game-id"/><button onclick="loadGame()">Load Game</button>
+	<div id="board" style="width:400px"></div>
+	<p>STATUS: <span id="status"> </span></p> 	
+	<p>PGN: <span id="pgn"> </span></p> 
+	<script type="text/javascript">
+		var board;
+		var game=Chess();
+		var onDragStart=function(src,piece,pos,o){
+			if (game.game_over() ||
+				(game.turn()==='w' && piece.search(/^b/)!==-1)||
+				(game.turn()==='b' && piece.search(/^w/)!==-1)){
+				return false;
+			}
+		};
+		var onDrop=function(src,dst){
+			var move=game.move({
+				from:src,
+				to:dst,
+				promotion:'q'
+			});
+			if (move===null) return 'snapback';
+			playMove(src,dst);
+			update();
+		};
+		var onSnapEnd=function(){
+			board.position(game.fen());
+		};
+		var update=function(){
+			var status = '';
 
+			var color = game.turn() === 'w' ? 'White' : 'Black';
+
+			// checkmate?
+			if (game.in_checkmate()) {
+				status = 'Game over, ' + color + ' is in checkmate.';
+			}
+
+			// draw?
+			else if (game.in_draw()) {
+				status = 'Game over, drawn position';
+			}
+
+			// game still on
+			else {
+				status = color + ' to move';
+
+			// check?
+				if (game.in_check()) {
+					status += ', ' + color + ' is in check';
+				}
+			}
+
+			$('#status').html(status);
+			$('#pgn').html(game.pgn());
+		};
+		var config={
+			draggable: true,
+			dropOffBoard: 'snapback',
+			position: 'start',
+			onDragStart: onDragStart,
+			onDrop: onDrop,
+			onSnapEnd: onSnapEnd,
+		};
+		board=ChessBoard('board',config);
+	</script>
 </body>
 </html>
