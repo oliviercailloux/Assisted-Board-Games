@@ -1,4 +1,4 @@
-= Assisted-Board-Games
+﻿= Assisted-Board-Games
 
 Projet maintenu par :
 Baylot Eliott, Chen Maryline, Dano Théophile, Peynet Emilie et Piganneau Thaïs
@@ -27,3 +27,12 @@ Déroulement en 3 itérations
 
 - *Tache 4 : Migration du front-end vers 2 libs adaptées*. L'objectif ici est de migrer depuis un plateau de jeu codé à la main et pauvre en fonctionnalités vers les bibliothèques chessboard.js et chess.js qui permettent de gérer de manière satisfaisante l'état d'une partie sur le navigateur tout en gardant la flexibilité de contacter le serveur. 
 
+== Specification - Itération 2
+
+- *Tache 1 : Mise à jour des méthodes HTTP utilisées*
+
+- *Tache 2 : Fournir une liste correcte des coups joués lors d'une partie*
+
+- *Tache 3 : Création d'un modèle pour les puzzles*
+
+- *Tache 4 : Ajout d'un aide visuelle aux coups* (surbrillance des cases possibles pour la pièce sélectionnée)
