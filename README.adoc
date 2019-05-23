@@ -31,7 +31,7 @@ Déroulement en 3 itérations
 
 - *Tâche 1 : Mise à jour des méthodes HTTP utilisées*
 
-- *Tâche 2 : Fournir une liste correcte des coups joués lors d'une partie*
+- *Tâche 2 : Rendre les valeurs de retour des endpoints plus cohérentes* (int, JSON pour liste de coups...)
 
 - *Tâche 3 : Création d'un modèle pour les puzzles*
 
