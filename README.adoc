@@ -19,20 +19,24 @@ Déroulement en 3 itérations
 
 == Specification - Itération 1
 
-- *Tache 1 : Migrer depuis J2E vers JPA/Hibernate, Jersey et Jetty*. Le but de cette tache est de rendre viable l'utilisation du projet quasiment tel quel. => Théophile Dano
+- *Tâche 1 : Migrer depuis J2E vers JPA/Hibernate, Jersey et Jetty*. Le but de cette tache est de rendre viable l'utilisation du projet quasiment tel quel. => Théophile Dano
 
-- *Tache 2 : Refactoring global du code, changements mineurs et réorganisation de packages, formattage systématique des fichiers*. => Théophile Dano & Maryline Chen
+- *Tâche 2 : Refactoring global du code, changements mineurs et réorganisation de packages, formattage systématique des fichiers*. => Théophile Dano & Maryline Chen
 
-- *Tache 3 : Implémentation d'une WebResource* visant à servir des resources web statiques liées à l'interface du jeu. Une sous-tâche consiste à modifier le fichier JavaScript de l'interface pour faire appel aux bons endpoints.
+- *Tâche 3 : Implémentation d'une WebResource* visant à servir des resources web statiques liées à l'interface du jeu. Une sous-tâche consiste à modifier le fichier JavaScript de l'interface pour faire appel aux bons endpoints.
 
-- *Tache 4 : Migration du front-end vers 2 libs adaptées*. L'objectif ici est de migrer depuis un plateau de jeu codé à la main et pauvre en fonctionnalités vers les bibliothèques chessboard.js et chess.js qui permettent de gérer de manière satisfaisante l'état d'une partie sur le navigateur tout en gardant la flexibilité de contacter le serveur. 
+- *Tâche 4 : Migration du front-end vers 2 libs adaptées*. L'objectif ici est de migrer depuis un plateau de jeu codé à la main et pauvre en fonctionnalités vers les bibliothèques chessboard.js et chess.js qui permettent de gérer de manière satisfaisante l'état d'une partie sur le navigateur tout en gardant la flexibilité de contacter le serveur. 
 
 == Specification - Itération 2
 
-- *Tache 1 : Mise à jour des méthodes HTTP utilisées*
+- *Tâche 1 : Mise à jour des méthodes HTTP utilisées*
 
-- *Tache 2 : Fournir une liste correcte des coups joués lors d'une partie*
+- *Tâche 2 : Fournir une liste correcte des coups joués lors d'une partie*
 
-- *Tache 3 : Création d'un modèle pour les puzzles*
+- *Tâche 3 : Création d'un modèle pour les puzzles*
 
-- *Tache 4 : Ajout d'un aide visuelle aux coups* (surbrillance des cases possibles pour la pièce sélectionnée)
+- *Tâche 4 : Ajout d'un aide visuelle aux coups* (surbrillance des cases possibles pour la pièce sélectionnée)
+
+- *Tâche 5 : Rendre les entities immuables*
+
+- *Tâche 6 : Explorer les solutions pour l'horloge de la partie* (différents types d'horloges, représentation...)
