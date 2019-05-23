@@ -28,25 +28,17 @@ public class GameEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    int id;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
-    private List<MoveEntity> moves;
+    List<MoveEntity> moves;
 
     public void addMove(MoveEntity move) {
         move.setGame(this);
         moves.add(move);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setMoves(List<MoveEntity> moves) {
-        this.moves = moves;
     }
 
     public List<MoveEntity> getMoves() {

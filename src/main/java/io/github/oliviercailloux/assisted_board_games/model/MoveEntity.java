@@ -32,14 +32,14 @@ public class MoveEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    int id;
     @Column(name = "square_from")
-    private Square from;
+    Square from;
     @Column(name = "square_to")
-    private Square to;
-    private Piece promotion;
+    Square to;
+    Piece promotion;
     @ManyToOne
-    private GameEntity game;
+    GameEntity game;
 
     public MoveEntity() {
         this(Square.NONE, Square.NONE, Piece.NONE);
@@ -67,39 +67,29 @@ public class MoveEntity {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Square getFrom() {
         return from;
-    }
-
-    public void setFrom(Square from) {
-        this.from = from;
     }
 
     public Square getTo() {
         return to;
     }
 
-    public void setTo(Square to) {
-        this.to = to;
-    }
-
     public Piece getPromotion() {
         return promotion;
-    }
-
-    public void setPromotion(Piece promotion) {
-        this.promotion = promotion;
     }
 
     public GameEntity getGame() {
         return game;
     }
 
-    public void setGame(GameEntity game) {
+    /**
+     * Setter package visibility enables to set game in class GameEntity.java, but
+     * still allows user-level immutability.
+     * 
+     * @param game
+     */
+    void setGame(GameEntity game) {
         this.game = game;
     }
 
