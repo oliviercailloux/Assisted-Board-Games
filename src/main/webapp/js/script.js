@@ -9,6 +9,7 @@ var currentGameId;
 var newGame = function() {
 	$.ajax({
 		url: 'http://localhost:8080/game/new',
+		type: 'POST',
 		crossDomain: true,
 	}).done(loadGame);
 };
@@ -45,10 +46,13 @@ var loadFen = function(fen) {
  */
 var playMove = function(src, dst) {
 	$.ajax({
-		url: 'http://localhost:8080/game/move'
-				+ '?gid=' + currentGameId
-				+ '&from=' + src.toUpperCase()
-				+ '&to=' + dst.toUpperCase(),
+		url: 'http://localhost:8080/game/move',
+		type: 'POST',
+		data: {
+			gid: currentGameId,
+			from: src.toUpperCase(),
+			to: dst.toUpperCase()
+		},
 		crossDomain: true,
 	}).done(loadFen);
 };

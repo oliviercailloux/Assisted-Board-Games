@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -30,9 +31,10 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 public class GameResource {
 
     private static final Logger LOGGER = Logger.getLogger(GameResource.class.getCanonicalName());
-    @Inject ChessService chessService;
+    @Inject
+    ChessService chessService;
 
-    @GET
+    @POST
     @Path("new")
     @Produces(MediaType.TEXT_PLAIN)
     public String createGame() {
@@ -53,10 +55,10 @@ public class GameResource {
         return b.getFen(true);
     }
 
-    @GET
+    @POST
     @Path("move")
     @Produces(MediaType.TEXT_PLAIN)
-    public String addMove(@QueryParam("gid") int gameId, @QueryParam("from") Square from, @QueryParam("to") Square to)
+    public String addMove(@FormParam("gid") int gameId, @FormParam("from") Square from, @FormParam("to") Square to)
                     throws MoveException {
         LOGGER.info("Request POST on GameServlet : Adding a move to game :" + gameId + " with from = " + from
                         + " with to = " + to);
