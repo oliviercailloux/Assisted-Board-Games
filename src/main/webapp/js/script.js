@@ -1,29 +1,54 @@
+/**
+ * The id of the game currently being played in the page.
+ */
 var currentGameId;
-var newGame=function(){
+
+/**
+ * Asks the server to create a new game and loads it to the UI if successful.
+ */
+var newGame = function() {
 	$.ajax({
 		url: 'http://localhost:8080/game/new',
-		type: 'GET',
 		crossDomain: true,
 	}).done(loadGame);
 };
-var loadGame=function(gameId){
-	if(gameId===undefined){
-		gameId=$('#game-id').text();
+
+/**
+ * Loads a game given its gameId.
+ */
+var loadGame = function(gameId) {
+	// if no gameId is given, get it from user's input
+	if (gameId === undefined) {
+		gameId = $('#game-id').val();
+		// if user didn't provid a game id, alter him
+		if (!gameId) {
+			alert('Please provide a game Id');
+			return;
+		}
 	}
 	$.ajax({
 		url: 'http://localhost:8080/game/get?gid=' + gameId,
-		type: 'GET',
 		crossDomain: true,
 	}).done(loadFen);
-	currentGameId=gameId;
+	currentGameId = gameId;
 };
-var loadFen=function(fen){
-	game.load(fen);
+
+/**
+ * Loads a FEN position to the board.
+ */
+var loadFen = function(fen) {
+	board.position(fen);
 };
-var playMove=function(src,dst){
+
+/**
+ * Forward moves to the server and update position afterwards.
+ */
+var playMove = function(src, dst) {
 	$.ajax({
-		url: 'http://localhost:8080/game/move?gid=' + currentGameId + '&from=' + src.toUpperCase() + '&to=' + dst.toUpperCase(),
-		type: 'GET',
+		url: 'http://localhost:8080/game/move'
+				+ '?gid=' + currentGameId
+				+ '&from=' + src.toUpperCase()
+				+ '&to=' + dst.toUpperCase(),
 		crossDomain: true,
 	}).done(loadFen);
 };
