@@ -40,3 +40,9 @@ Déroulement en 3 itérations
 - *Tâche 5 : Rendre les entities immuables*
 
 - *Tâche 6 : Explorer les solutions pour l'horloge de la partie* (différents types d'horloges, représentation...)
+
+- *Tâche 7 : Migrer les endpoints en utilisant un prefix /v1*
+
+- *Tâche 8 : Utiliser SLF4J et Logback à la place de JUL*
+
+- *Tâche 9 : Ajouter des tests unitaires à GameResource*
