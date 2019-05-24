@@ -41,39 +41,39 @@ public class MoveEntity {
     @ManyToOne
     GameEntity game;
 
-    public MoveEntity() {
+    MoveEntity() {
         this(Square.NONE, Square.NONE, Piece.NONE);
     }
 
-    public MoveEntity(GameEntity game) {
+    MoveEntity(GameEntity game) {
         this();
         this.game = game;
     }
 
-    public MoveEntity(String from, String to) {
+    MoveEntity(String from, String to) {
         this(Square.valueOf(from), Square.valueOf(to));
     }
 
-    public MoveEntity(String from, String to, String promotion) {
+    MoveEntity(String from, String to, String promotion) {
         this(Square.valueOf(from), Square.valueOf(to), Piece.valueOf(promotion));
     }
 
-    public MoveEntity(Square from, Square to) {
+    MoveEntity(Square from, Square to) {
         this(from, to, Piece.NONE);
     }
 
-    public MoveEntity(Square from, Square to, Piece promotion) {
+    MoveEntity(Square from, Square to, Piece promotion) {
         this.from = from;
         this.to = to;
         this.promotion = promotion;
     }
 
-    public MoveEntity(GameEntity game, Square from, Square to) {
+    MoveEntity(GameEntity game, Square from, Square to) {
         this(from, to);
         this.game = game;
     }
 
-    public MoveEntity(GameEntity game, Square from, Square to, Piece promotion) {
+    MoveEntity(GameEntity game, Square from, Square to, Piece promotion) {
         this(from, to, promotion);
         this.game = game;
     }
