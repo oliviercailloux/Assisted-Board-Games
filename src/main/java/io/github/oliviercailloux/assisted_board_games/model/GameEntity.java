@@ -47,10 +47,6 @@ public class GameEntity {
         return moves.get(moves.size() - 1);
     }
 
-    public MoveEntity makeMove() {
-        return new MoveEntity(this);
-    }
-
     public MoveEntity makeMove(Square from, Square to) {
         return new MoveEntity(this, from, to);
     }
