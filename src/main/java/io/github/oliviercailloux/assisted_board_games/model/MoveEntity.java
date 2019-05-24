@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,12 +31,9 @@ import com.github.bhlangonijr.chesslib.move.Move;
 public class MoveEntity {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    @Column(name = "square_from")
     Square from;
-    @Column(name = "square_to")
     Square to;
     Piece promotion;
     @ManyToOne
