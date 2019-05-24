@@ -7,7 +7,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -17,7 +16,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.github.bhlangonijr.chesslib.Board;
-import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.game.ChessMove;
@@ -52,22 +50,6 @@ public class GameResource {
         GameEntity game = chessService.getGame(gameId);
         List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
-        return b.getFen(true);
-    }
-
-    @POST
-    @Path("move")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String addMove(@FormParam("gid") int gameId, @FormParam("from") Square from, @FormParam("to") Square to)
-                    throws MoveException {
-        LOGGER.info("Request POST on GameServlet : Adding a move to game :" + gameId + " with from = " + from
-                        + " with to = " + to);
-        GameEntity game = chessService.getGame(gameId);
-        MoveEntity move = new MoveEntity(from, to);
-        game.addMove(move);
-        List<MoveEntity> moves = game.getMoves();
-        Board b = GameHelper.playMoves(moves);
-        chessService.persist(move);
         return b.getFen(true);
     }
 
