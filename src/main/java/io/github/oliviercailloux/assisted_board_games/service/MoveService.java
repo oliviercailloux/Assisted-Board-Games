@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.assisted_board_games.game;
+package io.github.oliviercailloux.assisted_board_games.service;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -13,7 +13,6 @@ import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
-import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 
 /**
  * 
@@ -23,7 +22,7 @@ import io.github.oliviercailloux.assisted_board_games.service.ChessService;
  *
  */
 @RequestScoped
-public class ChessMove {
+public class MoveService {
 
     @Inject
     ChessService chessService;

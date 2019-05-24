@@ -19,9 +19,9 @@ import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
-import io.github.oliviercailloux.assisted_board_games.game.ChessMove;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
+import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
@@ -33,7 +33,7 @@ public class GameResource {
     @Inject
     ChessService chessService;
     @Inject
-    ChessMove chessMove;
+    MoveService chessMove;
 
     @GET
     @Path("new")
