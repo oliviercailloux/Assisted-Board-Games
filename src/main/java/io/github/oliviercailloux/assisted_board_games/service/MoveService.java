@@ -2,7 +2,6 @@ package io.github.oliviercailloux.assisted_board_games.service;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.json.Json;
 import javax.json.JsonObject;
 
 import com.github.bhlangonijr.chesslib.Board;
@@ -26,14 +25,6 @@ public class MoveService {
 
     @Inject
     ChessService chessService;
-
-    public JsonObject encode(MoveEntity move) {
-        return Json.createObjectBuilder()
-                        .add("from", move.getFrom().toString())
-                        .add("to", move.getTo().toString())
-                        .add("promotion", move.getPromotion().toString())
-                        .build();
-    }
 
     public MoveEntity decode(JsonObject json) {
         Square from = Square.valueOf(json.getString("from"));

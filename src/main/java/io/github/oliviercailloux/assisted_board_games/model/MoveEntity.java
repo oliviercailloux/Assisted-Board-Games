@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
+import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,7 @@ import com.github.bhlangonijr.chesslib.move.Move;
         @NamedQuery(name = "Move.getLastMoveId", query = "SELECT MAX(c.id) FROM MoveEntity c WHERE c.game.id = :id"),
         @NamedQuery(name = "Move.getLastMove", query = "SELECT MAX(c.id) FROM MoveEntity c ")
 })
+@JsonbPropertyOrder({ "from", "to", "promotion", "game" })
 public class MoveEntity {
 
     @Id
