@@ -12,6 +12,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.github.bhlangonijr.chesslib.Piece;
+import com.github.bhlangonijr.chesslib.Square;
+
 /***
  * 
  * @author Delmas Douo Bougna
@@ -28,32 +31,27 @@ public class GameEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    int id;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
-    private List<MoveEntity> moves;
-
-    public void addMove(MoveEntity move) {
-        move.setGame(this);
-        moves.add(move);
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    List<MoveEntity> moves;
 
     public int getId() {
         return id;
-    }
-
-    public void setMoves(List<MoveEntity> moves) {
-        this.moves = moves;
     }
 
     public List<MoveEntity> getMoves() {
         return moves;
     }
 
-    public MoveEntity getLastMoves() {
+    public MoveEntity getLastMove() {
         return moves.get(moves.size() - 1);
+    }
+
+    public MoveEntity makeMove(Square from, Square to) {
+        return new MoveEntity(this, from, to);
+    }
+
+    public MoveEntity makeMove(Square from, Square to, Piece promotion) {
+        return new MoveEntity(this, from, to, promotion);
     }
 }

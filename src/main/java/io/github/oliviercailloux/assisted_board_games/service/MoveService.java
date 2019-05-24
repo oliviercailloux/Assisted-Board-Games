@@ -1,6 +1,7 @@
-package io.github.oliviercailloux.assisted_board_games.game;
+package io.github.oliviercailloux.assisted_board_games.service;
 
-import javax.json.Json;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.json.JsonObject;
 
 import com.github.bhlangonijr.chesslib.Board;
@@ -9,27 +10,29 @@ import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
+import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
+import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
+
 /**
  * 
  * @author Megan Brassard
  * @author Theophile Dano
+ * @author Thais Piganeau
  *
  */
-public class ChessMove {
+@RequestScoped
+public class MoveService {
 
-    public static JsonObject encode(Move move) {
-        return Json.createObjectBuilder()
-                .add("from", move.getFrom().toString())
-                .add("to", move.getTo().toString())
-                .add("promotion", move.getPromotion().toString())
-                .build();
-    }
+    @Inject
+    ChessService chessService;
 
-    public static Move decode(JsonObject json) {
-        String from = json.getString("from");
-        String to = json.getString("to");
-        String promotion = json.getString("promotion");
-        return new Move(Square.valueOf(from), Square.valueOf(to), Piece.valueOf(promotion));
+    public MoveEntity decode(JsonObject json) {
+        Square from = Square.valueOf(json.getString("from"));
+        Square to = Square.valueOf(json.getString("to"));
+        Piece promotion = Piece.valueOf(json.getString("promotion"));
+        int gameId = json.getInt("gid");
+        GameEntity game = chessService.getGame(gameId);
+        return game.makeMove(from, to, promotion);
     }
 
     public static Move getMove(Board fromPosition, Board toPosition) throws MoveException {

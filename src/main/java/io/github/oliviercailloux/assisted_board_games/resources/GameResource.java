@@ -18,9 +18,9 @@ import javax.ws.rs.core.Response;
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
-import io.github.oliviercailloux.assisted_board_games.game.ChessMove;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
+import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
@@ -31,6 +31,8 @@ public class GameResource {
     private static final Logger LOGGER = Logger.getLogger(GameResource.class.getCanonicalName());
     @Inject
     ChessService chessService;
+    @Inject
+    MoveService chessMove;
 
     @POST
     @Path("new")
@@ -56,11 +58,9 @@ public class GameResource {
     @POST
     @Path("move/json")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addMove(@QueryParam("gid") int gameId, JsonObject jsonMove) {
+    public Response addMove(JsonObject jsonMove) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
-        final MoveEntity move = MoveEntity.fromMove(ChessMove.decode(jsonMove));
-        GameEntity game = chessService.getGame(gameId);
-        game.addMove(move);
+        final MoveEntity move = chessMove.decode(jsonMove);
         chessService.persist(move);
         return Response.ok().build();
     }

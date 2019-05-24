@@ -1,6 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
-import javax.persistence.Column;
+import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,80 +27,73 @@ import com.github.bhlangonijr.chesslib.move.Move;
         @NamedQuery(name = "Move.getLastMoveId", query = "SELECT MAX(c.id) FROM MoveEntity c WHERE c.game.id = :id"),
         @NamedQuery(name = "Move.getLastMove", query = "SELECT MAX(c.id) FROM MoveEntity c ")
 })
+@JsonbPropertyOrder({ "from", "to", "promotion", "game" })
 public class MoveEntity {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    @Column(name = "square_from")
-    private Square from;
-    @Column(name = "square_to")
-    private Square to;
-    private Piece promotion;
+    int id;
+    Square from;
+    Square to;
+    Piece promotion;
     @ManyToOne
-    private GameEntity game;
+    GameEntity game;
 
-    public MoveEntity() {
+    MoveEntity() {
         this(Square.NONE, Square.NONE, Piece.NONE);
     }
 
-    public MoveEntity(String from, String to) {
+    MoveEntity(GameEntity game) {
+        this();
+        this.game = game;
+    }
+
+    MoveEntity(String from, String to) {
         this(Square.valueOf(from), Square.valueOf(to));
     }
 
-    public MoveEntity(String from, String to, String promotion) {
+    MoveEntity(String from, String to, String promotion) {
         this(Square.valueOf(from), Square.valueOf(to), Piece.valueOf(promotion));
     }
 
-    public MoveEntity(Square from, Square to) {
+    MoveEntity(Square from, Square to) {
         this(from, to, Piece.NONE);
     }
 
-    public MoveEntity(Square from, Square to, Piece promotion) {
+    MoveEntity(Square from, Square to, Piece promotion) {
         this.from = from;
         this.to = to;
         this.promotion = promotion;
+    }
+
+    MoveEntity(GameEntity game, Square from, Square to) {
+        this(from, to);
+        this.game = game;
+    }
+
+    MoveEntity(GameEntity game, Square from, Square to, Piece promotion) {
+        this(from, to, promotion);
+        this.game = game;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Square getFrom() {
         return from;
-    }
-
-    public void setFrom(Square from) {
-        this.from = from;
     }
 
     public Square getTo() {
         return to;
     }
 
-    public void setTo(Square to) {
-        this.to = to;
-    }
-
     public Piece getPromotion() {
         return promotion;
     }
 
-    public void setPromotion(Piece promotion) {
-        this.promotion = promotion;
-    }
-
     public GameEntity getGame() {
         return game;
-    }
-
-    public void setGame(GameEntity game) {
-        this.game = game;
     }
 
     // Factory
