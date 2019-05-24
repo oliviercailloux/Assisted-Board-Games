@@ -30,7 +30,10 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 public class GameResource {
 
     private static final Logger LOGGER = Logger.getLogger(GameResource.class.getCanonicalName());
-    @Inject ChessService chessService;
+    @Inject
+    ChessService chessService;
+    @Inject
+    ChessMove chessMove;
 
     @GET
     @Path("new")
@@ -61,8 +64,7 @@ public class GameResource {
         LOGGER.info("Request POST on GameServlet : Adding a move to game :" + gameId + " with from = " + from
                         + " with to = " + to);
         GameEntity game = chessService.getGame(gameId);
-        MoveEntity move = new MoveEntity(from, to);
-        game.addMove(move);
+        MoveEntity move = game.makeMove(from, to);
         List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
         chessService.persist(move);
@@ -72,11 +74,9 @@ public class GameResource {
     @POST
     @Path("move/json")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addMove(@QueryParam("gid") int gameId, JsonObject jsonMove) {
+    public Response addMove(JsonObject jsonMove) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
-        final MoveEntity move = MoveEntity.fromMove(ChessMove.decode(jsonMove));
-        GameEntity game = chessService.getGame(gameId);
-        game.addMove(move);
+        final MoveEntity move = chessMove.decode(jsonMove);
         chessService.persist(move);
         return Response.ok().build();
     }

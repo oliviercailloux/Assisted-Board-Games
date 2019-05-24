@@ -45,6 +45,11 @@ public class MoveEntity {
         this(Square.NONE, Square.NONE, Piece.NONE);
     }
 
+    public MoveEntity(GameEntity game) {
+        this();
+        this.game = game;
+    }
+
     public MoveEntity(String from, String to) {
         this(Square.valueOf(from), Square.valueOf(to));
     }
@@ -61,6 +66,16 @@ public class MoveEntity {
         this.from = from;
         this.to = to;
         this.promotion = promotion;
+    }
+
+    public MoveEntity(GameEntity game, Square from, Square to) {
+        this(from, to);
+        this.game = game;
+    }
+
+    public MoveEntity(GameEntity game, Square from, Square to, Piece promotion) {
+        this(from, to, promotion);
+        this.game = game;
     }
 
     public int getId() {
@@ -81,16 +96,6 @@ public class MoveEntity {
 
     public GameEntity getGame() {
         return game;
-    }
-
-    /**
-     * Setter package visibility enables to set game in class GameEntity.java, but
-     * still allows user-level immutability.
-     * 
-     * @param game
-     */
-    void setGame(GameEntity game) {
-        this.game = game;
     }
 
     // Factory
