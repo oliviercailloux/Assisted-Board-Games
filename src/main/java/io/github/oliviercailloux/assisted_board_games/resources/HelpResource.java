@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -10,6 +9,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.move.Move;
@@ -32,14 +34,14 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 @RequestScoped
 public class HelpResource {
 
-    private static final Logger LOGGER = Logger.getLogger(HelpResource.class.getCanonicalName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(HelpResource.class);
     @Inject
     ChessService chessService;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String suggestMove(@QueryParam("gid") int gameId) throws MoveGeneratorException, MoveException {
-        LOGGER.info("Request GET on HelpServlet with state :" + gameId);
+        LOGGER.info("GET\t/help\tgid={}", gameId);
         GameEntity game = chessService.getGame(gameId);
         List<MoveEntity> moves = game.getMoves();
         Board board = GameHelper.playMoves(moves);
