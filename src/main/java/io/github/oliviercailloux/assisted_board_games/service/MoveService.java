@@ -27,7 +27,7 @@ public class MoveService {
     @Inject
     ChessService chessService;
 
-    public static JsonObject encode(MoveEntity move) {
+    public JsonObject encode(MoveEntity move) {
         return Json.createObjectBuilder()
                         .add("from", move.getFrom().toString())
                         .add("to", move.getTo().toString())
