@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,6 +13,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.move.MoveException;
@@ -28,7 +30,7 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 @RequestScoped
 public class GameResource {
 
-    private static final Logger LOGGER = Logger.getLogger(GameResource.class.getCanonicalName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameResource.class);
     @Inject
     ChessService chessService;
     @Inject
@@ -38,7 +40,7 @@ public class GameResource {
     @Path("new")
     @Produces(MediaType.TEXT_PLAIN)
     public String createGame() {
-        LOGGER.info("Request GET on GameServlet : Adding a new game");
+        LOGGER.info("POST\t/game/new");
         GameEntity game = new GameEntity();
         chessService.persist(game);
         return String.valueOf(game.getId());
@@ -48,7 +50,7 @@ public class GameResource {
     @Path("get")
     @Produces(MediaType.TEXT_PLAIN)
     public String getGame(@QueryParam("gid") int gameId) throws MoveException {
-        LOGGER.info("Request GET on GameServlet : Returning game :" + gameId);
+        LOGGER.info("GET\t/game/get\tgid={}", gameId);
         GameEntity game = chessService.getGame(gameId);
         List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
@@ -69,7 +71,7 @@ public class GameResource {
     @Path("moves")
     @Produces(MediaType.TEXT_PLAIN)
     public String getMoves(@QueryParam("gid") int gameId) {
-        LOGGER.info("Request GET on GameServlet : Returning moves for game :" + gameId);
+        LOGGER.info("GET\t/game/moves\tgid={}", gameId);
         List<MoveEntity> moves = chessService.getGame(gameId).getMoves();
         StringBuilder sb = new StringBuilder();
         for (MoveEntity move : moves) {
@@ -85,7 +87,7 @@ public class GameResource {
     @Path("moves/last")
     @Produces(MediaType.TEXT_PLAIN)
     public String getLastMove(@QueryParam("gid") int gameId) {
-        LOGGER.info("Request GET on GameServlet : Returning last move : for game :" + gameId);
+        LOGGER.info("GET\t/game/moves/last\tgid={}", gameId);
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
         return move.toString();
