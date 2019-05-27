@@ -9,6 +9,7 @@
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+			<!-- Allow use of column names that are SQL reserved words (from, select ...) -->
 			<property name="hibernate.globally_quoted_identifiers" value="true" />
 		</properties>
 	</persistence-unit>
