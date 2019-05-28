@@ -2,16 +2,12 @@ package io.github.oliviercailloux.assisted_board_games.service;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.json.JsonObject;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
-
-import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
-import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 
 /**
  * 
@@ -25,15 +21,6 @@ public class MoveService {
 
     @Inject
     ChessService chessService;
-
-    public MoveEntity decode(JsonObject json) {
-        Square from = Square.valueOf(json.getString("from"));
-        Square to = Square.valueOf(json.getString("to"));
-        Piece promotion = Piece.valueOf(json.getString("promotion"));
-        int gameId = json.getInt("gid");
-        GameEntity game = chessService.getGame(gameId);
-        return game.makeMove(from, to, promotion);
-    }
 
     public static Move getMove(Board fromPosition, Board toPosition) throws MoveException {
         Piece[] fromPieces = fromPosition.boardToArray();

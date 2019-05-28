@@ -44,15 +44,18 @@ var loadFen = function(fen) {
 /**
  * Forward moves to the server and update position afterwards.
  */
-var playMove = function(src, dst) {
+var playMove = function(src, dst, promotion) {
 	$.ajax({
 		url: 'http://localhost:8080/game/move',
 		type: 'POST',
-		data: {
-			gid: currentGameId,
-			from: src.toUpperCase(),
-			to: dst.toUpperCase()
-		},
+		contentType: 'application/json',
+		dataType: 'json',
+		data: JSON.stringify({
+			gameId: currentGameId,
+			from: src.toUpperCase() || "NONE",
+			to: dst.toUpperCase() || "NONE",
+			promotion: promotion || "NONE",
+		}),
 		crossDomain: true,
 	}).done(loadFen);
 };

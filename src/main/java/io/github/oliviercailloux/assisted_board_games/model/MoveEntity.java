@@ -39,41 +39,23 @@ public class MoveEntity {
     @ManyToOne
     GameEntity game;
 
-    MoveEntity() {
-        this(Square.NONE, Square.NONE, Piece.NONE);
+    public MoveEntity() {
+        from = Square.NONE;
+        to = Square.NONE;
+        promotion = Piece.NONE;
     }
 
-    MoveEntity(GameEntity game) {
+    public MoveEntity(GameEntity game) {
         this();
         this.game = game;
     }
 
-    MoveEntity(String from, String to) {
-        this(Square.valueOf(from), Square.valueOf(to));
-    }
-
-    MoveEntity(String from, String to, String promotion) {
-        this(Square.valueOf(from), Square.valueOf(to), Piece.valueOf(promotion));
-    }
-
-    MoveEntity(Square from, Square to) {
-        this(from, to, Piece.NONE);
-    }
-
-    MoveEntity(Square from, Square to, Piece promotion) {
-        this.from = from;
-        this.to = to;
-        this.promotion = promotion;
-    }
-
-    MoveEntity(GameEntity game, Square from, Square to) {
-        this(from, to);
+    public MoveEntity(GameEntity game, MoveDAO move) {
+        this();
         this.game = game;
-    }
-
-    MoveEntity(GameEntity game, Square from, Square to, Piece promotion) {
-        this(from, to, promotion);
-        this.game = game;
+        this.from = move.getFrom();
+        this.to = move.getTo();
+        this.promotion = move.getPromotion();
     }
 
     public int getId() {
@@ -94,11 +76,6 @@ public class MoveEntity {
 
     public GameEntity getGame() {
         return game;
-    }
-
-    // Factory
-    public static MoveEntity fromMove(Move move) {
-        return new MoveEntity(move.getFrom(), move.getTo(), move.getPromotion());
     }
 
     public static Move asMove(MoveEntity move) {
