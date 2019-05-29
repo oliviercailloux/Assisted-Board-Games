@@ -43,23 +43,11 @@ public class MoveDAO implements Serializable {
         return from;
     }
 
-    public void setFrom(Square from) {
-        this.from = from;
-    }
-
     public Square getTo() {
         return to;
     }
 
-    public void setTo(Square to) {
-        this.to = to;
-    }
-
     public Piece getPromotion() {
         return promotion;
-    }
-
-    public void setPromotion(Piece promotion) {
-        this.promotion = promotion;
     }
 }
