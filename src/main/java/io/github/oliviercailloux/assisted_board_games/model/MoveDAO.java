@@ -2,6 +2,8 @@ package io.github.oliviercailloux.assisted_board_games.model;
 
 import java.io.Serializable;
 
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import com.github.bhlangonijr.chesslib.Piece;
@@ -15,26 +17,26 @@ import com.github.bhlangonijr.chesslib.Square;
  * @author Theophile Dano
  *
  */
-@JsonbPropertyOrder({ "gameId", "from", "to", "promotion" })
+@JsonbPropertyOrder({ "from", "to", "promotion" })
 public class MoveDAO implements Serializable {
 
-    private int gameId;
     private Square from;
     private Square to;
     private Piece promotion;
 
-    public MoveDAO() {
-        this.from = Square.NONE;
-        this.to = Square.NONE;
-        this.promotion = Piece.NONE;
-    }
-
-    public int getGameId() {
-        return gameId;
-    }
-
-    public void setGameId(int gameId) {
-        this.gameId = gameId;
+    @JsonbCreator
+    public MoveDAO(@JsonbProperty("from") Square from,
+                    @JsonbProperty("to") Square to,
+                    @JsonbProperty("promotion") Piece promotion) {
+        if (from == Square.NONE) {
+            throw new IllegalArgumentException("from is NONE");
+        }
+        if (to == Square.NONE) {
+            throw new IllegalArgumentException("to is NONE");
+        }
+        this.from = from;
+        this.to = to;
+        this.promotion = promotion;
     }
 
     public Square getFrom() {

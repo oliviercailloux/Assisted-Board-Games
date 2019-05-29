@@ -5,9 +5,11 @@ import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -54,10 +56,11 @@ public class GameResource {
     }
 
     @POST
-    @Path("move")
-    public void addMove(MoveDAO move) {
+    @Path("{gameId}/move")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
-        GameEntity game = chessService.getGame(move.getGameId());
+        GameEntity game = chessService.getGame(gameId);
         MoveEntity moveEntity = new MoveEntity(game, move);
         chessService.persist(moveEntity);
     }

@@ -1,5 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
+import java.util.Objects;
+
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,14 +47,10 @@ public class MoveEntity {
         promotion = Piece.NONE;
     }
 
-    public MoveEntity(GameEntity game) {
-        this();
-        this.game = game;
-    }
-
     public MoveEntity(GameEntity game, MoveDAO move) {
         this();
-        this.game = game;
+        Objects.requireNonNull(move);
+        this.game = Objects.requireNonNull(game);
         this.from = move.getFrom();
         this.to = move.getTo();
         this.promotion = move.getPromotion();
