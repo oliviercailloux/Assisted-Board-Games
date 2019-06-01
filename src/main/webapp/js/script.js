@@ -46,7 +46,7 @@ var loadFen = function(fen) {
  */
 var playMove = function(src, dst, promotion) {
 	$.ajax({
-		url: 'http://localhost:8080/game/${currenGameId}/move',
+		url: `http://localhost:8080/game/${currentGameId}/move`,
 		type: 'POST',
 		contentType: 'application/json',
 		dataType: 'json',

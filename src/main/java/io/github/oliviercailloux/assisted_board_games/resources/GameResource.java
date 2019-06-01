@@ -61,7 +61,7 @@ public class GameResource {
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
         GameEntity game = chessService.getGame(gameId);
-        MoveEntity moveEntity = new MoveEntity(game, move);
+        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move);
         chessService.persist(moveEntity);
     }
 

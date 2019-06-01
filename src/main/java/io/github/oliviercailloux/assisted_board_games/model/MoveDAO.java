@@ -8,6 +8,7 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
+import com.google.common.base.Preconditions;
 
 /**
  * The purpose of this class is to serve as middleware between the MoveEntity
@@ -24,19 +25,19 @@ public class MoveDAO implements Serializable {
     private Square to;
     private Piece promotion;
 
-    @JsonbCreator
-    public MoveDAO(@JsonbProperty("from") Square from,
-                    @JsonbProperty("to") Square to,
-                    @JsonbProperty("promotion") Piece promotion) {
-        if (from == Square.NONE) {
-            throw new IllegalArgumentException("from is NONE");
-        }
-        if (to == Square.NONE) {
-            throw new IllegalArgumentException("to is NONE");
-        }
+    MoveDAO(Square from, Square to, Piece promotion) {
         this.from = from;
         this.to = to;
         this.promotion = promotion;
+    }
+
+    @JsonbCreator
+    public static MoveDAO createMoveDAO(@JsonbProperty("from") Square from,
+            @JsonbProperty("to") Square to,
+            @JsonbProperty("promotion") Piece promotion) {
+        Preconditions.checkArgument(from != null && from != Square.NONE);
+        Preconditions.checkArgument(to != null && to != Square.NONE);
+        return new MoveDAO(from, to, promotion);
     }
 
     public Square getFrom() {

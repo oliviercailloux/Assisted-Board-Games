@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
+import com.google.common.base.Preconditions;
 
 /***
  * 
@@ -41,19 +42,25 @@ public class MoveEntity {
     @ManyToOne
     GameEntity game;
 
-    public MoveEntity() {
+    MoveEntity() {
         from = Square.NONE;
         to = Square.NONE;
         promotion = Piece.NONE;
     }
 
-    public MoveEntity(GameEntity game, MoveDAO move) {
+    MoveEntity(GameEntity game, MoveDAO move) {
         this();
         Objects.requireNonNull(move);
         this.game = Objects.requireNonNull(game);
         this.from = move.getFrom();
         this.to = move.getTo();
         this.promotion = move.getPromotion();
+    }
+
+    public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move) {
+        Preconditions.checkArgument(game != null);
+        Preconditions.checkArgument(move != null);
+        return new MoveEntity(game, move);
     }
 
     public int getId() {
