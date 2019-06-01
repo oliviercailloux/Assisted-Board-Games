@@ -12,9 +12,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.github.bhlangonijr.chesslib.Piece;
-import com.github.bhlangonijr.chesslib.Square;
-
 /***
  * 
  * @author Delmas Douo Bougna
@@ -47,11 +44,7 @@ public class GameEntity {
         return moves.get(moves.size() - 1);
     }
 
-    public MoveEntity makeMove(Square from, Square to) {
-        return new MoveEntity(this, from, to);
-    }
-
-    public MoveEntity makeMove(Square from, Square to, Piece promotion) {
-        return new MoveEntity(this, from, to, promotion);
+    public void addMove(MoveEntity move) {
+        moves.add(move);
     }
 }

@@ -1,5 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
+import java.util.Objects;
+
 import javax.json.bind.annotation.JsonbPropertyOrder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import javax.persistence.Table;
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
+import com.google.common.base.Preconditions;
 
 /***
  * 
@@ -40,40 +43,24 @@ public class MoveEntity {
     GameEntity game;
 
     MoveEntity() {
-        this(Square.NONE, Square.NONE, Piece.NONE);
+        from = Square.NONE;
+        to = Square.NONE;
+        promotion = Piece.NONE;
     }
 
-    MoveEntity(GameEntity game) {
+    MoveEntity(GameEntity game, MoveDAO move) {
         this();
-        this.game = game;
+        Objects.requireNonNull(move);
+        this.game = Objects.requireNonNull(game);
+        this.from = move.getFrom();
+        this.to = move.getTo();
+        this.promotion = move.getPromotion();
     }
 
-    MoveEntity(String from, String to) {
-        this(Square.valueOf(from), Square.valueOf(to));
-    }
-
-    MoveEntity(String from, String to, String promotion) {
-        this(Square.valueOf(from), Square.valueOf(to), Piece.valueOf(promotion));
-    }
-
-    MoveEntity(Square from, Square to) {
-        this(from, to, Piece.NONE);
-    }
-
-    MoveEntity(Square from, Square to, Piece promotion) {
-        this.from = from;
-        this.to = to;
-        this.promotion = promotion;
-    }
-
-    MoveEntity(GameEntity game, Square from, Square to) {
-        this(from, to);
-        this.game = game;
-    }
-
-    MoveEntity(GameEntity game, Square from, Square to, Piece promotion) {
-        this(from, to, promotion);
-        this.game = game;
+    public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move) {
+        Preconditions.checkArgument(game != null);
+        Preconditions.checkArgument(move != null);
+        return new MoveEntity(game, move);
     }
 
     public int getId() {
@@ -94,11 +81,6 @@ public class MoveEntity {
 
     public GameEntity getGame() {
         return game;
-    }
-
-    // Factory
-    public static MoveEntity fromMove(Move move) {
-        return new MoveEntity(move.getFrom(), move.getTo(), move.getPromotion());
     }
 
     public static Move asMove(MoveEntity move) {

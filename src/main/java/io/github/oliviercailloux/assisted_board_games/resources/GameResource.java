@@ -4,15 +4,14 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +20,10 @@ import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
+import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
-import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
+import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("game")
@@ -58,13 +58,13 @@ public class GameResource {
     }
 
     @POST
-    @Path("move/json")
+    @Path("{gameId}/move")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addMove(JsonObject jsonMove) {
+    public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
-        final MoveEntity move = chessMove.decode(jsonMove);
-        chessService.persist(move);
-        return Response.ok().build();
+        GameEntity game = chessService.getGame(gameId);
+        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move);
+        chessService.persist(moveEntity);
     }
 
     @GET
