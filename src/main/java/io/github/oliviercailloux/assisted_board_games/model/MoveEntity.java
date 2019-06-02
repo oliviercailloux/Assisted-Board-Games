@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
+import java.time.LocalTime;
 import java.util.Objects;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
@@ -11,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
@@ -36,6 +39,8 @@ public class MoveEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+    @CreationTimestamp
+    LocalTime time;
     Square from;
     Square to;
     Piece promotion;
@@ -81,6 +86,10 @@ public class MoveEntity {
 
     public GameEntity getGame() {
         return game;
+    }
+
+    public LocalTime getTime() {
+        return time;
     }
 
     public static Move asMove(MoveEntity move) {
