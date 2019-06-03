@@ -49,11 +49,6 @@ public class ClockUtils {
                         .map(MoveEntity::getTime)
                         .collect(Collectors.toList());
         Duration timeLeft = game.getDuration();
-        if (moves.isEmpty()) {
-            // White is playing his first move
-            Duration timeElapsed = Duration.between(game.getStartTime(), LocalTime.now());
-            return timeLeft.minus(timeElapsed);
-        }
         if (moves.size() % 2 == 0) {
             // in this case, it is white turn and we need to add a virtual move time to get
             // the real clock time
