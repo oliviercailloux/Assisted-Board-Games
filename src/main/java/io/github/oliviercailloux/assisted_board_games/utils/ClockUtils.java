@@ -48,8 +48,8 @@ public class ClockUtils {
                 .collect(Collectors.toList());
         final Duration playedDuration = blackMoveDurations.stream().reduce(Duration.ZERO, Duration::plus);
         timeLeft = timeLeft.minus(playedDuration);
-        final Duration incrementDuration = game.getClockDuration().multipliedBy(blackMoveDurations.size());
-        timeLeft = timeLeft.minus(incrementDuration);
+        final Duration incrementDuration = game.getClockIncrement().multipliedBy(blackMoveDurations.size());
+        timeLeft = timeLeft.plus(incrementDuration);
         if (turnOf.test(moveDurations.size())) {
             final Duration currentMoveDuration = getCurrentMoveDuration(game);
             timeLeft = timeLeft.minus(currentMoveDuration);
