@@ -49,16 +49,16 @@ Déroulement en 3 itérations
 
 ==== Liste des PR
 
-#24 : Eliott et Thaïs
-#27 : Théophile et Thaïs
-#29 : Emilie et Eliott
-#34 : Eliott et Emilie
-#35 : Eliott et Emilie (abandonnée)
-#36 : Théophile et Thaïs
-#40 : Thaïs
-#37 : Eliott et Emilie
-#38 : Emilie et Eliott
-#39 : surtout Maryline, assistée par Théophile 
+- #24 : Eliott et Thaïs
+- #27 : Théophile et Thaïs
+- #29 : Emilie et Eliott
+- #34 : Eliott et Emilie
+- #35 : Eliott et Emilie (abandonnée)
+- #36 : Théophile et Thaïs
+- #40 : Thaïs
+- #37 : Eliott et Emilie
+- #38 : Emilie et Eliott
+- #39 : surtout Maryline, assistée par Théophile 
 
 == Specifications - Itération 3 - Chef de projet : Emilie
 
