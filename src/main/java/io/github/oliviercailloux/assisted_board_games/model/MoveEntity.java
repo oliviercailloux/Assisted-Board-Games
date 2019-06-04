@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
+import java.time.Duration;
 import java.util.Objects;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
@@ -36,6 +37,7 @@ public class MoveEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+    Duration duration;
     Square from;
     Square to;
     Piece promotion;
@@ -57,10 +59,22 @@ public class MoveEntity {
         this.promotion = move.getPromotion();
     }
 
+    MoveEntity(GameEntity game, MoveDAO move, Duration duration) {
+        this(game, move);
+        this.duration = duration;
+    }
+
     public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move) {
         Preconditions.checkArgument(game != null);
         Preconditions.checkArgument(move != null);
         return new MoveEntity(game, move);
+    }
+
+    public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move, Duration duration) {
+        Preconditions.checkArgument(game != null);
+        Preconditions.checkArgument(move != null);
+        Preconditions.checkArgument(duration != null);
+        return new MoveEntity(game, move, duration);
     }
 
     public int getId() {
@@ -81,6 +95,10 @@ public class MoveEntity {
 
     public GameEntity getGame() {
         return game;
+    }
+
+    public Duration getDuration() {
+        return duration;
     }
 
     public static Move asMove(MoveEntity move) {

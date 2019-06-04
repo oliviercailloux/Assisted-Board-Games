@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
+import java.time.Duration;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -17,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Board;
+import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
@@ -24,6 +26,7 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.service.MoveService;
+import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("game")
@@ -63,7 +66,8 @@ public class GameResource {
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
         GameEntity game = chessService.getGame(gameId);
-        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move);
+        final Duration duration = ClockUtils.getCurrentMoveDuration(game);
+        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
         chessService.persist(moveEntity);
     }
 
@@ -91,5 +95,21 @@ public class GameResource {
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
         return move.toString();
+    }
+
+    @GET
+    @Path("{gameId}/clock/black")
+    public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
+        LOGGER.info("GET game/{}/clock/black", gameId);
+        GameEntity game = chessService.getGame(gameId);
+        return ClockUtils.getRemainingTime(game, Side.BLACK);
+    }
+
+    @GET
+    @Path("{gameId}/clock/white")
+    public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
+        LOGGER.info("GET game/{}/clock/white", gameId);
+        GameEntity game = chessService.getGame(gameId);
+        return ClockUtils.getRemainingTime(game, Side.WHITE);
     }
 }

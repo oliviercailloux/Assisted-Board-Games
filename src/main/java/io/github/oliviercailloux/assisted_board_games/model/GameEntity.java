@@ -1,5 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 /***
  * 
@@ -29,11 +33,30 @@ public class GameEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+    @CreationTimestamp
+    Instant startTime;
+    /**
+     * Duration of the game for each side, by default 30 minutes.
+     */
+    Duration clockDuration;
+    /**
+     * Duration of the move increment, by default 10 seconds.
+     */
+    Duration clockIncrement;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
 
+    public GameEntity() {
+        clockDuration = Duration.ofSeconds(1800);
+        clockIncrement = Duration.ofSeconds(10);
+    }
+
     public int getId() {
         return id;
+    }
+
+    public Instant getStartTime() {
+        return startTime;
     }
 
     public List<MoveEntity> getMoves() {
@@ -44,7 +67,11 @@ public class GameEntity {
         return moves.get(moves.size() - 1);
     }
 
-    public void addMove(MoveEntity move) {
-        moves.add(move);
+    public Duration getClockDuration() {
+        return clockDuration;
+    }
+
+    public Duration getClockIncrement() {
+        return clockIncrement;
     }
 }
