@@ -17,7 +17,7 @@ Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représe
 Pour ce projet, on utilisera au maximum les librairies existantes, ainsi que les bonnes pratiques.
 Déroulement en 3 itérations
 
-== Specification - Itération 1
+== Specification - Itération 1 - Chef de projet : Théophile
 
 - *Tâche 1 : Migrer depuis J2E vers JPA/Hibernate, Jersey et Jetty*. Le but de cette tache est de rendre viable l'utilisation du projet quasiment tel quel. => Théophile Dano
 
@@ -27,7 +27,7 @@ Déroulement en 3 itérations
 
 - *Tâche 4 : Migration du front-end vers 2 libs adaptées*. L'objectif ici est de migrer depuis un plateau de jeu codé à la main et pauvre en fonctionnalités vers les bibliothèques chessboard.js et chess.js qui permettent de gérer de manière satisfaisante l'état d'une partie sur le navigateur tout en gardant la flexibilité de contacter le serveur. 
 
-== Specification - Itération 2
+== Specification - Itération 2 - Chef de projet : Thaïs
 
 - *Tâche 1 : Mise à jour des méthodes HTTP utilisées*
 
@@ -47,7 +47,20 @@ Déroulement en 3 itérations
 
 - *Tâche 9 : Ajouter des tests unitaires à GameResource* [retardé]
 
-== Sepcification - Itération 3
+==== Liste des PR
+
+#24 : Eliott et Thaïs
+#27 : Théophile et Thaïs
+#29 : Emilie et Eliott
+#34 : Eliott et Emilie
+#35 : Eliott et Emilie (abandonnée)
+#36 : Théophile et Thaïs
+#40 : Thaïs
+#37 : Eliott et Emilie
+#38 : Emilie et Eliott
+#39 : surtout Maryline, assistée par Théophile 
+
+== Specifications - Itération 3 - Chef de projet : Emilie
 
 - *Tâche 1 : Ajouter les fonctionnalités de l'itération 2 au frontend* (pas de Java)
 
