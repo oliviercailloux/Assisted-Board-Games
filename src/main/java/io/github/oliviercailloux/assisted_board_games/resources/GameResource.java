@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Board;
+import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
@@ -94,5 +95,21 @@ public class GameResource {
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
         return move.toString();
+    }
+
+    @GET
+    @Path("{gameId}/clock/black")
+    public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
+        LOGGER.info("GET clock/{}/black", gameId);
+        GameEntity game = chessService.getGame(gameId);
+        return ClockUtils.getRemainingTime(game, Side.BLACK);
+    }
+
+    @GET
+    @Path("{gameId}/clock/white")
+    public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
+        LOGGER.info("GET clock/{}/white", gameId);
+        GameEntity game = chessService.getGame(gameId);
+        return ClockUtils.getRemainingTime(game, Side.WHITE);
     }
 }
