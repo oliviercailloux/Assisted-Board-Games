@@ -1,6 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
-import java.time.Instant;
+import java.time.Duration;
 import java.util.Objects;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.CreationTimestamp;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
@@ -39,8 +37,7 @@ public class MoveEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    @CreationTimestamp
-    Instant time;
+    Duration duration;
     Square from;
     Square to;
     Piece promotion;
@@ -62,10 +59,22 @@ public class MoveEntity {
         this.promotion = move.getPromotion();
     }
 
+    MoveEntity(GameEntity game, MoveDAO move, Duration duration) {
+        this(game, move);
+        this.duration = duration;
+    }
+
     public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move) {
         Preconditions.checkArgument(game != null);
         Preconditions.checkArgument(move != null);
         return new MoveEntity(game, move);
+    }
+
+    public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move, Duration duration) {
+        Preconditions.checkArgument(game != null);
+        Preconditions.checkArgument(move != null);
+        Preconditions.checkArgument(duration != null);
+        return new MoveEntity(game, move, duration);
     }
 
     public int getId() {
@@ -88,8 +97,8 @@ public class MoveEntity {
         return game;
     }
 
-    public Instant getTime() {
-        return time;
+    public Duration getDuration() {
+        return duration;
     }
 
     public static Move asMove(MoveEntity move) {

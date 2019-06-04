@@ -11,6 +11,8 @@ import javax.ws.rs.PathParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.bhlangonijr.chesslib.Side;
+
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
@@ -28,7 +30,7 @@ public class ClockResource {
     public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET clock/{}/black", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return ClockUtils.getBlackRemainingDuration(game);
+        return ClockUtils.getRemainingTime(game, Side.BLACK);
     }
 
     @GET
@@ -36,6 +38,6 @@ public class ClockResource {
     public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET clock/{}/white", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return ClockUtils.getWhiteRemainingDuration(game);
+        return ClockUtils.getRemainingTime(game, Side.WHITE);
     }
 }

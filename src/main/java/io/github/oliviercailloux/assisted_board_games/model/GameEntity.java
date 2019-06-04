@@ -35,13 +35,13 @@ public class GameEntity {
     int id;
     @CreationTimestamp
     Instant startTime;
-    Duration duration;
+    Duration clockDuration;
     Duration clockIncrement;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
 
     public GameEntity() {
-        duration = Duration.ofSeconds(1800); // 30 mins
+        clockDuration = Duration.ofSeconds(1800); // 30 mins
         clockIncrement = Duration.ofSeconds(10); // 10s de bonus par coup joué
     }
 
@@ -61,12 +61,8 @@ public class GameEntity {
         return moves.get(moves.size() - 1);
     }
 
-    public void addMove(MoveEntity move) {
-        moves.add(move);
-    }
-
-    public Duration getDuration() {
-        return duration;
+    public Duration getClockDuration() {
+        return clockDuration;
     }
 
     public Duration getClockIncrement() {

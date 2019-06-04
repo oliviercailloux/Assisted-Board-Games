@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
+import java.time.Duration;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -24,6 +25,7 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.service.MoveService;
+import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("game")
@@ -63,7 +65,8 @@ public class GameResource {
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
         GameEntity game = chessService.getGame(gameId);
-        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move);
+        final Duration duration = ClockUtils.getCurrentMoveDuration(game);
+        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
         chessService.persist(moveEntity);
     }
 
