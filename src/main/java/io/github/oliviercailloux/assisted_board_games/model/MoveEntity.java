@@ -1,6 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
-import java.time.LocalTime;
+import java.time.Instant;
 import java.util.Objects;
 
 import javax.json.bind.annotation.JsonbPropertyOrder;
@@ -40,7 +40,7 @@ public class MoveEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     @CreationTimestamp
-    LocalTime time;
+    Instant time;
     Square from;
     Square to;
     Piece promotion;
@@ -88,7 +88,7 @@ public class MoveEntity {
         return game;
     }
 
-    public LocalTime getTime() {
+    public Instant getTime() {
         return time;
     }
 

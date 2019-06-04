@@ -1,7 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.model;
 
 import java.time.Duration;
-import java.time.LocalTime;
+import java.time.Instant;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -34,7 +34,7 @@ public class GameEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     @CreationTimestamp
-    LocalTime startTime;
+    Instant startTime;
     Duration duration;
     Duration clockIncrement;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
@@ -49,7 +49,7 @@ public class GameEntity {
         return id;
     }
 
-    public LocalTime getStartTime() {
+    public Instant getStartTime() {
         return startTime;
     }
 
