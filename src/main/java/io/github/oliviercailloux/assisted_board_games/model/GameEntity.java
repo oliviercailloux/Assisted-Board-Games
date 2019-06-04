@@ -35,14 +35,20 @@ public class GameEntity {
     int id;
     @CreationTimestamp
     Instant startTime;
+    /**
+     * Duration of the game for each side, by default 30 minutes.
+     */
     Duration clockDuration;
+    /**
+     * Duration of the move increment, by default 10 seconds.
+     */
     Duration clockIncrement;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
 
     public GameEntity() {
-        clockDuration = Duration.ofSeconds(1800); // 30 mins
-        clockIncrement = Duration.ofSeconds(10); // 10s de bonus par coup joué
+        clockDuration = Duration.ofSeconds(1800);
+        clockIncrement = Duration.ofSeconds(10);
     }
 
     public int getId() {
