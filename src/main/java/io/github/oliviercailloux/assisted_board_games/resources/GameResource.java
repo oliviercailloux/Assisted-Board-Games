@@ -100,7 +100,7 @@ public class GameResource {
     @GET
     @Path("{gameId}/clock/black")
     public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
-        LOGGER.info("GET clock/{}/black", gameId);
+        LOGGER.info("GET game/{}/clock/black", gameId);
         GameEntity game = chessService.getGame(gameId);
         return ClockUtils.getRemainingTime(game, Side.BLACK);
     }
@@ -108,7 +108,7 @@ public class GameResource {
     @GET
     @Path("{gameId}/clock/white")
     public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
-        LOGGER.info("GET clock/{}/white", gameId);
+        LOGGER.info("GET game/{}/clock/white", gameId);
         GameEntity game = chessService.getGame(gameId);
         return ClockUtils.getRemainingTime(game, Side.WHITE);
     }
