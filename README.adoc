@@ -41,8 +41,22 @@ Déroulement en 3 itérations
 
 - *Tâche 6 : Explorer les solutions pour l'horloge de la partie* (différents types d'horloges, représentation...)
 
-- *Tâche 7 : Migrer les endpoints en utilisant un prefix /v1*
+- *Tâche 7 : Migrer les endpoints en utilisant un prefix /v1* [retardé]
 
-- *Tâche 8 : Utiliser SLF4J et Logback à la place de JUL*
+- *Tâche 8 : Utiliser SLF4J et Logback à la place de JUL* 
 
-- *Tâche 9 : Ajouter des tests unitaires à GameResource*
+- *Tâche 9 : Ajouter des tests unitaires à GameResource* [retardé]
+
+== Sepcification - Itération 3
+
+- *Tâche 1 : Ajouter les fonctionnalités de l'itération 2 au frontend* (pas de Java)
+
+- *Tâche 2 : continuer la tâche 7 de l'itération 2*
+
+- *Tâche 3 : continuer la tâche 9 de l'itération 2*
+
+- *Tâche 4 : Explorer les solutions pour enregistrer des puzzles*
+
+- *Tâche 5 : Migrer vers des classes génériques GameState et PlayerState* (pour favoriser la réutilisabilité)
+
++ à déterminer
