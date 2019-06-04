@@ -64,11 +64,11 @@ Déroulement en 3 itérations
 
 - *Tâche 1 : Ajouter les fonctionnalités de l'itération 2 au frontend* (pas de Java)
 
-- *Tâche 2 : continuer la tâche 7 de l'itération 2*
+- *Tâche 2 : Migrer les endpoints avec le bon prefix api/v1*
 
-- *Tâche 3 : continuer la tâche 9 de l'itération 2*
+- *Tâche 3 : Continuer les tests d'intégration*
 
-- *Tâche 4 : Explorer les solutions pour enregistrer des puzzles*
+- *Tâche 4 : Explorer les solutions pour enregistrer des puzzles* (+ prof)
 
 - *Tâche 5 : Migrer vers des classes génériques GameState et PlayerState* (pour favoriser la réutilisabilité)
 
