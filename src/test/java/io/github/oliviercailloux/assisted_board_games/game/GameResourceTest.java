@@ -91,6 +91,32 @@ class GameResourceTest {
         assertEquals(204, response.getStatus());
     }
 
+    @Test
     void testGetMoves() {
+        final WebTarget createGame = target.path("game/new");
+        final Response createGameResponse = createGame
+                        .request(MediaType.TEXT_PLAIN)
+                        .post(Entity.text(""));
+        final int gameId = createGameResponse.readEntity(Integer.class);
+        final WebTarget getMoves = target.path("game/moves");
+        final Response response = getMoves
+                        .queryParam("gid", gameId)
+                        .request(MediaType.TEXT_PLAIN)
+                        .get();
+        assertEquals("", response.readEntity(String.class));
+    }
+
+    void testGetLastMove() {
+        final WebTarget createGame = target.path("game/new");
+        final Response createGameResponse = createGame
+                        .request(MediaType.TEXT_PLAIN)
+                        .post(Entity.text(""));
+        final int gameId = createGameResponse.readEntity(Integer.class);
+        final WebTarget getLastMove = target.path("game/moves");
+        final Response response = getLastMove
+                        .queryParam("gid", gameId)
+                        .request(MediaType.TEXT_PLAIN)
+                        .get();
+        assertEquals("", response.readEntity(String.class));
     }
 }
