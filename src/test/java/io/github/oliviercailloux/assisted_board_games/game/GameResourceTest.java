@@ -71,6 +71,17 @@ class GameResourceTest {
         assertEquals("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", response.readEntity(String.class));
     }
 
+    @Test
     void testAddMove() {
+        final WebTarget createGame = target.path("game/new");
+        final Response createGameResponse = createGame
+                        .request(MediaType.TEXT_PLAIN)
+                        .post(Entity.text(""));
+        final int gameId = createGameResponse.readEntity(Integer.class);
+        final WebTarget addMove = target.path("game/$" + gameId + "/move");
+        final Response response = addMove
+                        .request(MediaType.TEXT_PLAIN)
+                        .post(Entity.text(""));
+        assertEquals("", response.readEntity(String.class));
     }
 }
