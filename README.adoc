@@ -72,4 +72,6 @@ Déroulement en 3 itérations
 
 - *Tâche 5 : Migrer vers des classes génériques GameState et PlayerState* (pour favoriser la réutilisabilité)
 
+- *Tâche 6 : Déployer sur Heroku*
+
 + à déterminer
