@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.model.state;
 
 import java.util.EnumMap;
-import java.util.Map;
 
 import org.glassfish.jersey.internal.guava.Preconditions;
 
@@ -19,23 +18,24 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
  */
 public class GameState {
 
-    private EnumMap<Side, PlayerState> players;
+    private EnumMap<Side, PlayerState> playerStates;
     private Board board;
 
     private GameState(GameEntity game) {
-        players = new EnumMap<>(Side.class);
-        players.put(Side.WHITE, PlayerState.createPlayerState(game, Side.WHITE));
-        players.put(Side.BLACK, PlayerState.createPlayerState(game, Side.BLACK));
+        playerStates = new EnumMap<>(Side.class);
+        playerStates.put(Side.WHITE, PlayerState.createPlayerState(game, Side.WHITE));
+        playerStates.put(Side.BLACK, PlayerState.createPlayerState(game, Side.BLACK));
         try {
             board = GameHelper.playMoves(game.getMoves());
         } catch (MoveException e) {
             // this exception can't happen here since the moves were already validated upon
             // insertion
+            throw new AssertionError();
         }
     }
 
-    public Map<Side, PlayerState> getPlayers() {
-        return players;
+    public EnumMap<Side, PlayerState> getPlayers() {
+        return playerStates;
     }
 
     public Board getBoard() {
@@ -43,10 +43,10 @@ public class GameState {
     }
 
     public PlayerState getPlayer(Side side) {
-        return players.get(side);
+        return playerStates.get(side);
     }
 
-    public PlayerState getPlayerToMove() {
+    public PlayerState getCurrentPlayer() {
         return getPlayer(board.getSideToMove());
     }
 

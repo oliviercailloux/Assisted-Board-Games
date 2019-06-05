@@ -19,7 +19,7 @@ public class PlayerState {
     private Side side;
     private Duration clock;
 
-    PlayerState(Side side, Duration clock) {
+    private PlayerState(Side side, Duration clock) {
         this.side = side;
         this.clock = clock;
     }
@@ -33,8 +33,8 @@ public class PlayerState {
     }
 
     public static PlayerState createPlayerState(GameEntity game, Side side) {
-        Preconditions.checkArgument(game != null);
-        Preconditions.checkArgument(side != null);
+        Preconditions.checkNotNull(game);
+        Preconditions.checkNotNull(side);
         final Duration clock = ClockUtils.getRemainingTime(game, side);
         return new PlayerState(side, clock);
     }
