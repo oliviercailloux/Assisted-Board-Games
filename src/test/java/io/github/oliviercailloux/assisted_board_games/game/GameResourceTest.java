@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.game;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.net.URI;
 
@@ -50,8 +51,26 @@ class GameResourceTest {
     void testCreateGame() {
         final WebTarget createGame = target.path("game/new");
         final Response response = createGame
-                .request(MediaType.TEXT_PLAIN)
-                .post(Entity.text(""));
-        assertEquals("1", response.readEntity(String.class));
+                        .request(MediaType.TEXT_PLAIN)
+                        .post(Entity.text(""));
+        assertFalse(response.readEntity(String.class).isEmpty());
+    }
+
+    @Test
+    void testGetGame() {
+        final WebTarget createGame = target.path("game/new");
+        final Response createGameResponse = createGame
+                        .request(MediaType.TEXT_PLAIN)
+                        .post(Entity.text(""));
+        final int gameId = createGameResponse.readEntity(Integer.class);
+        final WebTarget getGame = target.path("game/get");
+        final Response response = getGame
+                        .queryParam("gid", gameId)
+                        .request(MediaType.TEXT_PLAIN)
+                        .get();
+        assertEquals("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", response.readEntity(String.class));
+    }
+
+    void testAddMove() {
     }
 }
