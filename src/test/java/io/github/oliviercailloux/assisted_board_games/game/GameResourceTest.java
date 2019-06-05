@@ -20,7 +20,11 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.bhlangonijr.chesslib.Piece;
+import com.github.bhlangonijr.chesslib.Square;
+
 import io.github.oliviercailloux.assisted_board_games.AppConfig;
+import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 
 class GameResourceTest {
 
@@ -78,10 +82,15 @@ class GameResourceTest {
                         .request(MediaType.TEXT_PLAIN)
                         .post(Entity.text(""));
         final int gameId = createGameResponse.readEntity(Integer.class);
-        final WebTarget addMove = target.path("game/$" + gameId + "/move");
+        final WebTarget addMove = target.path("game/" + gameId + "/move");
+        final MoveDAO move = new MoveDAO(Square.E2, Square.E4, Piece.NONE);
         final Response response = addMove
                         .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.text(""));
-        assertEquals("", response.readEntity(String.class));
+                        .post(Entity.json(move));
+        // Since the function returns void we check the status code of the request
+        assertEquals(204, response.getStatus());
+    }
+
+    void testGetMoves() {
     }
 }
