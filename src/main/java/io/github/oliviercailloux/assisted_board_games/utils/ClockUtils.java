@@ -35,7 +35,7 @@ public class ClockUtils {
         return Duration.between(lastMove, now);
     }
 
-    public static Duration getRemainingTime(GameEntity game, Side side) {
+    public static Duration getRemainingTime(GameEntity game, Side side, boolean withCurrentTurn) {
         final IntPredicate turnOf = i -> i % 2 == (side == Side.WHITE ? 0 : 1);
         Duration timeLeft = game.getClockDuration();
         final List<Duration> moveDurations = game.getMoves()
@@ -50,10 +50,14 @@ public class ClockUtils {
         timeLeft = timeLeft.minus(playedDuration);
         final Duration incrementDuration = game.getClockIncrement().multipliedBy(blackMoveDurations.size());
         timeLeft = timeLeft.plus(incrementDuration);
-        if (turnOf.test(moveDurations.size())) {
+        if (withCurrentTurn && turnOf.test(moveDurations.size())) {
             final Duration currentMoveDuration = getCurrentMoveDuration(game);
             timeLeft = timeLeft.minus(currentMoveDuration);
         }
         return timeLeft;
+    }
+
+    public static Duration getRemainingTime(GameEntity game, Side side) {
+        return getRemainingTime(game, side, false);
     }
 }
