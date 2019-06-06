@@ -26,7 +26,6 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.service.MoveService;
-import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("game")
@@ -66,7 +65,7 @@ public class GameResource {
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
         GameEntity game = chessService.getGame(gameId);
-        final Duration duration = ClockUtils.getCurrentMoveDuration(game);
+        final Duration duration = game.getCurrentMoveDuration();
         MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
         chessService.persist(moveEntity);
     }
@@ -102,7 +101,7 @@ public class GameResource {
     public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/clock/black", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return ClockUtils.getRemainingTime(game, Side.BLACK);
+        return game.getRemainingTime(Side.BLACK, true);
     }
 
     @GET
@@ -110,6 +109,6 @@ public class GameResource {
     public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/clock/white", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return ClockUtils.getRemainingTime(game, Side.WHITE);
+        return game.getRemainingTime(Side.WHITE, true);
     }
 }

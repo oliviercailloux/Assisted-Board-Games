@@ -3,6 +3,9 @@ package io.github.oliviercailloux.assisted_board_games.model;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.function.IntPredicate;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +18,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.github.bhlangonijr.chesslib.Board;
+import com.github.bhlangonijr.chesslib.Side;
+
+import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
+import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
+import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 /***
  * 
@@ -73,5 +83,62 @@ public class GameEntity {
 
     public Duration getClockIncrement() {
         return clockIncrement;
+    }
+
+    private Duration getGameDuration() {
+        return moves.stream()
+                .map(MoveEntity::getDuration)
+                .reduce(Duration.ZERO, Duration::plus);
+    }
+
+    public Duration getCurrentMoveDuration() {
+        final Instant now = Instant.now();
+        final Duration gameDuration = getGameDuration();
+        final Instant lastMove = startTime.plus(gameDuration);
+        return Duration.between(lastMove, now);
+    }
+
+    public Duration getRemainingTime(Side side, boolean withCurrentTurn) {
+        final IntPredicate turnOf = i -> i % 2 == (side == Side.WHITE ? 0 : 1);
+        Duration timeLeft = clockDuration;
+        final List<Duration> moveDurations = moves.stream()
+                .map(MoveEntity::getDuration)
+                .collect(Collectors.toList());
+        final List<Duration> blackMoveDurations = IntStream.range(0, moveDurations.size())
+                .filter(turnOf)
+                .mapToObj(moveDurations::get)
+                .collect(Collectors.toList());
+        final Duration playedDuration = blackMoveDurations.stream().reduce(Duration.ZERO, Duration::plus);
+        timeLeft = timeLeft.minus(playedDuration);
+        final Duration incrementDuration = clockIncrement.multipliedBy(blackMoveDurations.size());
+        timeLeft = timeLeft.plus(incrementDuration);
+        if (withCurrentTurn && turnOf.test(moveDurations.size())) {
+            final Duration currentMoveDuration = getCurrentMoveDuration();
+            timeLeft = timeLeft.minus(currentMoveDuration);
+        }
+        return timeLeft;
+    }
+
+    public Duration getRemainingTime(Side side) {
+        return getRemainingTime(side, false);
+    }
+
+    public GameState asGameState() {
+        final Board board;
+        try {
+            board = GameHelper.playMoves(moves);
+        } catch (Exception e) {
+            // this exception can't happen here since the moves were already validated upon
+            // insertion
+            throw new AssertionError("moves should have been validated");
+        }
+        final Duration gameDuration = getGameDuration();
+        final Instant whiteTimeAtTurnStart = startTime.plus(gameDuration);
+        final Duration whiteRemainingTime = getRemainingTime(Side.WHITE);
+        final PlayerState whitePlayer = PlayerState.of(Side.WHITE, whiteTimeAtTurnStart, whiteRemainingTime);
+        final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
+        final Duration blackRemainingTime = getRemainingTime(Side.BLACK);
+        final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
+        return GameState.of(board, whitePlayer, blackPlayer);
     }
 }

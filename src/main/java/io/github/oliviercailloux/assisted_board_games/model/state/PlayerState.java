@@ -1,15 +1,13 @@
 package io.github.oliviercailloux.assisted_board_games.model.state;
 
+import static java.util.Objects.requireNonNull;
+
 import java.time.Duration;
 import java.time.Instant;
 
-import org.glassfish.jersey.internal.guava.Preconditions;
 import org.jboss.weld.exceptions.IllegalArgumentException;
 
 import com.github.bhlangonijr.chesslib.Side;
-
-import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
-import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 
 /**
  * 
@@ -19,56 +17,55 @@ import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 public class PlayerState {
 
     private Side side;
-    private Instant turnStartTime;
-    private Duration turnStartClock;
+    private Instant timeAtTurnStart;
+    private Duration remainingTime;
 
     private PlayerState(Side side, Instant turnStartTime, Duration turnStartClock) {
         this.side = side;
-        this.turnStartTime = turnStartTime;
-        this.turnStartClock = turnStartClock;
+        this.timeAtTurnStart = turnStartTime;
+        this.remainingTime = turnStartClock;
     }
 
     public Side getSide() {
         return side;
     }
 
-    public Instant getTurnStartTime() {
-        return turnStartTime;
+    public Instant getTimeAtTurnStart() {
+        return timeAtTurnStart;
     }
 
-    public Duration getClockAtTurnStart() {
-        return turnStartClock;
+    public Duration getRemainingTime() {
+        return remainingTime;
     }
 
     /**
      * This method computes the effective remaining time available for the player at
-     * a given Instant. This Instant must be after the turn has started, otherwise
+     * the given Instant. This Instant must be after the turn has started, otherwise
      * an IllegalArgumentException is raised.
      * 
      * If the return value is below zero, then the given player has consumed all the
      * imparted time and has thus lost the game.
      * 
+     * @param instant must be after the turn has started
+     * 
      * @return The duration the player still has available for playing at the given
      *         instant.
      */
     public Duration getRemainingTimeAt(Instant instant) {
-        if (instant.isBefore(turnStartTime)) {
+        if (instant.isBefore(timeAtTurnStart)) {
             throw new IllegalArgumentException("instant cannot be before turn start");
         }
-        final Duration timeSpent = Duration.between(turnStartTime, instant);
-        return turnStartClock.minus(timeSpent);
+        final Duration timeSpent = Duration.between(timeAtTurnStart, instant);
+        return remainingTime.minus(timeSpent);
     }
 
     public boolean hasLostByTime(Instant instant) {
         return getRemainingTimeAt(instant).isNegative();
     }
 
-    public static PlayerState createPlayerState(GameEntity game, Side side) {
-        Preconditions.checkNotNull(game);
-        Preconditions.checkNotNull(side);
-        final Duration gameDuration = ClockUtils.getGameDuration(game);
-        final Instant turnStartTime = game.getStartTime().plus(gameDuration);
-        final Duration turnStartClock = ClockUtils.getRemainingTime(game, side);
+    public static PlayerState of(Side side, Instant turnStartTime, Duration turnStartClock) {
+        requireNonNull(turnStartTime);
+        requireNonNull(turnStartClock);
         return new PlayerState(side, turnStartTime, turnStartClock);
     }
 }

@@ -1,15 +1,11 @@
 package io.github.oliviercailloux.assisted_board_games.model.state;
 
-import java.util.EnumMap;
+import static java.util.Objects.requireNonNull;
 
-import org.glassfish.jersey.internal.guava.Preconditions;
+import java.util.EnumMap;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
-import com.github.bhlangonijr.chesslib.move.MoveException;
-
-import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
-import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 /**
  * 
@@ -21,17 +17,11 @@ public class GameState {
     private EnumMap<Side, PlayerState> playerStates;
     private Board board;
 
-    private GameState(GameEntity game) {
-        playerStates = new EnumMap<>(Side.class);
-        playerStates.put(Side.WHITE, PlayerState.createPlayerState(game, Side.WHITE));
-        playerStates.put(Side.BLACK, PlayerState.createPlayerState(game, Side.BLACK));
-        try {
-            board = GameHelper.playMoves(game.getMoves());
-        } catch (MoveException e) {
-            // this exception can't happen here since the moves were already validated upon
-            // insertion
-            throw new AssertionError();
-        }
+    private GameState(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
+        this.board = board;
+        this.playerStates = new EnumMap<>(Side.class);
+        playerStates.put(Side.WHITE, whitePlayer);
+        playerStates.put(Side.BLACK, blackPlayer);
     }
 
     public EnumMap<Side, PlayerState> getPlayers() {
@@ -50,8 +40,10 @@ public class GameState {
         return getPlayer(board.getSideToMove());
     }
 
-    public static GameState createGameState(GameEntity game) {
-        Preconditions.checkArgument(game != null);
-        return new GameState(game);
+    public static GameState of(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
+        requireNonNull(board);
+        requireNonNull(whitePlayer);
+        requireNonNull(blackPlayer);
+        return new GameState(board, whitePlayer, blackPlayer);
     }
 }
