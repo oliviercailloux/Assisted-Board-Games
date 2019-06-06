@@ -17,7 +17,13 @@ import com.github.bhlangonijr.chesslib.Side;
 public class PlayerState {
 
     private Side side;
+    /**
+     * The time at which the player's turn began.
+     */
     private Instant timeAtTurnStart;
+    /**
+     * The remaining time for the player to play the moment his turn began.
+     */
     private Duration remainingTime;
 
     private PlayerState(Side side, Instant turnStartTime, Duration turnStartClock) {
