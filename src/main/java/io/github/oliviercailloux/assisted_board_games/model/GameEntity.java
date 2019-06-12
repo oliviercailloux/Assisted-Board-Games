@@ -46,6 +46,10 @@ public class GameEntity {
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
 
+    public void addMove(MoveEntity move) {
+        moves.add(move);
+    }
+
     public GameEntity() {
         clockDuration = Duration.ofSeconds(1800);
         clockIncrement = Duration.ofSeconds(10);
