@@ -70,6 +70,7 @@ public class GameResource {
         GameEntity game = chessService.getGame(gameId);
         final Duration duration = game.getCurrentMoveDuration();
         MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
+        game.addMove(moveEntity);
         chessService.persist(moveEntity);
     }
 
