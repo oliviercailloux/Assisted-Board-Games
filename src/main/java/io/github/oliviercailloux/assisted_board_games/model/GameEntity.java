@@ -2,6 +2,7 @@ package io.github.oliviercailloux.assisted_board_games.model;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
@@ -140,5 +141,20 @@ public class GameEntity {
         final Duration blackRemainingTime = getRemainingTime(Side.BLACK);
         final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
         return GameState.of(board, whitePlayer, blackPlayer);
+    }
+
+    public List<PlayerState> getPlayerStateList() {
+        final List<PlayerState> playerStates = new ArrayList<>();
+        Instant time = startTime;
+        Duration[] remainingTimes = new Duration[] { clockDuration, clockDuration };
+        for (int i = 0; i < moves.size(); i++) {
+            MoveEntity move = moves.get(i);
+            Side side = i % 2 == 0 ? Side.WHITE : Side.BLACK;
+            playerStates.add(PlayerState.of(side, time, remainingTimes[i % 2]));
+            remainingTimes[i % 2] = remainingTimes[i % 2].minus(move.getDuration());
+            remainingTimes[i % 2] = remainingTimes[i % 2].plus(clockIncrement);
+            time = time.plus(move.getDuration());
+        }
+        return playerStates;
     }
 }
