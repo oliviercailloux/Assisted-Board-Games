@@ -100,6 +100,19 @@ public class GameEntity {
     }
 
     public Duration getRemainingTime(Side side, boolean withCurrentTurn) {
+        GameState gameState = asGameState();
+        PlayerState playerState = gameState.getPlayer(side);
+        if (withCurrentTurn) {
+            return playerState.getRemainingTimeAt(Instant.now());
+        }
+        return playerState.getRemainingTime();
+    }
+
+    public Duration getRemainingTime(Side side) {
+        return getRemainingTime(side, false);
+    }
+
+    private Duration computeRemainingTime(Side side) {
         final IntPredicate turnOf = i -> i % 2 == (side == Side.WHITE ? 0 : 1);
         Duration timeLeft = clockDuration;
         final List<Duration> moveDurations = moves.stream()
@@ -113,15 +126,7 @@ public class GameEntity {
         timeLeft = timeLeft.minus(playedDuration);
         final Duration incrementDuration = clockIncrement.multipliedBy(blackMoveDurations.size());
         timeLeft = timeLeft.plus(incrementDuration);
-        if (withCurrentTurn && turnOf.test(moveDurations.size())) {
-            final Duration currentMoveDuration = getCurrentMoveDuration();
-            timeLeft = timeLeft.minus(currentMoveDuration);
-        }
         return timeLeft;
-    }
-
-    public Duration getRemainingTime(Side side) {
-        return getRemainingTime(side, false);
     }
 
     public GameState asGameState() {
@@ -135,10 +140,10 @@ public class GameEntity {
         }
         final Duration gameDuration = getGameDuration();
         final Instant whiteTimeAtTurnStart = startTime.plus(gameDuration);
-        final Duration whiteRemainingTime = getRemainingTime(Side.WHITE);
+        final Duration whiteRemainingTime = computeRemainingTime(Side.WHITE);
         final PlayerState whitePlayer = PlayerState.of(Side.WHITE, whiteTimeAtTurnStart, whiteRemainingTime);
         final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
-        final Duration blackRemainingTime = getRemainingTime(Side.BLACK);
+        final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
         final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
         return GameState.of(board, whitePlayer, blackPlayer);
     }
