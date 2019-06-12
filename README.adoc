@@ -74,4 +74,6 @@ Déroulement en 3 itérations
 
 - *Tâche 6 : Déployer sur Heroku*
 
-+ à déterminer
+- *Tâche 7 : Restaurer* `GameEntity#addMove`
+
+
