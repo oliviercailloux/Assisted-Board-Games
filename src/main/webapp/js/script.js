@@ -8,7 +8,7 @@ var currentGameId;
  */
 var newGame = function() {
 	$.ajax({
-		url: 'http://localhost:8080/game/new',
+		url: 'http://localhost:8080/api/v1/game/new',
 		type: 'POST',
 		crossDomain: true,
 	}).done(loadGame);
@@ -28,7 +28,7 @@ var loadGame = function(gameId) {
 		}
 	}
 	$.ajax({
-		url: 'http://localhost:8080/game/get?gid=' + gameId,
+		url: 'http://localhost:8080/api/v1/game/get?gid=' + gameId,
 		crossDomain: true,
 	}).done(loadFen);
 	currentGameId = gameId;
@@ -46,7 +46,7 @@ var loadFen = function(fen) {
  */
 var playMove = function(src, dst, promotion) {
 	$.ajax({
-		url: `http://localhost:8080/game/${currentGameId}/move`,
+		url: `http://localhost:8080/api/v1/game/${currentGameId}/move`,
 		type: 'POST',
 		contentType: 'application/json',
 		dataType: 'json',

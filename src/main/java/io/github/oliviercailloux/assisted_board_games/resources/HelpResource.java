@@ -30,7 +30,7 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
  * @author Megan Brassard
  *
  */
-@Path("/help")
+@Path("api/v1/help")
 @RequestScoped
 public class HelpResource {
 
