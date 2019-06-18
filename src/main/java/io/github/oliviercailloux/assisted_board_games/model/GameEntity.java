@@ -65,6 +65,7 @@ public class GameEntity {
     public GameEntity() {
         clockDuration = Duration.ofSeconds(1800);
         clockIncrement = Duration.ofSeconds(10);
+        moves = new ArrayList<>(); // avoid NPE in tests
     }
 
     public int getId() {
