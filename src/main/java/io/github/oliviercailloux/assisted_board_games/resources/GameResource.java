@@ -29,7 +29,7 @@ import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
-@Path("game")
+@Path("api/v1/game")
 @RequestScoped
 public class GameResource {
 
