@@ -18,13 +18,16 @@ public class GameState {
     private Board board;
 
     private GameState(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
+        requireNonNull(board);
+        requireNonNull(whitePlayer);
+        requireNonNull(blackPlayer);
         this.board = board;
         this.playerStates = new EnumMap<>(Side.class);
         playerStates.put(Side.WHITE, whitePlayer);
         playerStates.put(Side.BLACK, blackPlayer);
     }
 
-    public EnumMap<Side, PlayerState> getPlayers() {
+    public EnumMap<Side, PlayerState> getPlayerStates() {
         return playerStates;
     }
 
@@ -32,18 +35,15 @@ public class GameState {
         return board;
     }
 
-    public PlayerState getPlayer(Side side) {
+    public PlayerState getPlayerState(Side side) {
         return playerStates.get(side);
     }
 
-    public PlayerState getCurrentPlayer() {
-        return getPlayer(board.getSideToMove());
+    public PlayerState getCurrentPlayerState() {
+        return getPlayerState(board.getSideToMove());
     }
 
     public static GameState of(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
-        requireNonNull(board);
-        requireNonNull(whitePlayer);
-        requireNonNull(blackPlayer);
         return new GameState(board, whitePlayer, blackPlayer);
     }
 }

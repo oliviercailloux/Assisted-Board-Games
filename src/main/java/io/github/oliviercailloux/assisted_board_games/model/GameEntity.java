@@ -22,6 +22,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
+import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
 import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
@@ -100,8 +101,8 @@ public class GameEntity {
     }
 
     public Duration getRemainingTime(Side side, boolean withCurrentTurn) {
-        GameState gameState = asGameState();
-        PlayerState playerState = gameState.getPlayer(side);
+        GameState gameState = getGameState();
+        PlayerState playerState = gameState.getPlayerState(side);
         if (withCurrentTurn) {
             return playerState.getRemainingTimeAt(Instant.now());
         }
@@ -129,11 +130,11 @@ public class GameEntity {
         return timeLeft;
     }
 
-    public GameState asGameState() {
+    public GameState getGameState() {
         final Board board;
         try {
             board = GameHelper.playMoves(moves);
-        } catch (Exception e) {
+        } catch (MoveException e) {
             // this exception can't happen here since the moves were already validated upon
             // insertion
             throw new AssertionError("moves should have been validated");
