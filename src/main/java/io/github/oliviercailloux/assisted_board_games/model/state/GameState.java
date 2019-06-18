@@ -35,6 +35,10 @@ public class GameState {
         return board;
     }
 
+    public boolean isSideToMove(Side side) {
+        return side == board.getSideToMove();
+    }
+
     public PlayerState getPlayerState(Side side) {
         return playerStates.get(side);
     }

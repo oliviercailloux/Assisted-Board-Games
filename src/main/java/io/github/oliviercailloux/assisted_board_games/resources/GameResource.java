@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -24,6 +25,8 @@ import com.github.bhlangonijr.chesslib.move.MoveException;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
+import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
+import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
@@ -101,7 +104,12 @@ public class GameResource {
     public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/clock/black", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return game.getRemainingTime(Side.BLACK, true);
+        GameState gameState = game.getGameState();
+        PlayerState playerState = gameState.getPlayerState(Side.BLACK);
+        if (gameState.isSideToMove(Side.BLACK)) {
+            return playerState.getRemainingTimeAt(Instant.now());
+        }
+        return playerState.getRemainingTime();
     }
 
     @GET
@@ -109,6 +117,11 @@ public class GameResource {
     public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/clock/white", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return game.getRemainingTime(Side.WHITE, true);
+        GameState gameState = game.getGameState();
+        PlayerState playerState = gameState.getPlayerState(Side.WHITE);
+        if (gameState.isSideToMove(Side.WHITE)) {
+            return playerState.getRemainingTimeAt(Instant.now());
+        }
+        return playerState.getRemainingTime();
     }
 }
