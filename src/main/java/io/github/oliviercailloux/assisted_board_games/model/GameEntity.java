@@ -76,6 +76,10 @@ public class GameEntity {
         return startTime;
     }
 
+    void setStartTime(Instant startTime) {
+        this.startTime = startTime;
+    }
+
     public List<MoveEntity> getMoves() {
         return moves;
     }
@@ -86,6 +90,10 @@ public class GameEntity {
 
     public Duration getClockDuration() {
         return clockDuration;
+    }
+
+    void setClockDuration(Duration clockDuration) {
+        this.clockDuration = clockDuration;
     }
 
     public Duration getClockIncrement() {
