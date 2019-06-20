@@ -55,8 +55,8 @@ class GameResourceTest {
     void testCreateGame() {
         final WebTarget createGame = target.path("game/new");
         final Response response = createGame
-                        .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.text(""));
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.text(""));
         assertFalse(response.readEntity(String.class).isEmpty());
     }
 
@@ -64,14 +64,14 @@ class GameResourceTest {
     void testGetGame() {
         final WebTarget createGame = target.path("game/new");
         final Response createGameResponse = createGame
-                        .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.text(""));
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.text(""));
         final int gameId = createGameResponse.readEntity(Integer.class);
         final WebTarget getGame = target.path("game/get");
         final Response response = getGame
-                        .queryParam("gid", gameId)
-                        .request(MediaType.TEXT_PLAIN)
-                        .get();
+                .queryParam("gid", gameId)
+                .request(MediaType.TEXT_PLAIN)
+                .get();
         assertEquals("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", response.readEntity(String.class));
     }
 
@@ -79,14 +79,14 @@ class GameResourceTest {
     void testAddMove() {
         final WebTarget createGame = target.path("game/new");
         final Response createGameResponse = createGame
-                        .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.text(""));
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.text(""));
         final int gameId = createGameResponse.readEntity(Integer.class);
         final WebTarget addMove = target.path("game/" + gameId + "/move");
         final MoveDAO move = new MoveDAO(Square.E2, Square.E4, Piece.NONE);
         final Response response = addMove
-                        .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.json(move));
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.json(move));
         // Since the function returns void we check the status code of the request
         assertEquals(204, response.getStatus());
     }
@@ -95,28 +95,29 @@ class GameResourceTest {
     void testGetMoves() {
         final WebTarget createGame = target.path("game/new");
         final Response createGameResponse = createGame
-                        .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.text(""));
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.text(""));
         final int gameId = createGameResponse.readEntity(Integer.class);
         final WebTarget getMoves = target.path("game/moves");
         final Response response = getMoves
-                        .queryParam("gid", gameId)
-                        .request(MediaType.TEXT_PLAIN)
-                        .get();
+                .queryParam("gid", gameId)
+                .request(MediaType.TEXT_PLAIN)
+                .get();
         assertEquals("", response.readEntity(String.class));
     }
 
+    @Test
     void testGetLastMove() {
         final WebTarget createGame = target.path("game/new");
         final Response createGameResponse = createGame
-                        .request(MediaType.TEXT_PLAIN)
-                        .post(Entity.text(""));
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.text(""));
         final int gameId = createGameResponse.readEntity(Integer.class);
         final WebTarget getLastMove = target.path("game/moves");
         final Response response = getLastMove
-                        .queryParam("gid", gameId)
-                        .request(MediaType.TEXT_PLAIN)
-                        .get();
+                .queryParam("gid", gameId)
+                .request(MediaType.TEXT_PLAIN)
+                .get();
         assertEquals("", response.readEntity(String.class));
     }
 }
