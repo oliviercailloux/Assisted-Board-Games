@@ -19,11 +19,13 @@ import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
  */
 class GameStateTest {
 
+    private static final Duration DEFAULT_CLOCK_DURATION = Duration.ofMinutes(30);
+
     @Test
     void testGameStateCreation() {
         GameEntity gameEntity = new GameEntity();
         gameEntity.setStartTime(Instant.now());
-        gameEntity.setClockDuration(Duration.ofMinutes(30));
+        gameEntity.setClockDuration(DEFAULT_CLOCK_DURATION);
         GameState gameState = gameEntity.getGameState();
         PlayerState white = gameState.getPlayerState(Side.WHITE);
         assertEquals(gameEntity.getClockDuration(), white.getRemainingTime());
