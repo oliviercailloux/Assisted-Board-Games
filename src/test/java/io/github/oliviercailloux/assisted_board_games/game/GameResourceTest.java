@@ -83,7 +83,7 @@ class GameResourceTest {
                 .post(Entity.text(""));
         final int gameId = createGameResponse.readEntity(Integer.class);
         final WebTarget addMove = target.path("game/" + gameId + "/move");
-        final MoveDAO move = new MoveDAO(Square.E2, Square.E4, Piece.NONE);
+        final MoveDAO move = MoveDAO.createMoveDAO(Square.E2, Square.E4, Piece.NONE);
         final Response response = addMove
                 .request(MediaType.TEXT_PLAIN)
                 .post(Entity.json(move));
