@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -24,9 +25,10 @@ import com.github.bhlangonijr.chesslib.move.MoveException;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
+import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
+import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
 import io.github.oliviercailloux.assisted_board_games.service.MoveService;
-import io.github.oliviercailloux.assisted_board_games.utils.ClockUtils;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("api/v1/game")
@@ -66,7 +68,7 @@ public class GameResource {
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("Request POST on StateServlet : Adding a move");
         GameEntity game = chessService.getGame(gameId);
-        final Duration duration = ClockUtils.getCurrentMoveDuration(game);
+        final Duration duration = game.getCurrentMoveDuration();
         MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
         game.addMove(moveEntity);
         chessService.persist(moveEntity);
@@ -103,7 +105,12 @@ public class GameResource {
     public Duration getBlackRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/clock/black", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return ClockUtils.getRemainingTime(game, Side.BLACK);
+        GameState gameState = game.getGameState();
+        PlayerState playerState = gameState.getPlayerState(Side.BLACK);
+        if (gameState.isSideToMove(Side.BLACK)) {
+            return playerState.getRemainingTimeAt(Instant.now());
+        }
+        return playerState.getRemainingTime();
     }
 
     @GET
@@ -111,6 +118,11 @@ public class GameResource {
     public Duration getWhiteRemainingTime(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/clock/white", gameId);
         GameEntity game = chessService.getGame(gameId);
-        return ClockUtils.getRemainingTime(game, Side.WHITE);
+        GameState gameState = game.getGameState();
+        PlayerState playerState = gameState.getPlayerState(Side.WHITE);
+        if (gameState.isSideToMove(Side.WHITE)) {
+            return playerState.getRemainingTimeAt(Instant.now());
+        }
+        return playerState.getRemainingTime();
     }
 }
