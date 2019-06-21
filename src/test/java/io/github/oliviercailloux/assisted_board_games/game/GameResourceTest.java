@@ -24,6 +24,7 @@ import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 
 import io.github.oliviercailloux.assisted_board_games.AppConfig;
+import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 
 class GameResourceTest {
@@ -72,7 +73,7 @@ class GameResourceTest {
                 .queryParam("gid", gameId)
                 .request(MediaType.TEXT_PLAIN)
                 .get();
-        assertEquals("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", response.readEntity(String.class));
+        assertEquals(GameEntity.STARTING_FEN_POSITION, response.readEntity(String.class));
     }
 
     @Test
