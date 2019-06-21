@@ -79,3 +79,12 @@ Déroulement en 3 itérations
 - *Tâche 8 : Corriger l'utilisation du constructeur MoveDAO*
 
 - *Tâche 9 : Mutualiser PuzzleMoveEntity et MoveEntity*
+
+
+==== Liste des PR
+
+- Emilie: #41 #46 #37 #38 #52
+- Eliott: #48 #51 #49 #50
+- Thaïs: #48 #51 #49 #50
+- Théophile: #47 #42 #53
+- Maryline: #47 #42 #53
