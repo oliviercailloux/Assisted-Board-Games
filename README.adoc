@@ -85,3 +85,14 @@ Déroulement en 3 itérations
 - Thaïs: #48 #51 #49 #50
 - Théophile: #47 #42 #53
 - Maryline: #47 #42 #53
+
+== Specification - Itération 4 - Chef de projet : Eliott
+
+- *Tâche 1 : Ajouter la logique des puzzles discutée*
+
+- *Tâche 2 : Fixer les tests avec le mauvais prefix api*
+
+- *Tâche 3 : Travis CI*
+
+- *Tâche 4 : Deploiement avec Heroku* (tâche reconduite)
+
