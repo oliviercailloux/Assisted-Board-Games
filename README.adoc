@@ -96,3 +96,8 @@ Déroulement en 3 itérations
 
 - *Tâche 4 : Deploiement avec Heroku* (tâche reconduite)
 
+- *Tâche 5 : Documentation*
+
+- *Tâche 6 : Ajouter des parties via PGN/FEN directement en base*
+
+- *Tâche 7 : Supprimer les ressources inutiles dans test*
