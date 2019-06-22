@@ -13,7 +13,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
@@ -47,17 +46,17 @@ public class GameResource {
     @Path("new")
     @Produces(MediaType.TEXT_PLAIN)
     public String createGame() {
-        LOGGER.info("POST\t/game/new");
+        LOGGER.info("POST game/new");
         GameEntity game = new GameEntity();
         chessService.persist(game);
         return String.valueOf(game.getId());
     }
 
     @GET
-    @Path("get")
+    @Path("{gameId}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getGame(@QueryParam("gid") int gameId) throws MoveException {
-        LOGGER.info("GET\t/game/get\tgid={}", gameId);
+    public String getGame(@PathParam("gameId") int gameId) throws MoveException {
+        LOGGER.info("GET game/{}", gameId);
         GameEntity game = chessService.getGame(gameId);
         List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(moves);
@@ -68,7 +67,7 @@ public class GameResource {
     @Path("{gameId}/move")
     @Consumes(MediaType.APPLICATION_JSON)
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
-        LOGGER.info("Request POST on StateServlet : Adding a move");
+        LOGGER.info("POST game/{}/move", gameId);
         GameEntity game = chessService.getGame(gameId);
         final Duration duration = game.getCurrentMoveDuration();
         MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
@@ -80,7 +79,7 @@ public class GameResource {
     @Path("{gameId}/moves")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Move> getMoves(@PathParam("gameId") int gameId) {
-        LOGGER.info("GET\t/game/moves\tgid={}", gameId);
+        LOGGER.info("GET game/{}/moves", gameId);
         return chessService.getGame(gameId)
                 .getMoves()
                 .stream()
@@ -89,10 +88,10 @@ public class GameResource {
     }
 
     @GET
-    @Path("moves/last")
+    @Path("{gameId}/moves/last")
     @Produces(MediaType.TEXT_PLAIN)
-    public Move getLastMove(@QueryParam("gid") int gameId) {
-        LOGGER.info("GET\t/game/moves/last\tgid={}", gameId);
+    public Move getLastMove(@PathParam("gameId") int gameId) {
+        LOGGER.info("GET game/{}/moves/last", gameId);
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
         return MoveEntity.asMove(move);
