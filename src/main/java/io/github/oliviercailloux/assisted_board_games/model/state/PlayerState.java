@@ -27,6 +27,8 @@ public class PlayerState {
     private Duration remainingTime;
 
     private PlayerState(Side side, Instant turnStartTime, Duration turnStartClock) {
+        requireNonNull(turnStartTime);
+        requireNonNull(turnStartClock);
         this.side = side;
         this.timeAtTurnStart = turnStartTime;
         this.remainingTime = turnStartClock;
@@ -70,12 +72,10 @@ public class PlayerState {
     }
 
     public static PlayerState of(Side side, Instant turnStartTime, Duration turnStartClock) {
-        requireNonNull(turnStartTime);
-        requireNonNull(turnStartClock);
         return new PlayerState(side, turnStartTime, turnStartClock);
     }
 
     public static PlayerState of(Side side) {
-        return new PlayerState(side, null, null);
+        return new PlayerState(side, Instant.EPOCH, Duration.ofSeconds(Long.MAX_VALUE));
     }
 }
