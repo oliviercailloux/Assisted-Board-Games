@@ -67,10 +67,9 @@ class GameResourceTest {
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
                 .post(Entity.text(""));
-        final int gameId = createGameResponse.readEntity(Integer.class);
-        final WebTarget getGame = target.path("api/v1/game/get");
+        final String gameId = createGameResponse.readEntity(String.class);
+        final WebTarget getGame = target.path("api/v1/game").path(gameId);
         final Response response = getGame
-                .queryParam("gid", gameId)
                 .request(MediaType.TEXT_PLAIN)
                 .get();
         assertEquals(GameEntity.STARTING_FEN_POSITION, response.readEntity(String.class));
@@ -82,8 +81,10 @@ class GameResourceTest {
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
                 .post(Entity.text(""));
-        final int gameId = createGameResponse.readEntity(Integer.class);
-        final WebTarget addMove = target.path("api/v1/game/" + gameId + "/move");
+        final String gameId = createGameResponse.readEntity(String.class);
+        final WebTarget addMove = target.path("api/v1/game")
+                .path(gameId)
+                .path("move");
         final MoveDAO move = MoveDAO.createMoveDAO(Square.E2, Square.E4, Piece.NONE);
         final Response response = addMove
                 .request(MediaType.TEXT_PLAIN)
@@ -98,10 +99,11 @@ class GameResourceTest {
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
                 .post(Entity.text(""));
-        final int gameId = createGameResponse.readEntity(Integer.class);
-        final WebTarget getMoves = target.path("api/v1/game/moves");
+        final String gameId = createGameResponse.readEntity(String.class);
+        final WebTarget getMoves = target.path("api/v1/game")
+                .path(gameId)
+                .path("/moves");
         final Response response = getMoves
-                .queryParam("gid", gameId)
                 .request(MediaType.TEXT_PLAIN)
                 .get();
         assertEquals("", response.readEntity(String.class));
@@ -113,10 +115,11 @@ class GameResourceTest {
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
                 .post(Entity.text(""));
-        final int gameId = createGameResponse.readEntity(Integer.class);
-        final WebTarget getLastMove = target.path("api/v1/game/moves");
+        final String gameId = createGameResponse.readEntity(String.class);
+        final WebTarget getLastMove = target.path("api/v1/game")
+                .path(gameId)
+                .path("moves");
         final Response response = getLastMove
-                .queryParam("gid", gameId)
                 .request(MediaType.TEXT_PLAIN)
                 .get();
         assertEquals("", response.readEntity(String.class));
