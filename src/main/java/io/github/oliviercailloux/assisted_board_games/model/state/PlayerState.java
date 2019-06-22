@@ -74,4 +74,8 @@ public class PlayerState {
         requireNonNull(turnStartClock);
         return new PlayerState(side, turnStartTime, turnStartClock);
     }
+
+    public static PlayerState of(Side side) {
+        return new PlayerState(side, null, null);
+    }
 }
