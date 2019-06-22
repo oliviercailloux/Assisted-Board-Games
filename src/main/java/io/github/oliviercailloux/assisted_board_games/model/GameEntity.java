@@ -74,6 +74,13 @@ public class GameEntity {
         startPosition = STARTING_FEN_POSITION;
     }
 
+    public GameEntity(GameState gameState) {
+        this();
+        final Board board = gameState.getBoard();
+        this.startPosition = board.getFen();
+        this.startSide = board.getSideToMove();
+    }
+
     public int getId() {
         return id;
     }
