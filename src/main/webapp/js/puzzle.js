@@ -45,8 +45,6 @@ var loadFen = function(fen) {
 
 var isExpectedMove = function(src, dst) {
 	var expectedMove = puzzle.moves[puzzle.move];
-	console.log(expectedMove.from + ',' + expectedMove.to);
-	console.log(src + ',' + dst);
 	if (src.toLowerCase() != expectedMove.from.toLowerCase() || dst.toLowerCase() != expectedMove.to.toLowerCase()) {
 		return false;
 	}
