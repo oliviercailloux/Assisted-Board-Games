@@ -8,6 +8,7 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
+import com.github.bhlangonijr.chesslib.move.Move;
 import com.google.common.base.Preconditions;
 
 /**
@@ -50,5 +51,9 @@ public class MoveDAO implements Serializable {
 
     public Piece getPromotion() {
         return promotion;
+    }
+
+    public static Move asMove(MoveDAO move) {
+        return new Move(move.getFrom(), move.getTo(), move.getPromotion());
     }
 }

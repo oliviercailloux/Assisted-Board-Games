@@ -3,6 +3,7 @@ package io.github.oliviercailloux.assisted_board_games.resources;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -20,6 +21,7 @@ import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
+import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
@@ -75,19 +77,30 @@ public class GameResource {
     }
 
     @GET
-    @Path("moves")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMoves(@QueryParam("gid") int gameId) {
-        LOGGER.info("GET\t/game/moves\tgid={}", gameId);
-        List<MoveEntity> moves = chessService.getGame(gameId).getMoves();
-        StringBuilder sb = new StringBuilder();
-        for (MoveEntity move : moves) {
-            if (sb.length() != 0) {
-                sb.append(", ");
-            }
-            sb.append(move);
+    @Path("{gameId}/check")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public boolean checkMove(@PathParam("gameId") int gameId, @QueryParam("index") int index, MoveDAO move) {
+        LOGGER.info("GET\tgame/{}/check\tindex={}", gameId, index);
+        final GameEntity gameEntity = chessService.getGame(gameId);
+        final List<MoveEntity> moves = gameEntity.getMoves();
+        if (moves.size() <= index) {
+            return false;
         }
-        return sb.toString();
+        final Move expectedMove = MoveEntity.asMove(moves.get(index));
+        final Move actualMove = MoveDAO.asMove(move);
+        return expectedMove.equals(actualMove);
+    }
+
+    @GET
+    @Path("{gameId}/moves")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Move> getMoves(@PathParam("gameId") int gameId) {
+        LOGGER.info("GET\t/game/moves\tgid={}", gameId);
+        return chessService.getGame(gameId)
+                .getMoves()
+                .stream()
+                .map(MoveEntity::asMove)
+                .collect(Collectors.toList());
     }
 
     @GET
