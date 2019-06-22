@@ -9,7 +9,7 @@ Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço André
 MASTER MIAGE SITN en apprentissage
 Université Paris Dauphine
 
-image:https://travis-ci.com/busychess/AssistedBoardGames.svg?branch=master["Build Status", link="https://travis-ci.com/busychess/AssistedBoardGames"]
+image:https://travis-ci.org/busychess/Assisted-Board-Games.svg?branch=master["Build Status", link="https://travis-ci.org/busychess/Assisted-Board-Games"]
 
 == Description du projet
 Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. 
