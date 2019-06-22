@@ -169,7 +169,8 @@ public class GameEntity {
         final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
         final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
         final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
-        return GameState.of(board, board.getSideToMove(), whitePlayer, blackPlayer);
+        board.setSideToMove(startSide);
+        return GameState.of(board, whitePlayer, blackPlayer);
     }
 
     public List<PlayerState> getPlayerStateList() {
