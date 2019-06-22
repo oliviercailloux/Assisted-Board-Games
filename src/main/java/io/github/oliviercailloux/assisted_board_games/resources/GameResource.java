@@ -77,21 +77,6 @@ public class GameResource {
     }
 
     @GET
-    @Path("{gameId}/check")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public boolean checkMove(@PathParam("gameId") int gameId, @QueryParam("index") int index, MoveDAO move) {
-        LOGGER.info("GET\tgame/{}/check\tindex={}", gameId, index);
-        final GameEntity gameEntity = chessService.getGame(gameId);
-        final List<MoveEntity> moves = gameEntity.getMoves();
-        if (moves.size() <= index) {
-            return false;
-        }
-        final Move expectedMove = MoveEntity.asMove(moves.get(index));
-        final Move actualMove = MoveDAO.asMove(move);
-        return expectedMove.equals(actualMove);
-    }
-
-    @GET
     @Path("{gameId}/moves")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Move> getMoves(@PathParam("gameId") int gameId) {
