@@ -91,11 +91,11 @@ public class GameResource {
     @GET
     @Path("moves/last")
     @Produces(MediaType.TEXT_PLAIN)
-    public String getLastMove(@QueryParam("gid") int gameId) {
+    public Move getLastMove(@QueryParam("gid") int gameId) {
         LOGGER.info("GET\t/game/moves/last\tgid={}", gameId);
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
-        return move.toString();
+        return MoveEntity.asMove(move);
     }
 
     @GET
