@@ -58,9 +58,9 @@ public class GameResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String importGame(GameDAO gameDAO) {
         LOGGER.info("POST\t/game/import");
-        GameEntity game = new GameEntity();
-        chessService.persist(game);
-        return String.valueOf(game.getId());
+        final GameEntity gameEntity = gameDAO.asGameEntity();
+        chessService.persist(gameEntity);
+        return String.valueOf(gameEntity.getId());
     }
 
     @GET
