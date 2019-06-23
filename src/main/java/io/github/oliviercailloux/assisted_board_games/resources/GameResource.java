@@ -22,6 +22,7 @@ import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 
+import io.github.oliviercailloux.assisted_board_games.model.GameDAO;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
@@ -46,6 +47,17 @@ public class GameResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String createGame() {
         LOGGER.info("POST\t/game/new");
+        GameEntity game = new GameEntity();
+        chessService.persist(game);
+        return String.valueOf(game.getId());
+    }
+
+    @POST
+    @Path("import")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String importGame(GameDAO gameDAO) {
+        LOGGER.info("POST\t/game/import");
         GameEntity game = new GameEntity();
         chessService.persist(game);
         return String.valueOf(game.getId());
