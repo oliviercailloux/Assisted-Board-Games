@@ -27,7 +27,8 @@ public class GameDAO implements Serializable {
     private final String position;
     private final ImmutableList<MoveDAO> moves;
 
-    GameDAO(Instant startTime, Duration clockDuration, Duration clockIncrement, String position, List<MoveDAO> moves) {
+    private GameDAO(Instant startTime, Duration clockDuration, Duration clockIncrement, String position,
+            List<MoveDAO> moves) {
         this.startTime = startTime == null ? Instant.EPOCH : startTime;
         this.clockDuration = clockDuration == null ? Duration.ofSeconds(Long.MAX_VALUE) : clockDuration;
         this.clockIncrement = clockIncrement == null ? Duration.ZERO : clockIncrement;

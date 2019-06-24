@@ -25,7 +25,7 @@ public class MoveDAO implements Serializable {
     private Square to;
     private Piece promotion;
 
-    MoveDAO(Square from, Square to, Piece promotion) {
+    private MoveDAO(Square from, Square to, Piece promotion) {
         this.from = from;
         this.to = to;
         this.promotion = promotion;
