@@ -66,10 +66,6 @@ public class GameResource {
         LOGGER.info("POST game/import");
         final GameEntity gameEntity = gameDAO.asGameEntity();
         chessService.persist(gameEntity);
-        for (MoveDAO moveDAO : gameDAO.getMoves()) {
-            final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO, Duration.ZERO);
-            chessService.persist(moveEntity);
-        }
         return gameEntity.getId();
     }
 
@@ -108,12 +104,12 @@ public class GameResource {
             final GameState gameState = GameState.of(new Board(), PlayerState.of(Side.WHITE),
                     PlayerState.of(Side.BLACK));
             final GameEntity gameEntity = new GameEntity(gameState);
-            chessService.persist(gameEntity);
             game.loadMoveText();
             for (Move move : game.getHalfMoves()) {
                 final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, move);
-                chessService.persist(moveEntity);
+                gameEntity.addMove(moveEntity);
             }
+            chessService.persist(gameEntity);
             gameIds.add(gameEntity.getId());
         }
         return gameIds;

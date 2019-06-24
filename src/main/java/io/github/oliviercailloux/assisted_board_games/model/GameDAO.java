@@ -73,6 +73,11 @@ public class GameDAO implements Serializable {
         final Board board = new Board();
         board.loadFromFen(position);
         final GameState gameState = GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
-        return new GameEntity(gameState, startTime, clockDuration, clockIncrement);
+        final GameEntity gameEntity = new GameEntity(gameState, startTime, clockDuration, clockIncrement);
+        for (MoveDAO moveDAO : moves) {
+            final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO);
+            gameEntity.addMove(moveEntity);
+        }
+        return gameEntity;
     }
 }
