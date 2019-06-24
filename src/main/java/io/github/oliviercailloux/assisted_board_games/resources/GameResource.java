@@ -62,7 +62,7 @@ public class GameResource {
         final GameEntity gameEntity = gameDAO.asGameEntity();
         chessService.persist(gameEntity);
         gameDAO.getMoves().forEach(moveDAO -> {
-            MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO);
+            MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO, Duration.ZERO);
             chessService.persist(moveEntity);
         });
         return String.valueOf(gameEntity.getId());
