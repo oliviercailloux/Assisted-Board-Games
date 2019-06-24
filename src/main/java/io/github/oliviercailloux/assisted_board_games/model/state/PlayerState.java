@@ -16,6 +16,14 @@ import com.github.bhlangonijr.chesslib.Side;
  */
 public class PlayerState {
 
+    /**
+     * We use here Long.MAX_VALUE nanoseconds as the maximum amount of time per turn
+     * per player. We can't use this same amount of seconds because upon
+     * serialization, the representation switches to nanoseconds, causing an
+     * overflow since it has to multiply the amount of seconds by 1e+9 to get the
+     * amount of nanoseconds.
+     */
+    public static final Duration MAX_TURN_DURATION = Duration.ofNanos(Long.MAX_VALUE);
     private Side side;
     /**
      * The time at which the player's turn began.
@@ -81,12 +89,12 @@ public class PlayerState {
      * 
      * This can be checked by verifying {@code PlayerState#getTimeAtTurnStart()} is
      * always {@code Instant.EPOCH} and that {@code PlayerState#getRemainingTime()}
-     * always returns {@code Duration.ofNanos(Long.MAX_VALUE)}.
+     * always returns {@code PlayerState.MAX_TURN_DURATION}.
      * 
      * @param side The side the player is playing.
      * @return The PlayerState object representing an untimed (infinite time) move.
      */
     public static PlayerState of(Side side) {
-        return new PlayerState(side, Instant.EPOCH, Duration.ofNanos(Long.MAX_VALUE));
+        return new PlayerState(side, Instant.EPOCH, MAX_TURN_DURATION);
     }
 }
