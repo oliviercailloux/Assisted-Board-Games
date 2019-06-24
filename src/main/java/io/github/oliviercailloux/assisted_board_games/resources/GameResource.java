@@ -62,7 +62,7 @@ public class GameResource {
     @Path("import")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public String importGame(GameDAO gameDAO) {
+    public int importGame(GameDAO gameDAO) {
         LOGGER.info("POST game/import");
         final GameEntity gameEntity = gameDAO.asGameEntity();
         chessService.persist(gameEntity);
@@ -70,32 +70,32 @@ public class GameResource {
             final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO, Duration.ZERO);
             chessService.persist(moveEntity);
         });
-        return String.valueOf(gameEntity.getId());
+        return gameEntity.getId();
     }
 
     @POST
     @Path("import/fen")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
-    public String importFenGame(String fenPosition) {
+    public int importFenGame(String fenPosition) {
         LOGGER.info("POST game/import/fen");
         final Board board = new Board();
         board.loadFromFen(fenPosition);
         final GameState gameState = GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
         final GameEntity gameEntity = new GameEntity(gameState);
         chessService.persist(gameEntity);
-        return String.valueOf(gameEntity.getId());
+        return gameEntity.getId();
     }
 
     @POST
     @Path("import/pgn")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<String> importPgnGame(String pgnString) throws Exception {
+    public List<Integer> importPgnGame(String pgnString) throws Exception {
         LOGGER.info("POST game/import/pgn");
         // PgnHolder only accepts file inputs, so we create a temporary file
         File pgnFile = File.createTempFile("import", ".pgn");
-        List<String> gameIds = new ArrayList<>();
+        List<Integer> gameIds = new ArrayList<>();
         try (FileWriter fileWriter = new FileWriter(pgnFile)) {
             fileWriter.write(pgnString);
         }
@@ -114,7 +114,7 @@ public class GameResource {
                 final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, move);
                 chessService.persist(moveEntity);
             }
-            gameIds.add("" + gameEntity.getId());
+            gameIds.add(gameEntity.getId());
         }
         return gameIds;
     }
