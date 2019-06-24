@@ -22,7 +22,7 @@ import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
  * @author tpiganeau
  *
  */
-@JsonbPropertyOrder({ "startTime", "clockDuration", "clockIncrement", "position", "moves" })
+@JsonbPropertyOrder({ "position", "moves", "startTime", "clockDuration", "clockIncrement" })
 public class GameDAO implements Serializable {
 
     private final Instant startTime;
