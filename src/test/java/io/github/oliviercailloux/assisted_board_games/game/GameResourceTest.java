@@ -2,15 +2,22 @@ package io.github.oliviercailloux.assisted_board_games.game;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URI;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -25,6 +32,7 @@ import org.slf4j.LoggerFactory;
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 import com.google.common.collect.ImmutableList;
+import com.google.common.io.CharStreams;
 
 import io.github.oliviercailloux.assisted_board_games.AppConfig;
 import io.github.oliviercailloux.assisted_board_games.model.GameDAO;
@@ -103,6 +111,33 @@ class GameResourceTest {
                 .request(MediaType.TEXT_PLAIN)
                 .get();
         assertEquals(PETROV_DEFENSE_FEN_STRING, getGameResponse.readEntity(String.class));
+    }
+
+    @Test
+    void testImportPgn() throws IOException {
+        final WebTarget importPgn = target.path("api/v1/game/import/pgn");
+        final String pgnString;
+        try (InputStream inputStream = GameResourceTest.class.getResourceAsStream("fischer_spassky.pgn")) {
+            try (Reader reader = new InputStreamReader(inputStream)) {
+                pgnString = CharStreams.toString(reader);
+            }
+        }
+        assertNotNull(pgnString);
+        final Response response = importPgn
+                .request(MediaType.APPLICATION_JSON)
+                .post(Entity.text(pgnString));
+        response.bufferEntity();
+        assertDoesNotThrow(() -> response.readEntity(new GenericType<List<String>>() {
+        }));
+        final List<String> gameIds = response.readEntity(new GenericType<List<String>>() {
+        });
+        final String gameId = gameIds.get(0);
+        final WebTarget getGame = target.path("api/v1/game").path(gameId);
+        final Response getGameResponse = getGame
+                .request(MediaType.TEXT_PLAIN)
+                .get();
+        final String endPosition = "8/8/4R1p1/2k3p1/1p4P1/1P1b1P2/3K1n2/8 b - - 2 43";
+        assertEquals(endPosition, getGameResponse.readEntity(String.class));
     }
 
     @Test
