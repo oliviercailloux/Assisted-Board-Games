@@ -10,8 +10,13 @@ import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import com.github.bhlangonijr.chesslib.Board;
+import com.github.bhlangonijr.chesslib.Side;
+import com.github.bhlangonijr.chesslib.game.GameContext;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
+
+import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
+import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
 
 /**
  * 
@@ -66,7 +71,12 @@ public class GameDAO implements Serializable {
     }
 
     public GameEntity asGameEntity() {
-        // TODO
-        return null;
+        GameContext gameContext = new GameContext();
+        gameContext.setStartFEN(position);
+        Board board = new Board(gameContext, false);
+        PlayerState whitePlayer = PlayerState.of(Side.WHITE);
+        PlayerState blackPlayer = PlayerState.of(Side.BLACK);
+        GameState gameState = GameState.of(board, whitePlayer, blackPlayer);
+        return new GameEntity(gameState, startTime, clockDuration, clockIncrement);
     }
 }

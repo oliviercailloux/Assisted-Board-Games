@@ -81,6 +81,13 @@ public class GameEntity {
         this.startSide = board.getSideToMove();
     }
 
+    public GameEntity(GameState gameState, Instant startTime, Duration clockDuration, Duration clockIncrement) {
+        this(gameState);
+        this.startTime = startTime;
+        this.clockDuration = clockDuration;
+        this.clockIncrement = clockIncrement;
+    }
+
     public int getId() {
         return id;
     }
