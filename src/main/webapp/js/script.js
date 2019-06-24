@@ -28,7 +28,7 @@ var loadGame = function(gameId) {
 		}
 	}
 	$.ajax({
-		url: 'http://localhost:8080/api/v1/game/get?gid=' + gameId,
+		url: 'http://localhost:8080/api/v1/game/' + gameId,
 		crossDomain: true,
 	}).done(loadFen);
 	currentGameId = gameId;
