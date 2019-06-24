@@ -81,12 +81,12 @@ public class PlayerState {
      * 
      * This can be checked by verifying {@code PlayerState#getTimeAtTurnStart()} is
      * always {@code Instant.EPOCH} and that {@code PlayerState#getRemainingTime()}
-     * always returns {@code Duration.ofSeconds(Long.MAX_VALUE)}.
+     * always returns {@code Duration.ofNanos(Long.MAX_VALUE)}.
      * 
      * @param side The side the player is playing.
      * @return The PlayerState object representing an untimed (infinite time) move.
      */
     public static PlayerState of(Side side) {
-        return new PlayerState(side, Instant.EPOCH, Duration.ofSeconds(Long.MAX_VALUE));
+        return new PlayerState(side, Instant.EPOCH, Duration.ofNanos(Long.MAX_VALUE));
     }
 }
