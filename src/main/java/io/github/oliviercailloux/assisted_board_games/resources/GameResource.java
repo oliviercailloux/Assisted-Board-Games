@@ -89,7 +89,7 @@ public class GameResource {
 
     @GET
     @Path("{gameId}/moves/last")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public Move getLastMove(@PathParam("gameId") int gameId) {
         LOGGER.info("GET game/{}/moves/last", gameId);
         int moveId = chessService.getLastMoveId(gameId);

@@ -75,6 +75,17 @@ public class PlayerState {
         return new PlayerState(side, turnStartTime, turnStartClock);
     }
 
+    /**
+     * Instantiates a PlayerState object giving an infinite amount of time for the
+     * player to play.
+     * 
+     * This can be checked by verifying {@code PlayerState#getTimeAtTurnStart()} is
+     * always {@code Instant.EPOCH} and that {@code PlayerState#getRemainingTime()}
+     * always returns {@code Duration.ofSeconds(Long.MAX_VALUE)}.
+     * 
+     * @param side The side the player is playing.
+     * @return The PlayerState object representing an untimed (infinite time) move.
+     */
     public static PlayerState of(Side side) {
         return new PlayerState(side, Instant.EPOCH, Duration.ofSeconds(Long.MAX_VALUE));
     }
