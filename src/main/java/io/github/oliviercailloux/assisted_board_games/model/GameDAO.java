@@ -9,36 +9,30 @@ import javax.json.bind.annotation.JsonbCreator;
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
-import org.h2.util.StringUtils;
-
 import com.github.bhlangonijr.chesslib.Board;
+import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
 
 /**
  * 
  * @author tpiganeau
  *
  */
-@JsonbPropertyOrder({ "position", "moves" })
+@JsonbPropertyOrder({ "startTime", "clockDuration", "clockIncrement", "position", "moves" })
 public class GameDAO implements Serializable {
 
-    private Instant startTime;
-    private Duration clockDuration;
-    private Duration clockIncrement;
-    private String position;
-    private List<MoveDAO> moves;
+    private final Instant startTime;
+    private final Duration clockDuration;
+    private final Duration clockIncrement;
+    private final String position;
+    private final ImmutableList<MoveDAO> moves;
 
     GameDAO(Instant startTime, Duration clockDuration, Duration clockIncrement, String position, List<MoveDAO> moves) {
-        if (moves.isEmpty()) {
-            throw new IllegalArgumentException("game contains no move");
-        }
         this.startTime = startTime == null ? Instant.EPOCH : startTime;
         this.clockDuration = clockDuration == null ? Duration.ofSeconds(Long.MAX_VALUE) : clockDuration;
         this.clockIncrement = clockIncrement == null ? Duration.ZERO : clockIncrement;
-        if (StringUtils.isNullOrEmpty(position)) {
-            position = new Board().getFen(); // start with initial position
-        }
-        this.position = position;
-        this.moves = moves;
+        this.position = Strings.isNullOrEmpty(position) ? new Board().getFen() : position;
+        this.moves = ImmutableList.copyOf(moves);
     }
 
     @JsonbCreator
