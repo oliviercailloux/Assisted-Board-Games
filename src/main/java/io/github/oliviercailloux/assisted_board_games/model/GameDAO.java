@@ -11,7 +11,6 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
-import com.github.bhlangonijr.chesslib.game.GameContext;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 
@@ -71,12 +70,7 @@ public class GameDAO implements Serializable {
     }
 
     public GameEntity asGameEntity() {
-        GameContext gameContext = new GameContext();
-        gameContext.setStartFEN(position);
-        Board board = new Board(gameContext, false);
-        PlayerState whitePlayer = PlayerState.of(Side.WHITE);
-        PlayerState blackPlayer = PlayerState.of(Side.BLACK);
-        GameState gameState = GameState.of(board, whitePlayer, blackPlayer);
+        GameState gameState = GameState.of(position, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
         return new GameEntity(gameState, startTime, clockDuration, clockIncrement);
     }
 }

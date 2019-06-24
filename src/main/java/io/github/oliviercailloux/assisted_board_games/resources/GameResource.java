@@ -62,9 +62,20 @@ public class GameResource {
         final GameEntity gameEntity = gameDAO.asGameEntity();
         chessService.persist(gameEntity);
         gameDAO.getMoves().forEach(moveDAO -> {
-            MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO, Duration.ZERO);
+            final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO, Duration.ZERO);
             chessService.persist(moveEntity);
         });
+        return String.valueOf(gameEntity.getId());
+    }
+
+    @POST
+    @Path("import/fen")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String importGame(String fenPosition) {
+        LOGGER.info("POST\t/game/import/fen");
+        final GameState gameState = GameState.of(fenPosition, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
+        final GameEntity gameEntity = new GameEntity(gameState);
         return String.valueOf(gameEntity.getId());
     }
 

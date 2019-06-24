@@ -6,6 +6,7 @@ import java.util.EnumMap;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
+import com.github.bhlangonijr.chesslib.game.GameContext;
 
 /**
  * 
@@ -45,6 +46,13 @@ public class GameState {
 
     public PlayerState getCurrentPlayerState() {
         return getPlayerState(board.getSideToMove());
+    }
+
+    public static GameState of(String fenPosition, PlayerState whitePlayer, PlayerState blackPlayer) {
+        GameContext gameContext = new GameContext();
+        gameContext.setStartFEN(fenPosition);
+        Board board = new Board(gameContext, false);
+        return new GameState(board, whitePlayer, blackPlayer);
     }
 
     public static GameState of(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
