@@ -58,7 +58,7 @@ public class GameResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public String importGame(GameDAO gameDAO) {
-        LOGGER.info("POST\t/game/import");
+        LOGGER.info("POST game/import");
         final GameEntity gameEntity = gameDAO.asGameEntity();
         chessService.persist(gameEntity);
         gameDAO.getMoves().forEach(moveDAO -> {
@@ -73,9 +73,10 @@ public class GameResource {
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
     public String importGame(String fenPosition) {
-        LOGGER.info("POST\t/game/import/fen");
+        LOGGER.info("POST game/import/fen");
         final GameState gameState = GameState.of(fenPosition, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
         final GameEntity gameEntity = new GameEntity(gameState);
+        chessService.persist(gameEntity);
         return String.valueOf(gameEntity.getId());
     }
 
@@ -86,7 +87,7 @@ public class GameResource {
         LOGGER.info("GET game/{}", gameId);
         GameEntity game = chessService.getGame(gameId);
         List<MoveEntity> moves = game.getMoves();
-        Board b = GameHelper.playMoves(moves);
+        Board b = GameHelper.playMoves(game.getStartPosition(), moves);
         return b.getFen(true);
     }
 
