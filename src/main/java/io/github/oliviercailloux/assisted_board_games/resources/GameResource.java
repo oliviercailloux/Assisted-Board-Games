@@ -61,6 +61,10 @@ public class GameResource {
         LOGGER.info("POST\t/game/import");
         final GameEntity gameEntity = gameDAO.asGameEntity();
         chessService.persist(gameEntity);
+        gameDAO.getMoves().forEach(moveDAO -> {
+            MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, moveDAO);
+            chessService.persist(moveEntity);
+        });
         return String.valueOf(gameEntity.getId());
     }
 
