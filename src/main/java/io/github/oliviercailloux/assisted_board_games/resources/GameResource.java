@@ -79,7 +79,9 @@ public class GameResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String importFenGame(String fenPosition) {
         LOGGER.info("POST game/import/fen");
-        final GameState gameState = GameState.of(fenPosition, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
+        final Board board = new Board();
+        board.loadFromFen(fenPosition);
+        final GameState gameState = GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
         final GameEntity gameEntity = new GameEntity(gameState);
         chessService.persist(gameEntity);
         return String.valueOf(gameEntity.getId());

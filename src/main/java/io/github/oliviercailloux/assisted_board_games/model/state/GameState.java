@@ -47,12 +47,6 @@ public class GameState {
         return getPlayerState(board.getSideToMove());
     }
 
-    public static GameState of(String fenPosition, PlayerState whitePlayer, PlayerState blackPlayer) {
-        Board board = new Board();
-        board.loadFromFen(fenPosition);
-        return new GameState(board, whitePlayer, blackPlayer);
-    }
-
     public static GameState of(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
         return new GameState(board, whitePlayer, blackPlayer);
     }
