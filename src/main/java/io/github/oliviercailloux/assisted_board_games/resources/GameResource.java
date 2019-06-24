@@ -1,7 +1,10 @@
 package io.github.oliviercailloux.assisted_board_games.resources;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,8 +23,10 @@ import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
+import com.github.bhlangonijr.chesslib.game.Game;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
+import com.github.bhlangonijr.chesslib.pgn.PgnHolder;
 
 import io.github.oliviercailloux.assisted_board_games.model.GameDAO;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
@@ -72,12 +77,44 @@ public class GameResource {
     @Path("import/fen")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
-    public String importGame(String fenPosition) {
+    public String importFenGame(String fenPosition) {
         LOGGER.info("POST game/import/fen");
         final GameState gameState = GameState.of(fenPosition, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
         final GameEntity gameEntity = new GameEntity(gameState);
         chessService.persist(gameEntity);
         return String.valueOf(gameEntity.getId());
+    }
+
+    @POST
+    @Path("import/pgn")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<String> importPgnGame(String pgnString) throws Exception {
+        LOGGER.info("POST game/import/pgn");
+        // PgnHolder only accepts file inputs, so we create a temporary file
+        File pgnFile = File.createTempFile("import", ".pgn");
+        List<String> gameIds = new ArrayList<>();
+        try (FileWriter fileWriter = new FileWriter(pgnFile)) {
+            fileWriter.write(pgnString);
+        }
+        PgnHolder pgnHolder = new PgnHolder(pgnFile.getAbsolutePath());
+        pgnHolder.loadPgn();
+        // and then delete it
+        pgnFile.delete();
+        // a PGN file can hold one or more games
+        for (Game game : pgnHolder.getGame()) {
+            final GameState gameState = GameState.of(new Board(), PlayerState.of(Side.WHITE),
+                    PlayerState.of(Side.BLACK));
+            final GameEntity gameEntity = new GameEntity(gameState);
+            chessService.persist(gameEntity);
+            game.loadMoveText();
+            for (Move move : game.getHalfMoves()) {
+                final MoveEntity moveEntity = MoveEntity.createMoveEntity(gameEntity, move);
+                chessService.persist(moveEntity);
+            }
+            gameIds.add("" + gameEntity.getId());
+        }
+        return gameIds;
     }
 
     @GET
@@ -96,9 +133,9 @@ public class GameResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
         LOGGER.info("POST game/{}/move", gameId);
-        GameEntity game = chessService.getGame(gameId);
+        final GameEntity game = chessService.getGame(gameId);
         final Duration duration = game.getCurrentMoveDuration();
-        MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
+        final MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
         game.addMove(moveEntity);
         chessService.persist(moveEntity);
     }
