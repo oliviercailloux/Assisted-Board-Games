@@ -33,6 +33,7 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 
 class GameResourceTest {
 
+    public static final String PETROV_DEFENSE_FEN_STRING = "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3";
     private static final Logger LOGGER = LoggerFactory.getLogger(GameResourceTest.class);
     private static Server server;
     private static Client client;
@@ -81,12 +82,27 @@ class GameResourceTest {
         response.bufferEntity();
         assertDoesNotThrow(() -> response.readEntity(Integer.class));
         final String gameId = response.readEntity(String.class);
-        final String expectedPosition = "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3";
         final WebTarget getGame = target.path("api/v1/game").path(gameId);
         final Response getGameResponse = getGame
                 .request(MediaType.TEXT_PLAIN)
                 .get();
-        assertEquals(expectedPosition, getGameResponse.readEntity(String.class));
+        assertEquals(PETROV_DEFENSE_FEN_STRING, getGameResponse.readEntity(String.class));
+    }
+
+    @Test
+    void testImportFen() {
+        final WebTarget importFen = target.path("api/v1/game/import/fen");
+        final Response response = importFen
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.text(PETROV_DEFENSE_FEN_STRING));
+        response.bufferEntity();
+        assertDoesNotThrow(() -> response.readEntity(Integer.class));
+        final String gameId = response.readEntity(String.class);
+        final WebTarget getGame = target.path("api/v1/game").path(gameId);
+        final Response getGameResponse = getGame
+                .request(MediaType.TEXT_PLAIN)
+                .get();
+        assertEquals(PETROV_DEFENSE_FEN_STRING, getGameResponse.readEntity(String.class));
     }
 
     @Test

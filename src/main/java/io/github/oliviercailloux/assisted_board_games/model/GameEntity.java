@@ -130,6 +130,14 @@ public class GameEntity {
                 .reduce(Duration.ZERO, Duration::plus);
     }
 
+    public Side getStartSide() {
+        return startSide;
+    }
+
+    public String getStartPosition() {
+        return startPosition;
+    }
+
     public Duration getCurrentMoveDuration() {
         final Instant now = Instant.now();
         final Duration gameDuration = getGameDuration();
