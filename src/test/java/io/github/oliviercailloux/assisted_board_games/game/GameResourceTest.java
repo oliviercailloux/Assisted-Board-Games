@@ -1,9 +1,11 @@
 package io.github.oliviercailloux.assisted_board_games.game;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.net.URI;
+import java.time.Duration;
+import java.time.Instant;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -22,8 +24,10 @@ import org.slf4j.LoggerFactory;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
+import com.google.common.collect.ImmutableList;
 
 import io.github.oliviercailloux.assisted_board_games.AppConfig;
+import io.github.oliviercailloux.assisted_board_games.model.GameDAO;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 
@@ -58,7 +62,31 @@ class GameResourceTest {
         final Response response = createGame
                 .request(MediaType.TEXT_PLAIN)
                 .post(Entity.text(""));
-        assertFalse(response.readEntity(String.class).isEmpty());
+        assertDoesNotThrow(() -> response.readEntity(Integer.class));
+    }
+
+    @Test
+    void testImportGame() {
+        final WebTarget importGame = target.path("api/v1/game/import");
+        final GameDAO gameDAO = GameDAO.createGameDAO(Instant.EPOCH, Duration.ofMinutes(10), Duration.ZERO,
+                GameEntity.STARTING_FEN_POSITION,
+                ImmutableList.of(
+                        MoveDAO.createMoveDAO(Square.E2, Square.E4, Piece.NONE),
+                        MoveDAO.createMoveDAO(Square.E7, Square.E5, Piece.NONE),
+                        MoveDAO.createMoveDAO(Square.G1, Square.F3, Piece.NONE),
+                        MoveDAO.createMoveDAO(Square.G8, Square.F6, Piece.NONE)));
+        final Response response = importGame
+                .request(MediaType.TEXT_PLAIN)
+                .post(Entity.json(gameDAO));
+        response.bufferEntity();
+        assertDoesNotThrow(() -> response.readEntity(Integer.class));
+        final String gameId = response.readEntity(String.class);
+        final String expectedPosition = "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3";
+        final WebTarget getGame = target.path("api/v1/game").path(gameId);
+        final Response getGameResponse = getGame
+                .request(MediaType.TEXT_PLAIN)
+                .get();
+        assertEquals(expectedPosition, getGameResponse.readEntity(String.class));
     }
 
     @Test
