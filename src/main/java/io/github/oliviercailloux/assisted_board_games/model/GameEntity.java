@@ -11,7 +11,6 @@ import java.util.stream.IntStream;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -42,8 +41,9 @@ import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 })
 public class GameEntity {
 
+    public static final String STARTING_FEN_POSITION = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     int id;
     @CreationTimestamp
     Instant startTime;
@@ -55,17 +55,30 @@ public class GameEntity {
      * Duration of the move increment, by default 10 seconds.
      */
     Duration clockIncrement;
+    /**
+     * The initial position with which the game starts.
+     */
+    String startPosition;
+    /**
+     * The first side to play. Mostly used when replaying games or in puzzle mode.
+     */
+    Side startSide;
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
-
-    public void addMove(MoveEntity move) {
-        moves.add(move);
-    }
 
     public GameEntity() {
         clockDuration = Duration.ofSeconds(1800);
         clockIncrement = Duration.ofSeconds(10);
         moves = new ArrayList<>(); // avoid NPE in tests
+        startSide = Side.WHITE;
+        startPosition = STARTING_FEN_POSITION;
+    }
+
+    public GameEntity(GameState gameState) {
+        this();
+        final Board board = gameState.getBoard();
+        this.startPosition = board.getFen();
+        this.startSide = board.getSideToMove();
     }
 
     public int getId() {
@@ -82,6 +95,10 @@ public class GameEntity {
 
     public List<MoveEntity> getMoves() {
         return moves;
+    }
+
+    public void addMove(MoveEntity move) {
+        moves.add(move);
     }
 
     public MoveEntity getLastMove() {
@@ -159,6 +176,7 @@ public class GameEntity {
         final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
         final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
         final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
+        board.setSideToMove(startSide);
         return GameState.of(board, whitePlayer, blackPlayer);
     }
 
