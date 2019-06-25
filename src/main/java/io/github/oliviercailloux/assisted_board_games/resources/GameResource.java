@@ -51,11 +51,11 @@ public class GameResource {
     @POST
     @Path("new")
     @Produces(MediaType.TEXT_PLAIN)
-    public String createGame() {
+    public int createGame() {
         LOGGER.info("POST game/new");
         GameEntity game = new GameEntity();
         chessService.persist(game);
-        return String.valueOf(game.getId());
+        return game.getId();
     }
 
     @POST
