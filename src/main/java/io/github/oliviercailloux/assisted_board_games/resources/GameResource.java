@@ -131,7 +131,7 @@ public class GameResource {
     @POST
     @Path("{gameId}/variation")
     @Produces(MediaType.TEXT_PLAIN)
-    public int forkGame(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
+    public int createVariation(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
         LOGGER.info("POST game/{}/variation", gameId);
         final GameEntity gameEntity = chessService.getGame(gameId);
         final List<MoveEntity> moves = gameEntity.getMoves();
