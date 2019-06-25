@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.RequestScoped;
@@ -130,8 +131,21 @@ public class GameResource {
     @POST
     @Path("{gameId}/fork")
     @Produces(MediaType.TEXT_PLAIN)
-    public int forkGame(@PathParam("gameId") int gameId, @QueryParam("move") int move) {
-        throw new UnsupportedOperationException("game fork not yet implemented");
+    public int forkGame(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
+        LOGGER.info("POST game/{}/fork", gameId);
+        final GameEntity gameEntity = chessService.getGame(gameId);
+        final List<MoveEntity> moves = gameEntity.getMoves();
+        if (fromMove < 0 || fromMove >= moves.size()) {
+            throw new NoSuchElementException("no such move: " + fromMove);
+        }
+        final GameEntity forkedEntity = new GameEntity();
+        for (int i = 0; i < fromMove; i++) {
+            final Move move = MoveEntity.asMove(moves.get(i));
+            final MoveEntity moveEntity = MoveEntity.createMoveEntity(forkedEntity, move);
+            forkedEntity.addMove(moveEntity);
+        }
+        chessService.persist(forkedEntity);
+        return forkedEntity.getId();
     }
 
     @POST
