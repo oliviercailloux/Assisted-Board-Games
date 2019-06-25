@@ -165,8 +165,7 @@ class GameResourceTest {
                 .path(gameId)
                 .path("variation");
         final Response variationResponse = createVariation
-                .queryParam("move", 3)
-                .queryParam("side", 1)
+                .queryParam("move", 5)
                 .request(MediaType.TEXT_PLAIN)
                 .post(EMPTY_ENTITY);
         variationResponse.bufferEntity();
