@@ -129,23 +129,29 @@ public class GameResource {
     }
 
     @POST
-    @Path("{gameId}/fork")
+    @Path("{gameId}/variation")
     @Produces(MediaType.TEXT_PLAIN)
     public int forkGame(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
-        LOGGER.info("POST game/{}/fork", gameId);
+        LOGGER.info("POST game/{}/variation", gameId);
         final GameEntity gameEntity = chessService.getGame(gameId);
         final List<MoveEntity> moves = gameEntity.getMoves();
         if (fromMove < 0 || fromMove >= moves.size()) {
             throw new NoSuchElementException("no such move: " + fromMove);
         }
-        final GameEntity forkedEntity = new GameEntity();
+        final Board board = new Board();
+        board.loadFromFen(gameEntity.getStartPosition());
+        final GameEntity variation = new GameEntity(
+                GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
+                gameEntity.getStartTime(),
+                gameEntity.getClockDuration(),
+                gameEntity.getClockIncrement());
         for (int i = 0; i < fromMove; i++) {
             final Move move = MoveEntity.asMove(moves.get(i));
-            final MoveEntity moveEntity = MoveEntity.createMoveEntity(forkedEntity, move);
-            forkedEntity.addMove(moveEntity);
+            final MoveEntity moveEntity = MoveEntity.createMoveEntity(variation, move);
+            variation.addMove(moveEntity);
         }
-        chessService.persist(forkedEntity);
-        return forkedEntity.getId();
+        chessService.persist(variation);
+        return variation.getId();
     }
 
     @POST
