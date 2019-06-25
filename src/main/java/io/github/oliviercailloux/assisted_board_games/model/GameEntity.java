@@ -199,7 +199,7 @@ public class GameEntity {
         return GameState.of(board, whitePlayer, blackPlayer);
     }
 
-    public ImmutableList<PlayerState> getPlayerStateList() {
+    public ImmutableList<PlayerState> getPlayerStates() {
         final List<PlayerState> playerStates = new ArrayList<>();
         Instant time = startTime;
         Duration[] remainingTimes = new Duration[] { clockDuration, clockDuration };
