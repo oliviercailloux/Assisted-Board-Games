@@ -43,7 +43,7 @@ var loadFen = function(fen) {
 };
 
 var loadMoves = function(moves) {
-	board.position('start');
+	game = Chess();
 	for(var i in moves) {
 		let move = moves[i];
 		game.move({

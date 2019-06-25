@@ -22,6 +22,7 @@
 	
 	<div id="board" style="width:400px"></div>
 	<p>STATUS: <span id="status"></span></p> 	
+	<p>FEN: <span id="fen"></span></p>
 	<p>PGN: <span id="pgn"></span></p>
 	
 	<script type="text/javascript">
@@ -80,9 +81,10 @@
 			
 			// update status & pgn spans
 			$('#status').html(status);
+			$('#fen').html(game.fen());
 			$('#pgn').html(game.pgn());
 		};
-		var config={
+		var config = {
 			draggable: true,
 			dropOffBoard: 'snapback',
 			onDragStart: onDragStart,
