@@ -20,7 +20,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.weld.exceptions.IllegalArgumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -140,23 +139,11 @@ public class GameResource {
     @POST
     @Path("{gameId}/variation")
     @Produces(MediaType.TEXT_PLAIN)
-    public int createVariation(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove,
-            @QueryParam("side") int side) {
+    public int createVariation(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
         LOGGER.info("POST game/{}/variation", gameId);
-        if (side != 0 && side != 1) {
-            throw new IllegalArgumentException("side must be either 0 (white) or 1 (black)");
-        }
-        /*
-         * The number of the last ply we want to be played before beginning the
-         * variation. Since fromMove represents the human-readable move number we need
-         * to make it 0 indexed, (fromMove - 1) and multiply by two because a move in
-         * chess is 2 plies. Then we need to play the next move which is either (last
-         * ply + 0) for white or (last ply + 1) for black.
-         */
-        final int ply = 2 * (fromMove - 1) + side;
         final GameEntity gameEntity = chessService.getGame(gameId);
         final List<MoveEntity> moves = gameEntity.getMoves();
-        if (fromMove < 0 || ply >= moves.size()) {
+        if (fromMove < 0 || fromMove >= moves.size()) {
             throw new NoSuchElementException("no such move: " + fromMove);
         }
         final Board board = new Board();
@@ -166,7 +153,7 @@ public class GameResource {
                 gameEntity.getStartTime(),
                 gameEntity.getClockDuration(),
                 gameEntity.getClockIncrement());
-        for (int i = 0; i < ply; i++) {
+        for (int i = 0; i < fromMove; i++) {
             final MoveEntity initialMove = moves.get(i);
             final Move move = MoveEntity.asMove(initialMove);
             final MoveEntity moveEntity = MoveEntity.createMoveEntity(variation, move, initialMove.getDuration());
