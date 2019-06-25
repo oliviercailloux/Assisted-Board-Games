@@ -146,8 +146,9 @@ public class GameResource {
                 gameEntity.getClockDuration(),
                 gameEntity.getClockIncrement());
         for (int i = 0; i < fromMove; i++) {
-            final Move move = MoveEntity.asMove(moves.get(i));
-            final MoveEntity moveEntity = MoveEntity.createMoveEntity(variation, move);
+            final MoveEntity initialMove = moves.get(i);
+            final Move move = MoveEntity.asMove(initialMove);
+            final MoveEntity moveEntity = MoveEntity.createMoveEntity(variation, move, initialMove.getDuration());
             variation.addMove(moveEntity);
         }
         chessService.persist(variation);
