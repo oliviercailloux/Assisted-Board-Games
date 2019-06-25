@@ -16,6 +16,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
@@ -124,6 +125,13 @@ public class GameResource {
         List<MoveEntity> moves = game.getMoves();
         Board b = GameHelper.playMoves(game.getStartPosition(), moves);
         return b.getFen(true);
+    }
+
+    @POST
+    @Path("{gameId}/fork")
+    @Produces(MediaType.TEXT_PLAIN)
+    public int forkGame(@PathParam("gameId") int gameId, @QueryParam("move") int move) {
+        throw new UnsupportedOperationException("game fork not yet implemented");
     }
 
     @POST
