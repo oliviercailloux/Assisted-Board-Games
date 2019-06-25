@@ -49,31 +49,38 @@ public class MoveEntity {
         promotion = Piece.NONE;
     }
 
-    MoveEntity(GameEntity game, MoveDAO move) {
-        this();
-        Objects.requireNonNull(move);
-        this.game = Objects.requireNonNull(game);
-        this.from = move.getFrom();
-        this.to = move.getTo();
-        this.promotion = move.getPromotion();
-    }
-
-    MoveEntity(GameEntity game, MoveDAO move, Duration duration) {
-        this(game, move);
-        this.duration = duration;
+    MoveEntity(GameEntity gameEntity, Square from, Square to, Piece promotion, Duration duration) {
+        this.game = Objects.requireNonNull(gameEntity);
+        this.duration = duration == null ? Duration.ZERO : duration;
+        this.from = from;
+        this.to = to;
+        this.promotion = promotion;
     }
 
     public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move) {
         Preconditions.checkArgument(game != null);
         Preconditions.checkArgument(move != null);
-        return new MoveEntity(game, move);
+        return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), Duration.ZERO);
     }
 
     public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move, Duration duration) {
         Preconditions.checkArgument(game != null);
         Preconditions.checkArgument(move != null);
         Preconditions.checkArgument(duration != null);
-        return new MoveEntity(game, move, duration);
+        return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), duration);
+    }
+
+    public static MoveEntity createMoveEntity(GameEntity game, Move move) {
+        Preconditions.checkArgument(game != null);
+        Preconditions.checkArgument(move != null);
+        return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), Duration.ZERO);
+    }
+
+    public static MoveEntity createMoveEntity(GameEntity game, Move move, Duration duration) {
+        Preconditions.checkArgument(game != null);
+        Preconditions.checkArgument(move != null);
+        Preconditions.checkArgument(duration != null);
+        return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), duration);
     }
 
     public int getId() {

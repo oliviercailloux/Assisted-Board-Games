@@ -17,6 +17,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.github.bhlangonijr.chesslib.Board;
@@ -63,6 +65,7 @@ public class GameEntity {
      * The first side to play. Mostly used when replaying games or in puzzle mode.
      */
     Side startSide;
+    @Cascade(CascadeType.ALL)
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
 
@@ -79,6 +82,13 @@ public class GameEntity {
         final Board board = gameState.getBoard();
         this.startPosition = board.getFen();
         this.startSide = board.getSideToMove();
+    }
+
+    public GameEntity(GameState gameState, Instant startTime, Duration clockDuration, Duration clockIncrement) {
+        this(gameState);
+        this.startTime = startTime;
+        this.clockDuration = clockDuration;
+        this.clockIncrement = clockIncrement;
     }
 
     public int getId() {
@@ -121,6 +131,14 @@ public class GameEntity {
         return moves.stream()
                 .map(MoveEntity::getDuration)
                 .reduce(Duration.ZERO, Duration::plus);
+    }
+
+    public Side getStartSide() {
+        return startSide;
+    }
+
+    public String getStartPosition() {
+        return startPosition;
     }
 
     public Duration getCurrentMoveDuration() {
