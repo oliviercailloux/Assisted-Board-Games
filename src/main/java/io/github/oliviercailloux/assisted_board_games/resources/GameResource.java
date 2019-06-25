@@ -129,6 +129,14 @@ public class GameResource {
         return b.getFen(true);
     }
 
+    /**
+     * 
+     * @param gameId   The id of the game on which the variation will be played
+     * @param fromMove the human-readable move index to start the game at
+     * @param side     the last side to have played, represented by 0 for white or 1
+     *                 for black
+     * @return the gameId of the variation
+     */
     @POST
     @Path("{gameId}/variation")
     @Produces(MediaType.TEXT_PLAIN)
@@ -140,6 +148,13 @@ public class GameResource {
         }
         final GameEntity gameEntity = chessService.getGame(gameId);
         final List<MoveEntity> moves = gameEntity.getMoves();
+        /*
+         * The number of the last ply we want to be played before beginning the
+         * variation. Since fromMove represents the human-readable move number we need
+         * to make it 0 indexed, (fromMove - 1) and multiply by two because a move in
+         * chess is 2 plies. Then we need to play the next move which is either (last
+         * ply + 1) for white or (last ply + 2) for black.
+         */
         final int ply = 2 * (fromMove - 1) + (1 + side);
         if (fromMove < 0 || ply >= moves.size()) {
             throw new NoSuchElementException("no such move: " + fromMove);
