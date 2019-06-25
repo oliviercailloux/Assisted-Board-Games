@@ -42,6 +42,8 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
 class GameResourceTest {
 
     public static final String PETROV_DEFENSE_FEN_STRING = "rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3";
+    public static final String RUY_LOPEZ_FEN_STRING = "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3";
+    private static final Entity<String> EMPTY_ENTITY = Entity.text("");
     private static final Logger LOGGER = LoggerFactory.getLogger(GameResourceTest.class);
     private static Server server;
     private static Client client;
@@ -70,7 +72,7 @@ class GameResourceTest {
         final WebTarget createGame = target.path("api/v1/game/new");
         final Response response = createGame
                 .request(MediaType.TEXT_PLAIN)
-                .post(Entity.text(""));
+                .post(EMPTY_ENTITY);
         assertDoesNotThrow(() -> response.readEntity(Integer.class));
     }
 
@@ -141,11 +143,48 @@ class GameResourceTest {
     }
 
     @Test
+    void testCreateVariation() throws IOException {
+        final WebTarget importPgn = target.path("api/v1/game/import/pgn");
+        final String pgnString;
+        try (InputStream inputStream = GameResourceTest.class.getResourceAsStream("fischer_spassky.pgn")) {
+            try (Reader reader = new InputStreamReader(inputStream)) {
+                pgnString = CharStreams.toString(reader);
+            }
+        }
+        assertNotNull(pgnString);
+        final Response response = importPgn
+                .request(MediaType.APPLICATION_JSON)
+                .post(Entity.text(pgnString));
+        response.bufferEntity();
+        assertDoesNotThrow(() -> response.readEntity(new GenericType<List<String>>() {
+        }));
+        final List<String> gameIds = response.readEntity(new GenericType<List<String>>() {
+        });
+        final String gameId = gameIds.get(0);
+        final WebTarget createVariation = target.path("api/v1/game")
+                .path(gameId)
+                .path("variation");
+        final Response variationResponse = createVariation
+                .queryParam("move", 3)
+                .queryParam("side", 1)
+                .request(MediaType.TEXT_PLAIN)
+                .post(EMPTY_ENTITY);
+        variationResponse.bufferEntity();
+        assertDoesNotThrow(() -> variationResponse.readEntity(Integer.class));
+        final String variationId = variationResponse.readEntity(String.class);
+        final WebTarget getVariation = target.path("api/v1/game").path(variationId);
+        final Response getVariationResponse = getVariation
+                .request(MediaType.TEXT_PLAIN)
+                .get();
+        assertEquals(RUY_LOPEZ_FEN_STRING, getVariationResponse.readEntity(String.class));
+    }
+
+    @Test
     void testGetGame() {
         final WebTarget createGame = target.path("api/v1/game/new");
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
-                .post(Entity.text(""));
+                .post(EMPTY_ENTITY);
         final String gameId = createGameResponse.readEntity(String.class);
         final WebTarget getGame = target.path("api/v1/game").path(gameId);
         final Response response = getGame
@@ -159,7 +198,7 @@ class GameResourceTest {
         final WebTarget createGame = target.path("api/v1/game/new");
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
-                .post(Entity.text(""));
+                .post(EMPTY_ENTITY);
         final String gameId = createGameResponse.readEntity(String.class);
         final WebTarget addMove = target.path("api/v1/game")
                 .path(gameId)
@@ -177,11 +216,11 @@ class GameResourceTest {
         final WebTarget createGame = target.path("api/v1/game/new");
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
-                .post(Entity.text(""));
+                .post(EMPTY_ENTITY);
         final String gameId = createGameResponse.readEntity(String.class);
         final WebTarget getMoves = target.path("api/v1/game")
                 .path(gameId)
-                .path("/moves");
+                .path("moves");
         final Response response = getMoves
                 .request(MediaType.TEXT_PLAIN)
                 .get();
@@ -193,7 +232,7 @@ class GameResourceTest {
         final WebTarget createGame = target.path("api/v1/game/new");
         final Response createGameResponse = createGame
                 .request(MediaType.TEXT_PLAIN)
-                .post(Entity.text(""));
+                .post(EMPTY_ENTITY);
         final String gameId = createGameResponse.readEntity(String.class);
         final WebTarget getLastMove = target.path("api/v1/game")
                 .path(gameId)
