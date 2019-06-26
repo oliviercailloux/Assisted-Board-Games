@@ -147,7 +147,7 @@ public class GameResource {
                 gameEntity.getClockIncrement());
         for (int i = 0; i < fromMove; i++) {
             final MoveEntity initialMove = moves.get(i);
-            final Move move = MoveEntity.asMove(initialMove);
+            final Move move = initialMove.asMove();
             final MoveEntity moveEntity = MoveEntity.createMoveEntity(variation, move, initialMove.getDuration());
             variation.addMove(moveEntity);
         }
@@ -186,7 +186,7 @@ public class GameResource {
         LOGGER.info("GET game/{}/moves/last", gameId);
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
-        return MoveEntity.asMove(move);
+        return move.asMove();
     }
 
     @GET

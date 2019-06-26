@@ -53,7 +53,7 @@ public class MoveDAO implements Serializable {
         return promotion;
     }
 
-    public static Move asMove(MoveDAO move) {
-        return new Move(move.getFrom(), move.getTo(), move.getPromotion());
+    public Move asMove() {
+        return new Move(from, to, promotion);
     }
 }

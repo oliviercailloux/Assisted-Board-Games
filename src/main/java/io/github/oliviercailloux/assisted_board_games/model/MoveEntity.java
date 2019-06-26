@@ -54,7 +54,7 @@ public class MoveEntity {
         this.duration = duration == null ? Duration.ZERO : duration;
         this.from = from;
         this.to = to;
-        this.promotion = promotion;
+        this.promotion = promotion == null ? Piece.NONE : promotion;
     }
 
     public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move) {
@@ -107,7 +107,7 @@ public class MoveEntity {
         return duration;
     }
 
-    public static Move asMove(MoveEntity move) {
-        return new Move(move.getFrom(), move.getTo(), move.getPromotion());
+    public Move asMove() {
+        return new Move(from, to, promotion);
     }
 }
