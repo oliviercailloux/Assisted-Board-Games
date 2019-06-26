@@ -103,3 +103,11 @@ Déroulement en 3 itérations
 - *Tâche 7 : Supprimer les ressources inutiles dans test*
 
 - *Tâche 8 : Ajouter le système de variations* (fork d'une partie)
+
+==== Liste des PR
+
+- Emilie: #55 #56 #63
+- Eliott: #57 #59 #65
+- Thaïs: #54 #61 #62
+- Théophile: #55 #56 #63
+- Maryline: #54 #58 #61 #62
