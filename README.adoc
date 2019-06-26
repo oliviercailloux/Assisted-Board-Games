@@ -101,3 +101,5 @@ Déroulement en 3 itérations
 - *Tâche 6 : Ajouter des parties via PGN/FEN directement en base*
 
 - *Tâche 7 : Supprimer les ressources inutiles dans test*
+
+- *Tâche 8 : Ajouter le système de variations* (fork d'une partie)
