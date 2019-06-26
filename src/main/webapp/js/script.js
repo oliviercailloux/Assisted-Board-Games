@@ -28,9 +28,9 @@ var loadGame = function(gameId) {
 		}
 	}
 	$.ajax({
-		url: 'http://localhost:8080/api/v1/game/' + gameId,
+		url: `http://localhost:8080/api/v1/game/${gameId}/moves`,
 		crossDomain: true,
-	}).done(loadFen);
+	}).done(loadMoves);
 	currentGameId = gameId;
 };
 
@@ -39,6 +39,20 @@ var loadGame = function(gameId) {
  */
 var loadFen = function(fen) {
 	board.position(fen);
+	update();
+};
+
+var loadMoves = function(moves) {
+	game = Chess();
+	for(var i in moves) {
+		let move = moves[i];
+		game.move({
+			from: move.from.toLowerCase(),
+			to: move.to.toLowerCase(),
+		});
+	}
+	board.position(game.fen());
+	update();
 };
 
 /**

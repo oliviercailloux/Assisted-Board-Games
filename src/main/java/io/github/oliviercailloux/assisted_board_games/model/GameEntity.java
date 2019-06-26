@@ -24,6 +24,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
+import com.google.common.collect.ImmutableList;
 
 import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
 import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
@@ -198,18 +199,18 @@ public class GameEntity {
         return GameState.of(board, whitePlayer, blackPlayer);
     }
 
-    public List<PlayerState> getPlayerStateList() {
+    public ImmutableList<PlayerState> getPlayerStates() {
         final List<PlayerState> playerStates = new ArrayList<>();
         Instant time = startTime;
         Duration[] remainingTimes = new Duration[] { clockDuration, clockDuration };
         for (int i = 0; i < moves.size(); i++) {
-            MoveEntity move = moves.get(i);
-            Side side = i % 2 == 0 ? Side.WHITE : Side.BLACK;
-            playerStates.add(PlayerState.of(side, time, remainingTimes[i % 2]));
-            remainingTimes[i % 2] = remainingTimes[i % 2].minus(move.getDuration());
-            remainingTimes[i % 2] = remainingTimes[i % 2].plus(clockIncrement);
+            final MoveEntity move = moves.get(i);
+            final int side = i % 2;
+            playerStates.add(PlayerState.of(side == 0 ? Side.WHITE : Side.BLACK, time, remainingTimes[side]));
+            remainingTimes[side] = remainingTimes[side].minus(move.getDuration());
+            remainingTimes[side] = remainingTimes[side].plus(clockIncrement);
             time = time.plus(move.getDuration());
         }
-        return playerStates;
+        return ImmutableList.copyOf(playerStates);
     }
 }

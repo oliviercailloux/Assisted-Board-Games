@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.RequestScoped;
@@ -16,6 +17,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
@@ -51,11 +53,11 @@ public class GameResource {
     @POST
     @Path("new")
     @Produces(MediaType.TEXT_PLAIN)
-    public String createGame() {
+    public int createGame() {
         LOGGER.info("POST game/new");
         GameEntity game = new GameEntity();
         chessService.persist(game);
-        return String.valueOf(game.getId());
+        return game.getId();
     }
 
     @POST
@@ -127,6 +129,33 @@ public class GameResource {
     }
 
     @POST
+    @Path("{gameId}/variation")
+    @Produces(MediaType.TEXT_PLAIN)
+    public int createVariation(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
+        LOGGER.info("POST game/{}/variation", gameId);
+        final GameEntity gameEntity = chessService.getGame(gameId);
+        final List<MoveEntity> moves = gameEntity.getMoves();
+        if (fromMove < 0 || fromMove >= moves.size()) {
+            throw new NoSuchElementException("no such move: " + fromMove);
+        }
+        final Board board = new Board();
+        board.loadFromFen(gameEntity.getStartPosition());
+        final GameEntity variation = new GameEntity(
+                GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
+                gameEntity.getStartTime(),
+                gameEntity.getClockDuration(),
+                gameEntity.getClockIncrement());
+        for (int i = 0; i < fromMove; i++) {
+            final MoveEntity initialMove = moves.get(i);
+            final Move move = initialMove.asMove();
+            final MoveEntity moveEntity = MoveEntity.createMoveEntity(variation, move, initialMove.getDuration());
+            variation.addMove(moveEntity);
+        }
+        chessService.persist(variation);
+        return variation.getId();
+    }
+
+    @POST
     @Path("{gameId}/move")
     @Consumes(MediaType.APPLICATION_JSON)
     public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
@@ -157,7 +186,7 @@ public class GameResource {
         LOGGER.info("GET game/{}/moves/last", gameId);
         int moveId = chessService.getLastMoveId(gameId);
         MoveEntity move = chessService.getMove(moveId);
-        return MoveEntity.asMove(move);
+        return move.asMove();
     }
 
     @GET

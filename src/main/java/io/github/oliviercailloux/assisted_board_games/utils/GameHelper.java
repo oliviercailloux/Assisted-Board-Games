@@ -14,7 +14,7 @@ public class GameHelper {
         Board board = new Board();
         board.loadFromFen(fromPosition);
         for (MoveEntity move : moves) {
-            if (!board.doMove(MoveEntity.asMove(move), true)) {
+            if (!board.doMove(move.asMove(), true)) {
                 throw new MoveException();
             }
         }
