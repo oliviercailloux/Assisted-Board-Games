@@ -128,14 +128,6 @@ public class GameResource {
         return b.getFen(true);
     }
 
-    /**
-     * 
-     * @param gameId   The id of the game on which the variation will be played
-     * @param fromMove the human-readable move index to start the game at
-     * @param side     the next side to play, represented by 0 for white or 1 for
-     *                 black
-     * @return the gameId of the variation
-     */
     @POST
     @Path("{gameId}/variation")
     @Produces(MediaType.TEXT_PLAIN)
