@@ -37,7 +37,6 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
 import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
-import io.github.oliviercailloux.assisted_board_games.service.MoveService;
 import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("api/v1/game")
@@ -47,8 +46,6 @@ public class GameResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(GameResource.class);
     @Inject
     ChessService chessService;
-    @Inject
-    MoveService chessMove;
 
     @POST
     @Path("new")
