@@ -63,10 +63,6 @@ public class GameEntity {
     @OneToOne
     @Cascade(CascadeType.ALL)
     ChessBoard startBoard;
-    /**
-     * The first side to play. Mostly used when replaying games or in puzzle mode.
-     */
-    Side startSide;
     @Cascade(CascadeType.ALL)
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
@@ -75,14 +71,12 @@ public class GameEntity {
         clockDuration = Duration.ofSeconds(1800);
         clockIncrement = Duration.ofSeconds(10);
         moves = new ArrayList<>(); // avoid NPE in tests
-        startSide = Side.WHITE;
         startBoard = ChessBoard.createChessBoard();
     }
 
     public GameEntity(GameState gameState) {
         this();
         this.startBoard = gameState.getChessBoard();
-        this.startSide = this.startBoard.getSideToMove();
     }
 
     public GameEntity(GameState gameState, Instant startTime, Duration clockDuration, Duration clockIncrement) {
@@ -135,7 +129,7 @@ public class GameEntity {
     }
 
     public Side getStartSide() {
-        return startSide;
+        return startBoard.getSideToMove();
     }
 
     public ChessBoard getStartBoard() {
