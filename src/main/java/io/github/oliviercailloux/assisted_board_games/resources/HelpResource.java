@@ -20,10 +20,10 @@ import com.github.bhlangonijr.chesslib.move.MoveGenerator;
 import com.github.bhlangonijr.chesslib.move.MoveGeneratorException;
 import com.github.bhlangonijr.chesslib.move.MoveList;
 
+import io.github.oliviercailloux.assisted_board_games.model.ChessBoard;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
-import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 /***
  * 
@@ -42,13 +42,14 @@ public class HelpResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String suggestMove(@QueryParam("gid") int gameId) throws MoveGeneratorException, MoveException {
         LOGGER.info("GET\t/help\tgid={}", gameId);
-        GameEntity game = chessService.getGame(gameId);
-        List<MoveEntity> moves = game.getMoves();
-        Board board = GameHelper.playMoves(moves);
+        final GameEntity game = chessService.getGame(gameId);
+        final List<MoveEntity> moves = game.getMoves();
+        final ChessBoard chessBoard = ChessBoard.STARTING_CHESS_BOARD.doMoves(moves);
         // Generate possible moves
-        final MoveList moveList = MoveGenerator.generateLegalMoves(board);
-        MoveList mated = new MoveList();
-        MoveList staleMate = new MoveList();
+        final MoveList moveList = MoveGenerator.generateLegalMoves(chessBoard.asBoard());
+        final MoveList mated = new MoveList();
+        final MoveList staleMate = new MoveList();
+        final Board board = chessBoard.asBoard();
         for (Move move : moveList) {
             board.doMove(move);
             if (board.isMated()) {

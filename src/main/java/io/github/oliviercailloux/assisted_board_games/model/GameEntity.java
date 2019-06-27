@@ -15,20 +15,19 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.google.common.collect.ImmutableList;
 
 import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
 import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
-import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 /***
  * 
@@ -59,13 +58,11 @@ public class GameEntity {
      */
     Duration clockIncrement;
     /**
-     * The initial position with which the game starts.
+     * The initial board with which the game starts.
      */
-    String startPosition;
-    /**
-     * The first side to play. Mostly used when replaying games or in puzzle mode.
-     */
-    Side startSide;
+    @OneToOne
+    @Cascade(CascadeType.ALL)
+    ChessBoard startBoard;
     @Cascade(CascadeType.ALL)
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     List<MoveEntity> moves;
@@ -74,15 +71,12 @@ public class GameEntity {
         clockDuration = Duration.ofSeconds(1800);
         clockIncrement = Duration.ofSeconds(10);
         moves = new ArrayList<>(); // avoid NPE in tests
-        startSide = Side.WHITE;
-        startPosition = STARTING_FEN_POSITION;
+        startBoard = ChessBoard.createChessBoard();
     }
 
     public GameEntity(GameState gameState) {
         this();
-        final Board board = gameState.getBoard();
-        this.startPosition = board.getFen();
-        this.startSide = board.getSideToMove();
+        this.startBoard = gameState.getChessBoard();
     }
 
     public GameEntity(GameState gameState, Instant startTime, Duration clockDuration, Duration clockIncrement) {
@@ -135,11 +129,11 @@ public class GameEntity {
     }
 
     public Side getStartSide() {
-        return startSide;
+        return startBoard.getSideToMove();
     }
 
-    public String getStartPosition() {
-        return startPosition;
+    public ChessBoard getStartBoard() {
+        return startBoard;
     }
 
     public Duration getCurrentMoveDuration() {
@@ -180,9 +174,9 @@ public class GameEntity {
     }
 
     public GameState getGameState() {
-        final Board board;
+        final ChessBoard board;
         try {
-            board = GameHelper.playMoves(moves);
+            board = startBoard.doMoves(moves);
         } catch (MoveException e) {
             // this exception can't happen here since the moves were already validated upon
             // insertion
@@ -195,7 +189,6 @@ public class GameEntity {
         final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
         final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
         final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
-        board.setSideToMove(startSide);
         return GameState.of(board, whitePlayer, blackPlayer);
     }
 

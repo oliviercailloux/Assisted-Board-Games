@@ -23,13 +23,13 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.game.Game;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.github.bhlangonijr.chesslib.pgn.PgnHolder;
 
+import io.github.oliviercailloux.assisted_board_games.model.ChessBoard;
 import io.github.oliviercailloux.assisted_board_games.model.GameDAO;
 import io.github.oliviercailloux.assisted_board_games.model.GameEntity;
 import io.github.oliviercailloux.assisted_board_games.model.MoveDAO;
@@ -37,8 +37,6 @@ import io.github.oliviercailloux.assisted_board_games.model.MoveEntity;
 import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
 import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
 import io.github.oliviercailloux.assisted_board_games.service.ChessService;
-import io.github.oliviercailloux.assisted_board_games.service.MoveService;
-import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 @Path("api/v1/game")
 @RequestScoped
@@ -47,8 +45,6 @@ public class GameResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(GameResource.class);
     @Inject
     ChessService chessService;
-    @Inject
-    MoveService chessMove;
 
     @POST
     @Path("new")
@@ -77,8 +73,7 @@ public class GameResource {
     @Produces(MediaType.TEXT_PLAIN)
     public int importFenGame(String fenPosition) {
         LOGGER.info("POST game/import/fen");
-        final Board board = new Board();
-        board.loadFromFen(fenPosition);
+        final ChessBoard board = ChessBoard.createChessBoard(fenPosition);
         final GameState gameState = GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK));
         final GameEntity gameEntity = new GameEntity(gameState);
         chessService.persist(gameEntity);
@@ -103,7 +98,7 @@ public class GameResource {
         pgnFile.delete();
         // a PGN file can hold one or more games
         for (Game game : pgnHolder.getGame()) {
-            final GameState gameState = GameState.of(new Board(), PlayerState.of(Side.WHITE),
+            final GameState gameState = GameState.of(ChessBoard.createChessBoard(), PlayerState.of(Side.WHITE),
                     PlayerState.of(Side.BLACK));
             final GameEntity gameEntity = new GameEntity(gameState);
             game.loadMoveText();
@@ -122,10 +117,10 @@ public class GameResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getGame(@PathParam("gameId") int gameId) throws MoveException {
         LOGGER.info("GET game/{}", gameId);
-        GameEntity game = chessService.getGame(gameId);
-        List<MoveEntity> moves = game.getMoves();
-        Board b = GameHelper.playMoves(game.getStartPosition(), moves);
-        return b.getFen(true);
+        final GameEntity game = chessService.getGame(gameId);
+        final List<MoveEntity> moves = game.getMoves();
+        final ChessBoard board = game.getStartBoard().doMoves(moves);
+        return board.getFen();
     }
 
     @POST
@@ -138,8 +133,7 @@ public class GameResource {
         if (fromMove < 0 || fromMove >= moves.size()) {
             throw new NoSuchElementException("no such move: " + fromMove);
         }
-        final Board board = new Board();
-        board.loadFromFen(gameEntity.getStartPosition());
+        final ChessBoard board = gameEntity.getStartBoard();
         final GameEntity variation = new GameEntity(
                 GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
                 gameEntity.getStartTime(),

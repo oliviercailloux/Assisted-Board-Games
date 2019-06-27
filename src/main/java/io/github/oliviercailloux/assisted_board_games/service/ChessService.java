@@ -63,16 +63,9 @@ public class ChessService {
     }
 
     @Transactional
-    public void persist(GameEntity game) {
+    public <T> void persist(T t) {
         em.getTransaction().begin();
-        em.persist(game);
-        em.getTransaction().commit();
-    }
-
-    @Transactional
-    public void persist(MoveEntity move) {
-        em.getTransaction().begin();
-        em.persist(move);
+        em.persist(t);
         em.getTransaction().commit();
     }
 }
