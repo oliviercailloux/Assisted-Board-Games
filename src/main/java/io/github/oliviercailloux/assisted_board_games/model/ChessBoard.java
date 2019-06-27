@@ -23,13 +23,21 @@ public class ChessBoard {
     int id;
     String fen;
 
-    public ChessBoard() {
+    ChessBoard() {
         this.fen = GameEntity.STARTING_FEN_POSITION;
     }
 
-    public ChessBoard(Board board) {
+    private ChessBoard(Board board) {
         checkNotNull(board);
         this.fen = board.getFen(true);
+    }
+
+    public static ChessBoard createChessBoard() {
+        return new ChessBoard();
+    }
+
+    public static ChessBoard createChessBoard(Board board) {
+        return new ChessBoard(board);
     }
 
     public int getId() {

@@ -78,13 +78,13 @@ public class GameEntity {
         clockIncrement = Duration.ofSeconds(10);
         moves = new ArrayList<>(); // avoid NPE in tests
         startSide = Side.WHITE;
-        startBoard = new ChessBoard();
+        startBoard = ChessBoard.createChessBoard();
     }
 
     public GameEntity(GameState gameState) {
         this();
         final Board board = gameState.getBoard();
-        this.startBoard = new ChessBoard(board);
+        this.startBoard = ChessBoard.createChessBoard(board);
         this.startSide = board.getSideToMove();
     }
 
