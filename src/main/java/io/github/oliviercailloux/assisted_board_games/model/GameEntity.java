@@ -22,14 +22,12 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.google.common.collect.ImmutableList;
 
 import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
 import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
-import io.github.oliviercailloux.assisted_board_games.utils.GameHelper;
 
 /***
  * 
@@ -83,9 +81,8 @@ public class GameEntity {
 
     public GameEntity(GameState gameState) {
         this();
-        final Board board = gameState.getBoard();
-        this.startBoard = ChessBoard.createChessBoard(board);
-        this.startSide = board.getSideToMove();
+        this.startBoard = gameState.getChessBoard();
+        this.startSide = this.startBoard.getSideToMove();
     }
 
     public GameEntity(GameState gameState, Instant startTime, Duration clockDuration, Duration clockIncrement) {
@@ -183,9 +180,9 @@ public class GameEntity {
     }
 
     public GameState getGameState() {
-        final Board board;
+        final ChessBoard board;
         try {
-            board = GameHelper.playMoves(moves);
+            board = startBoard.doMoves(moves);
         } catch (MoveException e) {
             // this exception can't happen here since the moves were already validated upon
             // insertion
@@ -198,7 +195,6 @@ public class GameEntity {
         final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
         final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
         final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
-        board.setSideToMove(startSide);
         return GameState.of(board, whitePlayer, blackPlayer);
     }
 

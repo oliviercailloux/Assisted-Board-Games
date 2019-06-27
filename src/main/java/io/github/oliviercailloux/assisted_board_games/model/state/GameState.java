@@ -4,8 +4,9 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.EnumMap;
 
-import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
+
+import io.github.oliviercailloux.assisted_board_games.model.ChessBoard;
 
 /**
  * 
@@ -15,9 +16,9 @@ import com.github.bhlangonijr.chesslib.Side;
 public class GameState {
 
     private EnumMap<Side, PlayerState> playerStates;
-    private Board board;
+    private ChessBoard board;
 
-    private GameState(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
+    private GameState(ChessBoard board, PlayerState whitePlayer, PlayerState blackPlayer) {
         requireNonNull(board);
         requireNonNull(whitePlayer);
         requireNonNull(blackPlayer);
@@ -31,7 +32,7 @@ public class GameState {
         return playerStates;
     }
 
-    public Board getBoard() {
+    public ChessBoard getChessBoard() {
         return board;
     }
 
@@ -47,7 +48,7 @@ public class GameState {
         return getPlayerState(board.getSideToMove());
     }
 
-    public static GameState of(Board board, PlayerState whitePlayer, PlayerState blackPlayer) {
+    public static GameState of(ChessBoard board, PlayerState whitePlayer, PlayerState blackPlayer) {
         return new GameState(board, whitePlayer, blackPlayer);
     }
 }
