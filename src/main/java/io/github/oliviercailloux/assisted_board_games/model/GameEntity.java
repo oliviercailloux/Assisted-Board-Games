@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -59,9 +60,11 @@ public class GameEntity {
      */
     Duration clockIncrement;
     /**
-     * The initial position with which the game starts.
+     * The initial board with which the game starts.
      */
-    String startPosition;
+    @OneToOne
+    @Cascade(CascadeType.ALL)
+    ChessBoard startBoard;
     /**
      * The first side to play. Mostly used when replaying games or in puzzle mode.
      */
@@ -75,13 +78,13 @@ public class GameEntity {
         clockIncrement = Duration.ofSeconds(10);
         moves = new ArrayList<>(); // avoid NPE in tests
         startSide = Side.WHITE;
-        startPosition = STARTING_FEN_POSITION;
+        startBoard = new ChessBoard();
     }
 
     public GameEntity(GameState gameState) {
         this();
         final Board board = gameState.getBoard();
-        this.startPosition = board.getFen();
+        this.startBoard = new ChessBoard(board);
         this.startSide = board.getSideToMove();
     }
 
@@ -138,8 +141,8 @@ public class GameEntity {
         return startSide;
     }
 
-    public String getStartPosition() {
-        return startPosition;
+    public ChessBoard getStartBoard() {
+        return startBoard;
     }
 
     public Duration getCurrentMoveDuration() {

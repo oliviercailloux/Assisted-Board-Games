@@ -121,7 +121,7 @@ public class GameResource {
         LOGGER.info("GET game/{}", gameId);
         GameEntity game = chessService.getGame(gameId);
         List<MoveEntity> moves = game.getMoves();
-        Board b = GameHelper.playMoves(game.getStartPosition(), moves);
+        Board b = GameHelper.playMoves(game.getStartBoard().asBoard(), moves);
         return b.getFen(true);
     }
 
@@ -135,8 +135,7 @@ public class GameResource {
         if (fromMove < 0 || fromMove >= moves.size()) {
             throw new NoSuchElementException("no such move: " + fromMove);
         }
-        final Board board = new Board();
-        board.loadFromFen(gameEntity.getStartPosition());
+        final Board board = gameEntity.getStartBoard().asBoard();
         final GameEntity variation = new GameEntity(
                 GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
                 gameEntity.getStartTime(),
