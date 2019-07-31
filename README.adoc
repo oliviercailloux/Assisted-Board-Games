@@ -1,10 +1,11 @@
 = AssistedBoardGames Cahier des Charges
 
-Par Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa +
-MASTER MIAGE SITN en apprentissage
-Université Paris Dauphine
-
+Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa
 image:https://travis-ci.com/LoatR/AssistedBoardGames.svg?branch=master["Build Status", link="https://travis-ci.com/LoatR/AssistedBoardGames"]
+
+A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 and M2 Apprentissage).
+
+The code is hereby published under the MIT License, with their permission.
 
 == Description du projet
 Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. 
