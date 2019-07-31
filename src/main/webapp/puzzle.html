@@ -9,21 +9,19 @@
   crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://dev-lab.net/js/chess.js"></script>
 <script type="text/javascript" src="https://dev-lab.net/js/chessboard-0.3.0.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<title>My Assisted Board Games</title>
+<script type="text/javascript" src="js/puzzle.js"></script>
+<title>Puzzle</title>
 </head>
 
 <body>
-	<h1>My Assisted Board Games</h1>
+	<h1>My Assisted Board Games - Puzzle</h1>
 	
-	<button onclick="newGame()">New Game</button><br/>
-	<input type="text" id="game-id"/><button onclick="loadGame()">Load Game</button>
+	<input type="text" id="game-id"/><button onclick="loadPuzzle()">Load Puzzle</button>
 	<p></p>
 	
 	<div id="board" style="width:400px"></div>
-	<p>STATUS: <span id="status"></span></p> 	
-	<p>FEN: <span id="fen"></span></p>
-	<p>PGN: <span id="pgn"></span></p>
+	<p id="puzzle-status"></p>
+	<p>Side to move: <span id="status"></span></p>
 	
 	<script type="text/javascript">
 		var board;
@@ -44,14 +42,22 @@
 				to: dst,
 				promotion: 'q' // auto promote to queen for now...
 			});
-			
-			// a move is valid iff it isn't returned as null
-			if (move === null) {
+			// a move is valid iff it isn't returned as null or is not expected by the puzzle
+			if (move === null || !isExpectedMove(src, dst)) {
+				game.undo();
 				return 'snapback'; // snapback the piece to its previous location
 			}
 			
-			// otherwise do play the move on the server
-			playMove(src, dst);
+			if (++puzzle.move > puzzle.moves.length - puzzle.length) {
+				update("Puzzle over !");
+				return;
+			}
+			var computerMove = puzzle.moves[puzzle.move];
+			game.move({
+				from: computerMove.from.toLowerCase(),
+				to: computerMove.to.toLowerCase(),
+			})
+			puzzle.move++;
 			update();
 		};
 		
@@ -59,7 +65,7 @@
 			board.position(game.fen());
 		};
 		
-		var update = function(){
+		var update = function(message) {
 			var status = '';
 			var color = game.turn() === 'w' ? 'White' : 'Black';
 
@@ -78,13 +84,14 @@
 					status += ', ' + color + ' is in check';
 				}
 			}
-			
+			if (message) {
+				$('#puzzle-status').html(message);
+			}
 			// update status & pgn spans
 			$('#status').html(status);
-			$('#fen').html(game.fen());
 			$('#pgn').html(game.pgn());
 		};
-		var config = {
+		var config={
 			draggable: true,
 			dropOffBoard: 'snapback',
 			onDragStart: onDragStart,

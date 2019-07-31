@@ -2,17 +2,14 @@
 <persistence version="2.1"
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="JavaEE-JPA-Inject-Servlets">
+	<persistence-unit name="ChessDB">
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action"
-				value="drop-and-create" />
-			<property name="eclipselink.logging.level" value="FINE" />
-			<property name="eclipselink.logging.logger" value="JavaLogger" />
-			<property name="eclipselink.logging.level.sql" value="FINE" />
-			<property name="eclipselink.logging.parameters" value="true" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-			<!--  Added due to  error when column name are "from" and "to" cf https://hibernate.atlassian.net/browse/HHH-13347 -->  
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/test" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+			<!-- Allow use of column names that are SQL reserved words (from, select ...) since the orm.xml settings delimited-identifiers doesn't work properly -->
 			<property name="hibernate.globally_quoted_identifiers" value="true" />
 		</properties>
 	</persistence-unit>
