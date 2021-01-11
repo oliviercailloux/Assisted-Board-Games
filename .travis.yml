@@ -5,5 +5,7 @@ dist: xenial
 cache:
   directories:
     - $HOME/.m2
-notifications: never
+notifications:
+  email: false
+
 
