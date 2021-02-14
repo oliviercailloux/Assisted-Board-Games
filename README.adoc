@@ -13,15 +13,11 @@ The code is hereby published under the MIT License, with their permission.
 Projet maintenu par :
 Amoussou Dahuiss, Atangana Marina, Burton James, Demay Aaron, Hamnache Yasmine, Hudayberdiyev Kerim, Shaikh Yunus Anam +
 L3 MIAGE en apprentissage
-image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/{gitHubUserName}/{repository}"]
-
 
 Projet initiallement développé par : 
 Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa +
 MASTER MIAGE SITN en apprentissage
 Université Paris Dauphine
-
-image:https://travis-ci.org/busychess/Assisted-Board-Games.svg?branch=master["Build Status", link="https://travis-ci.org/busychess/Assisted-Board-Games"]
 
 
 == Description du projet
@@ -37,8 +33,6 @@ Déroulement en  itérations
 - Tâche 2 : Création d'un diagramme de cas d’utilisation du Play Board Games  => Hamnache Yasmine et Demay Aaron
 
 - Tâche 3 : Création des classes filles du jeu d'échecs et de dames qui héritent de la classe GameEntity => Hudayberdiyev Kerim et Shaikh Yunus Anam
-
-
 
 ==== Liste des PR
 
