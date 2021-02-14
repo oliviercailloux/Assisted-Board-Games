@@ -10,33 +10,32 @@ A Java project developed by students during the https://github.com/oliviercaillo
 
 The code is hereby published under the MIT License, with their permission.
 
-Projet maintenu par :
+Project maintained by :
 Amoussou Dahuiss, Atangana Marina, Burton James, Demay Aaron, Hamnache Yasmine, Hudayberdiyev Kerim, Shaikh Yunus Anam +
-L3 MIAGE en apprentissage
+L3 MIAGE in Apprenticeship
 
-Projet initiallement développé par : 
-Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud et Lourenço Andréa +
-MASTER MIAGE SITN en apprentissage
-Université Paris Dauphine
+Project initially developed by : 
+Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud and Lourenço Andréa +
+MASTER MIAGE SITN in apprenticeship
+Paris Dauphine University
 
 
-== Description du projet
-Dans ce projet, on implémentera le concept d'Assited Board. Ce dernier représente un plateau de jeu ainsi qu'une tablette intéractive par joueur. 
+== Project description
+In this project, the concept of the Assited Board will be implemented. The latter represents a game board as well as an interactive tablet for each player. 
 
-Pour ce projet, on utilisera au maximum les librairies existantes, ainsi que les bonnes pratiques.
-Déroulement en  itérations
+For this project, we will make maximum use of existing libraries and good practices.
+Development in iterations.
 
-== Specification - Itération 1 - Chef de projet : Atangana Marina
+== Specification - Iteration 1 - Project leader: Atangana Marina
 
-- Tâche 1 : Création d'un diagramme de classe du menu d'Assisted Board Games. L'objectif de cette tâche est de représenter les différentes fonctions qui permettront à l'utilisateur d'accéder aux différents jeux. => Amoussou Dahuiss et Burton James
+- Task 1: Creation of a class diagram of the Assisted Board Games menu. The objective of this task is to represent the different functions that will allow the user to access the different games. => Amoussou Dahuiss and Burton James
 
-- Tâche 2 : Création d'un diagramme de cas d’utilisation du Play Board Games  => Hamnache Yasmine et Demay Aaron
+- Task 2: Creation of a Play Board Games Use Case Diagram => Hamnache Yasmine and Demay Aaron
 
-- Tâche 3 : Création des classes filles du jeu d'échecs et de dames qui héritent de la classe GameEntity => Hudayberdiyev Kerim et Shaikh Yunus Anam
+- Task 3 : Creation of the daughter classes of chess and draughts that inherit the GameEntity class => Hudayberdiyev Kerim and Shaikh Yunus Anam
 
-==== Liste des PR
+==== List of PR
 
-- #1 : Amoussou Dahuiss et Burton James
-- #2 : Hudayberdiyev Kerim et Shaikh Yunus Anam
-- #3 : Hamnache Yasmine et Demay Aaron
-
+- #1: Amoussou Dahuiss and Burton James
+- #2: Hudayberdiyev Kerim and Shaikh Yunus Anam
+- #3: Hamnache Yasmine and Demay Aaron
