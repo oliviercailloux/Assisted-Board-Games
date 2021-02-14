@@ -11,7 +11,7 @@ A Java project developed by students during the https://github.com/oliviercaillo
 The code is hereby published under the MIT License, with their permission.
 
 Projet maintenu par :
-Amoussou Giovanni, Atangana Marina, Burton James, Demay Aaron, Hamnache Yasmine, Hudayberdiyev Kerim, Shaikh Yunus Anam +
+Amoussou Dahuiss, Atangana Marina, Burton James, Demay Aaron, Hamnache Yasmine, Hudayberdiyev Kerim, Shaikh Yunus Anam +
 L3 MIAGE en apprentissage
 image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/{gitHubUserName}/{repository}"]
 
@@ -32,17 +32,17 @@ Déroulement en  itérations
 
 == Specification - Itération 1 - Chef de projet : Atangana Marina
 
-- *Tâche 1 : Création d'un diagramme de classe du menu d'Assisted Board Games. L'objectif de cette tâche est de représenter les différentes fonctions qui permettront à l'utilisateur d'accéder aux différents jeux. => Amoussou Giovanni et Burton James
+- Tâche 1 : Création d'un diagramme de classe du menu d'Assisted Board Games. L'objectif de cette tâche est de représenter les différentes fonctions qui permettront à l'utilisateur d'accéder aux différents jeux. => Amoussou Dahuiss et Burton James
 
-- *Tâche 2 : Création d'un diagramme de cas d’utilisation du Play Board Games  => Hamnache Yasmine et Demay Aaron
+- Tâche 2 : Création d'un diagramme de cas d’utilisation du Play Board Games  => Hamnache Yasmine et Demay Aaron
 
-- *Tâche 3 : Création des classes filles du jeu d'échecs et de dames qui héritent de la classe GameEntity => Hudayberdiyev Kerim et Shaikh Yunus Anam
+- Tâche 3 : Création des classes filles du jeu d'échecs et de dames qui héritent de la classe GameEntity => Hudayberdiyev Kerim et Shaikh Yunus Anam
 
 
 
 ==== Liste des PR
 
-- #1 : Amoussou Giovanni et Burton James
+- #1 : Amoussou Dahuiss et Burton James
 - #2 : Hudayberdiyev Kerim et Shaikh Yunus Anam
 - #3 : Hamnache Yasmine et Demay Aaron
 
