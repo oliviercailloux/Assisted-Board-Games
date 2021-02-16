@@ -14,12 +14,6 @@ Project maintained by :
 Amoussou Dahuiss, Atangana Marina, Burton James, Demay Aaron, Hamnache Yasmine, Hudayberdiyev Kerim, Shaikh Yunus Anam +
 L3 MIAGE in Apprenticeship
 
-Project initially developed by : 
-Brassard Megan, Douo Bougna Delmas, Fremin du Sartel Thibaud and Lourenço Andréa +
-MASTER MIAGE SITN in apprenticeship
-Paris Dauphine University
-
-
 == Project description
 In this project, the concept of the Assited Board will be implemented. The latter represents a game board as well as an interactive tablet for each player. 
 
@@ -28,14 +22,14 @@ Development in iterations.
 
 == Specification - Iteration 1 - Project leader: Atangana Marina
 
-- Task 1: Creation of a class diagram of the Assisted Board Games menu. The objective of this task is to represent the different functions that will allow the user to access the different games. => Amoussou Dahuiss and Burton James
+- Focus : Creation of Menu => Task 1: Creation of a class diagram of the Assisted Board Games menu. The objective of this task is to represent the different functions that will allow the user to access the different games. => Amoussou Dahuiss and Burton James
 
-- Task 2: Creation of a Play Board Games Use Case Diagram => Hamnache Yasmine and Demay Aaron
+- Focus : Complete the documentation => Task 2: Creation of a Play Board Games Use Case Diagram and Game Entity Class => Hamnache Yasmine and Demay Aaron
 
-- Task 3 : Creation of the daughter classes of chess and draughts that inherit the GameEntity class => Hudayberdiyev Kerim and Shaikh Yunus Anam
+- Focus : Complete daughter classes =>  Task 3 : Creation of the daughter classes of chess and draughts that inherit the GameEntity class => Hudayberdiyev Kerim and Shaikh Yunus Anam
 
 ==== List of PR
 
-- #1: Amoussou Dahuiss and Burton James
-- #2: Hudayberdiyev Kerim and Shaikh Yunus Anam
-- #3: Hamnache Yasmine and Demay Aaron
+- #T_Menu: Amoussou Dahuiss and Burton James
+- #Generalization, Inheritance and Reusabily: Hudayberdiyev Kerim and Shaikh Yunus Anam
+- #Movesuggestion: Hamnache Yasmine and Demay Aaron
