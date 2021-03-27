@@ -80,7 +80,7 @@ Elaboration of a single model for the application according to the basic request
 
 Improvement of the explanations of how the application works and manages the time.
 
-=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task : Improvement of MenuTask *
+=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task : Improvement of MenuTask*
 
 Improvement of MenuTask :
 
