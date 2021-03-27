@@ -9,3 +9,46 @@ image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Bui
 A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 and M2 MIAGE).
 
 The code is hereby published under the MIT License, with their permission.
+
+Project maintained by :
+Dahuiss AMOUSSOU, Marina ATANGANA, James BURTON, Aaron DEMAY, Yasmine HAMNACHE, Kerim HUDAYBERDIYEV, Anam SHAIKH YUNUS+
+L3 MIAGE in Apprenticeship
+
+== *Project description*
+In this project, the concept of the Assited Board will be implemented. The latter represents a game board as well as an interactive tablet for each player. 
+
+For this project, we will make maximum use of existing libraries and good practices.
+Development in iterations.
+
+
+== *Description for iteration #1 - Project leader: Aaron DEMAY*
+
+
+=== *Marina ATANGANA & Dahuiss AMOUSSOU, Task: Creation of Case Class*
+
+
+Inspired by the Move class in GameEntity, this implementation enables to store a game position. Indeed, this implementation switch to a new state when a move is made. 
+
+It will allow to save the position of the white and black pieces by recording the square numbers. So we will have a list of white pieces and a list of squares associated with white (respectively black) pieces. These two lists are then updated at each move by means of appropriate methods. 
+
+It will handle situations where for example a pawn is eaten. This one will not have to be considered on the same square anymore at risk of having two pawns on the square which is prohibited.
+
+This will be useful for checkers that doesnt’t have this implementation.
+
+=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Implementation of Generalisation Class*
+
+-Run the game 
+
+-Analyse what works and what doesn't
+
+The goal is to then solve any problems that the previous team encountered last year.
+
+=== *Kerim HUDAYBERDIYEV & James BURTON, Task: Implementation of Menu in JavaScript*
+
+Tasks: 
+
+-Code the Menu Task in JavaScript
+
+-Attach an HTML interface to load or launch a game 
+
+The goal is to generalize the game and thus be able to launch a chess (or checkers game in the future) from the menu.
