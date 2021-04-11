@@ -70,26 +70,18 @@ This may also be used for game simulation: for example automating all moves so t
 == *Description for iteration #3 - Project leader: Aaron DEMAY*
 
 
-=== *Kerim HUDAYBERDIYEV & James BURTON, Task : Improvement of TaskClock Documentation*
+=== *Kerim HUDAYBERDIYEV & James BURTON, Task : Improvement of existing documentation*
 
-Improvement of the TaskClock Diagram :
+Building a sequence diagram and a class diagram for GameState, PlayerState and Chess Board
 
-Improvement of the technical errors of the sequence diagram
+=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task : Sequence Diagram for chess*
 
-Elaboration of a single model for the application according to the basic request of Mr. Cailloux
+Creation of a sequence diagram to illustrate the chess game.
 
-Improvement of the explanations of how the application works and manages the time.
+It shows the difference between creating a new game with the "New Game" button and resuming a game with "Load Game".
 
-=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task : Improvement of MenuTask*
+=== *Marina ATANGANA & Anam SHAIKH YUNUS, Task : Square and Piece Class Creation*
 
-Improvement of MenuTask :
+Creation of an immutable class Square with two fields: vertical, horizontal allowing to locate the squares. Addition of a method IsWhite which returns the boolean True if the square is white and black otherwise. Creation of a class Diagram to describe the class. 
 
-Creation of a sequence diagram to illustrate the interactions between the chess game and the menu
-
-Illustration of the difference between playing a game already stared and staring a new game
-
-=== *Marina ATANGANA & Anam SHAIKH YUNUS, Task : Case Class Documentation*
-
-Creation of a UML diagram which illustrates Task Case that allows to record where the white and black pawns are in relation to the case of the board.
-
-It illustrates the difference between the recording of the chess moves and checkers moves
+Creation of a Piece class specific to Checkers. Each piece has a color (black or white). This class will reuse the GetPromotion() methods to know the type of the piece (i.e. to know if we play with a checkers or chess piece).
