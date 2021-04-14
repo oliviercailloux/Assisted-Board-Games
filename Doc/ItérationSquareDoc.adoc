@@ -1,11 +1,16 @@
-= Assisted-Board-Games
-:gitHubUserName: oliviercailloux
-:groupId: io.github.{gitHubUserName}
-:artifactId: assisted-board-games
-:repository: Assisted-Board-Games
+= Implementaion of Square and piece for the checkers game
 
-image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/{gitHubUserName}/{repository}"]
+Marina & Dahuiss
 
-A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 and M2 MIAGE).
+_Our task consist on creation  two classes : Square and Piece for the checkers game._
 
-The code is hereby published under the MIT License, with their permission.
+* First of all we create the class Square basing on the UML diagrams created by Annam and Marina in the third Itération of UML #PR17, we also take in consideration all your remarks.
+So, in this class we have 2 parameters which define the coordinate of the square and also a boolean 'color' which states if the square is white or black.
+At the end of the class we have a method 'toString()', which permits us to build the square when the piece is an ordinary piece or a draught.
+
+* In the Piece class, we have 2 parameters : 'typePiece' which specified a kind of piece, if it's an ordinary piece or a draught and a boolean 'selected' which states if a piece is selected or not. And by the way, we have a method 'toString()', which allow us to know if we have an ordinary white or black piece or if it's a white or black  draught piece. 
+
+You can find our classes in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/IterationSquareJava/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers[package].
+
+_We have to notice that it's just the beggining of our idea an we can improve it later in this project._
+
