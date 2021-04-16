@@ -6,70 +6,40 @@ package io.github.oliviercailloux.assisted_board_games.checkers;
  */
 
 public class Square {
-	/**
-	 *
-	 * @param vertical represents the vertical coordinate of Checkers Square.
-	 * @param horizontal  represents the horizontal coordinate of  Checkers Square.
-	 * @param color state if the Square is black or white.
-	 */
-	private int vertical;
-	private int horizontal;
-	private Piece piece;
-	private boolean color;
 
 	
-	public Square(int vertical, int horizontal) {
-		
-		this.vertical = vertical;
+	private final int vertical;
+	private final int horizontal;
+	private boolean white;
+	Square(int verticale, int horizontal){
 		this.horizontal = horizontal;
-		this.color = false;
-
+		this.vertical = verticale;
 	}
-	
+	public static final Square givenCoordonate(int vertical, int horizontal) {
+		return new Square(vertical, horizontal);
+	}
+	/**
+	 * @return the vertical
+	 */
 	public int getVertical() {
 		return vertical;
 	}
-
+	/**
+	 * @return the horizontal
+	 */
 	public int getHorizontal() {
 		return horizontal;
 	}
-
-	public void setWhite() {
-		this.color = true;
-	}
-
+	
 	public boolean isWhite() {
-
-		return this.color;
-
-	}
-
-	public boolean isBlack() {
-		return !this.color;
-	}
-
-	public boolean hasPiece() {
-		try {
-
-			piece.getTypePiece();
-			return true;
-		} catch (Exception e) {
-			return false;
+		int som = vertical + horizontal;
+		if (som % 2 == 1) {
+			return false;//Black color
 		}
+		return true;//White color
 	}
-
-	public String toString() {
-		
-		try {
-
-			this.getHorizontal();
-			return this.piece.toString();
-		} catch (Exception e) {
-			if (this.isWhite())
-				return "░";
-			else
-				return " ";
-		}
+	public void setWhite() {
+		this.white= true;
 	}
 
 }

@@ -5,41 +5,15 @@ package io.github.oliviercailloux.assisted_board_games.checkers;
  *
  */
 public class Piece {
-	
-	private Square square;
-	private String typePiece;
-	private boolean selected;
+	private final String color = null;
+	private final boolean promoted = false;
 
-	/**
-	 * @return typePiece states if it's a ordinary piece or draught 
-	 */
-	public String getTypePiece() {
-		return typePiece;
+	public String color() {
+		return color;
 	}
 
-	public void setTypePiece(String typePiece) {
-		this.typePiece = typePiece;
-	}
-
-	public String toString() {
-		if (this.selected) {
-			return "@";
-		} else {
-			if (this.typePiece.equals("piece")) {
-				if (this.square.isWhite())
-					return "white";
-				else
-					return "black";
-			} else {
-				if (this.typePiece.equals("draught")) { 
-					if (this.square.isWhite())
-						return "White";
-					else
-						return "Black";
-				} else
-					return "Other";
-			}
-		}
+	public boolean isPromoted() {
+		return promoted;
 	}
 
 }
