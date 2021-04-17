@@ -15,5 +15,8 @@ public class Piece {
 	public boolean isPromoted() {
 		return promoted;
 	}
+	public boolean isDraught() {
+		return true;
+	}
 
 }

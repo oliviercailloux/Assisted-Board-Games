@@ -6,11 +6,11 @@ package io.github.oliviercailloux.assisted_board_games.checkers;
  */
 
 public class Square {
-
 	
 	private final int vertical;
 	private final int horizontal;
 	private boolean white;
+	private Piece myPiece;
 	Square(int verticale, int horizontal){
 		this.horizontal = horizontal;
 		this.vertical = verticale;
@@ -41,5 +41,10 @@ public class Square {
 	public void setWhite() {
 		this.white= true;
 	}
-
+	public boolean getWhite() {
+		return this.white;
+	}
+	public boolean isEmpty() {
+		return (this.myPiece == null);
+	}
 }
