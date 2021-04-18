@@ -99,7 +99,7 @@ Implementation of the Square class which represents the squares of a chessboard 
 
 Implementation of the CheckerBoard class which allows to create the board of the checkers game.
 
-=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Generalisation *
+=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Generalisation*
 
 Creation of a GameBoard interface and a CheckersBoard class.
 
