@@ -8,14 +8,14 @@ import java.util.Map;
 /**
  * Permits to create a checker board.
  * <p>
- * This interface show how we will implement our checker board.
+ * This interface shows how we will implement our checker board.
+ * <p>
+ * This class requires to have as attribute 2 Map, the first which contains, the
+ * square coordinates and a second one which contains the piece's coordinates
  */
 
 public interface CheckerBoard {
-	/**
-	 * This class requires to have as attribute 2 Map, the first which contains, the
-	 * square coordinates and a second one which contains the piece's coordinates
-	 */
+	
 	Map<Point, Square> pointToSquare = new HashMap<>();
 	Map<Point, Piece> pointToPiece = new HashMap<>();
 
@@ -64,8 +64,9 @@ public interface CheckerBoard {
 
 	/**
 	 * The objective of this method is to put the piece in the map representing
-	 * pieces with his coordinates.
-	 *
+	 * pieces with its coordinates.
+	 *<p>
+	 * It will permit us to know where the piece is located. ( Key = Piece, Value = its coordinates a Point).
 	 * @param point : represents the coordinates of the piece.
 	 * @param piece : is the piece to add.
 	 */
@@ -81,8 +82,9 @@ public interface CheckerBoard {
 
 	/**
 	 * The objective of this method is to put the square in the map representing
-	 * squares with his coordinates.
-	 *
+	 * squares with its coordinates.
+	 *<p>
+	 * It will permit us to know where the square is located. ( Key = Square, Value = its coordinates a Point).
 	 * @param point  : represents the coordinates of the piece.
 	 * @param square : is the square to add.
 	 */
@@ -97,16 +99,16 @@ public interface CheckerBoard {
 	void movePiece(Point from, Point to);
 
 	/**
-	 * Show on the board if the movement is possible or not?
+	 * Show on the board if the movement is possible or not.
 	 * 
 	 * @param from : the initial position
 	 * @param to   : arrival position.
-	 * @return true is it's a valid move and false else.
+	 * @return true if it's a valid move and false else.
 	 */
 	public boolean isValidToMove(Point from, Point to);
 
 	/**
-	 * LoadPieces is the method which load all the pieces in the CheckerBoard.
+	 * LoadPieces is the method which loads all the pieces in the CheckerBoard.
 	 * 
 	 * @param pieces : a list of all the checker pieces.
 	 */
