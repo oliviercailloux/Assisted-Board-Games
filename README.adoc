@@ -1,1 +1,12 @@
+= Assisted-Board-Games
+:gitHubUserName: oliviercailloux
+:groupId: io.github.{gitHubUserName}
+:artifactId: assisted-board-games
+:repository: Assisted-Board-Games
+
+image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/{gitHubUserName}/{repository}"]
+
+A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in http://www.mido.dauphine.fr/[MIDO] L3 and M2 MIAGE).
+
+The code is hereby published under the MIT License, with their permission.
 
