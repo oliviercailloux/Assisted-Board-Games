@@ -90,20 +90,24 @@ Creation of a Piece class specific to Checkers. Each piece has a color (black or
 == *Description for iteration JAVA#1 - Project leader: Aaron DEMAY*
 
 
-=== *Marina ATANGANA & Dahuiss AMOUSSOU, Task: Creation of Case Class*
+=== *Marina ATANGANA & Dahuiss AMOUSSOU, Task: Implementation of three new classes*
 
 
-Implementation pf the Piece class which represents a piece of the game of Checkers or Chess. This one will have a color and a boolean attribute which indicates if it is promoted. 
+Implementation of the Piece class which represents a piece of the game of Checkers or Chess. This one will have a color and a boolean attribute which indicates if it is promoted. 
 
-Implementation of the Square class chich represents the squares of a chessboard or a checkerboard through coordinates (vertical and horizontal).
+Implementation of the Square class which represents the squares of a chessboard or a checkerboard through coordinates (vertical and horizontal).
 
 Implementation of the CheckerBoard class which allows to create the board of the checkers game.
 
-=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Implementation of Generalisation Class*
+=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Generalisation *
 
-The goal is to then solve any problems that the previous team encountered last year.
+Creation of a GameBoard interface and a CheckersBoard class.
+
+The CheckersBoard class implements two interfaces "GameBoard" and "CheckerBoard".
 
 
 === *Kerim HUDAYBERDIYEV & James BURTON, Task: Implementation of Menu in JavaScript*
 
 Implementation of the Menu in HTML.
+
+Chess interface improvement.
