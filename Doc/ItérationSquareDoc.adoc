@@ -1,16 +1,23 @@
-= Implementaion of Square and piece for the checkers game
+= Creation of Square, Piece class and an interface CheckerBoard for the checkers game.
 
 Marina & Dahuiss
 
-_Our task consist on creation  two classes : Square and Piece for the checkers game._
+_Our task consists on creation of two classes : Square and Piece for the checkers game and also an interface which explains mainly how we will represent the CheckersBoard._
 
-* First of all we create the class Square basing on the UML diagrams created by Annam and Marina in the third Itération of UML #PR17, we also take in consideration all your remarks.
-So, in this class we have 2 parameters which define the coordinate of the square and also a boolean 'color' which states if the square is white or black.
-At the end of the class we have a method 'toString()', which permits us to build the square when the piece is an ordinary piece or a draught.
+* First of all we create the class Square in which we have 2 parameters which define the coordinates of the square and also an instance of Piece. 
+  We use it to know if the square is empty or not. This class will be useful to build our checkers board and also to place the pieces on the right squares.
 
-* In the Piece class, we have 2 parameters : 'typePiece' which specified a kind of piece, if it's an ordinary piece or a draught and a boolean 'selected' which states if a piece is selected or not. And by the way, we have a method 'toString()', which allow us to know if we have an ordinary white or black piece or if it's a white or black  draught piece. 
+* In a second step, we have created a class that represents a piece of the game of checkers.
+  This class contains 2 parameters : the color of the piece representing by a String and also a boolean promoted which allows us to know if the piece is promoted or not.
+  By promoted we mean if the piece becomes a 'Queen' or not. 
+
+* The other part of our work consists on creating an interface which explains how we want to create the CheckerBoard. 
+  In our interface we can find many methods such as printBoard(), generatePoints() and others. 
+  All those methods will allow us to create the CheckersBoard. 
+
+_We have to notice that it's just the beggining of our idea an we can improve it later in this project._
 
 You can find our classes in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/IterationSquareJava/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers[package].
 
-_We have to notice that it's just the beggining of our idea an we can improve it later in this project._
+
 
