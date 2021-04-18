@@ -106,7 +106,7 @@ Creation of a GameBoard interface and a CheckersBoard class.
 The CheckersBoard class implements two interfaces "GameBoard" and "CheckerBoard".
 
 
-=== *Kerim HUDAYBERDIYEV & James BURTON, Task: Implementation of Menu in JavaScript*
+=== *Kerim HUDAYBERDIYEV & James BURTON, Task: Implementation of Menu*
 
 Implementation of the Menu in HTML.
 
