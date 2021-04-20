@@ -20,7 +20,7 @@ In this project, the concept of the Assited Board will be implemented. The latte
 For this project, we will make maximum use of existing libraries and good practices.
 Development in iterations.
 
-== *Description for iteration #1 - Project leader: Atangana Marina*
+== *Description for iteration UML#1 - Project leader: Atangana Marina*
 
 - Focus : Creation of Menu => Task 1: Creation of a class diagram of the Assisted Board Games menu. The objective of this task is to represent the different functions that will allow the user to access the different games. => Amoussou Dahuiss and Burton James
 
@@ -34,7 +34,7 @@ Development in iterations.
 - #Generalization, Inheritance and Reusabily: Hudayberdiyev Kerim and Shaikh Yunus Anam
 - #Movesuggestion: Hamnache Yasmine and Demay Aaron
 
-== *Description for iteration #2 - Project leader: James BURTON*
+== *Description for iteration UML#2 - Project leader: James BURTON*
 
 
 === *Aaron DEMAY & Dahuiss AMOUSSOU, Task: Creation of Clock Class*
@@ -67,7 +67,7 @@ This list of moves will be stored to a text, excel or json file. This file will 
 
 This may also be used for game simulation: for example automating all moves so the player could see all their performed moves.
 
-== *Description for iteration #3 - Project leader: Aaron DEMAY*
+== *Description for iteration UML#3 - Project leader: Aaron DEMAY*
 
 
 === *Kerim HUDAYBERDIYEV & James BURTON, Task : Improvement of existing documentation*
@@ -85,3 +85,29 @@ It shows the difference between creating a new game with the "New Game" button a
 Creation of an immutable class Square with two fields: vertical, horizontal allowing to locate the squares. Addition of a method IsWhite which returns the boolean True if the square is white and black otherwise. Creation of a class Diagram to describe the class. 
 
 Creation of a Piece class specific to Checkers. Each piece has a color (black or white). This class will reuse the GetPromotion() methods to know the type of the piece (i.e. to know if we play with a checkers or chess piece).
+
+
+== *Description for iteration JAVA#1 - Project leader: Aaron DEMAY*
+
+
+=== *Marina ATANGANA & Dahuiss AMOUSSOU, Task: Implementation of three new classes*
+
+
+Implementation of the Piece class which represents a piece of the game of Checkers or Chess. This one will have a color and a boolean attribute which indicates if it is promoted. 
+
+Implementation of the Square class which represents the squares of a chessboard or a checkerboard through coordinates (vertical and horizontal).
+
+Implementation of the CheckerBoard class which allows to create the board of the checkers game.
+
+=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Generalisation*
+
+Creation of a GameBoard interface and a CheckersBoard class.
+
+The CheckersBoard class implements two interfaces "GameBoard" and "CheckerBoard".
+
+
+=== *Kerim HUDAYBERDIYEV & James BURTON, Task: Implementation of Menu*
+
+Implementation of the Menu in HTML.
+
+Chess interface improvement.
