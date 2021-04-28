@@ -1,31 +1,44 @@
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This class has 2 features which are color and promoted.
  * <p>
- * Indeed, color permits us to know the color of the Piece. We add the "final" type because
- * the color of the Piece don't has to be changed.
+ * Indeed, color permits us to know the color of the Piece. We add the "final"
+ * type because the color of the Piece don't has to be changed.
  * <p>
- * promoted attribute permits us to know if the piece becomes a Queen or not. That's why we choosed the boolean parameter to express it.
- * <p> 
- * The color() method returns a String representing the color of the piece and the isPromoted() method returns the promoted attributes that we explained before.
+ * promoted attribute permits us to know if the piece becomes a Queen or not.
+ * That's why we choosed the boolean parameter to express it.
+ * <p>
+ * The color() method returns a String representing the color of the piece and
+ * the isPromoted() method returns the promoted attributes that we explained
+ * before.
  * 
- * @author Dahuiss & Marina
  */
 public class Piece {
-	
-	private final String color = null;
-	private boolean promoted = false;
-	/**
-	 * @return color 
-	 */
-	public String color() {
-		return color;
+
+	private final Point point;
+	private final Color color;
+
+	Piece(Point point, Color couleur) {
+		this.color = couleur;
+		this.point = point;
 	}
+
+	public static final Piece givenPoint(Point p, Color couleur) {
+		return new Piece(p, couleur);
+	}
+
 	/**
-	 * @return promoted
+	 * @return the point
 	 */
-	public boolean isPromoted() {
-		return promoted;
+	public Point getPoint() {
+		return point;
+	}
+
+	public Color getColor() {
+		return color;
 	}
 }
