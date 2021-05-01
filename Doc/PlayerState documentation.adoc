@@ -1,5 +1,7 @@
 = Documentation for the PlayerState class, enriching existing documenation
 
+Kérim & Dahuiss
+
 _Our goal was to improve the existing documentation specifically PlayerState class. In the sequence diagram we tried to illustrate how the application uses `PlayerState` class and exactly when._ 
 
 When the player loads a game using `FEN` notation, the server calls `importFenGame` method in the `GameResource` class, passing it as an argument the `FEN` notation provided by the player. 
