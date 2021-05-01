@@ -15,4 +15,5 @@ At the end, the `importFenGame` method is called with `getId` as parameter and r
 You can find all the informations concerning our diagram in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/Documentation-PlayerState-UML/Doc/Papyrus[folder].
 
 Sequence diagram:
-image::Images/PlayerStateSequenceDiagram.svg[diagram,2800,1600]
+
+image::Images/PlayerStateSequenceDiagram.svg[diagram,2800,800]
