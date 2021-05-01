@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
+
 /**
  * <p>
  * In this class we represent all the features of a square.
@@ -49,5 +50,4 @@ public class Square {
 	public final boolean isWhite() {
 		return (this.point.getRow() + this.point.getColumn()) % 2 == 1;
 	}
-
 }

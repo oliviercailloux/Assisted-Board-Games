@@ -27,7 +27,7 @@ public class Piece {
 		this.point = point;
 	}
 
-	public static final Piece givenPoint(Point p, Color couleur) {
+	public final Piece givenPoint(Point p, Color couleur) {
 		return new Piece(p, couleur);
 	}
 
