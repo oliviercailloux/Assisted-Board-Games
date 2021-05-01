@@ -1,0 +1,10 @@
+= Documentation for the PlayerState class, enriching existing documenation
+
+Our goal was to improve the existing documentation. It should be noted that the additions concern only PlayerState class. In the sequence diagram we tried to illustrate how the application uses PlayerState class and in exactly when.
+When the player loads a game using *FEN* notation, the server calls *importFenGame* method in the GameResource class, passing it as an argument the *FEN* notation provided by the player. Then, inside this method GameResource class proceeds to creating a new instance of a ChessBoard (by invoking it's constructor) class passing it as an argument *FEN* string. Inside it's constructor ChessBoard class, creates a new instance of a Board class (third party chess game library) and then uses this instance to class it's method *loadFromFen*, passes as an argument to this method *FEN* string. After that, the new instance of a ChessBoard is returned to GameResource.
+The next step is a creation of two instance of PlayerState object (one for white player and one for black) by invoking it's constructor. After that, the method proceeds to creating a new instance of a GameState object by passing it's constructor an instance of a ChessBoard and two instances of a PlayerState, all of which method created earlier. The returned instance of a GameState object is passed as an argument to the constructor of GameEntity. Inside of it GameEntity class uses provided instance of a GameState to get the existing ChessBoard and uses it to initialize it's instance variable startBoard. After that, a new instance of a GameEntity is returned.
+The last thing that the *importFenGame* method does is calling of a getId method on a returned instance of GameEntity. This will return the id of the game. Method then proceeds to return this same instance back to the player.
+
+Sequence diagram:
+
+image::../Images/PlayerStateSequenceDiagram.svg[diagram,800,600]
