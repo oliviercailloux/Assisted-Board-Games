@@ -20,14 +20,14 @@ import java.util.Map;
 public class Piece {
 
 	private final Point point;
-	private final Color color;
+	private final Side color;
 
-	Piece(Point point, Color couleur) {
+	Piece(Point point, Side couleur) {
 		this.color = couleur;
 		this.point = point;
 	}
 
-	public final Piece givenPoint(Point p, Color couleur) {
+	public final Piece givenPoint(Point p, Side couleur) {
 		return new Piece(p, couleur);
 	}
 
@@ -38,7 +38,7 @@ public class Piece {
 		return point;
 	}
 
-	public Color getColor() {
+	public Side getColor() {
 		return color;
 	}
 }
