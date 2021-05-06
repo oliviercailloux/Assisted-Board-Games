@@ -1,8 +1,5 @@
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * This class has 2 features which are color and promoted.
  * <p>
@@ -19,26 +16,35 @@ import java.util.Map;
  */
 public class Piece {
 
-	private final Point point;
+	private final Square point;
 	private final Side color;
 
-	Piece(Point point, Side couleur) {
+	Piece(Square point, Side couleur) {
 		this.color = couleur;
 		this.point = point;
 	}
 
-	public final Piece givenPoint(Point p, Side couleur) {
+	/**
+	 * @param p       : an instance of Square which is considered as a point
+	 * @param couleur : represent a color of the side
+	 * @return create a piece by using a square and his color
+	 */
+	public final Piece givenPoint(Square p, Side couleur) {
 		return new Piece(p, couleur);
 	}
 
 	/**
-	 * @return the point
+	 * @return an instance of a square which is considered as a point
 	 */
-	public Point getPoint() {
+	public Square getSquare() {
 		return point;
 	}
 
+	/**
+	 * @return the color of the side.
+	 */
 	public Side getColor() {
 		return color;
 	}
+
 }

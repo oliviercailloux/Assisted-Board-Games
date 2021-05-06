@@ -1,6 +1,5 @@
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
-
 /**
  * <p>
  * In this class we represent all the features of a square.
@@ -11,33 +10,31 @@ package io.github.oliviercailloux.assisted_board_games.checkers;
  * We can also find in this class methods that allow us to know if a square is
  * white or black or if the square is empty or not.
  * 
- * @author Dahuiss and Marina
+ * @author Dahuiss and Marina and Yasmine
  */
 
 public class Square {
 
-	private final Point point;
+	private final int row;
+	private final int column;
 
-	Square(Point point) {
-		this.point = point;
+	Square(int x, int y) {
+		this.row = x;
+		this.column = y;
 	}
 
 	/**
+	 * <p>
 	 * A Board is a set of Squares. The Board numbers its Squares starting in
 	 * upper-left: (1,1) (2,1) ... (x,y) (1,2) ... ... (x,y)
-	 * <p>
-	 * This method, consist on displaying the checkers board using its coordinates.
+	 * 
+	 * @param row    the vertical coordonate
+	 * @param column the horizontal coordonate
+	 * @return Create the checkers squares using its coordinates.
 	 */
 
-	public static final Square givenCoordonate(Point point) {
-		return new Square(point);
-	}
-
-	/**
-	 * @return the point
-	 */
-	public Point getPoint() {
-		return point;
+	public static Square givenCoordonate(int row, int column) {
+		return new Square(row, column);
 	}
 
 	/**
@@ -48,6 +45,32 @@ public class Square {
 	 *         sum is odd.
 	 */
 	public final boolean isWhite() {
-		return (this.point.getRow() + this.point.getColumn()) % 2 == 1;
+		return (this.getRow() + this.getColumn()) % 2 == 1;
 	}
+
+	/**
+	 * @return the row the vertical coordonate
+	 */
+	public int getRow() {
+		return row;
+	}
+
+	/**
+	 * @return the column the horizontal coordonate
+	 */
+	public int getColumn() {
+		return column;
+	}
+
+	/**
+	 * This enum allow us to know the state of the square
+	 */
+	public static enum SquareState {
+		NOT_VALID_COORDINATES, NOT_IN_PLAY, IN_PLAY;
+
+		public boolean equalsType(SquareState other) {
+			return equals(other);
+		}
+	}
+
 }
