@@ -10,3 +10,104 @@ A Java project developed by students during the https://github.com/oliviercaillo
 
 The code is hereby published under the MIT License, with their permission.
 
+Project maintained by :
+Dahuiss AMOUSSOU, Marina ATANGANA, James BURTON, Aaron DEMAY, Yasmine HAMNACHE, Kerim HUDAYBERDIYEV, Anam SHAIKH YUNUS+
+L3 MIAGE in Apprenticeship
+
+== *Project description*
+In this project, the concept of the Assited Board will be implemented. The latter represents a game board as well as an interactive tablet for each player. 
+
+For this project, we will make maximum use of existing libraries and good practices.
+Development in iterations.
+
+== *Description for iteration UML#1 - Project leader: Atangana Marina*
+
+- Focus : Creation of Menu => Task 1: Creation of a class diagram of the Assisted Board Games menu. The objective of this task is to represent the different functions that will allow the user to access the different games. => Amoussou Dahuiss and Burton James
+
+- Focus : Complete the documentation => Task 2: Creation of a Play Board Games Use Case Diagram and Game Entity Class => Hamnache Yasmine and Demay Aaron
+
+- Focus : Complete daughter classes =>  Task 3 : Creation of the daughter classes of chess and draughts that inherit the GameEntity class => Hudayberdiyev Kerim and Shaikh Yunus Anam
+
+=== *List of PR*
+
+- #T_Menu: Amoussou Dahuiss and Burton James
+- #Generalization, Inheritance and Reusabily: Hudayberdiyev Kerim and Shaikh Yunus Anam
+- #Movesuggestion: Hamnache Yasmine and Demay Aaron
+
+== *Description for iteration UML#2 - Project leader: James BURTON*
+
+
+=== *Aaron DEMAY & Dahuiss AMOUSSOU, Task: Creation of Clock Class*
+
+
+Create a diagram for managing the clock which will be useful for both chess and checkers, the aim is to measure how long a game takes from start to finish and also to add a time constraint.
+
+First, a player starts the game with 10 minutes to make a move. At each turn, the time he takes is deducted and once he makes the move, he has 30 seconds added to his remaining time. Once he has used up all of his remaining time, he will automatically lose the game.
+	
+This tries to solve the problems of long games and player idleness (this prevents an opponent from waiting too long).
+
+We will be using two types of diagrams, a class diagram and sequence diagram.
+
+=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Improvement of generalization*
+
+Goals:
+
+1. Have 2 interfaces: *Move* and *Board* with implementations for both games (for chess and checkers)
+2. Replace list with multiplicity
+3. To first focus on improving the chess game (for the next iteration), and later on work on the checkers game
+
+This task solves the following problem: our application will be able to manage multiple types of games (at least two, chess and checkers). Because these game are different, each needs specific classes (see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/2).
+
+
+=== *Kerim HUDAYBERDIYEV & Marina ATANGANA, Task: Track all moves made by each player during a game of checkers and chess*
+
+Goal: Create a use cases diagram showing all moves made during a game
+
+This list of moves will be stored to a text, excel or json file. This file will be useful later on fopr analyzing all the moves, to understand why you lost, what you could have done differently etc. This file can also be imported to the webpage to show the players all the moves that were made.
+
+This may also be used for game simulation: for example automating all moves so the player could see all their performed moves.
+
+== *Description for iteration UML#3 - Project leader: Aaron DEMAY*
+
+
+=== *Kerim HUDAYBERDIYEV & James BURTON, Task : Improvement of existing documentation*
+
+Building a sequence diagram and a class diagram for GameState, PlayerState and Chess Board
+
+=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task : Sequence Diagram for chess*
+
+Creation of a sequence diagram to illustrate the chess game.
+
+It shows the difference between creating a new game with the "New Game" button and resuming a game with "Load Game".
+
+=== *Marina ATANGANA & Anam SHAIKH YUNUS, Task : Square and Piece Class Creation*
+
+Creation of an immutable class Square with two fields: vertical, horizontal allowing to locate the squares. Addition of a method IsWhite which returns the boolean True if the square is white and black otherwise. Creation of a class Diagram to describe the class. 
+
+Creation of a Piece class specific to Checkers. Each piece has a color (black or white). This class will reuse the GetPromotion() methods to know the type of the piece (i.e. to know if we play with a checkers or chess piece).
+
+
+== *Description for iteration JAVA#1 - Project leader: Aaron DEMAY*
+
+
+=== *Marina ATANGANA & Dahuiss AMOUSSOU, Task: Implementation of three new classes*
+
+
+Implementation of the Piece class which represents a piece of the game of Checkers or Chess. This one will have a color and a boolean attribute which indicates if it is promoted. 
+
+Implementation of the Square class which represents the squares of a chessboard or a checkerboard through coordinates (vertical and horizontal).
+
+Implementation of the CheckerBoard class which allows to create the board of the checkers game.
+
+=== *Anam SHAIKH YUNUS & Yasmine HAMNACHE, Task: Generalisation*
+
+Creation of a GameBoard interface and a CheckersBoard class.
+
+The CheckersBoard class implements two interfaces "GameBoard" and "CheckerBoard".
+
+
+=== *Kerim HUDAYBERDIYEV & James BURTON, Task: Implementation of Menu*
+
+Implementation of the Menu in HTML.
+
+Chess interface improvement.
