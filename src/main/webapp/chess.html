@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="chessboardjs/css/chessboard.css" />
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="chessboardjs/js/chess.js"></script>
+<script type="text/javascript" src="chessboardjs/js/chessboard-0.3.0.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>My Assisted Board Games</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div id="wrap">
+		<h1 id="pagetitle">Chess Game</h1>
+		<div id="content">
+		<div id="left">
+			<button class="button" onclick="newGame()">New Game</button>
+		</div>
+	  
+		<div id="right">
+			<input type="text" id="game-id" placeholder="Enter the game ID"/><button class="button" onclick="loadGame()">Load Game</button>
+		</div>
+	  	</div>
+	  	<br>
+		<div id="board" style="width:400px"></div>
+	</div>
+	<div id="gameinfo">
+		<p>STATUS: <span id="status"></span></p> 	
+		<p>FEN: <span id="fen"></span></p>
+		<p>PGN: <span id="pgn"></span></p>
+		<button class="button" onclick="myFunction()">Toggle dark mode</button>
+	</div>
+	<script type="text/javascript">
+	/*Dark Mode */
+			function myFunction() {
+				var element = document.body;
+				element.classList.toggle("dark-mode");
+			}
+
+		var board;
+		var game = Chess();
+		
+		var onDragStart = function(src, piece, pos, o) {
+			// only allow moving pieces of the playing sides' and if the game isn't over
+			if (game.game_over() ||
+				(game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+				(game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+				return false;
+			}
+		};
+		
+		var onDrop = function(src, dst) {
+			var move = game.move({
+				from: src,
+				to: dst,
+				promotion: 'q' // auto promote to queen for now...
+			});
+			
+			// a move is valid iff it isn't returned as null
+			if (move === null) {
+				return 'snapback'; // snapback the piece to its previous location
+			}
+			
+			// otherwise do play the move on the server
+			playMove(src, dst);
+			update();
+		};
+		
+		var onSnapEnd = function() {
+			board.position(game.fen());
+		};
+		
+		var update = function(){
+			var status = '';
+			var color = game.turn() === 'w' ? 'White' : 'Black';
+
+			// checkmate?
+			if (game.in_checkmate()) {
+				status = 'Game over, ' + color + ' is in checkmate.';
+			} else if (game.in_draw()) {
+				// draw?
+				status = 'Game over, drawn position';
+			} else {
+				// game still on
+				status = color + ' to move';
+
+				// check?
+				if (game.in_check()) {
+					status += ', ' + color + ' is in check';
+				}
+			}
+			
+			// update status & pgn spans
+			$('#status').html(status);
+			$('#fen').html(game.fen());
+			$('#pgn').html(game.pgn());
+		};
+		var config = {
+			draggable: true,
+			dropOffBoard: 'snapback',
+			onDragStart: onDragStart,
+			onDrop: onDrop,
+			onSnapEnd: onSnapEnd,
+		};
+		board = ChessBoard('board', config);
+	</script>
+</body>
+</html>

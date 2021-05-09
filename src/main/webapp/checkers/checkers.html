@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>Web board for chess and checkers</title>
+  <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="js/jqModal.js" type="text/javascript"></script>
+
+  <script src="js/boardgame.js" type="text/javascript"></script>
+  <script src="js/boardview.js" type="text/javascript"></script>
+
+  <script src="js/chess.js" type="text/javascript"></script>
+  <script src="js/chessboard.js" type="text/javascript"></script>
+
+  <script src="js/draughts.js" type="text/javascript"></script>
+  <script src="js/draughtsboard.js" type="text/javascript"></script>
+  
+  <script src="js/demo.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="board.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <div id="main">
+	<div id="wrap">
+		<h1 id="pagetitle">Checkers Game</h1>
+		<div id="content-1">
+		<div id="left">
+			<button class="button" value="checkers" onclick="changed()">New Game</button>
+		</div>
+	  
+		<div id="right">
+			<input type="text" id="game-id" placeholder="Enter FEN " autocomplete="off"/><button value="checkers-fen" class="button" onclick="changed2()">Load Game</button>
+		</div>
+	  	</div>
+	</div>
+
+
+<div id="Loaders">
+
+<select id="gcombo" onChange="changed()">
+    <option value="checkers">Checkers</option>
+    
+<select>
+</div>
+
+<div id="content"></div>
+
+
+</div>
+<script type="text/javascript">
+			function myFunction() {
+				var element = document.body;
+				element.classList.toggle("dark-mode");
+      }
+</script>
+</body>
+</html>
+
