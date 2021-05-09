@@ -1,0 +1,11 @@
+= Creation of the CheckerBoard class.
+
+Yasmine & Dahuiss
+
+_Our task consists mainly on creation of the `CheckerBoard` class.To achieve this class we had to improve the existing `Piece` and `Square` classes.  Then we created 2 enums to represent the `PieceSort` and `CheckerSide` types._
+
+
+You can find our classes in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/checkerBoard/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers[package].
+
+
+
