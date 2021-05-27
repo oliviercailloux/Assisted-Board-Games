@@ -120,11 +120,11 @@ Chess interface improvement.
 
 Correction of the class diagram of "CheckerBoard" initially proposed ( see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/25[PR 25].), by taking into account the exchanges on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/36[PR 36], which is a PR about the class `CheckerBoard` proposed in JAVA.
 
-=== *Anam SHAIKH YUNUS & Dahuiss AMOUSSOU, Task :  Observer Design Pattern*
+=== *Anam SHAIKH YUNUS & Dahuiss AMOUSSOU, Task : Creation of a sequence diagram for Checkers*
 
-We think that it would be wise to organize what already exists by using design patterns. In particular the observer design pattern.
-therefore they will propose a class diagram modeling it.
+Creation of a sequence diagram for the checkers game based on the exchanges made concerning the checkerBoard class.
 
-=== *Marina ATANGANA & James BURTON, Task : Improvement of the documentation of the existing application*
-
+=== *Marina ATANGANA & James BURTON, Task : Creation of a use case diagram and correction of the class diagram for the existing application*
+Creation of a use case diagram for chess game.    
 Improvement of the documentation of existing classes ( see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/28[PR 28] ), more precisely: correct the cardinalities and improve the documentation proposed to the reader.
+
