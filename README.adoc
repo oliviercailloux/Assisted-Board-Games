@@ -112,6 +112,38 @@ Implementation of the Menu in HTML.
 
 Chess interface improvement.
 
+== *Description for iteration UML#4 - Project leader: Anam SHAIKH YUNUS*
+
+=== *Kerim HUDAYBERDIYEV & Dahuiss AMOUSSOU, Task : Improvement of existing documentation*
+To create a classe and/or sequence diagram that documents the "playerState" of the Chess Game.
+
+Addition of new fonctionalities in view of possible generalization to the checker game. In this case, show all the methods to add.
+
+=== *Marina ATANGANA & Aaron DEMAY, Task : Creation of a classe diagram of "CheckBoard" with its documentation*
+To document and to do the class diagram of the class "CheckerBoard"
+
+=== *Yasmine HAMNACHE & James BURTON, Task : Documentation of the existing application*
+Continuation of the documentation of the existing classes, more specifically adding the the classes MoveDAO and GameDAO to the classes diagrams of the Documentation task (see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/18[PR 28]).
+
+Correction of sequence diagram for the time management of a game (correction TaskClock see PR#8).
+
+== *Description for iteration JAVA#2 - Project leader: Anam SHAIKH YUNUS*
+
+=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task: Improvement of "CheckerBoard", "Piece" and "Square" classes*
+First of all, improve the class `checkerboard`  that had been proposed and discussed in class.
+
+Then, the addition of two enums : `PieceSort`  and `Side`  as they are very specific to checkers and there are only 2 possibilities in each case.
+
+In addition, making improvements to the Piece and Square classes that were proposed before (see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/21[PR21]).
+
+In order to make sure that our methods work properly, we will eventually add unit tests.
+
+=== *James BURTON & Aaron DEMAY, Task: "PlayerState" adaptation*
+"PlayerState" adaptation to be compatible with checkers game.
+
+=== *Kerim HUDAYBERDIYEV & Marina ATANGANA, Task: Setting Of The Clock*
+Displaying a real time clock for chess game.
+
 
 == *Description for iteration UML#5 - Project leader: Yasmine HAMNACHE*
 
