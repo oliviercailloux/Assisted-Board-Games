@@ -156,7 +156,8 @@ Correction of the class diagram of "CheckerBoard" initially proposed ( see https
 
 Creation of a sequence diagram for the checkers game based on the exchanges made concerning the checkerBoard class.
 
-=== *Marina ATANGANA & James BURTON, Task : Creation of a use case diagram and correction of the class diagram for the existing application*
+=== *Marina ATANGANA & James BURTON, Task 1 : Creation of a use case diagram for the existing application*
 Creation of a use case diagram for chess game.    
-Improvement of the documentation of existing classes ( see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/28[PR 28] ), more precisely: correct the cardinalities and improve the documentation proposed to the reader.
 
+=== *Marina ATANGANA & James BURTON, Task 2 : Correction of the class diagram for the existing application*   
+Improvement of the documentation of existing classes ( see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/28[PR 28] ), more precisely: correct the cardinalities and improve the documentation proposed to the reader.
