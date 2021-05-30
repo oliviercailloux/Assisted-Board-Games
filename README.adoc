@@ -118,7 +118,7 @@ Chess interface improvement.
 === *Kerim HUDAYBERDIYEV  & Dahuiss AMOUSSOU, Task: Improvement of the checkerBoard and Piece classes*
 Improvement of the classes `CheckerBoard` and `Piece` by taking into account the exchanges on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/36[PR 36].
 
-=== *Anam SHAIKH YUNUS & James BURTON, Task: `PlayerStat` adaptation*
+=== *Anam SHAIKH YUNUS & James BURTON, Task: "PlayerState" adaptation*
 `PlayerState` adaptation to be compatible with checkers game.
 
 === *Aaron DEMAY & Marina ATANGANA, Task: generalization of time counting*
