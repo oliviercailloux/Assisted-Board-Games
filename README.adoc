@@ -111,3 +111,16 @@ The CheckersBoard class implements two interfaces "GameBoard" and "CheckerBoard"
 Implementation of the Menu in HTML.
 
 Chess interface improvement.
+
+== *Description for iteration JAVA#3 - Project leader: Yasmine HAMNACHE*
+
+
+=== *Kerim HUDAYBERDIYEV  & Dahuiss AMOUSSOU, Task: Improvement of the checkerBoard and Piece classes*
+Improvement of the classes CheckerBoard and Piece by taking into account the exchanges on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/36[PR 36].
+
+=== *Anam SHAIKH YUNUS & James BURTON, Task: "PlayerState" adaptation*
+"PlayerState" adaptation to be compatible with checkers game.
+
+=== *Aaron DEMAY & Marina ATANGANA, Task: generalization of time counting*
+
+The time counting logic is not specific to chess and should be reusable. That's why the pair decided to work on the generalization of time .
