@@ -162,6 +162,7 @@ Creation of a use case diagram for chess game.
 === *Marina ATANGANA & James BURTON, Task 2 : Correction of the class diagram for the existing application*   
 Improvement of the documentation of existing classes ( see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/28[PR 28] ), more precisely: correct the cardinalities and improve the documentation proposed to the reader.
 
+
 == *Description for iteration JAVA#3 - Project leader: Yasmine HAMNACHE*
 
 
@@ -175,3 +176,4 @@ Improvement of the classes `CheckerBoard` and `Piece` by taking into account the
 
 Our goal is to create the interface of the checkers game, so that the user can access the game from the menu by clicking the Play button of the checkers game.
 After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his FEN tag (link). We will also make sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
+
