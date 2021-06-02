@@ -172,8 +172,8 @@ Improvement of the classes `CheckerBoard` and `Piece` by taking into account the
 === *Anam SHAIKH YUNUS & James BURTON, Task: "PlayerState" adaptation*
 `PlayerState` adaptation to be compatible with checkers game.
 
-=== *Aaron DEMAY & Marina ATANGANA, Task: Play Button for checkers*
+=== *Aaron DEMAY & Marina ATANGANA, Task: Interface of checkers game*
 
-Our goal is to create the interface of the checkers game, so that the user can access the game from the menu by clicking the Play button of the checkers game.
-After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his FEN tag (link). We will also make sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
+To create a graphical interface for the checkers game.
+They will make sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
 
