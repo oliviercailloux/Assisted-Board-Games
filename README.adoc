@@ -161,3 +161,19 @@ Creation of a use case diagram for chess game.
 
 === *Marina ATANGANA & James BURTON, Task 2 : Correction of the class diagram for the existing application*   
 Improvement of the documentation of existing classes ( see https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/28[PR 28] ), more precisely: correct the cardinalities and improve the documentation proposed to the reader.
+
+
+== *Description for iteration JAVA#3 - Project leader: Yasmine HAMNACHE*
+
+
+=== *Kerim HUDAYBERDIYEV  & Dahuiss AMOUSSOU, Task: Improvement of the checkerBoard and Piece classes*
+Improvement of the classes `CheckerBoard` and `Piece` by taking into account the exchanges on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/36[PR 36].
+
+=== *Anam SHAIKH YUNUS & James BURTON, Task: "PlayerState" adaptation*
+`PlayerState` adaptation to be compatible with checkers game.
+
+=== *Aaron DEMAY & Marina ATANGANA, Task: Interface of checkers game*
+
+To create a graphical interface for the checkers game.
+They will make sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
+
