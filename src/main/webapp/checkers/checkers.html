@@ -21,39 +21,40 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-  <div id="main">
-	<div id="wrap">
-		<h1 id="pagetitle">Checkers Game</h1>
-		<div id="content-1">
-		<div id="left">
-			<button class="button" value="checkers" onclick="changed()">New Game</button>
+	  <div id="main">
+		<div id="wrap">
+			<h1 id="pagetitle">Checkers Game</h1>
+			<div id="content-1">
+			<div id="left">
+				<button class="button" value="checkers" onclick="changed()">New Game</button>
+			</div>
+		  
+			<div id="right">
+				<input type="text" id="game-id" placeholder="Enter PDN " autocomplete="off"/><button value="checkers-pdn" class="button" onclick="changed2()">Load Game</button>
+			</div>
+		  	</div>
 		</div>
-	  
-		<div id="right">
-			<input type="text" id="game-id" placeholder="Enter FEN " autocomplete="off"/><button value="checkers-fen" class="button" onclick="changed2()">Load Game</button>
-		</div>
-	  	</div>
+	
+		<div id="center">
+				<button class="button" value="checkers" onclick="changed()">Turn</button>
+			</div>
+	
+	<div id="Loaders">
+	
+	<select id="gcombo" onChange="changed()">
+	    <option value="checkers">Checkers</option>
+	    
+	<select>
 	</div>
+	
+	<div id="content"></div>
+	
 
 
-<div id="Loaders">
-
-<select id="gcombo" onChange="changed()">
-    <option value="checkers">Checkers</option>
-    
-<select>
-</div>
-
-<div id="content"></div>
-
-
-</div>
-<script type="text/javascript">
-			function myFunction() {
-				var element = document.body;
-				element.classList.toggle("dark-mode");
-      }
-</script>
+	
+	<div id="center">
+		<a href="file:///C:/Users/mary-/eclipse-workspace/projet-assisted-board-games-1/src/main/webapp/index.html" class="button">Quit</a>
+	</div>
 </body>
 </html>
 
