@@ -58,6 +58,7 @@ Draughts.prototype.defaults = {
 }
 
 Draughts.prototype.setupBoard = function() {
+    
 
     // Draught's FEN examples:
     // "B:W18,24,27,28,K10,K15:B12,16,20,K22,K25,K29"
@@ -127,7 +128,10 @@ Draughts.prototype.runInfoTransition = function(transition) {
     // TODO: info transition for checkers??
 };
 
+let count = 0;
+var playerToPlay = " White to Move";
 Draughts.prototype.move2transition = function(move) {
+    
 
     if (this.game.curmove < this.game.transitions.length) {
         return false;
@@ -208,14 +212,28 @@ Draughts.prototype.move2transition = function(move) {
             BW.unshift( ["t", piece.id, piece.piece] );
         }
     }
-        
+     
+    
     // actually perform the move
     this.game.transitions.push(tmove);
     this.next();
     
+
+    
+    
     if (this._helper && !move.noforward) {
         this._helper.queueMove(this, move);
     }
+    count ++;
+    if (count%2==1){
+        playerToPlay = "Black To Move";
+        
+    } else {
+        playerToPlay = "White To Move";
+    }
+
+
+    document.getElementById("whoPlays").innerHTML = playerToPlay;
     
 };
 
@@ -364,6 +382,8 @@ Draughts.prototype.getPawnTake = function(cr, cc, vboard, color) {
 };
 
 
+
+
 Draughts.prototype.getKingTake = function(cr, cc, vboard, color) {
     var allowed = [];
     var mintake = 0;
@@ -475,4 +495,6 @@ Draughts.prototype.piece2character = {
     Kw: "\u2654",
     Pw: "\u2659"
 };
+
+
 

@@ -1,5 +1,7 @@
 var chess = undefined;
 
+
+
 function DemoHelper(game_src, game_dst, idx) {
     this.game = game_dst;
     this.idx = idx;
@@ -10,6 +12,8 @@ function DemoHelper(game_src, game_dst, idx) {
         this.game.queueMove(move);
     }
 }
+
+
 
 
 function changed() {
@@ -81,7 +85,11 @@ function twoBoards() {
     new DemoHelper(board2.game, board1.game, 2);
 }
 
+
+
 jQuery(function($) {
     changed();
 });
+
+
 
