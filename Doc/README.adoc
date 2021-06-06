@@ -18,7 +18,7 @@ There is also a move suggestion useful for the novices to know the possible move
 
 Screenshot 1:
 
-image::Image/Checkers_interface.png[]
+image::Image/interface_quit.png[]
 
 
 
