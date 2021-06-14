@@ -177,3 +177,17 @@ Improvement of the classes `CheckerBoard` and `Piece` by taking into account the
 To create a graphical interface for the checkers game.
 They will make sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
 
+== *Description for iteration JAVA#4 - Project leader: Dahuiss AMOUSSOU*
+
+
+=== *Kerim HUDAYBERDIYEV  & Yasmine HAMNACHE, Tasks :*
+- Task 1 : Improvement of the classes :  `CheckerBoard`, `Square` and `Piece`  taking into account the remarks of the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/49[PR 49].
+- Task 2 : Improvement of the game clock proposition, based on your suggestion on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/35[PR 35]
+
+=== *Aaron DEMAY & Marina ATANGANA, Tasks:*
+- Task 1 : Improvement of the `Piece` class by adding two abstracts methods : `getValidPositions()` and `canEatAgain()`. This method will allow us to create the class `NormalPiece` and `Queen`. This improvement is based on an implementation of https://github.com/bparmentier/Jeu-de-dames/blob/7c595cee58f70f4e85c83b3c2cb9884f29362f4d/src/be/heb/esi/alg3ir/dames/model/Piece.java[Piece] in a Github library.
+- Task 2 : Creation of `NormalPiece` and `Queen` classes based on an implementation proposed on a library : https://github.com/bparmentier/Jeu-de-dames/blob/7c595cee58f70f4e85c83b3c2cb9884f29362f4d/src/be/heb/esi/alg3ir/dames/model/Pawn.java[Pawn] and https://github.com/bparmentier/Jeu-de-dames/blob/7c595cee58f70f4e85c83b3c2cb9884f29362f4d/src/be/heb/esi/alg3ir/dames/model/Piece.java[Queen].
+
+=== *Anam SHAIKH YUNUS & James BURTON, Tasks:*
+- Task 1 : Creation of a `Move` class. The main idea is to set up a class that describes the possible movements. We will based on the implementation of the class https://github.com/bparmentier/Jeu-de-dames/blob/7c595cee58f70f4e85c83b3c2cb9884f29362f4d/src/be/heb/esi/alg3ir/dames/model/Move.java[Move] in a library on Github.
+- Task 2 : Improvement of the Checkers interface proposed on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/48[PR 48].
