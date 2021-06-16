@@ -1643,4 +1643,281 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iC7R4Kn6EeuKIJWfKMwhxw" id="(0.5,0.9627367135003054)"/>
     </edges>
   </notation:Diagram>
+  <notation:Diagram xmi:id="_jl2sIM64EeuZ5qPqCSEJQQ" type="UseCase" name="PlayerPlaysGame" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_nhc_AM64EeuZ5qPqCSEJQQ" type="Actor_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_nhe0MM64EeuZ5qPqCSEJQQ" type="Actor_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nhe0Mc64EeuZ5qPqCSEJQQ" y="15"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nhfbQM64EeuZ5qPqCSEJQQ" type="Actor_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nhfbQc64EeuZ5qPqCSEJQQ" x="20" y="100"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nhfbQs64EeuZ5qPqCSEJQQ" type="Actor_QualifiedNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nhfbQ864EeuZ5qPqCSEJQQ" x="20" y="80"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nhfbRM64EeuZ5qPqCSEJQQ" type="Actor_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nhfbRc64EeuZ5qPqCSEJQQ" y="15"/>
+      </children>
+      <element xmi:type="uml:Actor" href="Assisted-board-games-model.uml#_nhbw4M64EeuZ5qPqCSEJQQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nhc_Ac64EeuZ5qPqCSEJQQ" x="200" y="340" width="110" height="146"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_tT5ewM64EeuZ5qPqCSEJQQ" type="Classifier_SubjectShape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_tT6F0M64EeuZ5qPqCSEJQQ" type="Classifier_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_tT6F0c64EeuZ5qPqCSEJQQ" type="Classifier_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_tT6F0s64EeuZ5qPqCSEJQQ" y="15"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_tT6F0864EeuZ5qPqCSEJQQ" type="Classifier_UseCaseCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_2l51oM64EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_2l6csM64EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_2l6csc64EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_2l6css64EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_2l6cs864EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_2l6ctM64EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_2l6ctc64EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2l6cts64EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_2lxSwM64EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2l51oc64EeuZ5qPqCSEJQQ" x="14" y="5" width="181" height="61"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_8-UwQM64EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_8-UwQs64EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_8-UwQ864EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_8-UwRM64EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_8-UwRc64EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_8-UwRs64EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_8-UwR864EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8-UwSM64EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_8-JKEM64EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8-UwQc64EeuZ5qPqCSEJQQ" x="34" y="145"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_AD0hkM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_AD0hks65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_AD0hk865EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_AD0hlM65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_AD0hlc65EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_AD0hls65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_AD0hl865EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AD0hmM65EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_ADua8M65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AD0hkc65EeuZ5qPqCSEJQQ" x="314" y="265"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_B7cKgM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_B7cxkM65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_B7cxkc65EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_B7cxks65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_B7cxk865EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_B7cxlM65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_B7cxlc65EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B7cxls65EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_B7Vc0M65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B7cKgc65EeuZ5qPqCSEJQQ" x="494" y="545"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_DyKbkM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_DyKbks65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_DyKbk865EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_DyKblM65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_DyLCoM65EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_DyLCoc65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_DyLCos65EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DyLCo865EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_DyDG0M65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DyKbkc65EeuZ5qPqCSEJQQ" x="794" y="385"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_FnygcM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Fnygcs65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_Fnygc865EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_FnygdM65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_Fnygdc65EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_Fnygds65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_Fnygd865EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FnygeM65EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_Fnp9kM65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Fnygcc65EeuZ5qPqCSEJQQ" x="334" y="425"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_IK7yoM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_IK7yos65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_IK7yo865EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_IK7ypM65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_IK7ypc65EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_IK7yps65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_IK7yp865EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IK7yqM65EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_IKz20M65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IK7yoc65EeuZ5qPqCSEJQQ" x="194" y="545"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_K1D2kM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_K1D2ks65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_K1D2k865EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_K1D2lM65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_K1D2lc65EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_K1D2ls65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_K1D2l865EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K1D2mM65EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_K043cM65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K1D2kc65EeuZ5qPqCSEJQQ" x="514" y="45"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_NGyBkM65EeuZ5qPqCSEJQQ" type="UseCase_Shape_CCN">
+          <children xmi:type="notation:DecorationNode" xmi:id="_NGyBks65EeuZ5qPqCSEJQQ" type="UseCase_NameLabel_CCN"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_NGyBk865EeuZ5qPqCSEJQQ" type="UseCase_FloatingNameLabel_CCN">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_NGyBlM65EeuZ5qPqCSEJQQ" y="15"/>
+          </children>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_NGyBlc65EeuZ5qPqCSEJQQ" type="UseCase_ExtensionPointCompartment_CCN">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_NGyBls65EeuZ5qPqCSEJQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_NGyBl865EeuZ5qPqCSEJQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NGyBmM65EeuZ5qPqCSEJQQ"/>
+          </children>
+          <element xmi:type="uml:UseCase" href="Assisted-board-games-model.uml#_NGo3oM65EeuZ5qPqCSEJQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NGyBkc65EeuZ5qPqCSEJQQ" x="14" y="665"/>
+        </children>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tT6F1M64EeuZ5qPqCSEJQQ"/>
+      </children>
+      <element xmi:type="uml:Interaction" href="Assisted-board-games-model.uml#_tT3CgM64EeuZ5qPqCSEJQQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tT5ewc64EeuZ5qPqCSEJQQ" x="480" y="-80" width="1101" height="781"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_jl2sIc64EeuZ5qPqCSEJQQ" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_jl2sIs64EeuZ5qPqCSEJQQ"/>
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_jl2sI864EeuZ5qPqCSEJQQ" diagramKindId="org.eclipse.papyrus.uml.diagram.useCase">
+      <owner xmi:type="uml:Model" href="Assisted-board-games-model.uml#_ILBHoM64EeuZ5qPqCSEJQQ"/>
+    </styles>
+    <element xmi:type="uml:Model" href="Assisted-board-games-model.uml#_ILBHoM64EeuZ5qPqCSEJQQ"/>
+    <edges xmi:type="notation:Connector" xmi:id="_kak4MM65EeuZ5qPqCSEJQQ" type="Usage_Edge" source="_8-UwQM64EeuZ5qPqCSEJQQ" target="_2l51oM64EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_kalfQM65EeuZ5qPqCSEJQQ" type="Usage_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_lozl4M65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_kalfQc65EeuZ5qPqCSEJQQ" y="38"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_kalfQs65EeuZ5qPqCSEJQQ" type="Usage_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_lo7hsM65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_kalfQ865EeuZ5qPqCSEJQQ" x="-1" y="-18"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_kak4Mc65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Usage" href="Assisted-board-games-model.uml#_kajDAM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kak4Ms65EeuZ5qPqCSEJQQ" points="[680, 160, -643984, -643984]$[720, 40, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kbNKUM65EeuZ5qPqCSEJQQ" id="(0.5208333333333334,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kbNxYM65EeuZ5qPqCSEJQQ" id="(0.5524861878453039,0.9836065573770492)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_oPrhgM65EeuZ5qPqCSEJQQ" type="Generalization_Edge" source="_8-UwQM64EeuZ5qPqCSEJQQ" target="_AD0hkM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oPrhg865EeuZ5qPqCSEJQQ" type="Generalization_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_oPrhhM65EeuZ5qPqCSEJQQ" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_oPrhgc65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Generalization" href="Assisted-board-games-model.uml#_oPjlsM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oPrhgs65EeuZ5qPqCSEJQQ" points="[640, 159, -643984, -643984]$[840, 224, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oQCt4M65EeuZ5qPqCSEJQQ" id="(0.625,0.9833333333333333)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oQCt4c65EeuZ5qPqCSEJQQ" id="(0.24691358024691357,0.06666666666666667)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_pSLgUM65EeuZ5qPqCSEJQQ" type="Generalization_Edge" source="_K1D2kM65EeuZ5qPqCSEJQQ" target="_AD0hkM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_pSLgU865EeuZ5qPqCSEJQQ" type="Generalization_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_pSLgVM65EeuZ5qPqCSEJQQ" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_pSLgUc65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Generalization" href="Assisted-board-games-model.uml#_pSDkgM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pSLgUs65EeuZ5qPqCSEJQQ" points="[1113, 60, -643984, -643984]$[900, 220, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pSbX8M65EeuZ5qPqCSEJQQ" id="(0.4977973568281938,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pSb_AM65EeuZ5qPqCSEJQQ" id="(0.6172839506172839,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_qZOn8M65EeuZ5qPqCSEJQQ" type="Association_Edge" source="_nhc_AM64EeuZ5qPqCSEJQQ" target="_AD0hkM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_qZOn8865EeuZ5qPqCSEJQQ" type="Association_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_x-aQoM65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_qZOn9M65EeuZ5qPqCSEJQQ" y="39"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_qZOn9c65EeuZ5qPqCSEJQQ" type="Association_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_x-hlYM65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_qZOn9s65EeuZ5qPqCSEJQQ" x="1" y="-18"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_qZOn8c65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Association" href="Assisted-board-games-model.uml#_qZJIYM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qZOn8s65EeuZ5qPqCSEJQQ" points="[360, 450, -643984, -643984]$[820, 269, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qZlNQM65EeuZ5qPqCSEJQQ" id="(0.9090909090909091,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qZlNQc65EeuZ5qPqCSEJQQ" id="(0.12345679012345678,1.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_s6pb0M65EeuZ5qPqCSEJQQ" type="Generalization_Edge" source="_IK7yoM65EeuZ5qPqCSEJQQ" target="_FnygcM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_s6qC4M65EeuZ5qPqCSEJQQ" type="Generalization_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_s6qC4c65EeuZ5qPqCSEJQQ" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_s6pb0c65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Generalization" href="Assisted-board-games-model.uml#_s6iHEM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_s6pb0s65EeuZ5qPqCSEJQQ" points="[820, 501, -643984, -643984]$[913, 440, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_s67IoM65EeuZ5qPqCSEJQQ" id="(0.6481481481481481,0.016666666666666666)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_s67Ioc65EeuZ5qPqCSEJQQ" id="(0.5,1.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_uEQIMM65EeuZ5qPqCSEJQQ" type="Usage_Edge" source="_IK7yoM65EeuZ5qPqCSEJQQ" target="_NGyBkM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_uEQIM865EeuZ5qPqCSEJQQ" type="Usage_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uEQINM65EeuZ5qPqCSEJQQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_uEQINc65EeuZ5qPqCSEJQQ" type="Usage_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uEQINs65EeuZ5qPqCSEJQQ" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_uEQIMc65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Usage" href="Assisted-board-games-model.uml#_uEO6EM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uEQIMs65EeuZ5qPqCSEJQQ" points="[760, 558, -643984, -643984]$[540, 622, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uEn7oM65EeuZ5qPqCSEJQQ" id="(0.37037037037037035,0.9666666666666667)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uEn7oc65EeuZ5qPqCSEJQQ" id="(0.2857142857142857,0.03333333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_v7WzwM65EeuZ5qPqCSEJQQ" type="Generalization_Edge" source="_B7cKgM65EeuZ5qPqCSEJQQ" target="_FnygcM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_v7Wzw865EeuZ5qPqCSEJQQ" type="Generalization_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="__b5wgM65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_v7WzxM65EeuZ5qPqCSEJQQ" x="-1" y="-18"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_v7Wzwc65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Generalization" href="Assisted-board-games-model.uml#_v7O38M65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v7Wzws65EeuZ5qPqCSEJQQ" points="[1160, 580, -643984, -643984]$[920, 439, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v7q80M65EeuZ5qPqCSEJQQ" id="(0.5911330049261084,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_v7q80c65EeuZ5qPqCSEJQQ" id="(0.5376344086021505,0.9833333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_wxE60M65EeuZ5qPqCSEJQQ" type="Usage_Edge" source="_AD0hkM65EeuZ5qPqCSEJQQ" target="_DyKbkM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_wxFh4M65EeuZ5qPqCSEJQQ" type="Usage_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_wxFh4c65EeuZ5qPqCSEJQQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_wxFh4s65EeuZ5qPqCSEJQQ" type="Usage_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_wxFh4865EeuZ5qPqCSEJQQ" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_wxE60c65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Usage" href="Assisted-board-games-model.uml#_wxETwM65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wxE60s65EeuZ5qPqCSEJQQ" points="[900, 279, -643984, -643984]$[1380, 342, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wxYc0M65EeuZ5qPqCSEJQQ" id="(0.6172839506172839,0.9833333333333333)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wxYc0c65EeuZ5qPqCSEJQQ" id="(0.02857142857142857,0.3333333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_xXid4M65EeuZ5qPqCSEJQQ" type="Usage_Edge" source="_FnygcM65EeuZ5qPqCSEJQQ" target="_DyKbkM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_xXjE8M65EeuZ5qPqCSEJQQ" type="Usage_NameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_xXjE8c65EeuZ5qPqCSEJQQ" y="40"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_xXjE8s65EeuZ5qPqCSEJQQ" type="Usage_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_xXjE8865EeuZ5qPqCSEJQQ" y="-20"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_xXid4c65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Usage" href="Assisted-board-games-model.uml#_xXh20M65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xXid4s65EeuZ5qPqCSEJQQ" points="[960, 435, -643984, -643984]$[1380, 397, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xX1_4M65EeuZ5qPqCSEJQQ" id="(0.7526881720430108,0.9166666666666666)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xX1_4c65EeuZ5qPqCSEJQQ" id="(0.14285714285714285,0.8333333333333334)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_0fwzEM65EeuZ5qPqCSEJQQ" type="Association_Edge" source="_nhc_AM64EeuZ5qPqCSEJQQ" target="_FnygcM65EeuZ5qPqCSEJQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_0fxaIM65EeuZ5qPqCSEJQQ" type="Association_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_1km7QM65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_0fxaIc65EeuZ5qPqCSEJQQ" x="-1" y="39"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_0fxaIs65EeuZ5qPqCSEJQQ" type="Association_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_1kveIM65EeuZ5qPqCSEJQQ" name="IS_UPDATED_POSITION" booleanValue="true"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_0fxaI865EeuZ5qPqCSEJQQ" x="1" y="-18"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_0fwzEc65EeuZ5qPqCSEJQQ"/>
+      <element xmi:type="uml:Association" href="Assisted-board-games-model.uml#_0fvk8M65EeuZ5qPqCSEJQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0fwzEs65EeuZ5qPqCSEJQQ" points="[300, 480, -643984, -643984]$[320, 500, -643984, -643984]$[320, 500, -643984, -643984]$[940, 438, -643984, -643984]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0gE8IM65EeuZ5qPqCSEJQQ" id="(0.36363636363636365,1.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0gE8Ic65EeuZ5qPqCSEJQQ" id="(0.21505376344086022,1.0)"/>
+    </edges>
+  </notation:Diagram>
 </xmi:XMI>
