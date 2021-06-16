@@ -177,3 +177,23 @@ Improvement of the classes `CheckerBoard` and `Piece` by taking into account the
 To create a graphical interface for the checkers game.
 They will make sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
 
+
+== *Description for iteration UML#6 - Project leader: Kerim HUDAYBERDIYEV*
+
+
+=== *Yasmine HAMNACHE & Dahuiss AMOUSSOU, Task : Correction of the class diagrams of "GameEntity", "GameState" classes and correction of the sequence diagram of "CheckerBoard" class*
+
+*[1]* Correction of the class diagrams of "GameEntity" and "GameState", which were initially proposed by Marina ATANGANA & James BURTON (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/44[PR 44]), by taking into account the observations and comments on https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/44[Pull request #44], which contains the initial proposal of documentation for `GameEntity` and `GameState` classes implemented in JAVA.
+
+*[2]* Correction of the sequence diagram of "CheckerBoard", which was initially proposed by Dahuiss AMOUSSOU & Anam SHAIKH YUNUS (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/47[PR 47]), by taking into account the observations and comments on https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/47[Pull request #47], which contains the initial proposal of sequence diagram for `CheckerBoard` class.
+
+=== *Aaron DEMAY & Anam SHAIKH YUNUS, Task : Correction of the class diagram of "CheckerBoard" class and correction of the sequence diagram of "PlayerState" class*
+
+*[1]* Correction of the class diagram of "CheckerBoard", which was initially proposed by Aaron DEMAY & Kerim HUDAYBERDIYEV (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/40[PR 40]), by taking into account the observations and comments on https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/40[Pull request #40], which contains the initial proposal of class diagram for `CheckerBoard` class. The JAVA implementation and associated discussions of the mentioned diagram can be found on https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/49[PR 49].
+
+*[2]* Resolving the issue https://github.com/oliviercailloux-org/projet-assisted-board-games-1/issues/42[#42]. Correction of the sequence diagram of "PlayerState", which was initially proposed by Kerim HUDAYBERDIYEV & Dahuiss AMOUSSOU (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/27[PR 27]), by taking into account the observations and comments and removing the duplicates.
+
+=== *Marina ATANGANA & James BURTON, Task : Re-creation of all the existing and approved diagrams*
+
+Re-implementation of the approved diagrams to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts in the future when merging with the main branch. Useful discussions : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/47[Pr 47], https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/45[PR 45], https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/44[PR 44] and https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/40[PR 40].
+
