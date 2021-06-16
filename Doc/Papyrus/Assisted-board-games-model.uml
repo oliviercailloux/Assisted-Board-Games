@@ -16,19 +16,17 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RXrjoIHZEeu_KLg36CA6LQ" name="game" visibility="public" type="_UJVL4IHZEeu_KLg36CA6LQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_O9UosIKXEeuIKZIAVHBWlQ" name="" type="_KRAqkIKXEeuIKZIAVHBWlQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_rJf6YIMiEeu5n8M6bycS7g" name="clock" visibility="public" type="_Zb9hoIMiEeu5n8M6bycS7g"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_fBUJ8M64EeuZ5qPqCSEJQQ" name=""/>
       <nestedClassifier xmi:type="uml:Actor" xmi:id="_1GnwcIKWEeuIKZIAVHBWlQ" name="player"/>
       <lifeline xmi:type="uml:Lifeline" xmi:id="_B9rTwIHZEeu_KLg36CA6LQ" name="playerLifeline" represents="_Yd78AIHWEeu_KLg36CA6LQ" coveredBy="_mrtOgIMkEeu5n8M6bycS7g _msDz0YMkEeu5n8M6bycS7g _ZY9pQIMoEeu5n8M6bycS7g _oJgFYIMoEeu5n8M6bycS7g _xAHEQIMpEeu5n8M6bycS7g _xAjJIIMpEeu5n8M6bycS7g _UanOAIMqEeu5n8M6bycS7g _xAfewIMpEeu5n8M6bycS7g"/>
       <lifeline xmi:type="uml:Lifeline" xmi:id="_lvgYYIHZEeu_KLg36CA6LQ" name="gameLifeline" represents="_RXrjoIHZEeu_KLg36CA6LQ" coveredBy="_ZY9pQIMoEeu5n8M6bycS7g _oJgFYIMoEeu5n8M6bycS7g _zmYYYIMoEeu5n8M6bycS7g _zm2ScYMoEeu5n8M6bycS7g _xAGdMIMpEeu5n8M6bycS7g _Uan1EIMqEeu5n8M6bycS7g _UbCr0IMqEeu5n8M6bycS7g _xAjwMIMpEeu5n8M6bycS7g _zmzPIIMoEeu5n8M6bycS7g _Ua_ogIMqEeu5n8M6bycS7g"/>
       <lifeline xmi:type="uml:Lifeline" xmi:id="_GOHzwIMiEeu5n8M6bycS7g" name="clockLifeline" represents="_rJf6YIMiEeu5n8M6bycS7g" coveredBy="_mrtOgYMkEeu5n8M6bycS7g _msDz0IMkEeu5n8M6bycS7g _ZY9pQIMoEeu5n8M6bycS7g _oJgFYIMoEeu5n8M6bycS7g _zmXxUIMoEeu5n8M6bycS7g _UbDS4IMqEeu5n8M6bycS7g _YAAt8INXEeucr4tIqg5IZw _YABVAINXEeucr4tIqg5IZw _YA77AINXEeucr4tIqg5IZw _YA77AYNXEeucr4tIqg5IZw _zm25gIMoEeu5n8M6bycS7g _msAwgIMkEeu5n8M6bycS7g"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_fBS70M64EeuZ5qPqCSEJQQ" name="" represents="_fBUJ8M64EeuZ5qPqCSEJQQ"/>
       <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_mrtOgIMkEeu5n8M6bycS7g" name="Message13SendEvent" covered="_B9rTwIHZEeu_KLg36CA6LQ" message="_mrsncIMkEeu5n8M6bycS7g"/>
       <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_mrtOgYMkEeu5n8M6bycS7g" name="Message13ReceiveEvent" covered="_GOHzwIMiEeu5n8M6bycS7g" message="_mrsncIMkEeu5n8M6bycS7g"/>
       <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_msAwgIMkEeu5n8M6bycS7g" name="get time at start execution" covered="_GOHzwIMiEeu5n8M6bycS7g" finish="_msDz0IMkEeu5n8M6bycS7g" start="_mrtOgYMkEeu5n8M6bycS7g" behavior="_1UljcIMkEeu5n8M6bycS7g"/>
       <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_msDz0IMkEeu5n8M6bycS7g" name="Message18SendEvent" covered="_GOHzwIMiEeu5n8M6bycS7g" message="_msDMwIMkEeu5n8M6bycS7g"/>
       <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_msDz0YMkEeu5n8M6bycS7g" name="Message18ReceiveEvent" covered="_B9rTwIHZEeu_KLg36CA6LQ" message="_msDMwIMkEeu5n8M6bycS7g"/>
-      <fragment xmi:type="uml:CombinedFragment" xmi:id="_ZY9pQIMoEeu5n8M6bycS7g" name="checkDurationCombinedFragment" covered="_lvgYYIHZEeu_KLg36CA6LQ _GOHzwIMiEeu5n8M6bycS7g _B9rTwIHZEeu_KLg36CA6LQ" interactionOperator="alt">
-        <operand xmi:type="uml:InteractionOperand" xmi:id="_oJgFYIMoEeu5n8M6bycS7g" name="checkDurationOperand" covered="_lvgYYIHZEeu_KLg36CA6LQ _GOHzwIMiEeu5n8M6bycS7g _B9rTwIHZEeu_KLg36CA6LQ">
+      <fragment xmi:type="uml:CombinedFragment" xmi:id="_ZY9pQIMoEeu5n8M6bycS7g" name="checkDurationCombinedFragment" covered="_lvgYYIHZEeu_KLg36CA6LQ _B9rTwIHZEeu_KLg36CA6LQ _GOHzwIMiEeu5n8M6bycS7g" interactionOperator="alt">
+        <operand xmi:type="uml:InteractionOperand" xmi:id="_oJgFYIMoEeu5n8M6bycS7g" name="checkDurationOperand" covered="_lvgYYIHZEeu_KLg36CA6LQ _B9rTwIHZEeu_KLg36CA6LQ _GOHzwIMiEeu5n8M6bycS7g">
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zmXxUIMoEeu5n8M6bycS7g" name="Message20SendEvent" covered="_GOHzwIMiEeu5n8M6bycS7g" message="_zmXKQIMoEeu5n8M6bycS7g"/>
           <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zmYYYIMoEeu5n8M6bycS7g" name="Message20ReceiveEvent" covered="_lvgYYIHZEeu_KLg36CA6LQ" message="_zmXKQIMoEeu5n8M6bycS7g"/>
           <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_zmzPIIMoEeu5n8M6bycS7g" name="BehaviorExecutionSpecification23" covered="_lvgYYIHZEeu_KLg36CA6LQ" finish="_zm2ScYMoEeu5n8M6bycS7g" start="_zmYYYIMoEeu5n8M6bycS7g" behavior="_1UljcIMkEeu5n8M6bycS7g"/>
@@ -592,27 +590,27 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_jNMkMKhbEeuHvIPllWn88Q" name="PlayerState">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jNMkMahbEeuHvIPllWn88Q" name="side">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_rN1GUG1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_rN1GUG1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jNMkMqhbEeuHvIPllWn88Q" name="timeAtTurnStart">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_sjFpEG1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_sjFpEG1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jNMkM6hbEeuHvIPllWn88Q" name="remainingTime">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_jNMkNKhbEeuHvIPllWn88Q" name="getSide">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNMkNahbEeuHvIPllWn88Q" direction="return">
-            <type xmi:type="uml:Class" href="../MenuTask.uml#_rN1GUG1hEeuE8MylLg8o3Q"/>
+            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_rN1GUG1hEeuE8MylLg8o3Q"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_jNMkNqhbEeuHvIPllWn88Q" name="getRemaniningTime">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNMkN6hbEeuHvIPllWn88Q" direction="return">
-            <type xmi:type="uml:Class" href="../MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
+            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_jNMkOKhbEeuHvIPllWn88Q" name="getTimeatStart">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNMkOahbEeuHvIPllWn88Q" direction="return">
-            <type xmi:type="uml:Class" href="../MenuTask.uml#_sjFpEG1hEeuE8MylLg8o3Q"/>
+            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_sjFpEG1hEeuE8MylLg8o3Q"/>
           </ownedParameter>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_jNMkOqhbEeuHvIPllWn88Q" name="getGameId">
@@ -627,7 +625,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_EL29oKhcEeuHvIPllWn88Q" name="GameState" visibility="public">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_EL29oahcEeuHvIPllWn88Q" name="board">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_oVSy8G1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_oVSy8G1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_EL29oqhcEeuHvIPllWn88Q" name="playerstate" aggregation="composite">
           <type xmi:type="uml:Class" href="../../../ChessGameDiagrams/chessGame.uml#_Dx-rXpVTEeuSrpZXTGJTXQ"/>
@@ -654,16 +652,16 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_YWwJoKhcEeuHvIPllWn88Q" name="GameEntity">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJoahcEeuHvIPllWn88Q" name="moves" visibility="package">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_Z3sakG1ZEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_Z3sakG1ZEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJoqhcEeuHvIPllWn88Q" name="startTime" visibility="public">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_sjFpEG1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_sjFpEG1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJo6hcEeuHvIPllWn88Q" name="clockDuration">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJpKhcEeuHvIPllWn88Q" name="clockIncrement">
-          <type xmi:type="uml:Class" href="../MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
+          <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1/Doc/MenuTask.uml#_p9LWwG1hEeuE8MylLg8o3Q"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJpahcEeuHvIPllWn88Q" name="gamestate" aggregation="composite">
           <type xmi:type="uml:Class" href="../../../ChessGameDiagrams/chessGame.uml#_Dx-rWZVTEeuSrpZXTGJTXQ"/>
@@ -726,100 +724,6 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_qSAs0KnyEeuKIJWfKMwhxw" type="_bikHwKnwEeuKIJWfKMwhxw" direction="return"/>
         </ownedOperation>
       </packagedElement>
-    </packagedElement>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Model" xmi:id="_ILBHoM64EeuZ5qPqCSEJQQ" name="Documentation PlayerPlaysGame">
-    <packagedElement xmi:type="uml:Actor" xmi:id="_nhbw4M64EeuZ5qPqCSEJQQ" name="PLAYER"/>
-    <packagedElement xmi:type="uml:Interaction" xmi:id="_tT3CgM64EeuZ5qPqCSEJQQ" name="Player plays game" useCase="_2lxSwM64EeuZ5qPqCSEJQQ _8-JKEM64EeuZ5qPqCSEJQQ _ADua8M65EeuZ5qPqCSEJQQ _B7Vc0M65EeuZ5qPqCSEJQQ _DyDG0M65EeuZ5qPqCSEJQQ _Fnp9kM65EeuZ5qPqCSEJQQ _IKz20M65EeuZ5qPqCSEJQQ _K043cM65EeuZ5qPqCSEJQQ _NGo3oM65EeuZ5qPqCSEJQQ">
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_2lxSwM64EeuZ5qPqCSEJQQ" name="Enter game ID" subject="_tT3CgM64EeuZ5qPqCSEJQQ"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_8-JKEM64EeuZ5qPqCSEJQQ" name="Resume chess game" subject="_tT3CgM64EeuZ5qPqCSEJQQ">
-        <generalization xmi:type="uml:Generalization" xmi:id="_oPjlsM65EeuZ5qPqCSEJQQ" general="_ADua8M65EeuZ5qPqCSEJQQ"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ADua8M65EeuZ5qPqCSEJQQ" name="Play chess game" subject="_tT3CgM64EeuZ5qPqCSEJQQ"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_B7Vc0M65EeuZ5qPqCSEJQQ" name="Start new checkers game" subject="_tT3CgM64EeuZ5qPqCSEJQQ">
-        <generalization xmi:type="uml:Generalization" xmi:id="_v7O38M65EeuZ5qPqCSEJQQ" general="_Fnp9kM65EeuZ5qPqCSEJQQ"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_DyDG0M65EeuZ5qPqCSEJQQ" name="Set the limit" subject="_tT3CgM64EeuZ5qPqCSEJQQ"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_Fnp9kM65EeuZ5qPqCSEJQQ" name="Play checkers game" subject="_tT3CgM64EeuZ5qPqCSEJQQ"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_IKz20M65EeuZ5qPqCSEJQQ" name="Resume checkers game" subject="_tT3CgM64EeuZ5qPqCSEJQQ">
-        <generalization xmi:type="uml:Generalization" xmi:id="_s6iHEM65EeuZ5qPqCSEJQQ" general="_Fnp9kM65EeuZ5qPqCSEJQQ"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_K043cM65EeuZ5qPqCSEJQQ" name="Start new chess game" subject="_tT3CgM64EeuZ5qPqCSEJQQ">
-        <generalization xmi:type="uml:Generalization" xmi:id="_pSDkgM65EeuZ5qPqCSEJQQ" general="_ADua8M65EeuZ5qPqCSEJQQ"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_NGo3oM65EeuZ5qPqCSEJQQ" name="Enter FEN" subject="_tT3CgM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_8BLLgM64EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="__YNYwc64EeuZ5qPqCSEJQQ" name="" type="_8-JKEM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="__lj4Qc64EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="__wANsM64EeuZ5qPqCSEJQQ" name="" type="_8-JKEM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_MnRbEc65EeuZ5qPqCSEJQQ" name="" type="_K043cM65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_OpyFYc65EeuZ5qPqCSEJQQ" name="" type="_NGo3oM65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_dKUWoM65EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_erl8Ic65EeuZ5qPqCSEJQQ" name="" type="_8-JKEM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_e3UrAc65EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_fBiW8c65EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_fKgFsM65EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_fYNxkM65EeuZ5qPqCSEJQQ" name="" type="_8-JKEM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_lfJ6oc65EeuZ5qPqCSEJQQ" name="" type="_ADua8M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_lpDdgc65EeuZ5qPqCSEJQQ" name="" type="_8-JKEM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_l9W5kM65EeuZ5qPqCSEJQQ" name="" type="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_mHo28c65EeuZ5qPqCSEJQQ" name="" type="_8-JKEM64EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_mm6z8M65EeuZ5qPqCSEJQQ" name="" type="_ADua8M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_o1TXEM65EeuZ5qPqCSEJQQ" name="" type="_K043cM65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_rqFL0M65EeuZ5qPqCSEJQQ" name="" type="_Fnp9kM65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_r9yyAM65EeuZ5qPqCSEJQQ" name="" type="_Fnp9kM65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_sU3OMc65EeuZ5qPqCSEJQQ" name="" type="_DyDG0M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_sl23kM65EeuZ5qPqCSEJQQ" name="" type="_IKz20M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_tkitYM65EeuZ5qPqCSEJQQ" name="" type="_NGo3oM65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_upQ5wM65EeuZ5qPqCSEJQQ" name="" type="_B7Vc0M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_u8jCIM65EeuZ5qPqCSEJQQ" name="" type="_DyDG0M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_wRKrsc65EeuZ5qPqCSEJQQ" name="" type="_DyDG0M65EeuZ5qPqCSEJQQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="__cCTYc65EeuZ5qPqCSEJQQ" name="" type="_B7Vc0M65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_8BKkcM64EeuZ5qPqCSEJQQ" name="" represents="_8BLLgM64EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="__YNYwM64EeuZ5qPqCSEJQQ" name="" represents="__YNYwc64EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="__lj4QM64EeuZ5qPqCSEJQQ" name="" represents="__lj4Qc64EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="__v_moM64EeuZ5qPqCSEJQQ" name="" represents="__wANsM64EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_MnRbEM65EeuZ5qPqCSEJQQ" name="" represents="_MnRbEc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_OpyFYM65EeuZ5qPqCSEJQQ" name="" represents="_OpyFYc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_dKTvkM65EeuZ5qPqCSEJQQ" name="" represents="_dKUWoM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_erl8IM65EeuZ5qPqCSEJQQ" name="" represents="_erl8Ic65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_e3UrAM65EeuZ5qPqCSEJQQ" name="" represents="_e3UrAc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_fBiW8M65EeuZ5qPqCSEJQQ" name="" represents="_fBiW8c65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_fKfeoM65EeuZ5qPqCSEJQQ" name="" represents="_fKgFsM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_fYNKgM65EeuZ5qPqCSEJQQ" name="" represents="_fYNxkM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_lfJ6oM65EeuZ5qPqCSEJQQ" name="" represents="_lfJ6oc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_lpDdgM65EeuZ5qPqCSEJQQ" name="" represents="_lpDdgc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_l9WSgM65EeuZ5qPqCSEJQQ" name="" represents="_l9W5kM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_mHo28M65EeuZ5qPqCSEJQQ" name="" represents="_mHo28c65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_mm6M4M65EeuZ5qPqCSEJQQ" name="" represents="_mm6z8M65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_o1SwAM65EeuZ5qPqCSEJQQ" name="" represents="_o1TXEM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_rqEkwM65EeuZ5qPqCSEJQQ" name="" represents="_rqFL0M65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_r9yK8M65EeuZ5qPqCSEJQQ" name="" represents="_r9yyAM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_sU3OMM65EeuZ5qPqCSEJQQ" name="" represents="_sU3OMc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_sl2QgM65EeuZ5qPqCSEJQQ" name="" represents="_sl23kM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_tkiGUM65EeuZ5qPqCSEJQQ" name="" represents="_tkitYM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_upQSsM65EeuZ5qPqCSEJQQ" name="" represents="_upQ5wM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_u8ibEM65EeuZ5qPqCSEJQQ" name="" represents="_u8jCIM65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_wRKrsM65EeuZ5qPqCSEJQQ" name="" represents="_wRKrsc65EeuZ5qPqCSEJQQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="__cCTYM65EeuZ5qPqCSEJQQ" name="" represents="__cCTYc65EeuZ5qPqCSEJQQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_kajDAM65EeuZ5qPqCSEJQQ" client="_8-JKEM64EeuZ5qPqCSEJQQ" supplier="_2lxSwM64EeuZ5qPqCSEJQQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_qZJIYM65EeuZ5qPqCSEJQQ" memberEnd="_qZNZ0M65EeuZ5qPqCSEJQQ _qZOA4M65EeuZ5qPqCSEJQQ">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qZMLsM65EeuZ5qPqCSEJQQ" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qZMLsc65EeuZ5qPqCSEJQQ" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_qZNZ0M65EeuZ5qPqCSEJQQ" name="play chess game" type="_ADua8M65EeuZ5qPqCSEJQQ" association="_qZJIYM65EeuZ5qPqCSEJQQ"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_qZOA4M65EeuZ5qPqCSEJQQ" name="player" type="_nhbw4M64EeuZ5qPqCSEJQQ" association="_qZJIYM65EeuZ5qPqCSEJQQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_uEO6EM65EeuZ5qPqCSEJQQ" client="_IKz20M65EeuZ5qPqCSEJQQ" supplier="_NGo3oM65EeuZ5qPqCSEJQQ"/>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_wxETwM65EeuZ5qPqCSEJQQ" client="_ADua8M65EeuZ5qPqCSEJQQ" supplier="_DyDG0M65EeuZ5qPqCSEJQQ"/>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_xXh20M65EeuZ5qPqCSEJQQ" client="_Fnp9kM65EeuZ5qPqCSEJQQ" supplier="_DyDG0M65EeuZ5qPqCSEJQQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_0fvk8M65EeuZ5qPqCSEJQQ" memberEnd="_0fwMAs65EeuZ5qPqCSEJQQ _0fwMA865EeuZ5qPqCSEJQQ">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0fwMAM65EeuZ5qPqCSEJQQ" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0fwMAc65EeuZ5qPqCSEJQQ" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_0fwMAs65EeuZ5qPqCSEJQQ" name="play checkers game" type="_Fnp9kM65EeuZ5qPqCSEJQQ" association="_0fvk8M65EeuZ5qPqCSEJQQ"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_0fwMA865EeuZ5qPqCSEJQQ" type="_nhbw4M64EeuZ5qPqCSEJQQ" association="_0fvk8M65EeuZ5qPqCSEJQQ"/>
     </packagedElement>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WrS3gJoxEeuk7a0Km3P5gA">
