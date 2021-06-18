@@ -188,4 +188,4 @@ They will make sure to respect a similar layout to the chess game in terms of co
 - Creation of the methods of suggestions of moves of Checkers's game in `Move` class. 
 
 === *Anam SHAIKH YUNUS & James BURTON, Task:*
-- Creation of a `Move` class. The main idea is to set up a class that describes the possible movements. We will based on the implementation of the class the MoveEntity existing class of chess game.
+- Creation of a `Move` class. The main idea is to set up a class that describes a movement. We will based on the implementation of the class the MoveEntity existing class of chess game.
