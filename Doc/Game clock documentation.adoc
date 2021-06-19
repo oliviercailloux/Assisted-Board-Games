@@ -1,0 +1,30 @@
+= Documentation for display of a game clock.
+
+Our goal was to display a remaining time for both player when they play Chess. For this purpose, new JavaScript function was added, which sends get requests to server to get the correct value of the remaining time (for both players).
+
+Obtained response from the server is parsed to obtain *hours*, *minutes* and *seconds*, so we could display it in a pretty format like this *00:00:00*, instead of just displaying the original value which server returns, e.g.: *PT30M*, it's done for convenience of players. The value of the parsed time is then stored in each players' time objects, which handle the computation of the remaining time.
+
+Every seconds a dedicated function is called on a client-side to update the remaining time for an active player.
+
+Additional *HTML* elements and *styles* were added to display the remaining time, which JavaScript code interacts with.
+
+= Changing the default clock duration
+
+After displaying the remaining time for white and black players, more functionalites were added for letting the players change the default clock duration and increment time, since it's essential to give players such kind of possibility, because the duration of a *casual* chess game differes a *LOT* from the duration of a *competitive* chess game.
+
+For this, *Java* method named *createGame* was modified which responds to *POST* requests, uses the request parameters to change the default clock duration and increment by creating a new *GameEntity* object and calling it's constructor which permits to define clock duration and increment value.
+
+The values of these parameters are obtain from a *player* after they enter it into the *input* field and hit the *confirm* button. Worth noting that the button gets disabled after clicking *New game* button, since the values are only used to create a new game.
+
+If the player changes clock duration and increment time, new values would be displayed and confirmation *button* with an input *fields* get disabled.
+
+Demonstration:
+
+image::Images/Demo.gif[demonstation,1000,700]
+
+= Source
+
+Resources which were used during the implementation:
+
+JavaScript GET Request:: https://stackoverflow.com/questions/247483/http-get-request-in-javascript
+JavaScript POST Request:: https://stackoverflow.com/questions/9713058/send-post-data-using-xmlhttprequest

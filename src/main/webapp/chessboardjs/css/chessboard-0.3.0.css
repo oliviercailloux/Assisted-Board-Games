@@ -164,9 +164,10 @@ input {
   font-size: 40px;
   width: 15%;
   margin: 0 auto;
-  padding: 10px 5px;
+  padding: 15px 10px;
   border: 1px solid black;
   text-align: center;
+  width: 200px;
 }
 
 #White-player-clock {
@@ -177,29 +178,37 @@ input {
 
 .outer-class {
   width: 70%;
-  margin: 7px auto;
   display: block;
+  margin: 7px auto;
 }
 
-label, #time, #time-btn {
+label, .time, #time-btn {
   display: inline-block;
+  margin: 0;
   padding: 0;
   text-align: center;
-  margin: 0;
 }
 
-#time {
+label {
+  font-size: 15px;
+  padding: 5px 10px;
+  width: 200px;
+}
+
+.time {
   font-size: 18px;
   border: 1px solid black;
-  padding: 15px 25px;
-  width: 157px;
+  padding: 15px 10px;
+  width: 200px;
 }
 
 #time-btn {
-  font-size: 18px;
+  font-size: 22px;
   border: 0;
   background: none;
   background-color: white;
-  padding: 15px 72px;
+  padding: 15px 60px;
   border: 1px solid black;
+  text-align: center;
+  text-transform: uppercase;
 }

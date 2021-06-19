@@ -40,18 +40,19 @@
 
 	<div class="Clocks">
 		<div class="outer-class">
-			<label for="Black-player-clock">Black player remaining time:</label>
 			<label for="White-player-clock">White player remaining time:</label>
+			<label for="Black-player-clock">Black player remaining time:</label>
 		</div>
 
-		
-		<div id="Black-player-clock">00:00:00</div>
 		<div id="White-player-clock">00:00:00</div>
+		<div id="Black-player-clock">00:00:00</div>
 
 		<div class="outer-class">
-			<input id="time" type="number" min="0" max="36000" placeholder="Time in seconds" disabled>
-			<button id="time-btn" onclick="changeRemainingTime()" disabled>Confirm</button>
+			<input id="duration" class="time" type="number" min="0" max="36000" placeholder="Duration in seconds">
+			<input id="increment" class="time" type="number" min="0" max="60" placeholder="Increment in seconds">
 		</div>
+
+		<button id="time-btn" onclick="changeRemainingTime()">Confirm</button>
 	</div>
 
 	<script type="text/javascript">

@@ -14,7 +14,9 @@ import java.util.stream.Collectors;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.json.Json;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -51,12 +53,25 @@ public class GameResource {
 
     @POST
     @Path("new")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public int createGame() {
-        LOGGER.info("POST game/new");
+    public int createGame(@FormParam("duration") int duration, @FormParam("increment") int increment) { 
+    	LOGGER.info("POST game/new");
         GameEntity game = new GameEntity();
-        chessService.persist(game);
-        return game.getId();
+    	
+    	Duration clockIncrement = game.getClockIncrement();
+    	
+    	if (increment != 0)
+    		clockIncrement = Duration.ofSeconds(increment);
+    	
+    	if (duration != 0) {
+    		ChessBoard board = ChessBoard.createChessBoard();
+    		game = new GameEntity(GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
+                    Instant.now(), Duration.ofSeconds(duration), clockIncrement);
+    	}
+    	
+    	chessService.persist(game);
+    	return game.getId();
     }
 
     @POST
@@ -210,26 +225,5 @@ public class GameResource {
             return playerState.getRemainingTimeAt(Instant.now());
         }
         return playerState.getRemainingTime();
-    }
-    
-    @POST
-    @Path("{gameId}/clock/change")
-    @Consumes(MediaType.TEXT_PLAIN)
-    public void setClockDuration(@PathParam("gameId") int gameId, String time) {
-    	LOGGER.info("POST game/{}/clock/change", gameId);
-    	int clockDuration = 0;
-    	
-    	for (String parameter : time.split("&")) {
-    		String[] param = parameter.split("=");
-    		String parameterName = param[0];
-    		String parameterValue = param[1];
-    		
-    		if (parameterName.equals("time"))
-    			clockDuration = Integer.parseInt(parameterValue);
-    	}
-
-    	GameEntity game = chessService.getGame(gameId);
-    	game.setClockDuration(Duration.ofSeconds(clockDuration));
-    	chessService.persist(game);
     }
 }
