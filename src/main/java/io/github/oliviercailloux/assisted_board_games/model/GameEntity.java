@@ -114,7 +114,7 @@ public class GameEntity {
         return clockDuration;
     }
 
-    void setClockDuration(Duration clockDuration) {
+    public void setClockDuration(Duration clockDuration) {
         this.clockDuration = clockDuration;
     }
 

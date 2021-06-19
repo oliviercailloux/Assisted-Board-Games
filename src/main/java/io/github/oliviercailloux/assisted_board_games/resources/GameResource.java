@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -207,5 +210,26 @@ public class GameResource {
             return playerState.getRemainingTimeAt(Instant.now());
         }
         return playerState.getRemainingTime();
+    }
+    
+    @POST
+    @Path("{gameId}/clock/change")
+    @Consumes(MediaType.TEXT_PLAIN)
+    public void setClockDuration(@PathParam("gameId") int gameId, String time) {
+    	LOGGER.info("POST game/{}/clock/change", gameId);
+    	int clockDuration = 0;
+    	
+    	for (String parameter : time.split("&")) {
+    		String[] param = parameter.split("=");
+    		String parameterName = param[0];
+    		String parameterValue = param[1];
+    		
+    		if (parameterName.equals("time"))
+    			clockDuration = Integer.parseInt(parameterValue);
+    	}
+
+    	GameEntity game = chessService.getGame(gameId);
+    	game.setClockDuration(Duration.ofSeconds(clockDuration));
+    	chessService.persist(game);
     }
 }
