@@ -195,11 +195,11 @@ They will make sure to respect a similar layout to the chess game in terms of co
 
 === *Marina ATANGANA & James BURTON, Tasks : Re-creation of "CheckerBoard", "GameEntity" and "GameState" class diagrams, "Player options" use case diagram and of "CheckerBoard" sequence diagram*
 
-*[1]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/40[PR 40]) diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
+*[1]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/40[PR 40]) class diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
 
-*[2]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/44[PR 44]) diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
+*[2]* - Re-implementation of the approved "GameEntity" and "GameState" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/44[PR 44]) class diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
 
-*[3]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/45[PR 45]) diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
+*[3]* - Re-implementation of the approved "Player options" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/45[PR 45]) use case diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
 
-*[4]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/47[PR 47]) diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
+*[4]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/47[PR 47]) sequence diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
 
