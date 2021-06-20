@@ -40,37 +40,37 @@ class CheckersTests {
 	@Test
 	void testPiece() {
 		assertThrows(IllegalArgumentException.class, () -> Piece.given(null, null), "Expected to throw IllegalArgument exception, but it didn't");
-		assertThrows(IllegalArgumentException.class, () -> Piece.given(PieceSort.NormalPiece, null), "Expected to throw IllegalArgument exception, but it didn't");
-		assertThrows(IllegalArgumentException.class, () -> Piece.given(null, Side.White), "Expected to throw IllegalArgument exception, but it didn't");
+		assertThrows(IllegalArgumentException.class, () -> Piece.given(PieceSort.NORMAL_PIECE, null), "Expected to throw IllegalArgument exception, but it didn't");
+		assertThrows(IllegalArgumentException.class, () -> Piece.given(null, Side.WHITE), "Expected to throw IllegalArgument exception, but it didn't");
 		
-		assertEquals(Piece.given(PieceSort.NormalPiece, Side.White), Piece.given(PieceSort.NormalPiece, Side.White));
-		assertNotEquals(Piece.given(PieceSort.NormalPiece, Side.Black), Piece.given(PieceSort.NormalPiece, Side.White));
-		assertNotEquals(Piece.given(PieceSort.Queen, Side.White), Piece.given(PieceSort.NormalPiece, Side.White));
+		assertEquals(Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE), Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE));
+		assertNotEquals(Piece.given(PieceSort.NORMAL_PIECE, Side.BLACK), Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE));
+		assertNotEquals(Piece.given(PieceSort.QUEEN, Side.WHITE), Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE));
 		
-		assertEquals(Piece.given(PieceSort.NormalPiece, Side.White).hashCode(), Piece.given(PieceSort.NormalPiece, Side.White).hashCode());
-		assertNotEquals(Piece.given(PieceSort.NormalPiece, Side.Black).hashCode(), Piece.given(PieceSort.NormalPiece, Side.White).hashCode());
-		assertNotEquals(Piece.given(PieceSort.Queen, Side.White).hashCode(), Piece.given(PieceSort.NormalPiece, Side.White).hashCode());
+		assertEquals(Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE).hashCode(), Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE).hashCode());
+		assertNotEquals(Piece.given(PieceSort.NORMAL_PIECE, Side.BLACK).hashCode(), Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE).hashCode());
+		assertNotEquals(Piece.given(PieceSort.QUEEN, Side.WHITE).hashCode(), Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE).hashCode());
 		
-		assertEquals(Piece.given(PieceSort.NormalPiece, Side.White), Piece.white());
-		assertEquals(Piece.given(PieceSort.NormalPiece, Side.Black), Piece.black());
-		assertEquals(Piece.given(PieceSort.Queen, Side.White), Piece.whiteQueen());
-		assertEquals(Piece.given(PieceSort.Queen, Side.Black), Piece.blackQueen());
+		assertEquals(Piece.given(PieceSort.NORMAL_PIECE, Side.WHITE), Piece.white());
+		assertEquals(Piece.given(PieceSort.NORMAL_PIECE, Side.BLACK), Piece.black());
+		assertEquals(Piece.given(PieceSort.QUEEN, Side.WHITE), Piece.whiteQueen());
+		assertEquals(Piece.given(PieceSort.QUEEN, Side.BLACK), Piece.blackQueen());
 		
-		assertEquals(Side.White, Piece.white().getColor());
-		assertNotEquals(Side.Black, Piece.white().getColor());
-		assertEquals(Side.Black, Piece.black().getColor());
-		assertEquals(PieceSort.NormalPiece, Piece.black().getSort());
-		assertNotEquals(PieceSort.Queen, Piece.black().getSort());
+		assertEquals(Side.WHITE, Piece.white().getColor());
+		assertNotEquals(Side.BLACK, Piece.white().getColor());
+		assertEquals(Side.BLACK, Piece.black().getColor());
+		assertEquals(PieceSort.NORMAL_PIECE, Piece.black().getSort());
+		assertNotEquals(PieceSort.QUEEN, Piece.black().getSort());
 		
-		assertEquals(Side.White, Piece.whiteQueen().getColor());
-		assertEquals(PieceSort.Queen, Piece.whiteQueen().getSort());
-		assertNotEquals(Side.Black, Piece.whiteQueen().getColor());
-		assertNotEquals(PieceSort.NormalPiece, Piece.whiteQueen().getSort());
-		assertEquals(Side.Black, Piece.blackQueen().getColor());
-		assertEquals(PieceSort.Queen, Piece.blackQueen().getSort());
+		assertEquals(Side.WHITE, Piece.whiteQueen().getColor());
+		assertEquals(PieceSort.QUEEN, Piece.whiteQueen().getSort());
+		assertNotEquals(Side.BLACK, Piece.whiteQueen().getColor());
+		assertNotEquals(PieceSort.NORMAL_PIECE, Piece.whiteQueen().getSort());
+		assertEquals(Side.BLACK, Piece.blackQueen().getColor());
+		assertEquals(PieceSort.QUEEN, Piece.blackQueen().getSort());
 		
-		assertEquals("Piece{color=Black, sort=NormalPiece}", Piece.given(PieceSort.NormalPiece, Side.Black).toString());
-		assertNotEquals("Piece{color=Black, sort=NormalPiece}", Piece.blackQueen().toString());
+		assertEquals("Piece{color=BLACK, sort=NORMAL_PIECE}", Piece.given(PieceSort.NORMAL_PIECE, Side.BLACK).toString());
+		assertNotEquals("Piece{color=BLACK, sort=NORMAL_PIECE}", Piece.blackQueen().toString());
 	}
 	
 	@Test
@@ -88,7 +88,7 @@ class CheckersTests {
 			}
 		}
 		
-		Map<Square, Piece> map = Maps.newHashMap();
+		Map<Square, Piece> map = Maps.newLinkedHashMap();
 		map.put(Square.given(1), Piece.whiteQueen());
 		map.put(Square.given(7), Piece.white());
 		map.put(Square.given(19), Piece.black());
@@ -108,8 +108,8 @@ class CheckersTests {
 		assertEquals(Piece.black(), inputBoard.getPiece(Square.given(39)).get());
 		assertEquals(Piece.blackQueen(), inputBoard.getPiece(Square.given(48)).get());
 		
-		assertThrows(IllegalArgumentException.class, () -> CheckerBoard.given(null), "Expected to throw IllegalArgument exception, but it didn't");
-		assertThrows(IllegalArgumentException.class, () -> board.getPiece(null), "Expected to throw IllegalArgument exception, but it didn't");
+		assertThrows(NullPointerException.class, () -> CheckerBoard.given(null), "Expected to throw NullPointerException exception, but it didn't");
+		assertThrows(NullPointerException.class, () -> board.getPiece(null), "Expected to throw NullPointerException exception, but it didn't");
 	}
 	
 	@Test
@@ -117,9 +117,9 @@ class CheckersTests {
 		final CheckerBoard board = CheckerBoard.newInstance();
 		assertNotNull(board);
 		
-		assertThrows(IllegalArgumentException.class, () -> board.move(null, Square.given(23)), "Expected to throw IllegalArgumentException exception, but it didn't");
-		assertThrows(IllegalArgumentException.class, () -> board.move(Square.given(34), null), "Expected to throw IllegalArgumentException exception, but it didn't");
-		assertThrows(IllegalArgumentException.class, () -> board.move(null, null), "Expected to throw IllegalArgumentException exception, but it didn't");
+		assertThrows(NullPointerException.class, () -> board.move(null, Square.given(23)), "Expected to throw NullPointerException exception, but it didn't");
+		assertThrows(NullPointerException.class, () -> board.move(Square.given(34), null), "Expected to throw NullPointerException exception, but it didn't");
+		assertThrows(NullPointerException.class, () -> board.move(null, null), "Expected to throw NullPointerException exception, but it didn't");
 		assertThrows(IllegalStateException.class, () -> board.move(Square.given(1), Square.given(5)), "Expected to throw IllegalStateException exception, but it didn't");
 		assertThrows(IllegalStateException.class, () -> board.move(Square.given(21), Square.given(26)), "Expected to throw IllegalStateException exception, but it didn't");
 		assertThrows(IllegalStateException.class, () -> board.move(Square.given(27), Square.given(32)), "Expected to throw IllegalStateException exception, but it didn't");

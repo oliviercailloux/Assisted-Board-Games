@@ -21,6 +21,7 @@ import com.google.common.collect.Maps;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
 
 import io.github.oliviercailloux.assisted_board_games.two_players.Side;
 
@@ -36,9 +37,21 @@ public class CheckerBoard {
 	
 	private Map<Square, Piece> board;
 	
-	private CheckerBoard() {
-		LOGGER.info("Checkerboard constructor invocation");
-		this.board = Maps.newHashMap();
+	private CheckerBoard(Map<Square, Piece> board) {
+		LOGGER.info("Checkerboard constructor invocation using an input board");
+		checkNotNull(board);
+		this.board = ImmutableMap.copyOf(board);
+		LOGGER.info("Checkerboard representation: {}", this.toString());
+	}
+	
+	
+	/**
+	 * Returns a default representation of a Checkerboard with pieces set in their
+	 * default position at the start of the game
+	 * @return new instance of Checkerboard
+	 */
+	public static CheckerBoard newInstance() {
+		Map<Square, Piece> board = Maps.newLinkedHashMap();
 		
 		for (int i = 1; i <= 50; i++) {
 			if (i > 0 && i < 21) {
@@ -48,24 +61,7 @@ public class CheckerBoard {
 			}
 		}
 		
-		LOGGER.info("Default checkerboard representation:\n" + this.toString());
-		
-		this.board = ImmutableMap.copyOf(board);
-	}
-	
-	private CheckerBoard(Map<Square, Piece> board) {
-		LOGGER.info("Checkerboard constructor invocation using inputBoard");
-		checkArgument(board != null);
-		this.board = ImmutableMap.copyOf(board);
-	}
-	
-	/**
-	 * Returns a default representation of a Checkerboard with pieces set in their
-	 * default position at the start of the game
-	 * @return new instance of Checkerboard
-	 */
-	public static CheckerBoard newInstance() {
-		return new CheckerBoard();
+		return new CheckerBoard(ImmutableMap.copyOf(board));
 	}
 	
 	
@@ -78,15 +74,17 @@ public class CheckerBoard {
 		return new CheckerBoard(inputBoard);
 	}
 	
+	
 	/**
 	 * @param square : associate position of the piece on a current board.
 	 * @return The piece at the given position.
 	 */
 	public Optional<Piece> getPiece(Square square) {
 		LOGGER.info("Get associated piece for square {}", square);
-		checkArgument(square != null);
+		checkNotNull(square);
 		return Optional.ofNullable(board.get(square));
 	}
+	
 	
 	/**
 	 * Permits to move a piece from one square to another
@@ -95,31 +93,29 @@ public class CheckerBoard {
 	 * @return a new instance of CheckerBoard with made move
 	 */
 	public CheckerBoard move(Square from, Square to) {
-		// TODO: Implement logic to decide if the move 'from' square to 'to' square is legal and can be done, if not don't let it happen
-		
-		LOGGER.info("Moving a piece from: " + from + " to: " + to);
-		checkArgument(from != null && to != null);
+		LOGGER.info("Moving a piece from: {} to: {}", from, to);
+		checkNotNull(from);
+		checkNotNull(to);
 		checkArgument(!from.equals(to));
 		
-		if (board.get(from) == null)
-			throw new IllegalStateException("There is no piece on square: " + from);
-		
-		if (board.get(to) != null)
-			throw new IllegalStateException("Square: " + to + " is occupied");
+		checkState(board.get(from) != null);
+		checkState(board.get(to) == null);
 		
 		Piece piece = board.get(from);
 		
-		final Map<Square, Piece> newBoard = Maps.newHashMap(board);
+		final Map<Square, Piece> newBoard = Maps.newLinkedHashMap(board);
 		newBoard.remove(from);
 		newBoard.put(to, piece);
 		
-		return new CheckerBoard(ImmutableMap.copyOf(newBoard));
+		return new CheckerBoard(newBoard);
 	}
 	
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		board.forEach((key, value) -> sb.append(key + ": " + value + "\n"));
-		return sb.toString();
+//		StringBuilder sb = new StringBuilder();
+//		board.forEach((square, piece) -> sb.append(MoreObjects.toStringHelper(this).add("Square", square).add("Piece", piece).toString()));
+//		return sb.toString();
+		
+		return MoreObjects.toStringHelper(this).add("Board", board).toString();
 	}
 }

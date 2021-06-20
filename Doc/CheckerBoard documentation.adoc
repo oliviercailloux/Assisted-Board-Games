@@ -6,8 +6,6 @@ _In order to manage logic behind checkers game we need the following Classes: `C
 
 * This implementation of a CheckerBoard is based on a `Manoury's notation` described by the website http://www.ffjd.fr/Web/index.php?page=notation[source: FFJD - Fédération Française], which helps to facilitate the implementation of `Square` class.
 
-image::Images/Manoury's notation.png[Manoury's notation,235,235,]
-
 * Two static factory methods are provided to create an instance of a CheckerBoard : either default one using *newInstance()*, which is the default representation of a CheckerBoard at the start of the game or another one *given()* which accepts a predefined Map.
 
 * *getPiece(square)* - returns an associated piece to a given square.
@@ -24,4 +22,4 @@ image::Images/Manoury's notation.png[Manoury's notation,235,235,]
 
 * In addition, *unit tests*, contained in *checkers* package run *3* tests which cover different scenarios, in order to ensure the proper functioning of `Piece`,`Square` and `CheckerBoard` Classes.
 
-The implemented classes with the Java code are contained in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/checkerBoard_V2/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers[package].
+The implemented classes with the Java code are contained in `checkers` package.

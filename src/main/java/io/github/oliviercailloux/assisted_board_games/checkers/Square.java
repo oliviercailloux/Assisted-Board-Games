@@ -45,9 +45,6 @@ public class Square {
 		return squareNumber;
 	}
 	
-	/**
-	 * @returns {@link Equals}
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Square)) {
@@ -58,9 +55,6 @@ public class Square {
 		return squareNumber == other.getSquareNumber();
 	}
 
-	/**
-	 *	@returns {@link HashCode}
-	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(squareNumber);
