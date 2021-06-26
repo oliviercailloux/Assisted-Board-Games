@@ -1,4 +1,4 @@
-= Documentation for the PlayerState class, enriching existing documentation
+= Documentation for the PlayerState class
 
 _Our goal was to improve the existing documentation with adding the documentation of PlayerState class. In the sequence diagram we tried to illustrate how the application uses `PlayerState` class and exactly when._ 
 
