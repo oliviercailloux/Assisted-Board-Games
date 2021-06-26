@@ -92,20 +92,20 @@
       <message xmi:type="uml:Message" xmi:id="_Uz0UoKnsEeuKIJWfKMwhxw" name="Import game using fen" receiveEvent="_Uz1iwKnsEeuKIJWfKMwhxw" sendEvent="_Uz07sKnsEeuKIJWfKMwhxw" signature="_g6b9oKnrEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_U0S1wKnsEeuKIJWfKMwhxw" name="Message26" messageSort="reply" receiveEvent="_U0UD4KnsEeuKIJWfKMwhxw" sendEvent="_U0Tc0KnsEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_TIJnkKntEeuKIJWfKMwhxw" name="CreateChessBoard" receiveEvent="_TIKOoantEeuKIJWfKMwhxw" sendEvent="_TIKOoKntEeuKIJWfKMwhxw" signature="_Cdwt4KntEeuKIJWfKMwhxw"/>
-      <message xmi:type="uml:Message" xmi:id="_TIpW0KntEeuKIJWfKMwhxw" name="New instance of ChessBoard" messageSort="reply" receiveEvent="_TIqk8KntEeuKIJWfKMwhxw" sendEvent="_TIp94KntEeuKIJWfKMwhxw"/>
+      <message xmi:type="uml:Message" xmi:id="_TIpW0KntEeuKIJWfKMwhxw" name="create" messageSort="reply" receiveEvent="_TIqk8KntEeuKIJWfKMwhxw" sendEvent="_TIp94KntEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_w-r9AKnuEeuKIJWfKMwhxw" name="Creation of a playerState" receiveEvent="_w-tLIKnuEeuKIJWfKMwhxw" sendEvent="_w-skEKnuEeuKIJWfKMwhxw" signature="_5ugM0KnuEeuKIJWfKMwhxw"/>
-      <message xmi:type="uml:Message" xmi:id="_w_LsQKnuEeuKIJWfKMwhxw" name="New instance of a white side" messageSort="reply" receiveEvent="_w_M6YKnuEeuKIJWfKMwhxw" sendEvent="_w_MTUKnuEeuKIJWfKMwhxw"/>
+      <message xmi:type="uml:Message" xmi:id="_w_LsQKnuEeuKIJWfKMwhxw" name="create" messageSort="reply" receiveEvent="_w_M6YKnuEeuKIJWfKMwhxw" sendEvent="_w_MTUKnuEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_fLsVIKnxEeuKIJWfKMwhxw" receiveEvent="_fLtjQKnxEeuKIJWfKMwhxw" sendEvent="_fLs8MKnxEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="__zE3AKnxEeuKIJWfKMwhxw" name="new Board" receiveEvent="__zGFIKnxEeuKIJWfKMwhxw" sendEvent="__zFeEKnxEeuKIJWfKMwhxw" signature="_TO2TMKnyEeuKIJWfKMwhxw"/>
-      <message xmi:type="uml:Message" xmi:id="__zmbcKnxEeuKIJWfKMwhxw" name="New instance of Board" messageSort="reply" receiveEvent="__znCganxEeuKIJWfKMwhxw" sendEvent="__znCgKnxEeuKIJWfKMwhxw"/>
+      <message xmi:type="uml:Message" xmi:id="__zmbcKnxEeuKIJWfKMwhxw" name="create" messageSort="reply" receiveEvent="__znCganxEeuKIJWfKMwhxw" sendEvent="__znCgKnxEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_MUfTsKnzEeuKIJWfKMwhxw" name="load from FEN" receiveEvent="_MUgh0KnzEeuKIJWfKMwhxw" sendEvent="_MUf6wKnzEeuKIJWfKMwhxw" signature="_d3JZgKnwEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_MVBfMKnzEeuKIJWfKMwhxw" messageSort="reply" receiveEvent="_MVDUYKnzEeuKIJWfKMwhxw" sendEvent="_MVCtUKnzEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_7qLdEKnzEeuKIJWfKMwhxw" name="Creation of a playerState" receiveEvent="_7qMrManzEeuKIJWfKMwhxw" sendEvent="_7qMrMKnzEeuKIJWfKMwhxw" signature="_5ugM0KnuEeuKIJWfKMwhxw"/>
-      <message xmi:type="uml:Message" xmi:id="_7qxS8KnzEeuKIJWfKMwhxw" name="New instance of a black side" messageSort="reply" receiveEvent="_7qyhEanzEeuKIJWfKMwhxw" sendEvent="_7qyhEKnzEeuKIJWfKMwhxw"/>
+      <message xmi:type="uml:Message" xmi:id="_7qxS8KnzEeuKIJWfKMwhxw" name="create" messageSort="reply" receiveEvent="_7qyhEanzEeuKIJWfKMwhxw" sendEvent="_7qyhEKnzEeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_9s5GQKn0EeuKIJWfKMwhxw" name="Creation of New GameState" receiveEvent="_9s6UYKn0EeuKIJWfKMwhxw" sendEvent="_9s5tUKn0EeuKIJWfKMwhxw" signature="_FH6GUKn1EeuKIJWfKMwhxw"/>
-      <message xmi:type="uml:Message" xmi:id="_9tduAKn0EeuKIJWfKMwhxw" name="New instance of GameState" messageSort="reply" receiveEvent="_9te8IKn0EeuKIJWfKMwhxw" sendEvent="_9teVEKn0EeuKIJWfKMwhxw"/>
+      <message xmi:type="uml:Message" xmi:id="_9tduAKn0EeuKIJWfKMwhxw" name="create" messageSort="reply" receiveEvent="_9te8IKn0EeuKIJWfKMwhxw" sendEvent="_9teVEKn0EeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_MWxrUKn2EeuKIJWfKMwhxw" name="Creation of GameEntity" receiveEvent="_MWy5cKn2EeuKIJWfKMwhxw" sendEvent="_MWySYKn2EeuKIJWfKMwhxw" signature="_6e0yUKn1EeuKIJWfKMwhxw"/>
-      <message xmi:type="uml:Message" xmi:id="_MXdAwKn2EeuKIJWfKMwhxw" name="A new instance of GameEntity" messageSort="reply" receiveEvent="_MXe18Kn2EeuKIJWfKMwhxw" sendEvent="_MXeO4Kn2EeuKIJWfKMwhxw"/>
+      <message xmi:type="uml:Message" xmi:id="_MXdAwKn2EeuKIJWfKMwhxw" name="create" messageSort="reply" receiveEvent="_MXe18Kn2EeuKIJWfKMwhxw" sendEvent="_MXeO4Kn2EeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_PO3LYKn5EeuKIJWfKMwhxw" name="create ChessBoard" receiveEvent="_PO5AkKn5EeuKIJWfKMwhxw" sendEvent="_PO4ZgKn5EeuKIJWfKMwhxw" signature="_Aqn7UKn4EeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_PPig0Kn5EeuKIJWfKMwhxw" name="Returns existing instance of Chessboard" messageSort="reply" receiveEvent="_PPkWAKn5EeuKIJWfKMwhxw" sendEvent="_PPjH4Kn5EeuKIJWfKMwhxw"/>
       <message xmi:type="uml:Message" xmi:id="_x4GQQKn5EeuKIJWfKMwhxw" name="getGameId" receiveEvent="_x4IFcKn5EeuKIJWfKMwhxw" sendEvent="_x4G3UKn5EeuKIJWfKMwhxw" signature="_YWwJq6hcEeuHvIPllWn88Q"/>
