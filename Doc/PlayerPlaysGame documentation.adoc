@@ -12,5 +12,5 @@ For the both games, player must set time limit.
 
 _You have below an image showing the use case diagram:_
 
-image::./Images/playerPlaysGame.svg[uses case,900,750]
+image::./Images/PlayerPlaysGame.SVG[uses case,900,750]
 
