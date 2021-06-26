@@ -12,7 +12,6 @@ The returned instance of a `GameState` object is passed as an argument to the co
 
 At the end, the `importFenGame` method is called with `getId` as parameter and return an instance of GameEntity. This will return the id of the game to the GameRessource class, and in the same way to the player.
 
-You can find all the informations concerning our diagram in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/Documentation-PlayerState-UML/Doc/Papyrus[folder].
 
 Sequence diagram:
 
