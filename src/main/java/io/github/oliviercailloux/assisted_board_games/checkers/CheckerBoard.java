@@ -77,6 +77,7 @@ public class CheckerBoard {
 	
 	/**
 	 * @param square : associate position of the piece on a current board.
+	 * @throws NullPointerException if <em><b>square</b></em> is null
 	 * @return The piece at the given position.
 	 */
 	public Optional<Piece> getPiece(Square square) {
@@ -90,7 +91,10 @@ public class CheckerBoard {
 	 * Permits to move a piece from one square to another
 	 * @param from - square which contains the piece
 	 * @param to - square to which the piece should be moved
-	 * @return a new instance of CheckerBoard with made move
+	 * @throws NullPointerException if either <em><b>from</b></em> or <em><b>to</b></em> are null
+	 * @throws IllegalArgumentException if <em><b>from</b></em> and <em><b>to</b></em> are the same square (cf. illegal move)
+	 * @throws IllegalStateException if there is no piece on a square <em><b>from</b></em> or if the square <em><b>to</b></em> is occupied
+	 * @return a new instance of a CheckerBoard with a resulting move
 	 */
 	public CheckerBoard move(Square from, Square to) {
 		LOGGER.info("Moving a piece from: {} to: {}", from, to);
@@ -112,10 +116,6 @@ public class CheckerBoard {
 	
 	@Override
 	public String toString() {
-//		StringBuilder sb = new StringBuilder();
-//		board.forEach((square, piece) -> sb.append(MoreObjects.toStringHelper(this).add("Square", square).add("Piece", piece).toString()));
-//		return sb.toString();
-		
 		return MoreObjects.toStringHelper(this).add("Board", board).toString();
 	}
 }

@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.constraints.AssertTrue;
+
 import org.jboss.weld.util.collections.ImmutableMap;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -26,10 +28,8 @@ class CheckersTests {
 		assertThrows(IllegalArgumentException.class, () -> Square.given(0), "Expected to throw IllegalArgument exception, but it didn't");
 		assertThrows(IllegalArgumentException.class, () -> Square.given(51), "Expected to throw IllegalArgument exception, but it didn't");
 		assertEquals(1, Square.given(1).getSquareNumber(), "Actual square number doesn't match expected one");
-		assertEquals(24, Square.given(24).getSquareNumber(), "Actual square number doesn't match expected one");
 		assertEquals(50, Square.given(50).getSquareNumber(), "Actual square number doesn't match expected one");
 		
-		assertEquals("Square{square number=37}", Square.given(37).toString());
 		assertEquals(Square.given(38), Square.given(38));
 		assertEquals(Square.given(38).hashCode(), Square.given(38).hashCode());
 		
@@ -66,11 +66,8 @@ class CheckersTests {
 		assertEquals(PieceSort.QUEEN, Piece.whiteQueen().getSort());
 		assertNotEquals(Side.BLACK, Piece.whiteQueen().getColor());
 		assertNotEquals(PieceSort.NORMAL_PIECE, Piece.whiteQueen().getSort());
-		assertEquals(Side.BLACK, Piece.blackQueen().getColor());
-		assertEquals(PieceSort.QUEEN, Piece.blackQueen().getSort());
 		
 		assertEquals("Piece{color=BLACK, sort=NORMAL_PIECE}", Piece.given(PieceSort.NORMAL_PIECE, Side.BLACK).toString());
-		assertNotEquals("Piece{color=BLACK, sort=NORMAL_PIECE}", Piece.blackQueen().toString());
 	}
 	
 	@Test
@@ -119,7 +116,6 @@ class CheckersTests {
 		
 		assertThrows(NullPointerException.class, () -> board.move(null, Square.given(23)), "Expected to throw NullPointerException exception, but it didn't");
 		assertThrows(NullPointerException.class, () -> board.move(Square.given(34), null), "Expected to throw NullPointerException exception, but it didn't");
-		assertThrows(NullPointerException.class, () -> board.move(null, null), "Expected to throw NullPointerException exception, but it didn't");
 		assertThrows(IllegalStateException.class, () -> board.move(Square.given(1), Square.given(5)), "Expected to throw IllegalStateException exception, but it didn't");
 		assertThrows(IllegalStateException.class, () -> board.move(Square.given(21), Square.given(26)), "Expected to throw IllegalStateException exception, but it didn't");
 		assertThrows(IllegalStateException.class, () -> board.move(Square.given(27), Square.given(32)), "Expected to throw IllegalStateException exception, but it didn't");
@@ -135,8 +131,69 @@ class CheckersTests {
 		assertNotEquals(board, blackMoveResult);
 		
 		final CheckerBoard whiteMoveResult = board.move(Square.given(31), Square.given(27));
-		assertNotNull(whiteMoveResult);
 		assertNotEquals(whiteMoveResult, blackMoveResult);
-		assertNotEquals(board, whiteMoveResult);
+		
+		final Map<Square, Piece> inputMap = Map.of(Square.given(1), Piece.black(), Square.given(2), Piece.black(), 
+				Square.given(3), Piece.black(), Square.given(33), Piece.white(), Square.given(34), Piece.white());
+		int inputMapSize = inputMap.size();
+		
+		final CheckerBoard mover = CheckerBoard.given(inputMap);
+		int piecesCount = 0;
+		int whitePiecesCount = 0;
+		int blackPiecesCount = 0;
+		
+		for (int i = 1; i < 51; i++) {
+			final Optional<Piece> opt = mover.getPiece(Square.given(i));
+			
+			if (opt.isPresent()) {
+				piecesCount++;
+				
+				if (opt.get().getColor() == Side.BLACK)
+					blackPiecesCount++;
+				else
+					whitePiecesCount++;
+			}
+		}
+		
+		assertEquals(inputMapSize, piecesCount);
+		
+		Square from = Square.given(1);
+		Square to = Square.given(7);
+		Piece originalPiece = mover.getPiece(from).get();
+		CheckerBoard moveResult = mover.move(from, to);
+		
+		assertTrue(moveResult.getPiece(from).isEmpty());
+		assertTrue(moveResult.getPiece(to).isPresent());
+		assertEquals(originalPiece, moveResult.getPiece(to).get());
+		
+		from = Square.given(34);
+		to = Square.given(29);
+		originalPiece = mover.getPiece(from).get();
+		moveResult = mover.move(from, to);
+		
+		assertTrue(moveResult.getPiece(from).isEmpty());
+		assertTrue(moveResult.getPiece(to).isPresent());
+		assertEquals(originalPiece, moveResult.getPiece(to).get());
+		
+		piecesCount = 0;
+		int newWhitePiecesCount = 0;
+		int newBlackPiecesCount = 0;
+		
+		for (int i = 1; i < 51; i++) {
+			final Optional<Piece> opt = mover.getPiece(Square.given(i));
+			
+			if (opt.isPresent()) {
+				piecesCount++;
+				
+				if (opt.get().getColor() == Side.BLACK)
+					newBlackPiecesCount++;
+				else
+					newWhitePiecesCount++;
+			}
+		}
+		
+		assertEquals(inputMapSize, piecesCount);
+		assertEquals(whitePiecesCount, newWhitePiecesCount);
+		assertEquals(blackPiecesCount, newBlackPiecesCount);
 	}
 }

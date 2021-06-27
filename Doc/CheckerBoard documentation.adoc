@@ -8,10 +8,6 @@ _In order to manage logic behind checkers game we need the following Classes: `C
 
 * Two static factory methods are provided to create an instance of a CheckerBoard : either default one using *newInstance()*, which is the default representation of a CheckerBoard at the start of the game or another one *given()* which accepts a predefined Map.
 
-* *getPiece(square)* - returns an associated piece to a given square.
-
-* *move(from, to)* - moves the piece from one square to another.
-
 == Piece
 
 * Several static factory methods are available in order to create directly white pieces with the method `white()` and black pieces with the method `black()`. We can also create now white Queen with the method `whiteQueen()` and black Quenn with the method `blackQueen()`.
