@@ -1,0 +1,17 @@
+= Move Classe
+
+_In order to describe the moves made during a game of checkers, we use the class `Move`_
+
+== Move
+
+The move class uses the following variables:
+
+`to`: the square where piece is being promoted to
+
+`from`: the square where piece is being promoted from
+
+`promoted`: the piece that is moved
+
+Two methods are available to create an instance of a move : either `empty` which is used at the start of a game or `given` which uses given parameters to create the move.
+
+NOTE: the classes Piece and Square were already created in a prevous iteration
