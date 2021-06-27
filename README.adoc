@@ -203,3 +203,16 @@ They will make sure to respect a similar layout to the chess game in terms of co
 
 *[4]* - Re-implementation of the approved "CheckerBoard" (cf. : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/47[PR 47]) sequence diagram  in order to have only 1 unique version of the Papyrus model and hence eliminating the possible conflicts when merging with the main branch.
 
+
+== *Description for iteration JAVA#4 - Project leader: Dahuiss AMOUSSOU*
+
+
+=== *Kerim HUDAYBERDIYEV  & Yasmine HAMNACHE, Tasks :*
+- Task 1 : Improvement of the classes :  `CheckerBoard`, `Square` and `Piece`  taking into account the remarks of the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/49[PR 49].
+- Task 2 : Improvement of the game clock proposition, based on your suggestion on the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/pull/35[PR 35]
+
+=== *Aaron DEMAY & Marina ATANGANA, Task:*
+- Creation of the methods of suggestions of moves of Checkers's game in `Move` class. 
+
+=== *Anam SHAIKH YUNUS & James BURTON, Task:*
+- Creation of a `Move` class. The main idea is to set up a class that describes a movement in the checkers game. We will based on the existing MoveEntity class for the chess game to implement our class.
