@@ -164,7 +164,7 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_EWvNY6hbEeuHvIPllWn88Q" type="_EWvNYKhbEeuHvIPllWn88Q" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_EWvNZKhbEeuHvIPllWn88Q" name="getSideToMove">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EWvNZahbEeuHvIPllWn88Q" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_EWvNZahbEeuHvIPllWn88Q" type="_J99oMNgJEeuUAKJefM8KBQ" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Cdwt4KntEeuKIJWfKMwhxw" name="new ChessBoard">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_HX9-EKntEeuKIJWfKMwhxw" name="fenPosition">
@@ -199,7 +199,7 @@
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_3tD7QNZpEeuxapO8spffXQ" name="MAX_TURN_DURATION" visibility="private" isStatic="true" type="_A7bIQNZqEeuxapO8spffXQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_jNMkNKhbEeuHvIPllWn88Q" name="getSide">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNMkNahbEeuHvIPllWn88Q" type="_8AZhEdZbEeuwT9ke8onywQ" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNMkNahbEeuHvIPllWn88Q" type="_J99oMNgJEeuUAKJefM8KBQ" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_jNMkNqhbEeuHvIPllWn88Q" name="getRemaniningTime">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_jNMkN6hbEeuHvIPllWn88Q" type="_A7bIQNZqEeuxapO8spffXQ" direction="return"/>
@@ -251,7 +251,7 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_el97ANZpEeuxapO8spffXQ" type="_jNMkMKhbEeuHvIPllWn88Q" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_i12b0NZpEeuxapO8spffXQ" name="isSideToMove">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ljEQANZpEeuxapO8spffXQ" name="side" type="_8AZhEdZbEeuwT9ke8onywQ"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ljEQANZpEeuxapO8spffXQ" name="side" type="_J99oMNgJEeuUAKJefM8KBQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_n1oIgNZpEeuxapO8spffXQ" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
           </ownedParameter>
@@ -332,7 +332,7 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_NXofYNZsEeuxapO8spffXQ" type="_A7bIQNZqEeuxapO8spffXQ" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_eqnDENZsEeuxapO8spffXQ" name="computeRemainingTime">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jYd5UNZsEeuxapO8spffXQ" name="side"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_jYd5UNZsEeuxapO8spffXQ" name="side" type="_J99oMNgJEeuUAKJefM8KBQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_l6tzoNZsEeuxapO8spffXQ" type="_A7bIQNZqEeuxapO8spffXQ" direction="return"/>
         </ownedOperation>
         <nestedClassifier xmi:type="uml:Association" xmi:id="_YWwJvKhcEeuHvIPllWn88Q" memberEnd="_YWwwsqhcEeuHvIPllWn88Q _YWwws6hcEeuHvIPllWn88Q">
@@ -397,218 +397,6 @@
     <packagedElement xmi:type="uml:Usage" xmi:id="_ZysT8NWSEeulP8trTD2_9g" client="_UjPzkNWSEeulP8trTD2_9g" supplier="_GLXvENWSEeulP8trTD2_9g"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_8E4x0NWSEeulP8trTD2_9g" client="_r-cSsNWSEeulP8trTD2_9g" supplier="_4-dzcNWSEeulP8trTD2_9g"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Model" xmi:id="_nPz48NZZEeuwT9ke8onywQ" name="CheckerBoard_Sequence_diagram">
-    <packagedElement xmi:type="uml:Interaction" xmi:id="_CD938NZaEeuwT9ke8onywQ" name="CheckerBoard-Sequence-diagram">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ3RMNZaEeuwT9ke8onywQ" name="piece" visibility="public">
-        <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/CheckerBoard_Sequence-diagram.uml#_Hd-LwMHQEeubRcFxt90YEw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ34QNZaEeuwT9ke8onywQ" name="square" visibility="public">
-        <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/CheckerBoard_Sequence-diagram.uml#_sbLwUMHOEeubRcFxt90YEw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ34QdZaEeuwT9ke8onywQ" name="pieceSort" visibility="public">
-        <type xmi:type="uml:Enumeration" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/CheckerBoard_Sequence-diagram.uml#_JYlJMMHOEeubRcFxt90YEw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ4fUNZaEeuwT9ke8onywQ" name="color" visibility="public">
-        <type xmi:type="uml:Enumeration" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/CheckerBoard_Sequence-diagram.uml#_D8QDYMHOEeubRcFxt90YEw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ5tcNZaEeuwT9ke8onywQ" name="checkerBoard">
-        <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/CheckerBoard_Sequence-diagram.uml#_5MP9IMHQEeubRcFxt90YEw"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ6UgNZaEeuwT9ke8onywQ" name="serveur">
-        <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_8YTMoKhZEeuHvIPllWn88Q"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_UZ6UgdZaEeuwT9ke8onywQ" name="player" visibility="public">
-        <type xmi:type="uml:Actor" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_U8sIcKhaEeuHvIPllWn88Q"/>
-      </ownedAttribute>
-      <nestedClassifier xmi:type="uml:Actor" xmi:id="_UZ67kNZaEeuwT9ke8onywQ" name="player"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ7ioNZaEeuwT9ke8onywQ" name="Piece_lifeline" represents="_UZ3RMNZaEeuwT9ke8onywQ" coveredBy="_Y4yBodZcEeuwT9ke8onywQ _AxNIMNZdEeuwT9ke8onywQ _AxxI4NZdEeuwT9ke8onywQ _c-VFQNZdEeuwT9ke8onywQ _c-7iMNZdEeuwT9ke8onywQ _Y5ZFoNZcEeuwT9ke8onywQ _Y5WCUNZcEeuwT9ke8onywQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ8JsNZaEeuwT9ke8onywQ" name="Square_lifeline" represents="_UZ34QNZaEeuwT9ke8onywQ" coveredBy="_qb0lINZdEeuwT9ke8onywQ _qcfTgNZdEeuwT9ke8onywQ _qccQMNZdEeuwT9ke8onywQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ8wwNZaEeuwT9ke8onywQ" name="pieceSort_lifeline" represents="_UZ34QdZaEeuwT9ke8onywQ" coveredBy="_AxNvQNZdEeuwT9ke8onywQ _Axwh0dZdEeuwT9ke8onywQ _AxtegNZdEeuwT9ke8onywQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ9X0NZaEeuwT9ke8onywQ" name="color_lifeline" represents="_UZ4fUNZaEeuwT9ke8onywQ" coveredBy="_c-VFQdZdEeuwT9ke8onywQ _c-67INZdEeuwT9ke8onywQ _c-330NZdEeuwT9ke8onywQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ9X0dZaEeuwT9ke8onywQ" name="checkerBoard_lifeline" represents="_UZ5tcNZaEeuwT9ke8onywQ" coveredBy="_3E8MUNZeEeuwT9ke8onywQ _Y4yBoNZcEeuwT9ke8onywQ _Y5ZFodZcEeuwT9ke8onywQ _qbz-ENZdEeuwT9ke8onywQ _qcf6kNZdEeuwT9ke8onywQ _3Fj3YNZeEeuwT9ke8onywQ _3FgNANZeEeuwT9ke8onywQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ9X0tZaEeuwT9ke8onywQ" name="player_lifeline" represents="_UZ6UgdZaEeuwT9ke8onywQ" coveredBy="_KaJqUNZbEeuwT9ke8onywQ _MBthMdZfEeuwT9ke8onywQ"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_UZ9X09ZaEeuwT9ke8onywQ" name="server_lifeline" represents="_UZ6UgNZaEeuwT9ke8onywQ" coveredBy="_KaKRYNZbEeuwT9ke8onywQ _3E7lQdZeEeuwT9ke8onywQ _3Fj3YdZeEeuwT9ke8onywQ _MBthMNZfEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KaJqUNZbEeuwT9ke8onywQ" name="NewCheckerGameSendEvent" covered="_UZ9X0tZaEeuwT9ke8onywQ" message="_KaEKwNZbEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_KaKRYNZbEeuwT9ke8onywQ" name="NewCheckerGameReceiveEvent" covered="_UZ9X09ZaEeuwT9ke8onywQ" message="_KaEKwNZbEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3E7lQdZeEeuwT9ke8onywQ" name="CreationOfCheckerBoardSendEvent" covered="_UZ9X09ZaEeuwT9ke8onywQ" message="_3E7lQNZeEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3E8MUNZeEeuwT9ke8onywQ" name="CreationOfCheckerBoardReceiveEvent" covered="_UZ9X0dZaEeuwT9ke8onywQ" message="_3E7lQNZeEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_3FgNANZeEeuwT9ke8onywQ" name="CheckerBoardBehaviorExecutionSpecification" covered="_UZ9X0dZaEeuwT9ke8onywQ" finish="_3Fj3YNZeEeuwT9ke8onywQ" start="_3E8MUNZeEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Y4yBoNZcEeuwT9ke8onywQ" name="Creation of piece SendEvent" covered="_UZ9X0dZaEeuwT9ke8onywQ" message="_Y4xakNZcEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Y4yBodZcEeuwT9ke8onywQ" name="Creation of piece ReceiveEvent" covered="_UZ7ioNZaEeuwT9ke8onywQ" message="_Y4xakNZcEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_Y5WCUNZcEeuwT9ke8onywQ" name="Creation of piece BehaviorExecutionSpecification" covered="_UZ7ioNZaEeuwT9ke8onywQ" finish="_Y5ZFoNZcEeuwT9ke8onywQ" start="_Y4yBodZcEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AxNIMNZdEeuwT9ke8onywQ" name="Create a pieceSort SendEvent" covered="_UZ7ioNZaEeuwT9ke8onywQ" message="_AxMhINZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AxNvQNZdEeuwT9ke8onywQ" name="Create a pieceSort ReceiveEvent" covered="_UZ8wwNZaEeuwT9ke8onywQ" message="_AxMhINZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_AxtegNZdEeuwT9ke8onywQ" name="Create a pieceSortBehaviorExecutionSpecification" covered="_UZ8wwNZaEeuwT9ke8onywQ" finish="_Axwh0dZdEeuwT9ke8onywQ" start="_AxNvQNZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Axwh0dZdEeuwT9ke8onywQ" name="Create a pieceSort SendEvent" covered="_UZ8wwNZaEeuwT9ke8onywQ" message="_Axwh0NZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_AxxI4NZdEeuwT9ke8onywQ" name="Create a pieceSort ReceiveEvent" covered="_UZ7ioNZaEeuwT9ke8onywQ" message="_Axwh0NZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_c-VFQNZdEeuwT9ke8onywQ" name="Create a colorSendEvent" covered="_UZ7ioNZaEeuwT9ke8onywQ" message="_c-UeMNZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_c-VFQdZdEeuwT9ke8onywQ" name="Create a colorReceiveEvent" covered="_UZ9X0NZaEeuwT9ke8onywQ" message="_c-UeMNZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_c-330NZdEeuwT9ke8onywQ" name="Create a color BehaviorExecutionSpecification" covered="_UZ9X0NZaEeuwT9ke8onywQ" finish="_c-67INZdEeuwT9ke8onywQ" start="_c-VFQdZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_c-67INZdEeuwT9ke8onywQ" name="Create a color SendEvent" covered="_UZ9X0NZaEeuwT9ke8onywQ" message="_c-6UENZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_c-7iMNZdEeuwT9ke8onywQ" name="Create a color ReceiveEvent" covered="_UZ7ioNZaEeuwT9ke8onywQ" message="_c-6UENZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Y5ZFoNZcEeuwT9ke8onywQ" name="Creation of piece SendEvent" covered="_UZ7ioNZaEeuwT9ke8onywQ" message="_Y5YekNZcEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Y5ZFodZcEeuwT9ke8onywQ" name="Creation of piece ReceiveEvent" covered="_UZ9X0dZaEeuwT9ke8onywQ" message="_Y5YekNZcEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_qbz-ENZdEeuwT9ke8onywQ" name="CreateSquareSendEvent" covered="_UZ9X0dZaEeuwT9ke8onywQ" message="_qbzXANZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_qb0lINZdEeuwT9ke8onywQ" name="CreateSquareReceiveEvent" covered="_UZ8JsNZaEeuwT9ke8onywQ" message="_qbzXANZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_qccQMNZdEeuwT9ke8onywQ" name="CreationOfSquareBehaviorExecutionSpecification" covered="_UZ8JsNZaEeuwT9ke8onywQ" finish="_qcfTgNZdEeuwT9ke8onywQ" start="_qb0lINZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_qcfTgNZdEeuwT9ke8onywQ" name="NewInstanceOfSqaureSendEvent" covered="_UZ8JsNZaEeuwT9ke8onywQ" message="_qcescNZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_qcf6kNZdEeuwT9ke8onywQ" name="NewInstanceOfSqaureReceiveEvent" covered="_UZ9X0dZaEeuwT9ke8onywQ" message="_qcescNZdEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3Fj3YNZeEeuwT9ke8onywQ" name="NewInstanceOfCheckerBoardSendEvent" covered="_UZ9X0dZaEeuwT9ke8onywQ" message="_3FjQUNZeEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3Fj3YdZeEeuwT9ke8onywQ" name="NewInstanceOfCheckerBoardReceiveEvent" covered="_UZ9X09ZaEeuwT9ke8onywQ" message="_3FjQUNZeEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MBthMNZfEeuwT9ke8onywQ" name="New checker SendEvent" covered="_UZ9X09ZaEeuwT9ke8onywQ" message="_MBsTENZfEeuwT9ke8onywQ"/>
-      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_MBthMdZfEeuwT9ke8onywQ" name="New checker ReceiveEvent" covered="_UZ9X0tZaEeuwT9ke8onywQ" message="_MBsTENZfEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_KaEKwNZbEeuwT9ke8onywQ" name="New checker game" messageSort="asynchCall" receiveEvent="_KaKRYNZbEeuwT9ke8onywQ" sendEvent="_KaJqUNZbEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_Y4xakNZcEeuwT9ke8onywQ" name="Creation of piece" receiveEvent="_Y4yBodZcEeuwT9ke8onywQ" sendEvent="_Y4yBoNZcEeuwT9ke8onywQ" signature="_8AaIMNZbEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_Y5YekNZcEeuwT9ke8onywQ" name="Returns an instance of piece" messageSort="reply" receiveEvent="_Y5ZFodZcEeuwT9ke8onywQ" sendEvent="_Y5ZFoNZcEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_AxMhINZdEeuwT9ke8onywQ" name="Create a pieceSort" receiveEvent="_AxNvQNZdEeuwT9ke8onywQ" sendEvent="_AxNIMNZdEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_Axwh0NZdEeuwT9ke8onywQ" name="New instance of pieceSort" messageSort="reply" receiveEvent="_AxxI4NZdEeuwT9ke8onywQ" sendEvent="_Axwh0dZdEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_c-UeMNZdEeuwT9ke8onywQ" name="Create a color" receiveEvent="_c-VFQdZdEeuwT9ke8onywQ" sendEvent="_c-VFQNZdEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_c-6UENZdEeuwT9ke8onywQ" name="Return a new instance of color" messageSort="reply" receiveEvent="_c-7iMNZdEeuwT9ke8onywQ" sendEvent="_c-67INZdEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_qbzXANZdEeuwT9ke8onywQ" name="create a new square" receiveEvent="_qb0lINZdEeuwT9ke8onywQ" sendEvent="_qbz-ENZdEeuwT9ke8onywQ" signature="_8AaIINZbEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_qcescNZdEeuwT9ke8onywQ" name="Return an insatance of Square" messageSort="reply" receiveEvent="_qcf6kNZdEeuwT9ke8onywQ" sendEvent="_qcfTgNZdEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_3E7lQNZeEeuwT9ke8onywQ" name="Creation of a new CheckerBoard" receiveEvent="_3E8MUNZeEeuwT9ke8onywQ" sendEvent="_3E7lQdZeEeuwT9ke8onywQ" signature="_8AaISNZbEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_3FjQUNZeEeuwT9ke8onywQ" name="New instance of CheckerBoard" messageSort="reply" receiveEvent="_3Fj3YdZeEeuwT9ke8onywQ" sendEvent="_3Fj3YNZeEeuwT9ke8onywQ"/>
-      <message xmi:type="uml:Message" xmi:id="_MBsTENZfEeuwT9ke8onywQ" name="Return a checkerBoard" messageSort="asynchCall" receiveEvent="_MBthMdZfEeuwT9ke8onywQ" sendEvent="_MBthMNZfEeuwT9ke8onywQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_8AZhENZbEeuwT9ke8onywQ" name="Checker Classes">
-      <packagedElement xmi:type="uml:Enumeration" xmi:id="_8AZhEdZbEeuwT9ke8onywQ" name="Side">
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8AZhEtZbEeuwT9ke8onywQ" name="WHITE"/>
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8AZhE9ZbEeuwT9ke8onywQ" name="BLACK"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Enumeration" xmi:id="_8AZhFNZbEeuwT9ke8onywQ" name="PieceSort">
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8AZhFdZbEeuwT9ke8onywQ" name="WHITE"/>
-        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8AZhFtZbEeuwT9ke8onywQ" name="BLACK"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_8AZhF9ZbEeuwT9ke8onywQ" name="Square">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AZhGNZbEeuwT9ke8onywQ" name="row" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AZhGdZbEeuwT9ke8onywQ" name="column" visibility="private">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-        </ownedAttribute>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AZhGtZbEeuwT9ke8onywQ" name="Square">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AZhG9ZbEeuwT9ke8onywQ" name="x">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AZhHNZbEeuwT9ke8onywQ" name="y">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIINZbEeuwT9ke8onywQ" name="givenCoordinate" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIIdZbEeuwT9ke8onywQ" name="row">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIItZbEeuwT9ke8onywQ" name="column">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaII9ZbEeuwT9ke8onywQ" type="_8AZhF9ZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIJNZbEeuwT9ke8onywQ" name="isWhite">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIJdZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIJtZbEeuwT9ke8onywQ" name="getRow">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIJ9ZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIKNZbEeuwT9ke8onywQ" name="getColumn">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIKdZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
-        </ownedOperation>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_8AaIKtZbEeuwT9ke8onywQ" name="Piece">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AaIK9ZbEeuwT9ke8onywQ" name="color" visibility="private">
-          <type xmi:type="uml:Enumeration" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_b1rrQLu7EeuNy44TyQhG4g"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AaILNZbEeuwT9ke8onywQ" name="sort" visibility="private" type="_8AZhFNZbEeuwT9ke8onywQ"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaILdZbEeuwT9ke8onywQ" name="Piece">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaILtZbEeuwT9ke8onywQ" name="sort" type="_8AZhFNZbEeuwT9ke8onywQ"/>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIL9ZbEeuwT9ke8onywQ" name="color" type="_8AZhEdZbEeuwT9ke8onywQ"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIMNZbEeuwT9ke8onywQ" name="given">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIMdZbEeuwT9ke8onywQ" name="piecesort" type="_8AZhFNZbEeuwT9ke8onywQ"/>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIMtZbEeuwT9ke8onywQ" name="color" type="_8AZhEdZbEeuwT9ke8onywQ"/>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIM9ZbEeuwT9ke8onywQ" type="_8AaIKtZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaINNZbEeuwT9ke8onywQ" name="getColor">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaINdZbEeuwT9ke8onywQ" type="_8AZhEdZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaINtZbEeuwT9ke8onywQ" name="getSort">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIN9ZbEeuwT9ke8onywQ" type="_8AZhFNZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIONZbEeuwT9ke8onywQ" name="white" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIOdZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_hVse0LsZEeuS-KOJnVGG8A"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIOtZbEeuwT9ke8onywQ" name="black" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIO9ZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_hVse0LsZEeuS-KOJnVGG8A"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIPNZbEeuwT9ke8onywQ" name="whiteQueen" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIPdZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_hVse0LsZEeuS-KOJnVGG8A"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIPtZbEeuwT9ke8onywQ" name="blackQueen" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIP9ZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_hVse0LsZEeuS-KOJnVGG8A"/>
-          </ownedParameter>
-        </ownedOperation>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_8AaIQNZbEeuwT9ke8onywQ" name="CheckerBoard">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AaIQdZbEeuwT9ke8onywQ" name="sizeX" visibility="private" isStatic="true">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_8AaIQtZbEeuwT9ke8onywQ" name="value" value="10"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AaIQ9ZbEeuwT9ke8onywQ" name="sizeY" visibility="private" isStatic="true">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_8AaIRNZbEeuwT9ke8onywQ" name="value" value="10"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_8AaIRdZbEeuwT9ke8onywQ" name="checkerBoard" visibility="private" type="_8AaIWtZbEeuwT9ke8onywQ">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8AaIRtZbEeuwT9ke8onywQ"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8AaIR9ZbEeuwT9ke8onywQ" value="*"/>
-        </ownedAttribute>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaISNZbEeuwT9ke8onywQ" name="CheckerBoard">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaISdZbEeuwT9ke8onywQ" name="pieces" type="_8AaIKtZbEeuwT9ke8onywQ">
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8AaIS9ZbEeuwT9ke8onywQ" value="*"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaITNZbEeuwT9ke8onywQ" name="point" type="_8AZhF9ZbEeuwT9ke8onywQ"/>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaITdZbEeuwT9ke8onywQ" type="_8AaIQNZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaITtZbEeuwT9ke8onywQ" name="empty" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIT9ZbEeuwT9ke8onywQ" type="_8AaIQNZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIUNZbEeuwT9ke8onywQ" name="getPiece">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIUdZbEeuwT9ke8onywQ" name="point" type="_8AZhF9ZbEeuwT9ke8onywQ"/>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIUtZbEeuwT9ke8onywQ" type="_8AaIKtZbEeuwT9ke8onywQ" direction="return"/>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIU9ZbEeuwT9ke8onywQ" name="movePiece">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIVNZbEeuwT9ke8onywQ" name="from">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_0-sLgMCnEeuib46rRj6L-g"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIVdZbEeuwT9ke8onywQ" name="to">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_0-sLgMCnEeuib46rRj6L-g"/>
-          </ownedParameter>
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIVtZbEeuwT9ke8onywQ" direction="return">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_crASULsOEeuS-KOJnVGG8A"/>
-          </ownedParameter>
-        </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_8AaIV9ZbEeuwT9ke8onywQ" name="getPieces">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_8AaIWNZbEeuwT9ke8onywQ" name="ImmutableMap&lt;String, Piece>" direction="return">
-            <type xmi:type="uml:Class" href="../../../projet-assisted-board-games-1-Checkboard-Sequence_diagram/Doc/Papyrus/Assisted-board-games-model.uml#_hVse0LsZEeuS-KOJnVGG8A"/>
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8AaIWdZbEeuwT9ke8onywQ" value="*"/>
-          </ownedParameter>
-        </ownedOperation>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_8AaIWtZbEeuwT9ke8onywQ" name="MapSquareToPiece"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_8AaIW9ZbEeuwT9ke8onywQ" name="JAX-RS"/>
-    </packagedElement>
-  </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_5t9VoNZhEeuTNcmzhqcJwA" name="Game_And_Player_Management">
     <packagedElement xmi:type="uml:Interaction" xmi:id="_-9wbUNZhEeuTNcmzhqcJwA" name="Game_And_Player_Management">
       <nestedClassifier xmi:type="uml:Association" xmi:id="_f1haMNZwEeuxapO8spffXQ" name="Other player" memberEnd="_iIjz0NZwEeuxapO8spffXQ _np2SINZwEeuxapO8spffXQ">
@@ -653,6 +441,11 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_c67yANZoEeuxapO8spffXQ" name="getFrom">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_gUsjINZoEeuxapO8spffXQ" type="_IBF1UNZoEeuxapO8spffXQ" direction="return"/>
         </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_vPjr4NgIEeuUAKJefM8KBQ" name="getId">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_52IB8NgIEeuUAKJefM8KBQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_IBF1UNZoEeuxapO8spffXQ" name="Square"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_VHayYNZoEeuxapO8spffXQ" name="Piece"/>
@@ -662,6 +455,10 @@
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
           </ownedParameter>
         </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_J99oMNgJEeuUAKJefM8KBQ" name="Side">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6sBSsNgJEeuUAKJefM8KBQ" name="WHITE"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8UlL8NgJEeuUAKJefM8KBQ" name="BLACK"/>
       </packagedElement>
     </packagedElement>
   </packagedElement>
