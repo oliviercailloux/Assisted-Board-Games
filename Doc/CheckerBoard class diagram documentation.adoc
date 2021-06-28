@@ -11,7 +11,7 @@ This class diagram demonstrates the interactions between CheckerBoard, Side, Squ
 
 * `given` is a static factory method. We use it to create a board for which we know the position of the pieces. This method is useful for loading a game already started and restoring checkerboard's state. 
 
-* `doMove` is useful to simulate the movement of a piece associated with given *squares*. 
+* `Move` is useful to simulate the movement of a piece associated with given *squares*. 
 
 * `getPiece` allows to find out the *piece* located on a given square.
 
