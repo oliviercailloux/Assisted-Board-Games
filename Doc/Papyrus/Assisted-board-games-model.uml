@@ -357,6 +357,71 @@
     <packagedElement xmi:type="uml:Usage" xmi:id="_ZysT8NWSEeulP8trTD2_9g" client="_UjPzkNWSEeulP8trTD2_9g" supplier="_GLXvENWSEeulP8trTD2_9g"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_8E4x0NWSEeulP8trTD2_9g" client="_r-cSsNWSEeulP8trTD2_9g" supplier="_4-dzcNWSEeulP8trTD2_9g"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_5t9VoNZhEeuTNcmzhqcJwA" name="Game_And_Player_Management">
+    <packagedElement xmi:type="uml:Interaction" xmi:id="_-9wbUNZhEeuTNcmzhqcJwA" name="Game_And_Player_Management">
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_f1haMNZwEeuxapO8spffXQ" name="Other player" memberEnd="_iIjz0NZwEeuxapO8spffXQ _np2SINZwEeuxapO8spffXQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_iIjz0NZwEeuxapO8spffXQ" name="playerstate" type="_jNMkMKhbEeuHvIPllWn88Q" association="_f1haMNZwEeuxapO8spffXQ"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_np2SINZwEeuxapO8spffXQ" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" association="_f1haMNZwEeuxapO8spffXQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_FcBhcNZxEeuxapO8spffXQ" name="Current player" memberEnd="_I4F_sNZxEeuxapO8spffXQ _I4HN0NZxEeuxapO8spffXQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_I4F_sNZxEeuxapO8spffXQ" name="playerstate" type="_jNMkMKhbEeuHvIPllWn88Q" association="_FcBhcNZxEeuxapO8spffXQ"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_I4HN0NZxEeuxapO8spffXQ" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" association="_FcBhcNZxEeuxapO8spffXQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_DlRlwNZyEeuxapO8spffXQ" name="GameEntity_GameDAO" memberEnd="_GtCA4NZyEeuxapO8spffXQ _MZQj4NZyEeuxapO8spffXQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_GtCA4NZyEeuxapO8spffXQ" name="GameEntity" type="_YWwJoKhcEeuHvIPllWn88Q" association="_DlRlwNZyEeuxapO8spffXQ"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_MZQj4NZyEeuxapO8spffXQ" name="GameDAO" type="_jFoZsNZoEeuxapO8spffXQ" association="_DlRlwNZyEeuxapO8spffXQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_eIipENZyEeuxapO8spffXQ" name="GameEntity_MoveEntity" memberEnd="_ialGANZyEeuxapO8spffXQ _n-kTANZyEeuxapO8spffXQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_ialGANZyEeuxapO8spffXQ" name="moveEntity" type="_oxGkMNZnEeuxapO8spffXQ" association="_eIipENZyEeuxapO8spffXQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_41ArsNZyEeuxapO8spffXQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vIDeMNZyEeuxapO8spffXQ" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_n-kTANZyEeuxapO8spffXQ" name="GameEntity" type="_YWwJoKhcEeuHvIPllWn88Q" association="_eIipENZyEeuxapO8spffXQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_WoZb8NZzEeuxapO8spffXQ" name="ChessBoard_GameState" memberEnd="_br7nQNZzEeuxapO8spffXQ _jvaVgNZzEeuxapO8spffXQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_br7nQNZzEeuxapO8spffXQ" name="chessBoard" type="_EWvNYKhbEeuHvIPllWn88Q" aggregation="composite" association="_WoZb8NZzEeuxapO8spffXQ"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_jvaVgNZzEeuxapO8spffXQ" name="gameState" type="_EL29oKhcEeuHvIPllWn88Q" association="_WoZb8NZzEeuxapO8spffXQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Association" xmi:id="_zMSTMNZzEeuxapO8spffXQ" name="GameState_GameEntity" memberEnd="_6EL_INZzEeuxapO8spffXQ _9UZysNZzEeuxapO8spffXQ">
+        <ownedEnd xmi:type="uml:Property" xmi:id="_6EL_INZzEeuxapO8spffXQ" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" aggregation="composite" association="_zMSTMNZzEeuxapO8spffXQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XWh30NZ0EeuxapO8spffXQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XWs28NZ0EeuxapO8spffXQ" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_9UZysNZzEeuxapO8spffXQ" name="GameEntity" type="_YWwJoKhcEeuHvIPllWn88Q" association="_zMSTMNZzEeuxapO8spffXQ"/>
+      </nestedClassifier>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_nfAqMNZnEeuxapO8spffXQ" name="Classes">
+      <packagedElement xmi:type="uml:Class" xmi:id="_oxGkMNZnEeuxapO8spffXQ" name="MoveEntity">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_yZpLwNZnEeuxapO8spffXQ" name="getPromotion">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_L1NnMNZoEeuxapO8spffXQ" type="_VHayYNZoEeuxapO8spffXQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_YeO9MNZoEeuxapO8spffXQ" name="getTo">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_cC9oMNZoEeuxapO8spffXQ" type="_IBF1UNZoEeuxapO8spffXQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_c67yANZoEeuxapO8spffXQ" name="getFrom">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_gUsjINZoEeuxapO8spffXQ" type="_IBF1UNZoEeuxapO8spffXQ" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_vPjr4NgIEeuUAKJefM8KBQ" name="getId">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_52IB8NgIEeuUAKJefM8KBQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_IBF1UNZoEeuxapO8spffXQ" name="Square"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_VHayYNZoEeuxapO8spffXQ" name="Piece"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jFoZsNZoEeuxapO8spffXQ" name="GameDAO">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_mXTl0NZoEeuxapO8spffXQ" name="getPosition">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rqbFQNZoEeuxapO8spffXQ" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_J99oMNgJEeuUAKJefM8KBQ" name="Side">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_6sBSsNgJEeuUAKJefM8KBQ" name="WHITE"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8UlL8NgJEeuUAKJefM8KBQ" name="BLACK"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WrS3gJoxEeuk7a0Km3P5gA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WrUFoJoxEeuk7a0Km3P5gA" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
