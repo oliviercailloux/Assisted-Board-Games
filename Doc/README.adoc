@@ -1,0 +1,29 @@
+= Documentation of the checkers game creation
+
+Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game. 
+
+After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his https://en.wikipedia.org/wiki/Portable_Draughts_Notation[Portable Draughts Notaton] (PDN). 
+We also made sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games. 
+
+The interface of the checkers game was made using HTML, CSS, Javascript. 
+
+
+
+
+It is interesting to know that it is not possible to load a game if no PDN has been entered.  
+There is now a "Quit" button to return to the Main Menu.
+We also display in real time the player who has to play (Black or White). 
+There is also a move suggestion useful for the novices to know the possible moves of a piece in the game
+
+
+Screenshot 1:
+
+image::Image/interface_quit.png[]
+
+
+
+
+
+
+
+

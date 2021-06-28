@@ -8,5 +8,5 @@ document.getElementById("Chess").onclick = () => {
 document.getElementById("Checkers").onclick = () => {
 	console.log('Selected checkers');
 
-	// window.location.assign("");		TODO: Specify path to checkers html page later, when the checkers page will be available
-}
+	window.location.assign("checkers/checkers.html");
+};
