@@ -1,19 +1,19 @@
-= Documentation for the PlayerState class, enriching existing documenation
 
-_Our goal was to improve the existing documentation with adding the documentation of PlayerState class. In the sequence diagram we tried to illustrate how the application uses `PlayerState` class and exactly when._ 
 
-When the player loads a game using FEN notation, the server calls `importFenGame` method in the `GameResource` class, passing it as an argument the `FEN` notation provided by the player. 
+=== Explanation of the class diagram:
 
-Then, inside this method `GameResource` class proceeds to creating a new instance of a `ChessBoard` (by invoking it's constructor) class passing it as an argument `FEN` string. Inside it's constructor ChessBoard class, creates a new instance of a `Board` class (third party chess game library) and then uses this instance to call it's method loadFromFen, passes as an argument to this method `FEN` string. After that, the new instance of a `ChessBoard` is returned to GameResource.
+* `GameEntity` : The GameEntity class initializes the game of chess by setting up a clock for each player. It allows to define a time constraint for a game. 
 
-The next step is a creation of two instance of PlayerState object (one for a white player and another one for black player) by invoking it's constructor. After all, the method proceeds to creating a new instance of a `GameState` object by passing in it's constructor an instance of a `ChessBoard` and two instances of a PlayerState, all of which method created earlier. 
+*  `PlayerState` : manages all the information about the remaining time of the player, if he lost because he exceeded the time limit, his side (white or black).
 
-The returned instance of a `GameState` object is passed as an argument to the constructor of `GameEntity`. Inside of it GameEntity class uses provided instance of a GameState to get the existing ChessBoard and uses it to initialize it's instance variable `startBoard`. After that, a new instance of a GameEntity is returned.
+* `GameState` : manages all the information about the state of the game at a given time. It manages the state of the board, i.e. how each piece is placed on the board. The class contains two `PlayerState` (one whose turn it is to play and one whose turn it is not).
 
-At the end, the `importFenGame` method is called with `getId` as parameter and return an instance of GameEntity. This will return the id of the game to the GameRessource class, and in the same way to the player.
+* `ChessBoard` : create the chess board with all the pieces loaded.
 
-You can find all the informations concerning our diagram in this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/tree/Documentation-PlayerState-UML/Doc/Papyrus[folder].
+* `MoveEntity` : manage the moves of the pieces on the board.
 
-Sequence diagram:
+* `GameDAO` : get the position of a piece on the board. 
 
-image::Images/PlayerStateSequenceDiagram.svg[diagram,2800,800]
+_You have below an image showing the class diagram:_
+
+image::./Images/Game_And_Player_Management.svg[classes,900,750]
