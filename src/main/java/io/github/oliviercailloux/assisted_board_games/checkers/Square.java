@@ -1,3 +1,4 @@
+
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -65,3 +66,4 @@ public class Square {
 		return MoreObjects.toStringHelper(this).add("square number", squareNumber).toString();
 	}
 }
+

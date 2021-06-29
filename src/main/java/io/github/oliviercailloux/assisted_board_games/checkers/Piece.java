@@ -1,3 +1,4 @@
+
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -95,3 +96,4 @@ public class Piece {
 		return MoreObjects.toStringHelper(this).add("color", color).add("sort", sort).toString();
 	}
 }
+

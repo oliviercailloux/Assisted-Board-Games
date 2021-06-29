@@ -1,3 +1,4 @@
+
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
 import java.util.ArrayList;
