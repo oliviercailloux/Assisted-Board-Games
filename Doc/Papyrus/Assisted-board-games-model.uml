@@ -494,6 +494,73 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_fiAalNjcEeuxZfZG1hZMcw" name="GameEntity" type="_YWwJoKhcEeuHvIPllWn88Q" association="_fiAakNjcEeuxZfZG1hZMcw"/>
     </packagedElement>
   </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_F6eGENjkEeuQJ9fMQkrPfA" name="CheckerBoard class diagram">
+    <packagedElement xmi:type="uml:Model" xmi:id="_zkYqINjkEeuQJ9fMQkrPfA" name="classes">
+      <packagedElement xmi:type="uml:Class" xmi:id="_2WbT8NjkEeuQJ9fMQkrPfA" name="CheckerBoard">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ENbgANjlEeuQJ9fMQkrPfA" name="pieces" visibility="private" type="_XQZaoNjlEeuQJ9fMQkrPfA"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_yHq_ENjlEeuQJ9fMQkrPfA" name="newInstance" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_7t1BANjlEeuQJ9fMQkrPfA" type="_2WbT8NjkEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="__9ZYwNjlEeuQJ9fMQkrPfA" name="given" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_F6xWINjmEeuQJ9fMQkrPfA" name="pieces" type="_XQZaoNjlEeuQJ9fMQkrPfA"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_KFlJsNjmEeuQJ9fMQkrPfA" type="_2WbT8NjkEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_u4iUINjmEeuQJ9fMQkrPfA" name="getPiece">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_1ExM4NjmEeuQJ9fMQkrPfA" name="square" type="_Pb4gANjmEeuQJ9fMQkrPfA"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_VhY-UNjpEeuQJ9fMQkrPfA" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_aiQ3MNjpEeuQJ9fMQkrPfA" name="move">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_kgW4ANjpEeuQJ9fMQkrPfA" name="from" type="_Pb4gANjmEeuQJ9fMQkrPfA"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_w854QNjpEeuQJ9fMQkrPfA" name="to" type="_Pb4gANjmEeuQJ9fMQkrPfA"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0522ANjpEeuQJ9fMQkrPfA" type="_2WbT8NjkEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_XQZaoNjlEeuQJ9fMQkrPfA" name="MapSquareToPiece"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Pb4gANjmEeuQJ9fMQkrPfA" name="Square">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_TFhgMNjmEeuQJ9fMQkrPfA" name="squareNumber" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_g6nAsNjmEeuQJ9fMQkrPfA" name="given" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_nlQTwNjmEeuQJ9fMQkrPfA" name="squareNumber">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_rKzeINjmEeuQJ9fMQkrPfA" type="_Pb4gANjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3LiFENjmEeuQJ9fMQkrPfA" name="Piece">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_7hL2sNjmEeuQJ9fMQkrPfA" name="color" visibility="private" type="_50QRT9jaEeuxZfZG1hZMcw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yxGrsNjnEeuQJ9fMQkrPfA" name="sort" visibility="private" type="_QsG8UNjnEeuQJ9fMQkrPfA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_t8phYNjrEeuQJ9fMQkrPfA" name="piecesort" type="_QsG8UNjnEeuQJ9fMQkrPfA" association="_t8nFINjrEeuQJ9fMQkrPfA"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_QHpH4NjoEeuQJ9fMQkrPfA" name="given" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_Wunb4NjoEeuQJ9fMQkrPfA" name="color" type="_50QRT9jaEeuxZfZG1hZMcw"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_aYz1sNjoEeuQJ9fMQkrPfA" name="sort" type="_QsG8UNjnEeuQJ9fMQkrPfA"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_eleDYNjoEeuQJ9fMQkrPfA" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_hd-hkNjoEeuQJ9fMQkrPfA" name="white" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_m_QY0NjoEeuQJ9fMQkrPfA" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_qL5T8NjoEeuQJ9fMQkrPfA" name="black" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xXbtkNjoEeuQJ9fMQkrPfA" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3zOFQNjoEeuQJ9fMQkrPfA" name="whiteQueen" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_CUtuENjpEeuQJ9fMQkrPfA" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_FmYTINjpEeuQJ9fMQkrPfA" name="blackQueen" isStatic="true">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_LXWMMNjpEeuQJ9fMQkrPfA" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_QsG8UNjnEeuQJ9fMQkrPfA" name="PieceSort">
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_sYcggNjnEeuQJ9fMQkrPfA" name="NORMAL_PIECE"/>
+        <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_uT-ZENjnEeuQJ9fMQkrPfA" name="QUEEN"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_t8nFINjrEeuQJ9fMQkrPfA" memberEnd="_t8phYNjrEeuQJ9fMQkrPfA _t8qIcdjrEeuQJ9fMQkrPfA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_t8oTQNjrEeuQJ9fMQkrPfA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t8oTQdjrEeuQJ9fMQkrPfA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_t8qIcdjrEeuQJ9fMQkrPfA" name="piece" type="_3LiFENjmEeuQJ9fMQkrPfA" association="_t8nFINjrEeuQJ9fMQkrPfA"/>
+    </packagedElement>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WrS3gJoxEeuk7a0Km3P5gA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WrUFoJoxEeuk7a0Km3P5gA" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
