@@ -1,0 +1,221 @@
+
+@squareSize: 60px;
+
+.boardtheme(@dark:#555, @light:#ccc, @mark:#393, @select:#a33, @next:orange) {
+
+    @dark2: darken(@dark, 10%);
+    @light2: darken(@light, 10%);
+
+    @lselect: lighten(@select, 20%);
+    @dselect: darken(@select, 20%);
+
+    .place_l {
+        background:@light;
+    }
+    .place_d {
+        background:@dark;
+    }
+
+    td {
+        background:@light;
+    }
+
+    .movemark {
+        background:@mark;
+    }
+
+    .place_d.selected {
+        background:@dselect;
+    }
+    .place_l.selected {
+        background:@lselect;
+    }
+
+    .next {
+        background:@next;
+    }
+}
+
+body {
+    background: black;
+    color: white;
+    font-size: (@squareSize / 3);
+}
+
+#main {
+    width: (@squareSize*8.1);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.chess_board, .draughts_board {
+
+    width: (@squareSize * 8.1);
+    position:relative;
+    margin-right: auto;
+    margin-left: auto;
+
+    .boardtheme();
+    
+    .board_green {
+        .boardtheme(#8b7, #efeff2);
+    }
+    .board_blue {
+        .boardtheme(#68b, #cce);
+    }
+    .board_red {
+        .boardtheme(#633, #ddd);
+    }
+    .board_brown {
+        .boardtheme(#662810, #dc8);
+    }
+
+    table {
+        border-collapse:collapse;
+
+        td a {
+            color:#000;
+            display:block;
+            position:relative;
+            text-decoration:none;
+
+            width: 100%;
+            height: 100%;
+        }
+        
+        td {
+            border: none;
+            padding: 0;
+            margin: 0;
+            height: @squareSize;
+            width: @squareSize;
+            text-align:center;
+            vertical-align:middle;
+        }
+        .place_l, .place_d {
+            margin:0;
+            padding:0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .placelink {
+            margin:0;
+            padding:0;
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+    
+    .info {
+        font-size: (@squareSize / 4);
+        height:(@squareSize / 3);
+        width: (@squareSize * 8);
+        padding: 0;
+        margin: 0;
+        color: black;
+         
+        div {
+            float: left;
+            width: 50%;
+            height: 100%;
+            background: #ddd;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            height: (@squareSize / 3);
+        }
+        
+        .overCounted {
+            background: red;
+        };
+    }
+
+    /* sprites for pieces */
+    img.piece {
+        display: inline;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 100;
+    }
+
+    /* Controls */
+    .controls {
+        overflow: auto;
+        width: (@squareSize * 8);
+        
+        img.bcontrol {
+            display:block; float: right;
+            padding: 0; margin: 0;
+            width: (@squareSize * .8); height: (@squareSize * .8);
+            padding: (@squareSize * .1);
+            opacity: .2;
+        }
+        
+        img.active {
+            opacity: 1;
+        }
+    }
+
+}
+
+
+.draughts_board {
+    width: (@squareSize * 10.1);
+
+    .info {
+        width: (@squareSize * 10);
+    }
+
+    .controls {
+        width: (@squareSize * 10);
+    }        
+}
+
+
+
+/* jqModal base Styling courtesy of;
+	Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied,
+	the Window's z-index value will be set to 3000 by default (via jqModal.js). */
+	
+.jqmWindow {
+    display: none;
+    
+    position: absolute;
+    top: @squareSize;
+    left: @squareSize;
+    
+    width:  (@squareSize * 6);
+    height: (@squareSize * 3);
+    
+    background: #222;
+    color: #fff;
+    border: 1px solid black;
+    padding: 0;
+
+    h1 {
+        background: #aac;
+        color: #000;
+        margin: 0;
+        padding: 5px;
+        font-size: (@squareSize / 2);
+    }
+    
+    img {
+        background: #ddd;
+        border: 2px solid blue;
+        margin: 10px;
+    }
+}
+
+.jqmOverlay { background-color: #000; }
+
+
