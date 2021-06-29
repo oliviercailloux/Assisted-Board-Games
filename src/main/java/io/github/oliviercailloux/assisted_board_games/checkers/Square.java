@@ -1,3 +1,4 @@
+
 package io.github.oliviercailloux.assisted_board_games.checkers;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -11,7 +12,7 @@ import com.google.common.hash.HashCode;
  * <p>
  * This class represents a square and all of it's related functionalities.
  * <p>
- * The square is defined using row and column index, e.g. : 11
+ * The square is defined using a respective number, e.g. : 1, 2 ... 50
  * <p>
  * Among available methods in this class, we have methods that allow us to know if a square is
  * white or black or if the square is empty or not.
@@ -45,9 +46,6 @@ public class Square {
 		return squareNumber;
 	}
 	
-	/**
-	 * @returns {@link Equals}
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Square)) {
@@ -58,9 +56,6 @@ public class Square {
 		return squareNumber == other.getSquareNumber();
 	}
 
-	/**
-	 *	@returns {@link HashCode}
-	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(squareNumber);
@@ -71,3 +66,4 @@ public class Square {
 		return MoreObjects.toStringHelper(this).add("square number", squareNumber).toString();
 	}
 }
+
