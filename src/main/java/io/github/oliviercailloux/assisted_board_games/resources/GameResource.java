@@ -4,14 +4,19 @@ import java.io.File;
 import java.io.FileWriter;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.json.Json;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -48,12 +53,25 @@ public class GameResource {
 
     @POST
     @Path("new")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public int createGame() {
-        LOGGER.info("POST game/new");
+    public int createGame(@FormParam("duration") int duration, @FormParam("increment") int increment) { 
+    	LOGGER.info("POST game/new");
         GameEntity game = new GameEntity();
-        chessService.persist(game);
-        return game.getId();
+    	
+    	Duration clockIncrement = game.getClockIncrement();
+    	
+    	if (increment != 0)
+    		clockIncrement = Duration.ofSeconds(increment);
+    	
+    	if (duration != 0) {
+    		ChessBoard board = ChessBoard.createChessBoard();
+    		game = new GameEntity(GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
+                    Instant.now(), Duration.ofSeconds(duration), clockIncrement);
+    	}
+    	
+    	chessService.persist(game);
+    	return game.getId();
     }
 
     @POST
