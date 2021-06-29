@@ -1,0 +1,34 @@
+= CheckerBoard class diagram
+
+This class diagram demonstrates the interactions between CheckerBoard, Square, Piece classes and Side, PieceSort enums.
+
+
+= Explanation of the class diagram
+
+*Checkerboard*
+
+* An instance variable *pieces* of type `MapSquareToPiece` allows to store the position of the pieces on the checkerboard. For example, a piece on the square 1 will be represented by 'Square object : Piece object' entry.
+
+* `given` is a static factory method. We use it to create a board for which we know the position of the pieces. This method is useful for loading a game already started and restoring checkerboard's state. 
+
+* `move` is useful to simulate the movement of a piece associated with given *squares*. This method returns a new instance of a CheckerBoard.
+
+* `getPiece` allows to find out the *piece* located on a given square.
+
+
+
+*Piece*
+
+* `white` (resp. `black`) is the static factory method representing a piece of the white color (resp. black).
+
+* `whiteQueen` (resp. `blackQueen`) is the static factory method representing a *Queen* piece of the white color (resp. blackQueen`).
+
+
+*Square*
+
+* `given` allows to create a *square* given it's number.
+
+
+=  Diagram
+
+image::Images/Checkerboard_class_diagram.svg[demonstation,1000,800]
