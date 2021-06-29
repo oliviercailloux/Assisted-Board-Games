@@ -2,11 +2,11 @@
 document.getElementById("Chess").onclick = () => {
 	console.log('Selected chess');
 
-	window.location.assign("chess.html");
+	window.location.assign("Chess.html");
 };
 
 document.getElementById("Checkers").onclick = () => {
 	console.log('Selected checkers');
 
 	window.location.assign("checkers/checkers.html");
-}
+};
