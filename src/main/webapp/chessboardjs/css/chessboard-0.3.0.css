@@ -36,14 +36,14 @@
 
 /* white square */
 .white-1e1d7 {
-  background-color: #fff;
-  color: #928f8f;
+  background-color: #f0d9b5;
+  color: #b58863;
 }
 
 /* black square */
 .black-3c85d {
-  background-color: #928f8f;
-  color: #fff;
+  background-color: #b58863;
+  color: #f0d9b5;
 }
 
 /* highlighted square */
@@ -67,148 +67,4 @@
 .numeric-fc462 {
   top: 2px;
   left: 2px;
-}
-
-
-/* Author: James BURTON */
-#board {
-  margin: auto;
-}
-
-.button {
-  border: none;
-  padding: 6px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 2px 1px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-}
-
-.button:hover {
-  background-color: #555555;
-  color: white;
-}
-
-#wrap {
-  width: 425px;
-  text-align: left;
-  margin: auto;
-  overflow:auto;
-}
-
-#left,
-#right {
-  background-color: rgba(231, 224, 224, 0.5);
-  border: 1px solid #fff;
-  padding: 0.5rem;
-  flex-grow: 1;
-  color: #fff;
-}
-
-#content {
-  display: flex;
-  width: 400px;
-  border: 1px solid #555555;
-  margin:auto;
-}
-
-#pagetitle {
-  font-size: 40px;
-  font-weight: bold;
-  margin: 7px;
-}
-
-body {
-  font-family: 'Raleway', sans-serif;
-}
-
-input {
-  flex-grow:2;
-  border: none;
-  padding: 6px 15px;
-  width: 125px;
-}
-
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-
-#board {
-  margin: auto;
-}
-
-#gameinfo {
-  width: 425px;
-  text-align: left;
-  margin: auto;
-  overflow:none;
-}
-
-.Clocks {
-  width: 70%;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 25px;
-}
-
-#Black-player-clock, #White-player-clock {
-  display: inline-block;
-  font-size: 40px;
-  width: 15%;
-  margin: 0 auto;
-  padding: 15px 10px;
-  border: 1px solid black;
-  text-align: center;
-  width: 200px;
-}
-
-#White-player-clock {
-  margin: 0;
-  border: none;
-  box-shadow: 0 0 5px gainsboro;
-}
-
-.outer-class {
-  width: 70%;
-  display: block;
-  margin: 7px auto;
-}
-
-label, .time, #time-btn {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-label {
-  font-size: 15px;
-  padding: 5px 10px;
-  width: 200px;
-}
-
-.time {
-  font-size: 18px;
-  border: 1px solid black;
-  padding: 15px 10px;
-  width: 200px;
-}
-
-#time-btn {
-  font-size: 22px;
-  border: 0;
-  background: none;
-  background-color: white;
-  padding: 15px 60px;
-  border: 1px solid black;
-  text-align: center;
-  text-transform: uppercase;
 }
