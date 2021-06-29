@@ -1,44 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Kerim HUDAYBERDIYEV & James BURTON">
-
-	<script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" integrity="sha384-haqrlim99xjfMxRP6EWtafs0sB1WKcMdynwZleuUSwJR0mDeRYbhtY+KPMr+JL6f" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-
-    <title>Assisted Board Game Menu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="chessboardjs/css/chessboard-0.3.0.css" />
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="chessboardjs/js/chess.js"></script>
+<script type="text/javascript" src="chessboardjs/js/chessboard-0.3.0.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>My Assisted Board Games</title>
 </head>
+
 <body>
-    <h1>Select game</h1>
+	<h1>My Assisted Board Games</h1>
+	
+	<button onclick="newGame()">New Game</button><br/>
+	<input type="text" id="game-id"/><button onclick="loadGame()">Load Game</button>
+	<p></p>
+	
+	<div id="board" style="width:400px"></div>
+	<p>STATUS: <span id="status"></span></p> 	
+	<p>FEN: <span id="fen"></span></p>
+	<p>PGN: <span id="pgn"></span></p>
+	
+	<script type="text/javascript">
+		var board;
+		var game = Chess();
+		
+		var onDragStart = function(src, piece, pos, o) {
+			// only allow moving pieces of the playing sides' and if the game isn't over
+			if (game.game_over() ||
+				(game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+				(game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+				return false;
+			}
+		};
+		
+		var onDrop = function(src, dst) {
+			var move = game.move({
+				from: src,
+				to: dst,
+				promotion: 'q' // auto promote to queen for now...
+			});
+			
+			// a move is valid iff it isn't returned as null
+			if (move === null) {
+				return 'snapback'; // snapback the piece to its previous location
+			}
+			
+			// otherwise do play the move on the server
+			playMove(src, dst);
+			update();
+		};
+		
+		var onSnapEnd = function() {
+			board.position(game.fen());
+		};
+		
+		var update = function(){
+			var status = '';
+			var color = game.turn() === 'w' ? 'White' : 'Black';
 
-    <div class="container">
-        <div class="item card">
-			<i class="fas fa-chess logo"></i>
-            
-            <h2>Chess</h2>
-            <p>Chess is a recreational and competitive board game played between two players. It is played on a square chessboard with 64 squares arranged in an eight-by-eight grid.
-			<br><em>Source: <a href="https://en.wikipedia.org/wiki/Chess" target="_blank">Wikipedia</a></em></p>
-            <button id="Chess"><span>Play</span></button>
-        </div>
+			// checkmate?
+			if (game.in_checkmate()) {
+				status = 'Game over, ' + color + ' is in checkmate.';
+			} else if (game.in_draw()) {
+				// draw?
+				status = 'Game over, drawn position';
+			} else {
+				// game still on
+				status = color + ' to move';
 
-        <div class="item card">
-            <i class="fas fa-chess-board logo"></i>
-            
-            <h2>Checkers</h2>
-            <p>Checkers or Draughts is a strategy board game for two players which involve diagonal moves of uniform game pieces and mandatory captures by jumping over opponent pieces. 
-			We implement the 10×10 checkerboard variant.
-			<br><em>Source: <a href="https://en.wikipedia.org/wiki/Draughts" target="_blank">Wikipedia</a></em></p>
-            <button id="Checkers"><span>Play</span></button>
-        </div>
-    </div>
-
-    <script type="text/javascript" src="js/redirection.js"></script>
-	<!-- Both of the icons have been downloaded from Fontawesome. Styling was applied. Links: https://fontawesome.com/icons/chess?style=solid
-	an https://fontawesome.com/icons/chess-board?style=solid Licence: https://fontawesome.com/license -->
+				// check?
+				if (game.in_check()) {
+					status += ', ' + color + ' is in check';
+				}
+			}
+			
+			// update status & pgn spans
+			$('#status').html(status);
+			$('#fen').html(game.fen());
+			$('#pgn').html(game.pgn());
+		};
+		var config = {
+			draggable: true,
+			dropOffBoard: 'snapback',
+			onDragStart: onDragStart,
+			onDrop: onDrop,
+			onSnapEnd: onSnapEnd,
+		};
+		board = ChessBoard('board', config);
+	</script>
 </body>
 </html>
