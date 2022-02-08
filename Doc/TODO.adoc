@@ -3,6 +3,7 @@
 Currently, we have a game of Chess and a game of Checkers, but they are quite brittle. We will consolidate those so as to be able to then make them more generic. We will also design better clients (in Javascript), and strive to make them generic as well. We will start by moving the server core to Quarkus, a more modern server architecture in Java.
 
 * Make sure that all the current documentation can be reached by following links from the main documentation page.
+* Fix the security warning reported by GitHub
 * Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG, delete the ones that are not referenced.
 * Write, if necessary, a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case). Consider translating and adapting my original documentation.
 * Delete everything, replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample]. Add a simple class to reproduce a very basic functionality of the server. Make sure you can contact it with curl, as your doc indicates.
