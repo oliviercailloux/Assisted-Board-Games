@@ -1,7 +1,6 @@
 package io.github.oliviercailloux.assisted_board_games.service;
 
 import java.util.HashMap;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
@@ -9,19 +8,18 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * From
- * http://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se/
+ * From http://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se/
  */
 @ApplicationScoped
 public class EntityManagerFactoryProducer {
 
-    @Produces
-    @ApplicationScoped
-    public EntityManagerFactory produceEntityManagerFactory() {
-        return Persistence.createEntityManagerFactory("ChessDB", new HashMap<>());
-    }
+  @Produces
+  @ApplicationScoped
+  public EntityManagerFactory produceEntityManagerFactory() {
+    return Persistence.createEntityManagerFactory("ChessDB", new HashMap<>());
+  }
 
-    public void close(@Disposes EntityManagerFactory entityManagerFactory) {
-        entityManagerFactory.close();
-    }
+  public void close(@Disposes EntityManagerFactory entityManagerFactory) {
+    entityManagerFactory.close();
+  }
 }

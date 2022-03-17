@@ -9,22 +9,21 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 /**
- * From
- * http://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se/
+ * From http://in.relation.to/2019/01/23/testing-cdi-beans-and-persistence-layer-under-java-se/
  */
 @ApplicationScoped
 public class EntityManagerProducer {
 
-	@Inject
-	private EntityManagerFactory entityManagerFactory;
+  @Inject
+  private EntityManagerFactory entityManagerFactory;
 
-	@Produces
-	@RequestScoped
-	public EntityManager produceEntityManager() {
-		return entityManagerFactory.createEntityManager();
-	}
+  @Produces
+  @RequestScoped
+  public EntityManager produceEntityManager() {
+    return entityManagerFactory.createEntityManager();
+  }
 
-	public void close(@Disposes EntityManager entityManager) {
-		entityManager.close();
-	}
+  public void close(@Disposes EntityManager entityManager) {
+    entityManager.close();
+  }
 }

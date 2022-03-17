@@ -9,7 +9,7 @@ import org.glassfish.jersey.server.ResourceConfig;
  */
 public class AppConfig extends ResourceConfig {
 
-    public AppConfig() {
-        packages("io.github.oliviercailloux.assisted_board_games.resources");
-    }
+  public AppConfig() {
+    packages("io.github.oliviercailloux.assisted_board_games.resources");
+  }
 }
