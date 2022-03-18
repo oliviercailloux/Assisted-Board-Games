@@ -2,13 +2,18 @@
 
 Currently, we have a game of Chess and a game of Checkers, but they are quite brittle. We will consolidate those so as to be able to then make them more generic. We will also design better clients (in Javascript), and strive to make them generic as well. We will start by moving the server core to Quarkus, a more modern server architecture in Java.
 
-* Make sure that all the current documentation can be reached by following links from the main documentation page.
-* Fix the security warning reported by GitHub
+* Move model file to `Doc/Papyrus/Model.di` (and related ones similarly)
+* In the main Doc document, start with a link to the currently existing complete Use case diagram.
+* Create a new UC diagram with only the `Play chess` UC (rename the current one) and `Play new chess game` that inherits from it. Export it as https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG] into `Doc/Papyrus/Diagrams`. Integrate it into your main doc and explain briefly that this will be our main focus to start with; and specify that this means that the game must be recorded on the server. Use `System` as a subject, not `PlayerPlaysGame` (rename the current one).
+* Create a UC, exported in another diagram: `Record chess move graphically`, in subject `GUI`. It interacts with both the `Player` (change case of current one) and the `Server` (an actor that should be displayed as a classifier). The `Play chess` UC uses this one. Explain in the doc that this is required for the other one so that it must be done first.
+* Create a UC, exported in another diagram: `Record chess move`, in subject `UI`. It interacts with the same actors as the graphical one. Explain in the doc that this will be our short term main focus.
+* Make sure that all the current documentation can be reached by following links from the main documentation page. Use https://github.com/oliviercailloux/J-Voting/tree/master/Doc[J-Voting doc] as an example.
 * Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG, delete the ones that are not referenced.
-* Write, if necessary, a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case). Consider translating and adapting my original documentation.
-* Delete everything, replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample]. Add a simple class to reproduce a very basic functionality of the server. Make sure you can contact it with curl, as your doc indicates.
+* In a new branch `quarkus`, delete everything. Replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample].
+* Create a Heroku account and deploy your server there, without using Herkou command line tools but using only Heroku web GUI. Write an Asciidoc file that explains how to do this, including how to test that everything went well.
+* Write a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case).
+* Add a simple class to reproduce a very basic functionality of your server. Make sure you can contact it with curl and write a doc to explain how to check this. Consider translating and adapting my original documentation.
 * Re-import everything piece by piece into the new canvas so as to rebuild the existing functionality.
-* Create a Heroku account and deploy your server there. Write a short doc that explains how to reproduce it, if you meet any difficulty. Make sure curl can reach the server and get the expected answer.
 * Make sure the js files are accessible once the server runs on Heroku. (Explain in the doc, if this creates some difficulties.)
 * Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
 * Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
