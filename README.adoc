@@ -13,3 +13,5 @@ A Java project developed by students during the https://github.com/oliviercaillo
 The code is hereby published under the https://github.com/oliviercailloux/{repository}/blob/master/LICENSE[MIT License], with their permission.
 
 See the https://github.com/oliviercailloux/{repository}/blob/master/Doc/README.adoc[doc].
+
+hello
