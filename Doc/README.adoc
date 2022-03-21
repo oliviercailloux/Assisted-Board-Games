@@ -1,4 +1,5 @@
 = Documentation
+Rodrigue test
 
 Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game. 
 
