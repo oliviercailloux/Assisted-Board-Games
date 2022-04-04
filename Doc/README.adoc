@@ -18,7 +18,7 @@ image::Image/interface_quit.png[]
 
 See: https://github.com/oliviercailloux/Assisted-Board-Games/blob/master/Doc/TODO.adoc[TODO’s].
 
-Complete use case diagram is : https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Images/PlayerPlaysGame.SVG[here].
+Complete use case diagram is: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Images/PlayerPlaysGame.SVG[here].
 
 == Original description (to be translated)
 D’après une idée généreusement fournie par Vincent Giroux. (Merci à lui !)
