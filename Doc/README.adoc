@@ -20,6 +20,8 @@ See: https://github.com/oliviercailloux/Assisted-Board-Games/blob/master/Doc/TOD
 
 Complete use case diagram is: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Images/PlayerPlaysGame.SVG[here].
 
+The use case diagram https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Diagrams/Play_chess.SVG[Play chess] contains two use cases `Play chess` and `Play new chess game` and an actor: the player. This use case will be our main focus at first, meaning that we will need to have a server to record the moves previously played.
+
 == Original description (to be translated)
 D’après une idée généreusement fournie par Vincent Giroux. (Merci à lui !)
 

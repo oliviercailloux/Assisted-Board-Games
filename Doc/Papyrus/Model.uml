@@ -392,25 +392,29 @@
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_rXvUgNWREeulP8trTD2_9g" name="Documentation PlayerPlaysGame">
-    <packagedElement xmi:type="uml:Interaction" xmi:id="_twD2wNWREeulP8trTD2_9g" name="PlayerPlaysGame " useCase="_3lY9INWREeulP8trTD2_9g _-Tfz4NWREeulP8trTD2_9g _AykeYNWSEeulP8trTD2_9g _C8GWsNWSEeulP8trTD2_9g _GLXvENWSEeulP8trTD2_9g _UjPzkNWSEeulP8trTD2_9g _ayCRENWSEeulP8trTD2_9g _r-cSsNWSEeulP8trTD2_9g _4-dzcNWSEeulP8trTD2_9g">
+    <packagedElement xmi:type="uml:Interaction" xmi:id="_twD2wNWREeulP8trTD2_9g" name="System" useCase="_3lY9INWREeulP8trTD2_9g _-Tfz4NWREeulP8trTD2_9g _AykeYNWSEeulP8trTD2_9g _C8GWsNWSEeulP8trTD2_9g _GLXvENWSEeulP8trTD2_9g _UjPzkNWSEeulP8trTD2_9g _ayCRENWSEeulP8trTD2_9g _r-cSsNWSEeulP8trTD2_9g _4-dzcNWSEeulP8trTD2_9g">
       <ownedUseCase xmi:type="uml:UseCase" xmi:id="_3lY9INWREeulP8trTD2_9g" name="Enter game ID" subject="_twD2wNWREeulP8trTD2_9g"/>
       <ownedUseCase xmi:type="uml:UseCase" xmi:id="_-Tfz4NWREeulP8trTD2_9g" name="Resume chess game" subject="_twD2wNWREeulP8trTD2_9g">
         <generalization xmi:type="uml:Generalization" xmi:id="_Ff1ewNWSEeulP8trTD2_9g" general="_AykeYNWSEeulP8trTD2_9g"/>
       </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AykeYNWSEeulP8trTD2_9g" name="Play chess game" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_C8GWsNWSEeulP8trTD2_9g" name="Start new chess game" subject="_twD2wNWREeulP8trTD2_9g">
+      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AykeYNWSEeulP8trTD2_9g" name="Play chess" subject="_twD2wNWREeulP8trTD2_9g"/>
+      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_C8GWsNWSEeulP8trTD2_9g" name="Play new chess game" subject="_twD2wNWREeulP8trTD2_9g">
         <generalization xmi:type="uml:Generalization" xmi:id="_FCxvUNWSEeulP8trTD2_9g" general="_AykeYNWSEeulP8trTD2_9g"/>
       </ownedUseCase>
       <ownedUseCase xmi:type="uml:UseCase" xmi:id="_GLXvENWSEeulP8trTD2_9g" name="Set time limit" subject="_twD2wNWREeulP8trTD2_9g"/>
       <ownedUseCase xmi:type="uml:UseCase" xmi:id="_UjPzkNWSEeulP8trTD2_9g" name="Play checkers game" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ayCRENWSEeulP8trTD2_9g" name="Start new checkers game" subject="_twD2wNWREeulP8trTD2_9g">
+      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ayCRENWSEeulP8trTD2_9g" name="Play new checkers game" subject="_twD2wNWREeulP8trTD2_9g">
         <generalization xmi:type="uml:Generalization" xmi:id="_htSzANWSEeulP8trTD2_9g" general="_UjPzkNWSEeulP8trTD2_9g"/>
       </ownedUseCase>
       <ownedUseCase xmi:type="uml:UseCase" xmi:id="_r-cSsNWSEeulP8trTD2_9g" name="Resume checkers game" subject="_twD2wNWREeulP8trTD2_9g">
         <generalization xmi:type="uml:Generalization" xmi:id="_u4SNoNWSEeulP8trTD2_9g" general="_UjPzkNWSEeulP8trTD2_9g"/>
       </ownedUseCase>
       <ownedUseCase xmi:type="uml:UseCase" xmi:id="_4-dzcNWSEeulP8trTD2_9g" name="Enter FEN" subject="_twD2wNWREeulP8trTD2_9g"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_e-_OsLQ2Eey1S7LvSwuVag" name="" type="_AykeYNWSEeulP8trTD2_9g"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_gVo4kLQ2Eey1S7LvSwuVag" name="" type="_C8GWsNWSEeulP8trTD2_9g"/>
       <nestedClassifier xmi:type="uml:Actor" xmi:id="_KZNogNWSEeulP8trTD2_9g" name="PLAYER"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_e-2EwLQ2Eey1S7LvSwuVag" name="" represents="_e-_OsLQ2Eey1S7LvSwuVag"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_gVnDYLQ2Eey1S7LvSwuVag" name="" represents="_gVo4kLQ2Eey1S7LvSwuVag"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Usage" xmi:id="_AIHMINWSEeulP8trTD2_9g" client="_-Tfz4NWREeulP8trTD2_9g" supplier="_3lY9INWREeulP8trTD2_9g"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_JF6NkNWSEeulP8trTD2_9g" client="_AykeYNWSEeulP8trTD2_9g" supplier="_GLXvENWSEeulP8trTD2_9g"/>
