@@ -22,6 +22,12 @@ Complete use case diagram is: https://github.com/oliviercailloux-org/projet-assi
 
 The use case diagram https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Diagrams/Play_chess.SVG[Play chess] contains two use cases `Play chess` and `Play new chess game` and an actor: the player. This use case will be our main focus at first, meaning that we will need to have a server to record the moves previously played.
 
+=== Record Chess Move Graphically https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-3-Amine/Doc/Diagrams/Record_chess_move_graphically.SVG[see GUI.SVG]
+The use case diagram Record Chess Move Graphically contains 2 actors, the player and the server. This Use Case describe the movement of a piece by the player.
+When the player select a chess piece, it will display all the possible moves. Then, the player can change the piece position.
+After the play, the recording of the new position by the server will be done. The server can also recover the moves.
+This Use Case needs to be created first to be connected by the Use Case 1
+
 == Original description (to be translated)
 D’après une idée généreusement fournie par Vincent Giroux. (Merci à lui !)
 
