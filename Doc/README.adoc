@@ -28,6 +28,12 @@ When the player select a chess piece, it will display all the possible moves. Th
 After the play, the recording of the new position by the server will be done. The server can also recover the moves.
 This Use Case needs to be created first to be connected by the Use Case 1
 
+=== Record Chess Move :
+
+The Use Case Diagram Record Chess Move contains the two actors Server and Player linked to a Use Case Record Chess Move.
+In this situation, the player have to play before the system records the chess move. After the system recorded the movement, it will update the position and recover the updates from the opposite player.
+This Use Case will be our short term main focus.
+
 == Original description (to be translated)
 D’après une idée généreusement fournie par Vincent Giroux. (Merci à lui !)
 
