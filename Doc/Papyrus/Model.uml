@@ -9,6 +9,30 @@
   <packageImport xmi:type="uml:PackageImport" xmi:id="_fuT84IHXEeu_KLg36CA6LQ">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#_0"/>
   </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_KZNogNWSEeulP8trTD2_9g" name="PLAYER"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_v6M1sLXCEeyuSaeztuEETg" name="SERVER"/>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_twD2wNWREeulP8trTD2_9g" name="System" useCase="_3lY9INWREeulP8trTD2_9g _-Tfz4NWREeulP8trTD2_9g _AykeYNWSEeulP8trTD2_9g _C8GWsNWSEeulP8trTD2_9g _GLXvENWSEeulP8trTD2_9g _UjPzkNWSEeulP8trTD2_9g _ayCRENWSEeulP8trTD2_9g _r-cSsNWSEeulP8trTD2_9g _4-dzcNWSEeulP8trTD2_9g">
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_3lY9INWREeulP8trTD2_9g" name="Enter game ID" subject="_twD2wNWREeulP8trTD2_9g"/>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_-Tfz4NWREeulP8trTD2_9g" name="Resume chess game" subject="_twD2wNWREeulP8trTD2_9g">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Ff1ewNWSEeulP8trTD2_9g" general="_AykeYNWSEeulP8trTD2_9g"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AykeYNWSEeulP8trTD2_9g" name="Play chess" subject="_twD2wNWREeulP8trTD2_9g"/>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_C8GWsNWSEeulP8trTD2_9g" name="Play new chess game" subject="_twD2wNWREeulP8trTD2_9g">
+      <generalization xmi:type="uml:Generalization" xmi:id="_FCxvUNWSEeulP8trTD2_9g" general="_AykeYNWSEeulP8trTD2_9g"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_GLXvENWSEeulP8trTD2_9g" name="Set time limit" subject="_twD2wNWREeulP8trTD2_9g"/>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_UjPzkNWSEeulP8trTD2_9g" name="Play checkers game" subject="_twD2wNWREeulP8trTD2_9g"/>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ayCRENWSEeulP8trTD2_9g" name="Play new checkers game" subject="_twD2wNWREeulP8trTD2_9g">
+      <generalization xmi:type="uml:Generalization" xmi:id="_htSzANWSEeulP8trTD2_9g" general="_UjPzkNWSEeulP8trTD2_9g"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_r-cSsNWSEeulP8trTD2_9g" name="Resume checkers game" subject="_twD2wNWREeulP8trTD2_9g">
+      <generalization xmi:type="uml:Generalization" xmi:id="_u4SNoNWSEeulP8trTD2_9g" general="_UjPzkNWSEeulP8trTD2_9g"/>
+    </ownedUseCase>
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_4-dzcNWSEeulP8trTD2_9g" name="Enter FEN" subject="_twD2wNWREeulP8trTD2_9g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_QHhMYLWwEeyuSaeztuEETg" name="GUI" useCase="_7Y_yELWzEeyuSaeztuEETg">
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_7Y_yELWzEeyuSaeztuEETg" name="Record chess move graphically" subject="_QHhMYLWwEeyuSaeztuEETg"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_hCnAIKhUEeuHvIPllWn88Q" name="Documentation PlayerState">
     <packagedElement xmi:type="uml:Interaction" xmi:id="_rejTMKhXEeuHvIPllWn88Q" name="PlayerState Diagram">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3qkusKhYEeuHvIPllWn88Q" name="player" visibility="public" type="_U8sIcKhaEeuHvIPllWn88Q"/>
@@ -392,30 +416,8 @@
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_rXvUgNWREeulP8trTD2_9g" name="Documentation PlayerPlaysGame">
-    <packagedElement xmi:type="uml:Interaction" xmi:id="_twD2wNWREeulP8trTD2_9g" name="System" useCase="_3lY9INWREeulP8trTD2_9g _-Tfz4NWREeulP8trTD2_9g _AykeYNWSEeulP8trTD2_9g _C8GWsNWSEeulP8trTD2_9g _GLXvENWSEeulP8trTD2_9g _UjPzkNWSEeulP8trTD2_9g _ayCRENWSEeulP8trTD2_9g _r-cSsNWSEeulP8trTD2_9g _4-dzcNWSEeulP8trTD2_9g">
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_3lY9INWREeulP8trTD2_9g" name="Enter game ID" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_-Tfz4NWREeulP8trTD2_9g" name="Resume chess game" subject="_twD2wNWREeulP8trTD2_9g">
-        <generalization xmi:type="uml:Generalization" xmi:id="_Ff1ewNWSEeulP8trTD2_9g" general="_AykeYNWSEeulP8trTD2_9g"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_AykeYNWSEeulP8trTD2_9g" name="Play chess" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_C8GWsNWSEeulP8trTD2_9g" name="Play new chess game" subject="_twD2wNWREeulP8trTD2_9g">
-        <generalization xmi:type="uml:Generalization" xmi:id="_FCxvUNWSEeulP8trTD2_9g" general="_AykeYNWSEeulP8trTD2_9g"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_GLXvENWSEeulP8trTD2_9g" name="Set time limit" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_UjPzkNWSEeulP8trTD2_9g" name="Play checkers game" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_ayCRENWSEeulP8trTD2_9g" name="Play new checkers game" subject="_twD2wNWREeulP8trTD2_9g">
-        <generalization xmi:type="uml:Generalization" xmi:id="_htSzANWSEeulP8trTD2_9g" general="_UjPzkNWSEeulP8trTD2_9g"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_r-cSsNWSEeulP8trTD2_9g" name="Resume checkers game" subject="_twD2wNWREeulP8trTD2_9g">
-        <generalization xmi:type="uml:Generalization" xmi:id="_u4SNoNWSEeulP8trTD2_9g" general="_UjPzkNWSEeulP8trTD2_9g"/>
-      </ownedUseCase>
-      <ownedUseCase xmi:type="uml:UseCase" xmi:id="_4-dzcNWSEeulP8trTD2_9g" name="Enter FEN" subject="_twD2wNWREeulP8trTD2_9g"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_e-_OsLQ2Eey1S7LvSwuVag" name="" type="_AykeYNWSEeulP8trTD2_9g"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_gVo4kLQ2Eey1S7LvSwuVag" name="" type="_C8GWsNWSEeulP8trTD2_9g"/>
-      <nestedClassifier xmi:type="uml:Actor" xmi:id="_KZNogNWSEeulP8trTD2_9g" name="PLAYER"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_e-2EwLQ2Eey1S7LvSwuVag" name="" represents="_e-_OsLQ2Eey1S7LvSwuVag"/>
-      <lifeline xmi:type="uml:Lifeline" xmi:id="_gVnDYLQ2Eey1S7LvSwuVag" name="" represents="_gVo4kLQ2Eey1S7LvSwuVag"/>
-    </packagedElement>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_ZysT8NWSEeulP8trTD2_9g" client="_UjPzkNWSEeulP8trTD2_9g" supplier="_GLXvENWSEeulP8trTD2_9g"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_8E4x0NWSEeulP8trTD2_9g" client="_r-cSsNWSEeulP8trTD2_9g" supplier="_4-dzcNWSEeulP8trTD2_9g"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_AIHMINWSEeulP8trTD2_9g" client="_-Tfz4NWREeulP8trTD2_9g" supplier="_3lY9INWREeulP8trTD2_9g"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_JF6NkNWSEeulP8trTD2_9g" client="_AykeYNWSEeulP8trTD2_9g" supplier="_GLXvENWSEeulP8trTD2_9g"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_TvhQkNWSEeulP8trTD2_9g" memberEnd="_Tvh3odWSEeulP8trTD2_9g _Tvh3otWSEeulP8trTD2_9g">
@@ -432,8 +434,6 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_YYME0dWSEeulP8trTD2_9g" name="play checkers game" type="_UjPzkNWSEeulP8trTD2_9g" association="_YYLdwNWSEeulP8trTD2_9g"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_YYME0tWSEeulP8trTD2_9g" name="player" type="_KZNogNWSEeulP8trTD2_9g" association="_YYLdwNWSEeulP8trTD2_9g"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_ZysT8NWSEeulP8trTD2_9g" client="_UjPzkNWSEeulP8trTD2_9g" supplier="_GLXvENWSEeulP8trTD2_9g"/>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_8E4x0NWSEeulP8trTD2_9g" client="_r-cSsNWSEeulP8trTD2_9g" supplier="_4-dzcNWSEeulP8trTD2_9g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_bwmF0NjZEeuxZfZG1hZMcw" name="Game_And_Player_Management">
     <packagedElement xmi:type="uml:Model" xmi:id="_50QRQNjaEeuxZfZG1hZMcw" name="Classes">
@@ -563,6 +563,22 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_t8oTQdjrEeuQJ9fMQkrPfA" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_t8qIcdjrEeuQJ9fMQkrPfA" name="piece" type="_3LiFENjmEeuQJ9fMQkrPfA" association="_t8nFINjrEeuQJ9fMQkrPfA"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_0you0LXDEeyuSaeztuEETg" name="Documentation Record chess move graphically">
+    <packagedElement xmi:type="uml:Association" xmi:id="_ugQnQLXCEeyuSaeztuEETg" memberEnd="_ugROUbXCEeyuSaeztuEETg _ugROUrXCEeyuSaeztuEETg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ugQnQbXCEeyuSaeztuEETg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ugROULXCEeyuSaeztuEETg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ugROUbXCEeyuSaeztuEETg" name="record chess move graphically" type="_7Y_yELWzEeyuSaeztuEETg" association="_ugQnQLXCEeyuSaeztuEETg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ugROUrXCEeyuSaeztuEETg" name="player" type="_KZNogNWSEeulP8trTD2_9g" association="_ugQnQLXCEeyuSaeztuEETg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_0YVN4LXCEeyuSaeztuEETg" memberEnd="_0YV08LXCEeyuSaeztuEETg _0YV08bXCEeyuSaeztuEETg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0YVN4bXCEeyuSaeztuEETg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0YVN4rXCEeyuSaeztuEETg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_0YV08LXCEeyuSaeztuEETg" name="server" type="_v6M1sLXCEeyuSaeztuEETg" association="_0YVN4LXCEeyuSaeztuEETg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_0YV08bXCEeyuSaeztuEETg" name="record chess move graphically" type="_7Y_yELWzEeyuSaeztuEETg" association="_0YVN4LXCEeyuSaeztuEETg"/>
     </packagedElement>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WrS3gJoxEeuk7a0Km3P5gA">
