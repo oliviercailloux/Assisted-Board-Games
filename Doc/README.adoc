@@ -36,7 +36,7 @@ This Use Case needs to be created first to be connected by the Use Case 1
 
 Complete Use Case Diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-4-Final/Doc/Diagrams/Record_Chess_Move.SVG[here].
 
-The Use Case Diagram Record Chess Move contains the two actors Server and Player linked to a Use Case Record Chess Move.
+The Use Case Diagram Record Chess Move contains the two same actors mentioned above, linked to a Use Case Record Chess Move.
 In this situation, the player have to play before the system records the chess move. After the system recorded the movement, it will update the position and recover the updates from the opposite player. We didn't add all the details in the Use Case Diagram because it was too heavy.
 This Use Case will be our short term main focus.
 
