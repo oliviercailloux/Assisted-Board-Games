@@ -581,6 +581,23 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_0YV08bXCEeyuSaeztuEETg" name="record chess move graphically" type="_7Y_yELWzEeyuSaeztuEETg" association="_0YVN4LXCEeyuSaeztuEETg"/>
     </packagedElement>
   </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_RFlscLXXEeyLS5EdEvcF0g" name="UI" useCase="_h_Mt4LXXEeyLS5EdEvcF0g">
+    <ownedUseCase xmi:type="uml:UseCase" xmi:id="_h_Mt4LXXEeyLS5EdEvcF0g" name="Record Chess Move" subject="_RFlscLXXEeyLS5EdEvcF0g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pdg5kLXXEeyLS5EdEvcF0g" memberEnd="_pdlLALXXEeyLS5EdEvcF0g _pdlLAbXXEeyLS5EdEvcF0g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pdj84LXXEeyLS5EdEvcF0g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pdj84bXXEeyLS5EdEvcF0g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pdlLALXXEeyLS5EdEvcF0g" name="record chess move" type="_h_Mt4LXXEeyLS5EdEvcF0g" association="_pdg5kLXXEeyLS5EdEvcF0g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pdlLAbXXEeyLS5EdEvcF0g" name="player" type="_KZNogNWSEeulP8trTD2_9g" association="_pdg5kLXXEeyLS5EdEvcF0g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qENGILXXEeyLS5EdEvcF0g" memberEnd="_qEOUQbXXEeyLS5EdEvcF0g _qEO7ULXXEeyLS5EdEvcF0g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qENtMLXXEeyLS5EdEvcF0g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qEOUQLXXEeyLS5EdEvcF0g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qEOUQbXXEeyLS5EdEvcF0g" name="server" type="_v6M1sLXCEeyuSaeztuEETg" association="_qENGILXXEeyLS5EdEvcF0g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qEO7ULXXEeyLS5EdEvcF0g" name="record chess move" type="_h_Mt4LXXEeyLS5EdEvcF0g" association="_qENGILXXEeyLS5EdEvcF0g"/>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_WrS3gJoxEeuk7a0Km3P5gA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WrUFoJoxEeuk7a0Km3P5gA" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
