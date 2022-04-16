@@ -26,13 +26,16 @@ You will find the credentials and URL of your datasource using the Heroku GUI or
 == CURL 
 
 To test if you can connect to the server, use the next command line:
+
 `curl 'https://project-assisted-board-game.herokuapp.com/'`
 
 If it does not work, you will get an error automatically.
 If it does work, you will get the content of the page. 
 
 You can also add the `--include` option to display the headers of the webpage:
+
 `curl --include 'https://project-assisted-board-game.herokuapp.com/'`
 
 If you only want to display the headers, you can use the next command line : 
+
 `curl --head 'https://project-assisted-board-game.herokuapp.com/'`
