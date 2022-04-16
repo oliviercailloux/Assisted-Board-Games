@@ -1,0 +1,22 @@
+= Set up a server on Heroku
+
+
+The first step is to create an account https://www.heroku.com/[here].
+
+Heroku has a https://devcenter.heroku.com/articles/getting-started-with-java[tutorial] but we will see how to bypass the use of the Heroku Command Lines and use only Heroku web GUI. Therefore, the second step is to have all the necessary resources installed:
+	* A free https://signup.heroku.com/signup/dc[Heroku account]
+	* http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 8] installed
+	* http://maven.apache.org/download.html[Maven 3] installed
+	* https://devcenter.heroku.com/articles/heroku-postgresql#local-setup[Postgres] installed locally
+
+Once logged in Heroku website, go to your https://dashboard.heroku.com/apps[Dashboard] in order to create an app.
+
+Click on the `new` button in the upper right corner of the window and select `Create new app`. Give the app a name and a region (usually Europe).
+
+The app needs a database to be linked. In the heroku menu of your app, go to the `resources` tab and in the `add-ons`, research and add `Heroku Postgres`.
+
+A remote repository has been created for your app but it contains nothing. You can push your current branch (here the quarkus branch) on the remote heroku using the command line `git push heroku quarkus:main`.
+
+Once you have pushed some code, a free dyno should appear in the `resources` tab, in the form of `web java -jar target/quarkus-app/quarkus-run.jar`.
+
+To see your deployed app, you click on `open app` in the upper right corner. After a delay, you should see your working app appear.
