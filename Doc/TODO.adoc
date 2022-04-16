@@ -1,0 +1,36 @@
+= TODO
+
+Currently, we have a game of Chess and a game of Checkers, but they are quite brittle. We will consolidate those so as to be able to then make them more generic. We will also design better clients (in Javascript), and strive to make them generic as well. We will start by moving the server core to Quarkus, a more modern server architecture in Java.
+
+* Move model file to `Doc/Papyrus/Model.di` (and related ones similarly)
+* In the main Doc document, start with a link to the currently existing complete Use case diagram.
+* Create a new UC diagram with only the `Play chess` UC (rename the current one) and `Play new chess game` that inherits from it. Export it as https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG] into `Doc/Papyrus/Diagrams`. Integrate it into your main doc and explain briefly that this will be our main focus to start with; and specify that this means that the game must be recorded on the server. Use `System` as a subject, not `PlayerPlaysGame` (rename the current one).
+* Create a UC, exported in another diagram: `Record chess move graphically`, in subject `GUI`. It interacts with both the `Player` (change case of current one) and the `Server` (an actor that should be displayed as a classifier). The `Play chess` UC uses this one. Explain in the doc that this is required for the other one so that it must be done first.
+* Create a UC, exported in another diagram: `Record chess move`, in subject `UI`. It interacts with the same actors as the graphical one. Explain in the doc that this will be our short term main focus.
+* Make sure that all the current documentation can be reached by following links from the main documentation page. Use https://github.com/oliviercailloux/J-Voting/tree/master/Doc[J-Voting doc] as an example.
+* Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG, delete the ones that are not referenced.
+* In a new branch `quarkus`, delete everything. Replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample].
+* Create a Heroku account and deploy your server there, without using Herkou command line tools but using only Heroku web GUI. Write an Asciidoc file that explains how to do this, including how to test that everything went well.
+* Write a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case).
+* Add a simple class to reproduce a very basic functionality of your server. Make sure you can contact it with curl and write a doc to explain how to check this. Consider translating and adapting my original documentation.
+* Re-import everything piece by piece into the new canvas so as to rebuild the existing functionality.
+* Make sure the js files are accessible once the server runs on Heroku. (Explain in the doc, if this creates some difficulties.)
+* Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
+* Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
+* Propose a plan so that the server accepts similar instructions for the Checkers game, so that the same Javascript classes (the ones from the previous task) can be used.
+
+== Original specifications (to be translated and adapted)
+* Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)
+* Autres aides : liste de bons coups possibles pour le prochain coup, stratégie menant à la victoire ou à une meilleure position (sous forme de meilleurs coups de part et d’autre), stratégie sous forme d’arbre de profondeur et largeur donnés.
+* Séparer ce qui est propre au jeu d’échec (en gros, dans le package `io.github.oliviercailloux.assisted_board_games.model`) de la partie serveur (en gros, le reste), en vue de la généralisation à d’autres jeux. Envisager de fournir à `GameResources` une interface qui offre les services spécifiques au jeu pour lequel un serveur est demandé.
+* Généraliser autant que possible pour faciliter l’implémentation d’un nouveau jeu (tel que les dames). Par exemple, la logique de comptage du temps n’est pas spécifique aux échecs et devrait pouvoir être réutilisée.
+* Implémenter un nouveau jeu dans un autre sous-package (par exemple `checkers`). Ceci ne devrait pas induire de redondance avec le jeu existant.
+* Prévoir une interface rudimentaire et générique pour ce nouveau jeu, sous forme d’affichage de l’état de la partie en JSON et envoi des nouveaux coups en JSON (donc sans graphisme)
+* En plus de l’interface générique rudimentaire, envisager une interface spécifique au jeu de dames (similaire à celle utilisée pour les échecs)
+* Implémenter un jeu (t.q. pierre, feuille, ciseaux) avec concept d’état partiellement caché : état complet (inclut données pour tous les joueurs, par ex. : joueur 1 a choisi _pierre_, joueur 2 n’a pas encore choisi) ; état partiel, visible par un joueur donné (par ex., le joueur 2 voit : joueur 1 a choisi, joueur 2 doit encore choisir) ; état visible, sous-ensemble des données visibles par tous (ce que voit un spectateur qui ne connait pas l’information propre aux joueurs). Dans le cas où tout est visible (par ex. les échecs), les trois états sont égaux.
+* Implémenter un jeu (t.q. jeu de l’oie) avec hasard : l’état complet inclut un générateur déterministe qui contient toutes les possibilités, auquel on demande tout tirage aléatoire. Ce générateur doit être enregistré avec la partie, et n’est pas visible.
+* Implémenter un jeu (t.q. Texas Hold’em) avec état partiellement caché et hasard.
+
+== Autres idées
+* Permettre un fork de partie à un certain coup (bonus : permettre d’enregistrer une série de générateurs avec une partie, associés à un numéro de coup, pour permettre de changer le générateur lors du fork) ; de nommer la partie (exemple : partie célèbre Kasparov contre Deep Blue), de trouver les états communs…
+* Analyser le langages de description de http://www.zillions-of-games.com/[Zillion of Games] ou d’autres aspects de ce service et rédiger un rapport en Asciidoctor indiquant ce qui peut être utilisé dans le projet.
