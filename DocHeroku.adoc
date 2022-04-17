@@ -19,7 +19,7 @@ Add the heroku git URL to your git remote (you can find this URL in settings of 
 
 A remote repository has been created for your app but it contains nothing.
 
-To deploy code to Heroku from a `non-main` branch of your local repository (for example: `quarkus`branch), use the following syntax push it to the remote’s main branch: `git push heroku quarkus:main`. https://devcenter.heroku.com/articles/git#deploy-from-a-branch-besides-main[(see official docs)]
+To deploy code to Heroku from a `non-main` branch of your local repository (for example: `quarkus` branch), use the following syntax push it to the remote’s main branch: `git push heroku quarkus:main`. https://devcenter.heroku.com/articles/git#deploy-from-a-branch-besides-main[(see official docs)]
 
 Once you have pushed some code, a free dyno should appear in the `resources` tab, in the form of `web java -jar target/quarkus-app/quarkus-run.jar`.
 
