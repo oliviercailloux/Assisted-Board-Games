@@ -22,7 +22,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 * Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project). If necessary, add links in the existing documentation to the corresponding files.
 * Complete the translation of the `original documentation` and the `original description` in the existing documentation.
 * Create a class diagram and a UC diagram related to the `original description`.
-* Write a documentation that explains how the server of the current
+* Write a documentation that explains how the server of the latest version of the project works.
 * Create a UC diagram and a class diagram that also explains how the server works.
 
 == Original specifications (to be translated and adapted)
