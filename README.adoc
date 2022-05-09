@@ -22,4 +22,3 @@ quarkus.log.file.level = DEBUG
 ----
 
 You will find the credentials and URL of your datasource using the Heroku GUI or CLI, as indicated in their tutorial.
-
