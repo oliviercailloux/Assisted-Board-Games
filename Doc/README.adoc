@@ -41,24 +41,26 @@ In this situation, the player have to play before the system records the chess m
 This Use Case will be our short term main focus.
 
 == Original description (to be translated)
-D’après une idée généreusement fournie par Vincent Giroux. (Merci à lui !)
+Based on an idea generously provided by Vincent Giroux (thanks to him!)
 
-Le https://boardgamegeek.com/wiki/page/Welcome_to_BoardGameGeek[jeu] de https://boardgamegeek.com/image/1648160/game-thrones-board-game-second-edition[plateau] se décline essentiellement en deux versions : sur place, sans ordinateur ; ou https://play.google.com/store/apps/details?id=com.f2zentertainment.pandemic[purement] http://www.yucata.de/[en] https://boardgamearena.com/[ligne]. Dans le premier cas, on se réunit et on joue autour d’un plateau de jeu et d’éléments de jeu incarnés physiquement. Dans le deuxième cas, on joue généralement chacun chez soi.
+The board game essentially comes in two versions: on site, without a computer; or purely online. In the first case, people gather and play around a board and physically embodied game elements. In the second case, people usually play at home.
 
-Le concept d’Assisted Board Game propose de réunir les avantages des deux aspects. (Pour ses détracteurs : les inconvénients des deux aspects.) Il s’agit de partager un moment ensemble, en étant physiquement réunis, mais tout en profitant de l’aide d’une implémentation informatique. Ceci sera particulièrement bienvenu pour les jeux nécessitant de https://boardgamegeek.com/image/2836495/republic-rome[nombreuses] manipulations de pions et ajustements sans décisions, ou une https://boardgamegeek.com/image/1822915/zombie-15[longue] mise en place, mais aussi pour sauvegarder la partie, rejouer une partie existante, ou se faire assister de diverses manières par un ordinateur.
+The Assisted Board Game concept proposes to combine the advantages of both aspects. (For its detractors: the disadvantages of both aspects.) It is about sharing a moment together, being physically together, but with the help of a computer implementation. This will be particularly welcome for games requiring a lot of manipulation of pieces and adjustments without decisions, or a long set-up, but also to save the game, to replay an existing game, or to be assisted in various ways by a computer.
 
-Un Assisted Board Game est composé, idéalement, d’link:https://novotelstore.com/fr/table-interactive-play#prettyPhoto%5Bmedia_gallery%5D/1/[une] https://d2rormqr1qwzpz.cloudfront.net/photos/2012/03/16/55-32402-11672_pax_catan_3_super.jpg[table] https://www.theguardian.com/games/2018/mar/14/playtable-tablet-blockchain-technology-enhance-board-games-blokparty[interactive], qui joue le rôle de plateau de jeu, et d’une tablette par joueur. (Pour ce projet on se contentera d’un ordinateur qui jouera le rôle de table interactive et d’un ordinateur par joueur.)
+An Assisted Board Game is ideally composed of an interactive table, which acts as the game board, and one tablet per player. (For this project we will be satisfied with one computer acting as the interactive table and one computer per player).
 
-Ce projet vise à construire un système générique permettant facilement d’implémenter une vaste gamme de jeux. On repartira d’un https://github.com/oliviercailloux/Assisted-Board-Games[projet] existant, qui a implémenté un système permettant de jouer aux échecs. Il s’agira pour partie d’étendre les fonctionnalités pour améliorer ce jeu d’échecs, mais surtout de généraliser la logique pour permettre l’inclusion d’autres jeux, d’abord similaires (dames…) puis plus distincts (poker…). Le système permettra seulement de générer le moteur du jeu, l’ambition ne s’étendant pas à la génération automatique d’interface graphique qui devra donc être programmée manuellement pour chaque jeu.
+The aim of this project is to build a generic system that can easily implement a wide range of games. We will start from an existing project, which has implemented a system for playing chess. The aim will be to extend the functionalities to improve this chess game, but above all to generalise the logic to allow the inclusion of other games, initially similar (checkers...) then more distinct (poker...). The system will only allow the generation of the game engine, the ambition does not extend to the automatic generation of the graphical interface which will have to be programmed manually for each game.
 
-Le projet existant permet d’afficher le plateau de jeu d’échecs ; de jouer un coup ; de décompter le temps restant ; il intègre une logique de sauvegarde et restauration de partie et de récupération d’une partie historique, des puzzles… 
+The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
 
 == Original documentation (to be translated)
-Le programme lance un serveur. En navigant vers `http://localhost:8080`, l’interface en Javascript s’active.
+For now, the program launches a server. When browsing to http://localhost:8080, the Javascript interface get activated.
 
-L’interface fonctionne en communiquant avec le serveur en question. Lorsqu’il reçoit une requête à l’adresse `http://localhost:8080/api/v1/game/…`, le serveur appelle une méthode de la classe `GameResource` (car elle est annotée `@Path("api/v1/game")`). La méthode appelée dépend de la suite de l’adresse requêtée. Par exemple, une requête à l’adresse `api/v1/game/new` appelle la méthode `createGame()` (car cette méthode est annotée `@Path("new")`). Ces méthodes appellent généralement un `EntityManager` (partie d’un standard Java, Java Persistence API) qui s’occupe de placer les objets dans la base de données du serveur ou de les en récupérer.
+Since we didn’t bring the whole code into quarkus branch, the following part is not functional yet but will be later.
 
-Quand une requête est envoyée à l’adresse `api/v1/game/import`, c’est la méthode `importGame(GameDAO)` qui est appelée. La requête est censée contenir des données au format JSON, qui sont automatiquement transformées par le serveur en un objet de type `GameDAO` et passées en paramètre de la méthode.
+[The interface works by communicating with the server in question. When it receives a request at the address http://localhost:8080/api/v1/game/…, the server calls a method of the GameResource class (because it is annotated @Path("api/v1/game")). The method called depends on the continuation of the requested address. For example, a request to the address api/v1/game/new calls the createGame() method (because this method is annotated @Path("new")). These methods usually call an EntityManager (part of a Java standard, Java Persistence API) that places objects in the server database or retrieves them from it.
+
+When a request is sent to api/v1/game/import, the method importGame(GameDAO) is called. The request is supposed to contain data in JSON format, that are automatically transformed by the server into a GameDAO type object and then passed as a parameter to the method.]
 
 == References
 * https://dominion.games/
