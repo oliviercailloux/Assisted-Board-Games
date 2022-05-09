@@ -7,3 +7,6 @@
 bin/
 *.log
 .DS_Store
+out.log
+.env
+Local notes.adoc

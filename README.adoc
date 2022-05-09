@@ -1,15 +1,24 @@
-= Assisted-Board-Games
-:gitHubUserName: oliviercailloux
-:groupId: io.github.{gitHubUserName}
-:artifactId: assisted-board-games
-:repository: Assisted-Board-Games
+= Sample Quarkus on Heroku
+:groupId: io.github.oliviercailloux
+:artifactId: sample-quarkus-heroku
+:repository: Sample-Quarkus-Heroku
 
-image:https://travis-ci.com/{gitHubUserName}/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/{gitHubUserName}/{repository}"]
+A simple JAX-RS server configured by https://quarkus.io/[Quarkus], with JPA with Hibernate, CDI… Ready to be deployed to Heroku.
 
-//image:https://github.com/{gitHubUserName}/{repository}/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master["Build Status", link="https://github.com/{gitHubUserName}/{repository}/actions"]
+To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/getting-started-with-java[tutorial], replacing their example application with this one: instead of `git clone \https://github.com/heroku/java-getting-started`, type `git clone \https://github.com/oliviercailloux/{repository}.git`.
 
-A Java project developed by students during the https://github.com/oliviercailloux/java-course[Java course] taught at Université Paris-Dauphine (in https://dauphine.psl.eu/en/training/bachelors-degrees/organizational-computer-science/bachelors3-business-informatics/program[MIAGE L3 Alternance]).
+See this (impressive) application live https://{artifactId}.herokuapp.com[here]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
 
-The code is hereby published under the https://github.com/oliviercailloux/{repository}/blob/master/LICENSE[MIT License], with their permission.
+== Local configuration file
+To develop and test your application locally, create a file named `.env` and set the following properties.
 
-See the https://github.com/oliviercailloux/{repository}/blob/master/Doc/README.adoc[doc].
+----
+quarkus.http.port = 8080
+quarkus.datasource.username = …
+quarkus.datasource.password = …
+quarkus.datasource.jdbc.url = jdbc:postgresql://….compute.amazonaws.com:…/…
+quarkus.log.file.enable = true
+quarkus.log.file.level = DEBUG
+----
+
+You will find the credentials and URL of your datasource using the Heroku GUI or CLI, as indicated in their tutorial.
