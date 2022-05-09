@@ -18,6 +18,12 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 * Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
 * Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
 * Propose a plan so that the server accepts similar instructions for the Checkers game, so that the same Javascript classes (the ones from the previous task) can be used.
+* Create a class diagram on Papyrus according to the existing file `Doc/Architecture.png`.
+* Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project). If necessary, add links in the existing documentation to the corresponding files.
+* Complete the translation of the `original documentation` and the `original description` in the existing documentation.
+* Create a class diagram and a UC diagram related to the `original description`.
+* Write a documentation that explains how the server of the current
+* Create a UC diagram and a class diagram that also explains how the server works.
 
 == Original specifications (to be translated and adapted)
 * Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)
