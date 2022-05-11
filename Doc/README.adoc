@@ -26,8 +26,7 @@
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/summary/DocHeroku.adoc[documentation Heroku]
 
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/summary/Curl-Documentation.adoc
-[documentation Curl]
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/summary/Curl-Documentation.adoc[documentation Curl]
 
  
 
