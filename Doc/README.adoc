@@ -40,7 +40,7 @@ The Use Case Diagram Record Chess Move contains the two same actors mentioned ab
 In this situation, the player have to play before the system records the chess move. After the system recorded the movement, it will update the position and recover the updates from the opposite player. We didn't add all the details in the Use Case Diagram because it was too heavy.
 This Use Case will be our short term main focus.
 
-== Original description (to be translated)
+== Original description
 Based on an idea generously provided by Vincent Giroux (thanks to him!)
 
 The https://boardgamegeek.com/image/1648160/game-thrones-board-game-second-edition[board] https://boardgamegeek.com/wiki/page/Welcome_to_BoardGameGeek[game] essentially comes in two versions: on site, without a computer; or https://www.yucata.de/en[purely] https://fr.boardgamearena.com/[online]. In the first case, people gather and play around a board and physically embodied game elements. In the second case, people usually play at home.
@@ -53,7 +53,7 @@ The aim of this project is to build a generic system that can easily implement a
 
 The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
 
-== Original documentation (to be translated)
+== Original documentation
 For now, the program launches a server. When browsing to http://localhost:8080, the Javascript interface get activated.
 
 Since we didn’t bring the whole code into quarkus branch, the following part is not functional yet but will be later.
