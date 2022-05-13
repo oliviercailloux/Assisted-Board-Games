@@ -43,7 +43,7 @@ This Use Case will be our short term main focus.
 == Original description
 Based on an idea generously provided by Vincent Giroux (thanks to him!)
 
-The https://boardgamegeek.com/image/1648160/game-thrones-board-game-second-edition[board] https://boardgamegeek.com/wiki/page/Welcome_to_BoardGameGeek[game] essentially comes in two versions: on site, without a computer; or https://www.yucata.de/en[purely] https://fr.boardgamearena.com/[online]. In the first case, people gather and play around a board and physically embodied game elements. In the second case, people usually play at home.
+The https://boardgamegeek.com/image/1648160/game-thrones-board-game-second-edition[board] https://boardgamegeek.com/wiki/page/Welcome_to_BoardGameGeek[game] essentially comes in two versions: on site, without a computer, or https://www.yucata.de/en[purely] https://fr.boardgamearena.com/[online]. In the first case, people gather and play around a board and physically embodied game elements. In the second case, people usually play at home.
 
 The Assisted Board Game concept proposes to combine the advantages of both aspects. (For its detractors: the disadvantages of both aspects.) It is about sharing a moment together, being physically together, but with the help of a computer implementation. This will be particularly welcome for games requiring a https://boardgamegeek.com/image/2836495/republic-rome[lot] of manipulation of pieces and adjustments without decisions, or a https://boardgamegeek.com/image/1822915/zombie-15[long] set-up, but also to save the game, to replay an existing game, or to be assisted in various ways by a computer.
 
