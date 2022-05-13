@@ -18,7 +18,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
 . Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
 . Propose a plan so that the server accepts similar instructions for the Checkers game, so that the same Javascript classes (the ones from the previous task) can be used.
-. Create a class diagram on Papyrus according to the existing file https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Architecture.png[Architecture.png] and update its references on the documentation.
+. Create a class diagram on Papyrus about the `Game Mangement` and update its references on the documentation.
 . Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project).
 . Create a summary within the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[README]` including the links to the existing documentation
 
