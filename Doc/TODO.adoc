@@ -2,33 +2,33 @@
 
 Currently, we have a game of Chess and a game of Checkers, but they are quite brittle. We will consolidate those so as to be able to then make them more generic. We will also design better clients (in Javascript), and strive to make them generic as well. We will start by moving the server core to Quarkus, a more modern server architecture in Java.
 
-1. Move model file to `Doc/Papyrus/Model.di` (and related ones similarly)
-2. In the main Doc document, start with a link to the currently existing complete Use case diagram.
-3. Create a new UC diagram with only the `Play chess` UC (rename the current one) and `Play new chess game` that inherits from it. Export it as https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG] into `Doc/Papyrus/Diagrams`. Integrate it into your main doc and explain briefly that this will be our main focus to start with; and specify that this means that the game must be recorded on the server. Use `System` as a subject, not `PlayerPlaysGame` (rename the current one).
-4. Create a UC, exported in another diagram: `Record chess move graphically`, in subject `GUI`. It interacts with both the `Player` (change case of current one) and the `Server` (an actor that should be displayed as a classifier). The `Play chess` UC uses this one. Explain in the doc that this is required for the other one so that it must be done first.
-5. Create a UC, exported in another diagram: `Record chess move`, in subject `UI`. It interacts with the same actors as the graphical one. Explain in the doc that this will be our short term main focus.
-6. Make sure that all the current documentation can be reached by following links from the main documentation page. Use https://github.com/oliviercailloux/J-Voting/tree/master/Doc[J-Voting doc] as an example.
-7. Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG, delete the ones that are not referenced.
-8. In a new branch `quarkus`, delete everything. Replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample].
-9. Create a Heroku account and deploy your server there, without using Herkou command line tools but using only Heroku web GUI. Write an Asciidoc file that explains how to do this, including how to test that everything went well.
-10. Write a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case).
-11. Add a simple class to reproduce a very basic functionality of your server. Make sure you can contact it with curl and write a doc to explain how to check this. Consider translating and adapting my original documentation.
-12. Re-import everything piece by piece into the new canvas so as to rebuild the existing functionality.
-13. Make sure the js files are accessible once the server runs on Heroku. (Explain in the doc, if this creates some difficulties.)
-14. Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
-15. Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
-16. Propose a plan so that the server accepts similar instructions for the Checkers game, so that the same Javascript classes (the ones from the previous task) can be used.
-17. Create a class diagram on Papyrus according to the existing file https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Architecture.png[Architecture.png] and update its references on the documentation.
-18. Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project).
-19. Create a summary within the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[README] including the links to the existing documentation
+. Move model file to `Doc/Papyrus/Model.di` (and related ones similarly)
+. In the main Doc document, start with a link to the currently existing complete Use case diagram.
+. Create a new UC diagram with only the `Play chess` UC (rename the current one) and `Play new chess game` that inherits from it. Export it as https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG] into `Doc/Papyrus/Diagrams`. Integrate it into your main doc and explain briefly that this will be our main focus to start with; and specify that this means that the game must be recorded on the server. Use `System` as a subject, not `PlayerPlaysGame` (rename the current one).
+. Create a UC, exported in another diagram: `Record chess move graphically`, in subject `GUI`. It interacts with both the `Player` (change case of current one) and the `Server` (an actor that should be displayed as a classifier). The `Play chess` UC uses this one. Explain in the doc that this is required for the other one so that it must be done first.
+. Create a UC, exported in another diagram: `Record chess move`, in subject `UI`. It interacts with the same actors as the graphical one. Explain in the doc that this will be our short term main focus.
+. Make sure that all the current documentation can be reached by following links from the main documentation page. Use https://github.com/oliviercailloux/J-Voting/tree/master/Doc[J-Voting doc] as an example.
+. Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG, delete the ones that are not referenced.
+. In a new branch `quarkus`, delete everything. Replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample].
+. Create a Heroku account and deploy your server there, without using Herkou command line tools but using only Heroku web GUI. Write an Asciidoc file that explains how to do this, including how to test that everything went well.
+. Write a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case).
+. Add a simple class to reproduce a very basic functionality of your server. Make sure you can contact it with curl and write a doc to explain how to check this. Consider translating and adapting my original documentation.
+. Re-import everything piece by piece into the new canvas so as to rebuild the existing functionality.
+. Make sure the js files are accessible once the server runs on Heroku. (Explain in the doc, if this creates some difficulties.)
+. Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
+. Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
+. Propose a plan so that the server accepts similar instructions for the Checkers game, so that the same Javascript classes (the ones from the previous task) can be used.
+. Create a class diagram on Papyrus according to the existing file https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Architecture.png[Architecture.png] and update its references on the documentation.
+. Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project).
+. Create a summary within the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[README]` including the links to the existing documentation
 
-20. Complete the translation of the `original documentation` and the `original description` in the existing https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[documentation].
-21. Create a class diagram and a UC diagram related to the `original description`.
-22. Write a documentation that explains how the server of the latest version of the project works. Create a class diagram that also explains how the server works.
-23. Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README] for the local configuration.
-24. Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
-25. Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
-26. Move the entity `ChessBoardEntity` from the latest jetty version to the new quarkus version and check if everything works
+. Complete the translation of the `original documentation` and the `original description` in the existing `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[documentation]`.
+. Create a class diagram and a UC diagram related to the `original description`.
+. Write a documentation that explains how the server of the latest version of the project works. Create a class diagram that also explains how the server works.
+. Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README]` for the `local configuration file`.
+. Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
+. Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
+. Move the entity `ChessBoardEntity` from the latest jetty version to the new quarkus version and check if everything works
 
 == Original specifications (to be translated and adapted)
 * Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)
