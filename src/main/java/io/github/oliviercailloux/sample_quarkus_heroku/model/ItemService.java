@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.sample_quarkus_heroku.model;
 
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -20,12 +20,12 @@ public class ItemService {
 	QueryHelper helper;
 
 	@Transactional
-	public List<Item> getAll() {
-		return em.createQuery(helper.selectAll(Item.class)).getResultList();
+	public List<MoveEntity> getAll() {
+		return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
 	}
 
 	@Transactional
-	public void persist(Item item) {
+	public void persist(MoveEntity item) {
 		em.persist(item);
 	}
 }

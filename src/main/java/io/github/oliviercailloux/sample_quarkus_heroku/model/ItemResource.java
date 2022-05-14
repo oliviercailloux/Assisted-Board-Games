@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.sample_quarkus_heroku.model;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -31,21 +31,21 @@ public class ItemResource {
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getItems() {
+	public List<Integer> getItems() {
 		LOGGER.info("Running GET.");
-		final List<Item> allItems = itemS.getAll();
+		final List<MoveEntity> allItems = itemS.getAll();
 		LOGGER.info("Returning {} items.", allItems.size());
-		return allItems.stream().map(Item::getName).collect(Collectors.joining("\n"));
+		return allItems.stream().map(mv -> mv.getId()).collect(Collectors.toList());
 	}
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response postItem() {
 		LOGGER.info("Running POST.");
-		final Item item = new Item();
+		final MoveEntity item = new MoveEntity();
 		/** Ideally we’d use the client zone here. */
-		final ZonedDateTime zonedTimestamp = ZonedDateTime.now(ZoneId.systemDefault());
-		item.setName("MyItem dated " + zonedTimestamp);
+		//final ZonedDateTime zonedTimestamp = ZonedDateTime.now(ZoneId.systemDefault());
+		//item.setName("MyItem dated " + zonedTimestamp);
 
 		itemS.persist(item);
 
