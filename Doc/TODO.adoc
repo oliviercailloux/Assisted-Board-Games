@@ -2,7 +2,7 @@
 
 Currently, we have a game of Chess and a game of Checkers, but they are quite brittle. We will consolidate those so as to be able to then make them more generic. We will also design better clients (in Javascript), and strive to make them generic as well. We will start by moving the server core to Quarkus, a more modern server architecture in Java.
 
-. Move model file to `Doc/Papyrus/Model.di` (and related ones similarly)
+. {c} Move model file to `Doc/Papyrus/Model.di` (and related ones similarly)
 . In the main Doc document, start with a link to the currently existing complete Use case diagram.
 . Create a new UC diagram with only the `Play chess` UC (rename the current one) and `Play new chess game` that inherits from it. Export it as https://github.com/oliviercailloux/UML/blob/main/Papyrus/Various.adoc#graphics-format[SVG] into `Doc/Papyrus/Diagrams`. Integrate it into your main doc and explain briefly that this will be our main focus to start with; and specify that this means that the game must be recorded on the server. Use `System` as a subject, not `PlayerPlaysGame` (rename the current one).
 . Create a UC, exported in another diagram: `Record chess move graphically`, in subject `GUI`. It interacts with both the `Player` (change case of current one) and the `Server` (an actor that should be displayed as a classifier). The `Play chess` UC uses this one. Explain in the doc that this is required for the other one so that it must be done first.
