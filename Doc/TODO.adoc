@@ -35,7 +35,13 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README]` for the `local configuration file`.
 . Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
 . Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
-. Move the entity `ChessBoardEntity` from the latest jetty version to the new quarkus version and check if everything works
+. Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
+. Create the repository "state" in the repository "model" and move the classes `GameState`and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
+. Move the classes `GameDAO`and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
+. Move the repository "utils" and its classes, no modifation is needed. 
+. Create the repository "service" and move the class "ChessService" from the latest jetty version to the new quarkus version and check if everything works.
+. Create the repository "ressource" and move the class "GameRessource" from the latest jetty version to the new quarkus version and check if everything works.
+
 
 == Original specifications (to be translated and adapted)
 * Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)
