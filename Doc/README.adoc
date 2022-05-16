@@ -4,7 +4,6 @@
 
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[Checkerboard Documentation] with the corresponding https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[class diagram documentation]
 
-
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock documentation]
 
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Game and Player documentation]
@@ -20,8 +19,6 @@
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[documentation Heroku]
 
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Curl-Documentation.adoc[documentation Curl]
-
-
 
 Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game.
 
