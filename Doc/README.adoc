@@ -40,6 +40,14 @@ The Use Case Diagram Record Chess Move contains the two same actors mentioned ab
 In this situation, the player have to play before the system records the chess move. After the system recorded the movement, it will update the position and recover the updates from the opposite player. We didn't add all the details in the Use Case Diagram because it was too heavy.
 This Use Case will be our short term main focus.
 
+
+=== Game Management Class Diagram:
+
+Complete Class Diagram is https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/architecture/Doc/Diagrams/GameManagement.SVG[here].
+
+For more information about the classes and their interactions in the diagram click https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_management_Documentation.adoc[here].
+
+
 == Original description
 Based on an idea generously provided by Vincent Giroux (thanks to him!)
 
