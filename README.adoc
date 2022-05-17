@@ -21,7 +21,7 @@ quarkus.log.file.enable = true
 quarkus.log.file.level = DEBUG
 ----
 
-To find the URL of your datasource, log on your Heroku interface, click on your app, go to settings and click on "Reveal Config Vars".
+To find the URL of your datasource, log on your https://id.heroku.com/login [Heroku interface], click on your app, go to settings and click on "Reveal Config Vars".
 
 The URL is formatted in the following way, the credentials are in your URL :
 
