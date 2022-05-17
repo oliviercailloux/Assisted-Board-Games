@@ -21,4 +21,9 @@ quarkus.log.file.enable = true
 quarkus.log.file.level = DEBUG
 ----
 
-You will find the credentials and URL of your datasource using the Heroku GUI or CLI, as indicated in their tutorial.
+To find the URL of your datasource, log on your Heroku interface, click on your app, go to settings and click on "Reveal Config Vars".
+
+The URL is formatted, the identifiers are in your URL :
+`postgres://<username>:<password>@<hostname/server>/<databasename>`
+
+You have to change the URL you have found  to match the Postgres JDBC driver according to the heroku https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#using-the-database_url-in-plain-jdbc[documentation]
