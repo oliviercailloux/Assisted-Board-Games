@@ -30,8 +30,8 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Create a summary within the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[README]` including the links to the existing documentation
 
 . Complete the translation of the `original documentation` and the `original description` in the existing `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[documentation]`.
+. Write a documentation that explains how the server of the latest version of the project works. Create a diagram that also explains how the server works.
 . Create a class diagram and a UC diagram related to the `original description`.
-. Write a documentation that explains how the server of the latest version of the project works. Create a class diagram that also explains how the server works.
 . Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README]` for the `local configuration file`.
 . Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
 . Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
