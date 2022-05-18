@@ -1,4 +1,16 @@
 
+=== Overview of the class diagram:
+
+This diagram show the interactions of the different classes of a game of chess between 2 players.
+
+It represents an overall game: The initialisation, the piece's movement, the in-game clock  and how the game is displayed on the chess board.
+
+=== class diagram:
+
+_You have below an image showing the class diagram:_
+Link to the diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Here]
+
+image::./Images/GameManagement.SVG[classes,900,750]
 
 === Explanation of the class diagram:
 
@@ -13,7 +25,3 @@
 * `MoveEntity` : manage the moves of the pieces on the board.
 
 * `GameDAO` : get the position of a piece on the board. 
-
-_You have below an image showing the class diagram:_
-
-image::./Images/Game_And_Player_Management.svg[classes,900,750]
