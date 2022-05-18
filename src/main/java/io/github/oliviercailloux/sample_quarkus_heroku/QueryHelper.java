@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku.model;
+package io.github.oliviercailloux.sample_quarkus_heroku;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

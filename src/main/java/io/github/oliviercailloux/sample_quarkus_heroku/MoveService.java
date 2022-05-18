@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku.model;
+package io.github.oliviercailloux.sample_quarkus_heroku;
 
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RequestScoped
-public class ItemService {
+public class MoveService {
 	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(ItemService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MoveService.class);
 
 	@Inject
 	EntityManager em;
@@ -25,7 +25,7 @@ public class ItemService {
 	}
 
 	@Transactional
-	public void persist(MoveEntity item) {
-		em.persist(item);
+	public void persist(MoveEntity move) {
+		em.persist(move);
 	}
 }
