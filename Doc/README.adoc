@@ -1,15 +1,35 @@
 = Documentation
 
-Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game. 
+== Summary
 
-After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his https://en.wikipedia.org/wiki/Portable_Draughts_Notation[Portable Draughts Notaton] (PDN). 
-We also made sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games. 
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[Checkerboard Documentation] with the corresponding https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[class diagram documentation]
 
-The interface of the checkers game was made using HTML, CSS, Javascript. 
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock documentation]
 
-It is interesting to know that it is not possible to load a game if no PDN has been entered.  
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Game and Player documentation]
+
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Move%20documentation.adoc[Move documentation]
+
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[PlayerPLaysGames documentation]
+
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[PlayerState sequence diagram documentation]
+
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/chessboard-js-README.md[chessboard-js-README.md]
+
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[documentation Heroku]
+
+* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Curl-Documentation.adoc[documentation Curl]
+
+Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game.
+
+After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his https://en.wikipedia.org/wiki/Portable_Draughts_Notation[Portable Draughts Notaton] (PDN).
+We also made sure to respect a similar layout to the chess game in terms of colors and available buttons. The goal is to have a coherent environment through the different games.
+
+The interface of the checkers game was made using HTML, CSS, Javascript.
+
+It is interesting to know that it is not possible to load a game if no PDN has been entered.
 There is now a "Quit" button to return to the Main Menu.
-We also display in real time the player who has to play (Black or White). 
+We also display in real time the player who has to play (Black or White).
 There is also a move suggestion useful for the novices to know the possible moves of a piece in the game
 
 Screenshot 1:
@@ -75,5 +95,3 @@ When a request is sent to api/v1/game/import, the method importGame(GameDAO) is 
 * http://www.vassalengine.org/ : « Once we've released 3.3.0, I'll be focusing my efforts on assembling and updating all of that so we can get moving on V4. », http://www.vassalengine.org/forum/viewtopic.php?f=5&t=10027#p58941[29 mars 2020] http://www.vassalengine.org/forum/viewtopic.php?f=5&t=11195[Test builds for 3.3.0]. http://www.vassalengine.org/forum/viewtopic.php?f=5&t=3914[Roadmap for VASSAL 4] (2011) (The post about protobuf could be of interest.)
 * https://chess.stackexchange.com/a/33584[Visual chess moves]
 * https://github.com/tdf/odftoolkit/raw/master/src/site/site/content/odftoolkit_website/docs/presentations/2019%20-%20ACM%20DocEng%20-%20The_Next_Millennium_Document_Format_DRAFT_20190712.pdf, Svante Schubert. We should exchange patches (Operational Transformations, OT) and view a document as a list of changes, or a tree of changes. We should allow for more efficient standardization by means of supporting software tools.
-
-
