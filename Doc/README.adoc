@@ -42,9 +42,25 @@ This Use Case will be our short term main focus.
 
 === Game Management Class Diagram:
 
-Complete Class Diagram is https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/architecture/Doc/Diagrams/GameManagement.SVG[here].
+Complete documentation is https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[here].
 
-For more information about the classes and their interactions in the diagram click https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_management_Documentation.adoc[here].
+This diagram show the interactions of the different classes of a game of chess between 2 players.
+
+It represents an overall game: The initialisation, the piece's movement, the in-game clock  and how the game is displayed on the chess board.
+
+image::/Diagrams/GameManagement.SVG[classes,900,750]
+
+* `GameEntity` : The GameEntity class initializes the game of chess by setting up a clock for each player. It allows to define a time constraint for a game. 
+
+*  `PlayerState` : manages all the information about the remaining time of the player, if he lost because he exceeded the time limit, his side (white or black).
+
+* `GameState` : manages all the information about the state of the game at a given time. It manages the state of the board, i.e. how each piece is placed on the board. The class contains two `PlayerState` (one whose turn it is to play and one whose turn it is not).
+
+* `ChessBoard` : create the chess board with all the pieces loaded.
+
+* `MoveEntity` : manage the moves of the pieces on the board.
+
+* `GameDAO` : get the position of a piece on the board. 
 
 
 == Original description (to be translated)
