@@ -32,5 +32,5 @@ This class diagram demonstrates the interactions between https://github.com/oliv
 
 
 =  Diagram
-Here is the class diagram showing the relationships between the three classes : 
+Here is the class diagram showing the relationships between the three classes 
 :image:Images/Checkerboard_class_diagram.SVG[]
