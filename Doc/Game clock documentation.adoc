@@ -36,6 +36,14 @@ The server must get the remaining time continuously to display it to the player.
 
 From this `GameEntity` instance, the `GameState` of the game is also retrieved by calling the `getGameState()` method. finally, we call the `getPlayerState()` method to retrieve the `PlayerState` of the corresponding side (black or white). It is from the instance of the `PlayerState` class that the remaining time can be obtained using the `getRemainingTime()` method.
 
+It is possible to retrieve a history of the player states for a given game using `getPlayerStates()`. This method allows to represent a kind of history of the player's state as a succession of `PlayerState`. To be able to manage the information relative to the clock it is necessary to know when each player instance of the `PlayerState` class started his turn (`timeAtTurnStart`) as well as the (`RemainingTime`) before the end of his allocated time.
+
+For each move played, we subtract from the `RemainingTime` of the side that played the move the duration between the beginning of the turn of the given side and the moment when the move was played. `move.getDuration()` allows to retrieve this duration, each move played has a duration value defined at the construction of an instance of `MoveEntity`. the duration is 0 in case no `Duration` is specified at the instantiation of this class. it's this duration that is subtracted from the current `RemainingTime` of the player that played the move.
+
+Then is added to the `RemainingTime` of the same side, the value of the `clockIncrement` (default value or value specified by the player)
+ 
+Once the `RemainingTime` of one of the players passes 00:00:00, the method `hasLostByTime()` is called and the player whose time has passed has lost.
+
 
 = Source
 
