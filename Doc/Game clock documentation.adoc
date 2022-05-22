@@ -44,7 +44,9 @@ Then is added to the `RemainingTime` of the same side, the value of the `clockIn
  
 Once the `RemainingTime` of one of the players passes 00:00:00, the method `hasLostByTime()` is called and the player whose time has passed has lost.
 
-image::Diagrams/GameClock.svg[demonstation,1000,700]
+Sequence diagram :
+
+image::Diagrams/GameClock.svg[demonstation]
 
 = Source
 
