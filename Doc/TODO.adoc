@@ -11,7 +11,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . {c} Create a UC, exported in another diagram: `Record chess move graphically`, in subject `GUI`. It interacts with both the `Player` (change case of current one) and the `Server` (an actor that should be displayed as a classifier). The `Play chess` UC uses this one. Explain in the doc that this is required for the other one so that it must be done first.
 . {c} Create a UC, exported in another diagram: `Record chess move`, in subject `UI`. It interacts with the same actors as the graphical one. Explain in the doc that this will be our short term main focus.
 . {c} Make sure that all the current documentation can be reached by following links from the main documentation page. Use https://github.com/oliviercailloux/J-Voting/tree/master/Doc[J-Voting doc] as an example.
-. {c} Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG, delete the ones that are not referenced.
+. {c} Move diagrams into `Doc/Papyrus/Diagrams`, transform to SVG.
 . {c} In a new branch `quarkus`, delete everything. Replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample].
 . {c} Create a Heroku account and deploy your server there, without using Herkou command line tools but using only Heroku web GUI. Write an Asciidoc file that explains how to do this, including how to test that everything went well.
 . {c} Write a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case).
