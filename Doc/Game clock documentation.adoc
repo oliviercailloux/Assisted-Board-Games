@@ -22,6 +22,21 @@ Demonstration:
 
 image::Images/Demo.gif[demonstation,1000,700]
 
+= Some additional elements on the functioning of the clock system.
+
+The Class GameEntity contains the attributes `startTime`, `clockDuration` and `clockIncrement`.
+the `clockDuration` is the total time of the game planned for each player (in black and white side).
+ the `clockIncrement` corresponds to the additional time added to the `clockDuration` after each move played by a player (if the player has 2min30 left with a `clockIncrement` of 10 sec, at the next move of the player his `clockDuration` becomes 2min40).
+
+Two constructors are present in `GameEntity` , the first one in case values are given for the `startTime` , the `clockDuration` and the `clockIncrement`.
+
+The second constructor, in the case where the clock informations are not given, initializes by default the `clockDuration` value to 30 minutes (1800 seconds) and the `clockIncrement` value to 10 seconds. In this case, the value of `startTime` can be filled in later via the method `setStartTime()`
+
+The server must get the remaining time continuously to display it to the player. The javascript interface calls the server in the `GameResource` calss at the following addresses `{gameId}/clock/white` for the whites and `{gameId}/clock/black` for the blacks. The methods `getWhiteRemainingTime()` and `getBlackRemainingTime()` get the `GameEntity` thanks to the `gameId` sent by the interface.
+
+From this `GameEntity` instance, the `GameState` of the game is also retrieved by calling the `getGameState()` method. finally, we call the `getPlayerState()` method to retrieve the `PlayerState` of the corresponding side (black or white). It is from the instance of the `PlayerState` class that the remaining time can be obtained using the `getRemainingTime()` method.
+
+
 = Source
 
 Resources which were used during the implementation:
