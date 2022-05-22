@@ -40,7 +40,7 @@ It is possible to retrieve a history of the player states for a given game using
 
 For each move played, we subtract from the `RemainingTime` of the side that played the move the duration between the beginning of the turn of the given side and the moment when the move was played. `move.getDuration()` allows to retrieve this duration, each move played has a duration value defined at the construction of an instance of `MoveEntity`. the duration is 0 in case no `Duration` is specified at the instantiation of this class. it's this duration that is subtracted from the current `RemainingTime` of the player that played the move.
 
-Then is added to the `RemainingTime` of the same side, the value of the `clockIncrement` (default value or value specified by the player)
+Then is added to the `RemainingTime` of the same side, the value of the `clockIncrement` (default value or value specified by the player).
  
 Once the `RemainingTime` of one of the players passes 00:00:00, the method `hasLostByTime()` is called and the player whose time has passed has lost.
 
