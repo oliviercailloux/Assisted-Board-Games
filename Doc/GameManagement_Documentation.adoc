@@ -10,7 +10,7 @@ It represents an overall game: The initialisation, the piece's movement, the in-
 _You have below an image showing the class diagram:_
 Link to the diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Here]
 
-image::./Images/GameManagement.SVG[classes,900,750]
+image::./Diagrams/GameManagement.SVG[classes,900,750]
 
 === Explanation of the class diagram:
 
