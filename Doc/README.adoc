@@ -48,7 +48,7 @@ This diagram show the interactions of the different classes of a game of chess b
 
 It represents an overall game: The initialisation, the piece's movement, the in-game clock  and how the game is displayed on the chess board.
 
-image::/Diagrams/GameManagement.SVG[classes,900,750]
+image::./Diagrams/GameManagement.SVG[classes,900,750]
 
 * `GameEntity` : The GameEntity class initializes the game of chess by setting up a clock for each player. It allows to define a time constraint for a game. 
 
