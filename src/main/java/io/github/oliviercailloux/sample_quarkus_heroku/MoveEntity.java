@@ -35,23 +35,23 @@ public class MoveEntity {
   @GeneratedValue
   int id;
   Duration duration;
-  Square source;
-  Square destination;
+  Square from;
+  Square to;
   Piece promotion;
   @ManyToOne
   GameEntity game;
 
   MoveEntity() {
-    source = Square.NONE;
-    destination= Square.NONE;
+    from = Square.NONE;
+    to= Square.NONE;
     promotion = Piece.NONE;
   }
 
   MoveEntity(GameEntity gameEntity, Square from, Square to, Piece promotion, Duration duration) {
     this.game = Objects.requireNonNull(gameEntity);
     this.duration = duration == null ? Duration.ZERO : duration;
-    this.source = from;
-    this.destination = to;
+    this.from = from;
+    this.to = to;
     this.promotion = promotion == null ? Piece.NONE : promotion;
   }
 
@@ -86,11 +86,11 @@ public class MoveEntity {
   }
 
   public Square getFrom() {
-    return source;
+    return from;
   }
 
   public Square getTo() { 
-    return destination;
+    return to;
   }
 
   public Piece getPromotion() {
@@ -106,6 +106,6 @@ public class MoveEntity {
   }
 
   public Move asMove() {
-    return new Move(source, destination, promotion);
+    return new Move(from, to, promotion);
   }
 } 
