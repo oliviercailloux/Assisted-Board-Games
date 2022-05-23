@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RequestScoped
-public class ItemService {
+public class MoveService {
 	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(ItemService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MoveService.class);
 
 	@Inject
 	EntityManager em;
@@ -20,12 +20,12 @@ public class ItemService {
 	QueryHelper helper;
 
 	@Transactional
-	public List<Item> getAll() {
-		return em.createQuery(helper.selectAll(Item.class)).getResultList();
+	public List<MoveEntity> getAll() {
+		return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
 	}
 
 	@Transactional
-	public void persist(Item item) {
-		em.persist(item);
+	public void persist(MoveEntity move) {
+		em.persist(move);
 	}
 }

@@ -1,7 +1,5 @@
 package io.github.oliviercailloux.sample_quarkus_heroku;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.enterprise.context.RequestScoped;
@@ -17,37 +15,34 @@ import javax.ws.rs.core.UriInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/items")
+@Path("/moves")
 @RequestScoped
-public class ItemResource {
+public class MoveResource {
 	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(ItemResource.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MoveResource.class);
 
 	@Context
 	UriInfo uriInfo;
 
 	@Inject
-	ItemService itemS;
+	MoveService moveS;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getItems() {
+	public List<Integer> getMoves() {
 		LOGGER.info("Running GET.");
-		final List<Item> allItems = itemS.getAll();
-		LOGGER.info("Returning {} items.", allItems.size());
-		return allItems.stream().map(Item::getName).collect(Collectors.joining("\n"));
+		final List<MoveEntity> allMoves = moveS.getAll();
+		LOGGER.info("Returning {} items.", allMoves.size());
+		return allMoves.stream().map(mv -> mv.getId()).collect(Collectors.toList());
 	}
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
-	public Response postItem() {
+	public Response postMove() {
 		LOGGER.info("Running POST.");
-		final Item item = new Item();
-		/** Ideally we’d use the client zone here. */
-		final ZonedDateTime zonedTimestamp = ZonedDateTime.now(ZoneId.systemDefault());
-		item.setName("MyItem dated " + zonedTimestamp);
+		final MoveEntity move = new MoveEntity();
 
-		itemS.persist(item);
+		moveS.persist(move);
 
 		LOGGER.info("Redirecting.");
 		return Response.seeOther(uriInfo.getAbsolutePath()).build();
