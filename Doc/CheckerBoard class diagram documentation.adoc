@@ -7,6 +7,8 @@ This class diagram demonstrates the interactions between https://github.com/oliv
 
 *Checkerboard*
 
+* This implementation of a CheckerBoard is based on a "Manoury’s notation" described by the website source: http://www.ffjd.fr/Web/index.php?page=notation[FFJD - Fédération Française], which helps to facilitate the implementation of `Square` class.
+
 * An instance variable *pieces* of type `MapSquareToPiece` allows to store the position of the pieces on the checkerboard. For example, a piece on the square 1 will be represented by 'Square object : Piece object' entry.
 
 * `newInstance()` is a static factory method. We use it to create default representation of a CheckerBoard at the start of the game. This method is useful for loading an empty game board at the start of the game.
