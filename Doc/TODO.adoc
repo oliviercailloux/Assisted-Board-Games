@@ -15,34 +15,44 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . {c} In a new branch `quarkus`, delete everything. Replace by this https://github.com/oliviercailloux/Sample-Quarkus-Heroku/[sample].
 . {c} Create a Heroku account and deploy your server there, without using Herkou command line tools but using only Heroku web GUI. Write an Asciidoc file that explains how to do this, including how to test that everything went well.
 . {c} Write a documentation that explains how one can test that the server works by using curl (see doc in this course, adapt it to your case).
-. Add a simple class to reproduce a very basic functionality of your server. Make sure you can contact it with curl and write a doc to explain how to check this. Consider translating and adapting my original documentation.
+. {c} Add a simple class to reproduce a very basic functionality of your server. Make sure you can contact it with curl and write a doc to explain how to check this. Consider translating and adapting my original documentation.
 . Re-import everything piece by piece into the new canvas so as to rebuild the existing functionality.
 . Make sure the js files are accessible once the server runs on Heroku. (Explain in the doc, if this creates some difficulties.)
 . Design Javascript classes that are able to send the moves that are played to the server and restore games at previous points. For the chess game.
 . Design generic Javascript classes that permit one to describe a move in Json and send it to the server (so that we move towards generic files that work with any game, though the goal of this task is just to make this work with chess).
 . Propose a plan so that the server accepts similar instructions for the Checkers game, so that the same Javascript classes (the ones from the previous task) can be used.
-. Create a class diagram on Papyrus about the `Game Management` and update its references on the documentation.
-. Make the corrections asked about the structure on the `README` documentation :
+. {c} Create a class diagram on Papyrus about the `Game Management` and update its references on the documentation.
+. {c} Make the corrections asked about the structure on the `README` documentation :
 - The link towards `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_management_Documentation.adoc[Game_Management]` documentation does not exist.
 - Export the `Game Management` diagram as SVG and display it directly instead of a link.
 - For the structure : Start with the description, then the `Game management` diagram and then the details.
-. Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project).
-. Create a summary within the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[README]` including the links to the existing documentation
+. {c} Centralize and index the documentation into the right directories (which was not necessarily done in the old version of the project).
+. {c} Create a summary within the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[README]` including the links to the existing documentation
 
-. Complete the translation of the `original documentation` and the `original description` in the existing `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[documentation]`.
-. Write a documentation that explains how the server of the latest version of the project works. Create a diagram that also explains how the server works.
-. Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/Doc/Game%20clock%20documentation.adoc[Game clock documentation]` and create a sequence diagram about it.
-. Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README]` for the `local configuration file`.
-. Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
-. Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
-. Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
+. {c} Complete the translation of the `original documentation` and the `original description` in the existing `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/README.adoc[documentation]`.
+. {c} Write a documentation that explains how the server of the latest version of the project works. Create a diagram that also explains how the server works.
+. {c} Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/Doc/Game%20clock%20documentation.adoc[Game clock documentation]` and create a sequence diagram about it.
+. {c} Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README]` for the `local configuration file`.
+. {c} Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
+. {c} Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
+. {c} Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
 . Create the repository "state" in the repository "model" and move the classes `GameState` and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
 . Move all the classes from the repository `utils`, no modifation is needed. 
 . Move the class `ChessService` from the latest jetty version to the new quarkus version and check if everything works.
 . Move the class `GameRessource` from the latest jetty version to the new quarkus version and check if everything works.
 . Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
-. Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
+. {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
+. Move original documentation on top of README.adoc
+. Improve https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/diagrams/Doc/Diagrams/Checkerboard_class_diagram.svg[CheckBoard] diagram.
+. Create a new class diagram to document the ChessBoard class + documentation (similar to CheckerBoard documentation)
+. Create chapters for the general documentation (max 5) and rearrange current documentation in those chapters. Make sure to include space for future documentation, it should be clear what is missing and should be done next.
+. Propose a new set of generic classes (class diagrams) in order to generalize our approach of games (for example a Player class from which a ChessPlayer and CheckerPlayer could inherit). It could also be interesting to be more generic about the number of players (it could be more than 2 for example).
+. Document the existing resources (GameResource, HelpResource...) which are different depending on the type of game.
+. Create a diagram with all of the significant classes of the software, including the resources and services.
+. Create a sequence diagram which explains how a move for example is saved in the database (describes the classes that come into play for that action).
+. Redo the graphical interface in js based on the latest jetty version
+. Change package sample_quarkus to abg.
 
 == Original specifications (to be translated and adapted)
 * Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)
@@ -54,6 +64,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 * En plus de l’interface générique rudimentaire, envisager une interface spécifique au jeu de dames (similaire à celle utilisée pour les échecs)
 * Implémenter un jeu (t.q. pierre, feuille, ciseaux) avec concept d’état partiellement caché : état complet (inclut données pour tous les joueurs, par ex. : joueur 1 a choisi _pierre_, joueur 2 n’a pas encore choisi) ; état partiel, visible par un joueur donné (par ex., le joueur 2 voit : joueur 1 a choisi, joueur 2 doit encore choisir) ; état visible, sous-ensemble des données visibles par tous (ce que voit un spectateur qui ne connait pas l’information propre aux joueurs). Dans le cas où tout est visible (par ex. les échecs), les trois états sont égaux.
 * Implémenter un jeu (t.q. jeu de l’oie) avec hasard : l’état complet inclut un générateur déterministe qui contient toutes les possibilités, auquel on demande tout tirage aléatoire. Ce générateur doit être enregistré avec la partie, et n’est pas visible.
+* Implémenter un jeu (t.q. Texas Hold’em) avec état partiellement caché et hasard.
 * Implémenter un jeu (t.q. Texas Hold’em) avec état partiellement caché et hasard.
 
 == Autres idées
