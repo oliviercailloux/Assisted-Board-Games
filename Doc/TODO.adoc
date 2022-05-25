@@ -39,11 +39,10 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Create the repository "state" in the repository "model" and move the classes `GameState` and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
 . Move all the classes from the repository `utils`, no modifation is needed. 
-. Move the class `ChessService` from the latest jetty version to the new quarkus version and check if everything works.
-. Move the class `GameRessource` from the latest jetty version to the new quarkus version and check if everything works.
+. Move the classes ChessService and GameRessource from the latest jetty version to the new quarkus version and check if everything works.
 . Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
-. {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
 . Move original documentation on top of README.adoc
+. {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
 . Improve https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/diagrams/Doc/Diagrams/Checkerboard_class_diagram.svg[CheckBoard] diagram.
 . Create a new class diagram to document the ChessBoard class + documentation (similar to CheckerBoard documentation)
 . Create chapters for the general documentation (max 5) and rearrange current documentation in those chapters. Make sure to include space for future documentation, it should be clear what is missing and should be done next.
