@@ -5,13 +5,31 @@
 <title>Sample Quarkus on Heroku</title>
 </head>
 <body>
-	<h2>GET</h2>
+	<h2>GET (MoveEntity)</h2>
 	<p>
 		<a href="/v0/moves">Moves</a>
 	</p>
-	<h2>POST</h2>
+	<h2>POST (MoveEntity)</h2>
 	<form action="/v0/moves" method="post">
 		<input type="submit" value="Create moves">
+	</form>
+	
+	<h2>GET (GameEntity)</h2>
+	<p>
+		<a href="/v0/game">Games</a>
+	</p>
+	<h2>POST (GameEntity)</h2>
+	<form action="/v0/game" method="post">
+		<input type="submit" value="Create game">
+	</form>
+	
+	<h2>GET (ChessBoard)</h2>
+	<p>
+		<a href="/v0/chessboard">chessboard</a>
+	</p>
+	<h2>POST (ChessBoard)</h2>
+	<form action="/v0/chessboard" method="post">
+		<input type="submit" value="Create game">
 	</form>
 </body>
 </html>
