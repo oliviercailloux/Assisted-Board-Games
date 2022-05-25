@@ -52,6 +52,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Create a diagram with all of the significant classes of the software, including the resources and services.
 . Create a sequence diagram which explains how a move for example is saved in the database (describes the classes that come into play for that action).
 . Redo the graphical interface in js based on the latest jetty version
+. Change package sample_quarkus to abg.
 
 == Original specifications (to be translated and adapted)
 * Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)
@@ -63,6 +64,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 * En plus de l’interface générique rudimentaire, envisager une interface spécifique au jeu de dames (similaire à celle utilisée pour les échecs)
 * Implémenter un jeu (t.q. pierre, feuille, ciseaux) avec concept d’état partiellement caché : état complet (inclut données pour tous les joueurs, par ex. : joueur 1 a choisi _pierre_, joueur 2 n’a pas encore choisi) ; état partiel, visible par un joueur donné (par ex., le joueur 2 voit : joueur 1 a choisi, joueur 2 doit encore choisir) ; état visible, sous-ensemble des données visibles par tous (ce que voit un spectateur qui ne connait pas l’information propre aux joueurs). Dans le cas où tout est visible (par ex. les échecs), les trois états sont égaux.
 * Implémenter un jeu (t.q. jeu de l’oie) avec hasard : l’état complet inclut un générateur déterministe qui contient toutes les possibilités, auquel on demande tout tirage aléatoire. Ce générateur doit être enregistré avec la partie, et n’est pas visible.
+* Implémenter un jeu (t.q. Texas Hold’em) avec état partiellement caché et hasard.
 * Implémenter un jeu (t.q. Texas Hold’em) avec état partiellement caché et hasard.
 
 == Autres idées
