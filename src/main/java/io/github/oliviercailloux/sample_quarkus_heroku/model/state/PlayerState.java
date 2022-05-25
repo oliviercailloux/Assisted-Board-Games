@@ -5,7 +5,6 @@ import static java.util.Objects.requireNonNull;
 import com.github.bhlangonijr.chesslib.Side;
 import java.time.Duration;
 import java.time.Instant;
-import org.jboss.weld.exceptions.IllegalArgumentException;
 
 /**
  * 
