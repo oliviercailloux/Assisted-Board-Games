@@ -38,7 +38,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . {c} Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
 . Create the repository "state" in the repository "model" and move the classes `GameState` and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
-. Move the contents of the repository "utils" and its classes, no modifation is needed. 
+. Move all the classes from the repository `utils`, no modifation is needed. 
 . Move the class `ChessService` from the latest jetty version to the new quarkus version and check if everything works.
 . Move the class `GameRessource` from the latest jetty version to the new quarkus version and check if everything works.
 . Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
