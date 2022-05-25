@@ -33,14 +33,14 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . {c} Write a documentation that explains how the server of the latest version of the project works. Create a diagram that also explains how the server works.
 . {c} Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/Doc/Game%20clock%20documentation.adoc[Game clock documentation]` and create a sequence diagram about it.
 . {c} Update the `https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/README.adoc[Global README]` for the `local configuration file`.
-. Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
-. Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
-. Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
+. {c} Move the entity `MoveEntity` from the latest jetty version to the new quarkus version. Check if everything works on the new version and if its creates the table.
+. {c} Move the entity `Game entity` from the latest jetty version to the new quarkus version and check if everything works
+. {c} Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
 . Create the repository "state" in the repository "model" and move the classes `GameState` and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
-. Move the repository "utils" and its classes, no modifation is needed. 
-. Create the repository "service" and move the class `ChessService` from the latest jetty version to the new quarkus version and check if everything works.
-. Create the repository "ressource" and move the class `GameRessource` from the latest jetty version to the new quarkus version and check if everything works.
+. Move the contents of the repository "utils" and its classes, no modifation is needed. 
+. Move the class `ChessService` from the latest jetty version to the new quarkus version and check if everything works.
+. Move the class `GameRessource` from the latest jetty version to the new quarkus version and check if everything works.
 . Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
 . {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
 . Move original documentation on top of README.adoc
