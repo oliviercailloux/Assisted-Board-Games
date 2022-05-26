@@ -101,30 +101,7 @@ public class GameResource {
       chessService.persist(moveEntity);
     }
     
-    @POST
-    @Path("{gameId}/variation")
-    @Produces(MediaType.TEXT_PLAIN)
-    public int createVariation(@PathParam("gameId") int gameId, @QueryParam("move") int fromMove) {
-      LOGGER.info("POST game/{}/variation", gameId);
-      final GameEntity gameEntity = chessService.getGame(gameId);
-      final List<MoveEntity> moves = gameEntity.getMoves();
-      if (fromMove < 0 || fromMove >= moves.size()) {
-        throw new NoSuchElementException("no such move: " + fromMove);
-      }
-      final ChessBoard board = gameEntity.getStartBoard();
-      final GameEntity variation = new GameEntity(
-          GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
-          gameEntity.getStartTime(), gameEntity.getClockDuration(), gameEntity.getClockIncrement());
-      for (int i = 0; i < fromMove; i++) {
-        final MoveEntity initialMove = moves.get(i);
-        final Move move = initialMove.asMove();
-        final MoveEntity moveEntity =
-            MoveEntity.createMoveEntity(variation, move, initialMove.getDuration());
-        variation.addMove(moveEntity);
-      }
-      chessService.persist(variation);
-      return variation.getId();
-    }
+    
     
     
     
