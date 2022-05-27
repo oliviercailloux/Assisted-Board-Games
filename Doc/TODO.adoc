@@ -40,8 +40,8 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
 . Move all the classes from the repository `utils`, no modifation is needed. 
 . Move the classes ChessService and GameRessource from the latest jetty version to the new quarkus version and check if everything works.
-- Implement the methods `createGame()` and `getGame()` of the GameRessource class and test them.
-- Implement the methods `addMove()` and `getMoves()` of the GameRessource class and test them, To do this task you need to import `MoveDAO`,
+- Implement the methods `createGame()` and `getGame()` of the `GameResource` class and test them.
+- Implement the methods `addMove()` and `getMoves()` of the `GameResource` class and test them, To do this task you need to import `MoveDAO`,
 . Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
 . Move original documentation on top of README.adoc
 . {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
