@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.assisted_board_games;
 
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RequestScoped
-public class MoveService {
+public class GameServiceTest {
 	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(MoveService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(GameServiceTest.class);
 
 	@Inject
 	EntityManager em;
@@ -20,12 +20,12 @@ public class MoveService {
 	QueryHelper helper;
 
 	@Transactional
-	public List<MoveEntity> getAll() {
-		return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
+	public List<GameEntity> getAll() {
+		return em.createQuery(helper.selectAll(GameEntity.class)).getResultList();
 	}
 
 	@Transactional
-	public void persist(MoveEntity move) {
-		em.persist(move);
+	public void persist(GameEntity game) {
+		em.persist(game);
 	}
 }

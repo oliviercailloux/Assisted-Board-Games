@@ -1,18 +1,16 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.assisted_board_games;
 
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.game.Game;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.github.bhlangonijr.chesslib.pgn.PgnHolder;
-import io.github.oliviercailloux.sample_quarkus_heroku.ChessBoard;
-//import io.github.oliviercailloux.sample_quarkus_heroku.GameDAO;
-import io.github.oliviercailloux.sample_quarkus_heroku.GameEntity;
-//import io.github.oliviercailloux.sample_quarkus_heroku.MoveDAO;
-import io.github.oliviercailloux.sample_quarkus_heroku.MoveEntity;
-import io.github.oliviercailloux.sample_quarkus_heroku.model.state.GameState;
-import io.github.oliviercailloux.sample_quarkus_heroku.model.state.PlayerState;
-//import io.github.oliviercailloux.sample_quarkus_heroku.ChessService;
+import io.github.oliviercailloux.assisted_board_games.ChessBoard;
+import io.github.oliviercailloux.assisted_board_games.GameEntity;
+import io.github.oliviercailloux.assisted_board_games.MoveEntity;
+import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
+import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
+//import io.github.oliviercailloux.assisted_board_games.ChessService;
 import java.io.File;
 import java.io.FileWriter;
 import java.time.Duration;

@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.assisted_board_games;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;

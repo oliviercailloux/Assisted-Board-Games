@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.assisted_board_games;
 
 
 import static com.google.common.base.Preconditions.checkNotNull;

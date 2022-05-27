@@ -1,10 +1,10 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.assisted_board_games;
 
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.google.common.collect.ImmutableList;
-import io.github.oliviercailloux.sample_quarkus_heroku.model.state.GameState;
-import io.github.oliviercailloux.sample_quarkus_heroku.model.state.PlayerState;
+import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
+import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
