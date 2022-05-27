@@ -5,31 +5,26 @@
 <title>Sample Quarkus on Heroku</title>
 </head>
 <body>
-	<h2>GET (MoveEntity)</h2>
-	<p>
-		<a href="/v0/moves">Moves</a>
-	</p>
-	<h2>POST (MoveEntity)</h2>
-	<form action="/v0/moves" method="post">
-		<input type="submit" value="Create moves">
-	</form>
-	
-	<h2>GET (GameEntity)</h2>
-	<p>
-		<a href="/v0/game">Games</a>
-	</p>
-	<h2>POST (GameEntity)</h2>
-	<form action="/v0/game" method="post">
+	<h2> POST : Instanciate a new game </h2>
+	<p> We are testing the functionnality 'New Game' of the project using the class 'Game Resource' </p>
+	<form action="/v0/api/v1/game/new" method="POST">
+	<div>
+		<label for="duration"> Duration : </label>
+		<input name="duration" id="say" value="10">
+	</div>
+	<div>
+		<label for="increment"> Increment : </label>
+		<input name="increment" id="to" value="10">
+	</div>
+	<br>
+	<div>
 		<input type="submit" value="Create game">
+	</div>
 	</form>
-	
-	<h2>GET (ChessBoard)</h2>
-	<p>
-		<a href="/v0/chessboard">chessboard</a>
-	</p>
-	<h2>POST (ChessBoard)</h2>
-	<form action="/v0/chessboard" method="post">
-		<input type="submit" value="Create game">
-	</form>
+	<h2> GET (GameEntity)</h2>
+	<p> To get a specific game, you will need to change the ID on the URL of the GET request. By default, the ID is set on 1 "v0/api/v1/game/1" after a first POST request but you can change it with the ID we just created.  </p>
+	<button>
+		<a href="/v0/api/v1/game/1">Games</a>
+	</button>
 </body>
 </html>
