@@ -48,20 +48,15 @@ public class GameResource {
     public int createGame(@FormParam("duration") int duration, @FormParam("increment") int increment) {
 	LOGGER.info("POST game/new " + duration + increment);
 	GameEntity game = new GameEntity();
-	LOGGER.info("Coucou");
 	Duration clockIncrement = game.getClockIncrement();
-
 	if (increment != 0)
 	    clockIncrement = Duration.ofSeconds(increment);
-
 	if (duration != 0) {
 	    ChessBoard board = ChessBoard.createChessBoard();
 	    game = new GameEntity(GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
 		    Instant.now(), Duration.ofSeconds(duration), clockIncrement);
 	}
-	LOGGER.info("Before persist");
 	chessService.persist(game);
-	LOGGER.info("After persis");
 	return game.getId();
     }
 
@@ -99,10 +94,20 @@ public class GameResource {
       chessService.persist(moveEntity);
     }
     
-    
-    
-    
-    
-    
-    
+    @GET
+    @Path("{gameId}/clock/{side}")
+    public Duration getPlayerRemainingTime(@PathParam("gameId") int gameId, @PathParam("side") String side) {
+      LOGGER.info("GET game/{}/clock/{}", gameId,side);
+      GameEntity game = chessService.getGame(gameId);
+      LOGGER.info("1 apres gameEntity");
+      GameState gameState = game.getGameState();
+      LOGGER.info("2 apres gameState");
+      Side enSide =  side.equals("black") ? Side.BLACK : Side.WHITE;
+      PlayerState playerState = gameState.getPlayerState(enSide);
+      LOGGER.info("3 apres playerState");
+      if (gameState.isSideToMove(enSide)) {
+        return playerState.getRemainingTimeAt(Instant.now());
+      }
+      return playerState.getRemainingTime();
+    }   
 }
