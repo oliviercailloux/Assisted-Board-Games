@@ -55,6 +55,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Create a sequence diagram which explains how a move for example is saved in the database (describes the classes that come into play for that action).
 . Redo the graphical interface in js based on the latest jetty version
 . Change package sample_quarkus to abg.
+. Import the Chess Game GUI from Jetty, and test all the features that are repatriated until now (`NewGame`, `loadGame`,`getPlayerRemainingTime`,`addMove`,`getMoves` ).
 . plateau dont on choisie la taille prendre le plateau dame 
 . horloge 
 
