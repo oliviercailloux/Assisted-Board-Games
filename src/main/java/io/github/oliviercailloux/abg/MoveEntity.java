@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;

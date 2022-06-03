@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RequestScoped
-public class ChessBoardServiceTest {
+public class MoveService {
 	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(ChessBoardServiceTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MoveService.class);
 
 	@Inject
 	EntityManager em;
@@ -20,12 +20,12 @@ public class ChessBoardServiceTest {
 	QueryHelper helper;
 
 	@Transactional
-	public List<ChessBoard> getAll() {
-		return em.createQuery(helper.selectAll(ChessBoard.class)).getResultList();
+	public List<MoveEntity> getAll() {
+		return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
 	}
 
 	@Transactional
-	public void persist(ChessBoard chessboard) {
-		em.persist(chessboard);
+	public void persist(MoveEntity move) {
+		em.persist(move);
 	}
 }

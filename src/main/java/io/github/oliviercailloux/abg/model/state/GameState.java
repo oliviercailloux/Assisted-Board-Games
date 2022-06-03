@@ -1,9 +1,9 @@
-package io.github.oliviercailloux.assisted_board_games.model.state;
+package io.github.oliviercailloux.abg.model.state;
 
 import static java.util.Objects.requireNonNull;
 
 import com.github.bhlangonijr.chesslib.Side;
-import io.github.oliviercailloux.assisted_board_games.ChessBoard;
+import io.github.oliviercailloux.abg.ChessBoard;
 import java.util.EnumMap;
 
 /**

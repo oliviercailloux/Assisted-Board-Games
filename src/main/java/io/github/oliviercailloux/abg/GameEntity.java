@@ -1,10 +1,10 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.google.common.collect.ImmutableList;
-import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
-import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
+import io.github.oliviercailloux.abg.model.state.GameState;
+import io.github.oliviercailloux.abg.model.state.PlayerState;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;

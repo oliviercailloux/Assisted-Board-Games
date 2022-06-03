@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.assisted_board_games.model.state;
+package io.github.oliviercailloux.abg.model.state;
 
 import static java.util.Objects.requireNonNull;
 

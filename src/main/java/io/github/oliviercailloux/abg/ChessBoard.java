@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
 
 import static com.google.common.base.Preconditions.checkNotNull;

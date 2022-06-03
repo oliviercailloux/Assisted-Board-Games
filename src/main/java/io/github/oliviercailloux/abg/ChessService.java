@@ -1,8 +1,8 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
-import io.github.oliviercailloux.assisted_board_games.GameEntity;
-import io.github.oliviercailloux.assisted_board_games.MoveEntity;
-import io.github.oliviercailloux.assisted_board_games.QueryHelper;
+import io.github.oliviercailloux.abg.GameEntity;
+import io.github.oliviercailloux.abg.MoveEntity;
+import io.github.oliviercailloux.abg.QueryHelper;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

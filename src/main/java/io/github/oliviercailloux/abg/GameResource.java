@@ -1,16 +1,16 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
 import com.github.bhlangonijr.chesslib.Side;
 import com.github.bhlangonijr.chesslib.game.Game;
 import com.github.bhlangonijr.chesslib.move.Move;
 import com.github.bhlangonijr.chesslib.move.MoveException;
 import com.github.bhlangonijr.chesslib.pgn.PgnHolder;
-import io.github.oliviercailloux.assisted_board_games.ChessBoard;
-import io.github.oliviercailloux.assisted_board_games.GameEntity;
-import io.github.oliviercailloux.assisted_board_games.MoveEntity;
-import io.github.oliviercailloux.assisted_board_games.model.state.GameState;
-import io.github.oliviercailloux.assisted_board_games.model.state.PlayerState;
-//import io.github.oliviercailloux.assisted_board_games.ChessService;
+import io.github.oliviercailloux.abg.ChessBoard;
+import io.github.oliviercailloux.abg.GameEntity;
+import io.github.oliviercailloux.abg.MoveEntity;
+import io.github.oliviercailloux.abg.model.state.GameState;
+import io.github.oliviercailloux.abg.model.state.PlayerState;
+//import io.github.oliviercailloux.abg.ChessService;
 import java.io.File;
 import java.io.FileWriter;
 import java.time.Duration;

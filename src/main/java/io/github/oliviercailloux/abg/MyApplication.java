@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.assisted_board_games;
+package io.github.oliviercailloux.abg;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
