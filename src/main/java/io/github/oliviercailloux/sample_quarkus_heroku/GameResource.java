@@ -77,4 +77,34 @@ public class GameResource {
 	final ChessBoard board = game.getStartBoard().doMoves(moves);
 	return board.getFen();
     }
+    
+    @GET
+    @Path("{gameId}/moves")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Move> getMoves(@PathParam("gameId") int gameId) {
+      LOGGER.info("GET game/{}/moves", gameId);
+      LOGGER.info("Avoir les moves"+chessService.getGame(gameId).getMoves());
+      return chessService.getGame(gameId).getMoves().stream().map(MoveEntity::asMove)
+          .collect(Collectors.toList());
+    }
+    
+    @POST
+    @Path("{gameId}/move")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addMove(@PathParam("gameId") int gameId, MoveDAO move) {
+      LOGGER.info("POST game/{}/move", gameId);
+      LOGGER.info("POST game/{}/move", move);
+      final GameEntity game = chessService.getGame(gameId);
+      final Duration duration = game.getCurrentMoveDuration();
+      final MoveEntity moveEntity = MoveEntity.createMoveEntity(game, move, duration);
+      game.addMove(moveEntity);
+      chessService.persist(moveEntity);
+    }
+    
+    
+    
+    
+    
+    
+    
 }
