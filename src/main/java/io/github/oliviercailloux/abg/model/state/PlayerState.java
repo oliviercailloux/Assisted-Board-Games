@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku.model.state;
+package io.github.oliviercailloux.abg.model.state;
 
 import static java.util.Objects.requireNonNull;
 

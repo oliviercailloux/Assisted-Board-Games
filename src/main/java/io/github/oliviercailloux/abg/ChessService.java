@@ -1,8 +1,8 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.abg;
 
-import io.github.oliviercailloux.sample_quarkus_heroku.GameEntity;
-import io.github.oliviercailloux.sample_quarkus_heroku.MoveEntity;
-import io.github.oliviercailloux.sample_quarkus_heroku.QueryHelper;
+import io.github.oliviercailloux.abg.GameEntity;
+import io.github.oliviercailloux.abg.MoveEntity;
+import io.github.oliviercailloux.abg.QueryHelper;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
