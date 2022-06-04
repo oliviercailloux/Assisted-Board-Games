@@ -13,8 +13,30 @@ The aim of this project is to build a generic system that can easily implement a
 
 The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
 
-== Summary
+== The server
+description 
 
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[Set up a server on Heroku]
+ - how the server works
+ - curl 
+ 
+== The functional process of the assisted board games
+- Game Management Class Diagram:
+ - Documentation for display of a game clock.
+ - le diagramme de séquement UML-tache41
+
+== The mechanics of the games
+ - comment instancier un plateau, joueur, piece ..)
+  --> checkboard 
+  --> Record Chess Move Diagram:
+ - descriptions des deplacements/actions possibles 
+ 
+== The user interface
+ - comment instancier un plateau, joueur, piece ..)
+  --> checkboard 
+  --> Record Chess Move Diagram:
+ - descriptions des deplacements/actions possibles 
+ 
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[Checkerboard Documentation] with the corresponding https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[class diagram documentation]
 
 * https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock documentation]
