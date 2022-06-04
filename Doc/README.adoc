@@ -25,7 +25,7 @@ description
 
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.svg[Game Management Class Diagram]
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock system]
  - //le diagramme de séquement UML-tache41
 
 == The mechanics of the games
