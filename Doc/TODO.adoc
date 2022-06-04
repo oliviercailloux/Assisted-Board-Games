@@ -44,11 +44,11 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 - Implement the methods `addMove()` and `getMoves()` of the `GameResource` class, Move `MoveDAO` class and test them, the method `addMove` allow us to test the `MoveDAO` class.
 - Merge the two methods `getWhiteRemainingTime` and `getBlackRemainingTime` of the `GameResource` class (version of jetty),    because there is a redundancy in the code then test it. The method retrieves the remaining time of both players. 
 . Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
-. Move original documentation on top of README.adoc
+. Move original documentation on top of README.adoc and create chapters for the general documentation (max 5) and rearrange current documentation in those chapters. Make sure to include space for future documentation, it should be clear what is missing and should be done next.
 . {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
 . Improve https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/diagrams/Doc/Diagrams/Checkerboard_class_diagram.svg[CheckBoard] diagram.
 . Create a new class diagram to document the ChessBoard class + documentation (similar to CheckerBoard documentation)
-. Create chapters for the general documentation (max 5) and rearrange current documentation in those chapters. Make sure to include space for future documentation, it should be clear what is missing and should be done next.
+. change the drag and drop move mode to a click and choose (chessbooard.js).
 . Propose a new set of generic classes (class diagrams) in order to generalize our approach of games (for example a Player class from which a ChessPlayer and CheckerPlayer could inherit). It could also be interesting to be more generic about the number of players (it could be more than 2 for example).
 . Document the existing resources (GameResource, HelpResource...) which are different depending on the type of game.
 . Create a diagram with all of the significant classes of the software, including the resources and services.
@@ -66,7 +66,6 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Display an error message when the id game that wants to be loaded doesn't exist. Hide the buttons related to the clock during the game.
 . Indicate the Id of the game in progress. Display the game history maybe add a foncyionality that allows to name a game 
 . Add a feature that allows to delete a game from the database. 
-. change the drag and drop move mode to a click and choose (chessbooard.js);
 
 
 
