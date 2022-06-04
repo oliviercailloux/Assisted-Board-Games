@@ -1,0 +1,14 @@
+= How the server works
+We use the https://gayerie.dev/udev-javaee/javaee_web/jaxrs.html[JAX-RS] API which allows to implement applications based on the https://developer.mozilla.org/fr/docs/Web/HTTP[HTTP] protocol (but not only).
+
+We have implemented the class `MyApplication.java` which inherits from the class https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html[`Application.java`]. We use the `@ApplicationPath('/v0')` annotation to give the URI pattern managed by JAX-RS. This class is the entry point of our application.
+The server starts on port 8080 (locally). By navigating to http://localhost:8080/v0 it will render the `index.js` file which is located in `/src/main/resources/META-INF/resources` and thus the JavaScript interface. The latter works by communicating with the server.
+
+image::Diagrams/ClientServer.svg[]
+
+When it receives a request at the address http://localhost:8080/v0/api/v1/game/…, for example, the server calls a method of the `GameResource` class (because it is annotated `@Path("api/v1/game")`). The method called depends on the sequence of the requested address and the verb of the request.
+For example, a request to the address `api/v1/game/new` calls the method `createGame()` (because this method is annotated `@Path("new")`). Another example: a request to `api/v1/help` with the `GET` verb calls the `suggestMove` method (annotated `@GET` of the `HelpResource` class
+(annotated  `api/v1/help`).  You can refer to this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Documentation] 
+
+These methods usually call an `EntityManager` (part of a Java standard, Java Persistence API)
+which takes care of placing the objects in the server's database or retrieving them.
