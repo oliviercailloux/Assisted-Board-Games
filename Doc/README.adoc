@@ -27,7 +27,6 @@ There is now a "Quit" button to return to the Main Menu.
 We also display in real time the player who has to play (Black or White).
 There is also a move suggestion useful for the novices to know the possible moves of a piece in the game
 
-Screenshot 1:
 
 image::Image/interface_quit.png[]
 
@@ -51,7 +50,6 @@ description
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#record-chess-move-diagram[Record Chess Move]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Move%20documentation.adoc[Move documentation]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard interactions]
- - descriptions des deplacements/actions possibles 
  
 == The user interface
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#record-chess-move-graphically-diagram[Record Chess Move Graphically]
