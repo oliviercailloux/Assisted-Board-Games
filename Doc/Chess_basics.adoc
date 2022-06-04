@@ -14,7 +14,7 @@ This Use Case will be our short term main focus.
 
 Complete Use Case Diagram: 
 
-image::Diagrams/Record_Chess_Move.SVG[]
+image::Diagrams/Record_Chess_Move.SVG[diagram,500,300]
 
 
 == Record Chess Move Graphically Diagram:
@@ -26,4 +26,4 @@ This Use Case needs to be created first to be connected by the Use Case 1
 
 Complete Use Case Diagram: 
 
-image::Diagrams/Record_chess_move_graphically.SVG[]
+image::Diagrams/Record_chess_move_graphically.SVG[diagram,500,300]
