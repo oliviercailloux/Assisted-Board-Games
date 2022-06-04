@@ -42,7 +42,7 @@ Once you have pushed some code, a free dyno should appear in the `resources` tab
 
 To see your deployed app, you click on `open app` in the upper right corner. After a delay, you should see your working app appear.
 
-== CURL 
+== Testing the server with Curl
 
 To test if you can connect to the server, use the next command line:
 
