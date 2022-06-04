@@ -1,0 +1,60 @@
+= How the server works
+We use the https://gayerie.dev/udev-javaee/javaee_web/jaxrs.html[JAX-RS] API which allows to implement applications based on the https://developer.mozilla.org/fr/docs/Web/HTTP[HTTP] protocol (but not only).
+
+We have implemented the class `MyApplication.java` which inherits from the class https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html[`Application.java`]. We use the `@ApplicationPath('/v0')` annotation to give the URI pattern managed by JAX-RS. This class is the entry point of our application.
+The server starts on port 8080 (locally). By navigating to http://localhost:8080/v0 it will render the `index.js` file which is located in `/src/main/resources/META-INF/resources` and thus the JavaScript interface. The latter works by communicating with the server.
+
+image::Diagrams/ClientServer.svg[]
+
+When it receives a request at the address http://localhost:8080/v0/api/v1/game/…, for example, the server calls a method of the `GameResource` class (because it is annotated `@Path("api/v1/game")`). The method called depends on the sequence of the requested address and the verb of the request.
+For example, a request to the address `api/v1/game/new` calls the method `createGame()` (because this method is annotated `@Path("new")`). Another example: a request to `api/v1/help` with the `GET` verb calls the `suggestMove` method (annotated `@GET` of the `HelpResource` class
+(annotated  `api/v1/help`).  You can refer to this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Documentation] 
+
+These methods usually call an `EntityManager` (part of a Java standard, Java Persistence API)
+which takes care of placing the objects in the server's database or retrieving them.
+
+= Set up a server on Heroku
+
+The first step is to create an account https://www.heroku.com/[here].
+
+Heroku has a https://devcenter.heroku.com/articles/getting-started-with-java[tutorial] but we will see how to bypass the use of the Heroku Command Lines and use only Heroku web GUI. Therefore, the second step is to have all the necessary resources installed:
+
+	* A free https://signup.heroku.com/signup/dc[Heroku account]
+	
+	* http://www.oracle.com/technetwork/java/javase/downloads/index.html[Java 8] installed
+	
+	* http://maven.apache.org/download.html[Maven 3] installed
+	
+	* https://devcenter.heroku.com/articles/heroku-postgresql#local-setup[Postgres] installed locally
+	
+
+Once logged in Heroku website, go to your https://dashboard.heroku.com/apps[Dashboard] in order to create an app.
+
+Click on the `new` button in the upper right corner of the window and select `Create new app`. Give the app a name and a region (usually Europe).
+The app needs a database to be linked. In the heroku menu of your app, go to the `resources` tab and in the `add-ons`, research and add `Heroku Postgres`.
+A remote repository has been created for your app but it contains nothing.
+
+In the `Settings` tab of the Heroku menu of your app, you will find the Heroku git URL. You need to add it to your local git repository with the command `git remote add heroku https://git.heroku.com/your-project.git`.
+
+To deploy code to Heroku from a `non-main` branch of your local repository (for example: `quarkus` branch), use the following syntax push it to the remote’s main branch: `git push heroku quarkus:main`. https://devcenter.heroku.com/articles/git#deploy-from-a-branch-besides-main[(see official docs)]
+
+Once you have pushed some code, a free dyno should appear in the `resources` tab, in the form of `web java -jar target/quarkus-app/quarkus-run.jar`.
+
+To see your deployed app, you click on `open app` in the upper right corner. After a delay, you should see your working app appear.
+
+== CURL 
+
+To test if you can connect to the server, use the next command line:
+
+`curl 'https://project-assisted-board-game.herokuapp.com/'`
+
+If it does not work, you will get an error automatically.
+If it does work, you will get the content of the page. 
+
+You can also add the `--include` option to display the headers of the webpage:
+
+`curl --include 'https://project-assisted-board-game.herokuapp.com/'`
+
+If you only want to display the headers, you can use the next command line : 
+
+`curl --head 'https://project-assisted-board-game.herokuapp.com/'`
