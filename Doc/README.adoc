@@ -24,7 +24,7 @@ description
 description
 
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course]
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.svg[Game Management Class Diagram]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[Game management class]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock]
  - //le diagramme de séquement UML-tache41
 
@@ -76,43 +76,6 @@ image::Image/interface_quit.png[]
 
 See: https://github.com/oliviercailloux/Assisted-Board-Games/blob/master/Doc/TODO.adoc[TODO’s].
 
-
-=== Game Management Class Diagram:
-
-Complete documentation is https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[here].
-
-This diagram show the interactions of the different classes of a game of chess between 2 players.
-
-It represents an overall game: The initialisation, the piece's movement, the in-game clock  and how the game is displayed on the chess board.
-
-image::./Diagrams/GameManagement.SVG[classes,900,750]
-
-* `GameEntity` : The GameEntity class initializes the game of chess by setting up a clock for each player. It allows to define a time constraint for a game. 
-
-*  `PlayerState` : manages all the information about the remaining time of the player, if he lost because he exceeded the time limit, his side (white or black).
-
-* `GameState` : manages all the information about the state of the game at a given time. It manages the state of the board, i.e. how each piece is placed on the board. The class contains two `PlayerState` (one whose turn it is to play and one whose turn it is not).
-
-* `ChessBoard` : create the chess board with all the pieces loaded.
-
-* `MoveEntity` : manage the moves of the pieces on the board.
-
-* `GameDAO` : get the position of a piece on the board. 
-
-== How the server works
-We use the https://gayerie.dev/udev-javaee/javaee_web/jaxrs.html[JAX-RS] API which allows to implement applications based on the https://developer.mozilla.org/fr/docs/Web/HTTP[HTTP] protocol (but not only).
-
-We have implemented the class `MyApplication.java` which inherits from the class https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html[`Application.java`]. We use the `@ApplicationPath('/v0')` annotation to give the URI pattern managed by JAX-RS. This class is the entry point of our application.
-The server starts on port 8080 (locally). By navigating to http://localhost:8080/v0 it will render the `index.js` file which is located in `/src/main/resources/META-INF/resources` and thus the JavaScript interface. The latter works by communicating with the server.
-
-image::Diagrams/ClientServer.svg[]
-
-When it receives a request at the address http://localhost:8080/v0/api/v1/game/…, for example, the server calls a method of the `GameResource` class (because it is annotated `@Path("api/v1/game")`). The method called depends on the sequence of the requested address and the verb of the request.
-For example, a request to the address `api/v1/game/new` calls the method `createGame()` (because this method is annotated `@Path("new")`). Another example: a request to `api/v1/help` with the `GET` verb calls the `suggestMove` method (annotated `@GET` of the `HelpResource` class
-(annotated  `api/v1/help`).  You can refer to this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Documentation] 
-
-These methods usually call an `EntityManager` (part of a Java standard, Java Persistence API)
-which takes care of placing the objects in the server's database or retrieving them.
 
 == References
 * https://dominion.games/
