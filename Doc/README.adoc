@@ -13,51 +13,8 @@ The aim of this project is to build a generic system that can easily implement a
 
 The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
 
-== The server
-description 
-
-- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Server%20Implementation.adoc[How the server works]
-- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[Set up a server on Heroku]
-- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Curl-Documentation.adoc[Testing your server]
+== The application 
  
-== The functional process of the assisted board games
-description
-
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course]
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[Game management class]
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock]
- - //le diagramme de séquement UML-tache41
-
-== The mechanics of the games
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#play-chess-diagram[Play chess]
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#record-chess-move-diagram[Record Chess Move]
- - descriptions des deplacements/actions possibles 
- 
-== The user interface
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#record-chess-move-graphically-diagram[Record Chess Move Graphically]
- - comment instancier un plateau, joueur, piece ..)
-  --> checkboard 
-  --> Record Chess Move Diagram:
- - descriptions des deplacements/actions possibles 
- 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[Checkerboard Documentation] with the corresponding https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[class diagram documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Game and Player documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Move%20documentation.adoc[Move documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[PlayerPLaysGames documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[PlayerState sequence diagram documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/chessboard-js-README.md[chessboard-js-README.md]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[documentation Heroku]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Curl-Documentation.adoc[documentation Curl]
-
 Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game.
 
 After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his https://en.wikipedia.org/wiki/Portable_Draughts_Notation[Portable Draughts Notaton] (PDN).
@@ -74,8 +31,33 @@ Screenshot 1:
 
 image::Image/interface_quit.png[]
 
-See: https://github.com/oliviercailloux/Assisted-Board-Games/blob/master/Doc/TODO.adoc[TODO’s].
+== The server
+description 
 
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Server%20Implementation.adoc[How the server works]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[Set up a server on Heroku]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Curl-Documentation.adoc[Testing your server]
+ 
+== The functional process of the assisted board games
+description
+
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[Game management class]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[Game scenarios]
+
+== The mechanics of the games
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#play-chess-diagram[Play chess]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#record-chess-move-diagram[Record Chess Move]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Move%20documentation.adoc[Move documentation]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard interactions]
+ - descriptions des deplacements/actions possibles 
+ 
+== The user interface
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache33/Doc/Chess_basics.adoc#record-chess-move-graphically-diagram[Record Chess Move Graphically]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/chessboard-js-README.md[Getting started with js]
+ 
+ 
 
 == References
 * https://dominion.games/
