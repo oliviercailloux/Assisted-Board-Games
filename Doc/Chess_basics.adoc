@@ -4,7 +4,7 @@
 The use case diagram https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Diagrams/Play_chess.SVG[Play chess] contains two use cases `Play chess` and `Play new chess game` and an actor: the player. This use case will be our main focus at first, meaning that we will need to have a server to record the moves previously played.
 Complete use case diagram is: 
 
-image::Diagrams/Play_chess.svg[diagram,500,300]
+image::Diagrams/Play_chess.SVG[diagram,500,300]
 
 == Record Chess Move Diagram:
 
@@ -14,7 +14,7 @@ This Use Case will be our short term main focus.
 
 Complete Use Case Diagram: 
 
-image::Diagrams/Record_Chess_Move.svg[diagram,500,300]
+image::Diagrams/Record_Chess_Move.SVG[diagram,500,300]
 
 
 == Record Chess Move Graphically Diagram:
@@ -26,4 +26,4 @@ This Use Case needs to be created first to be connected by the Use Case 1
 
 Complete Use Case Diagram: 
 
-image::Diagrams/Record_chess_move_graphically.svg[diagram,500,300]
+image::Diagrams/Record_chess_move_graphically.SVG[diagram,500,300]
