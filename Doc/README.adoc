@@ -13,7 +13,7 @@ The aim of this project is to build a generic system that can easily implement a
 
 The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
 
-== The application 
+=== The application 
  
 Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game.
 
