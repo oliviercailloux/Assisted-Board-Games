@@ -30,6 +30,7 @@ There is also a move suggestion useful for the novices to know the possible move
 
 image::Image/interface_quit.png[]
 
+See: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/TODO.adoc[TODO's]
 
 == The server 
 
