@@ -75,7 +75,10 @@ class TimeManager {
         this.seconds = seconds;
     }
 
-
+    /**
+     * add or substract the time difference to the TimeManager
+     * @param timeDifference - if positive adds the time, if negative substracts it
+     */
     updateTime(timeDifference) {
         if (timeDifference === 0) {
             return;
@@ -127,7 +130,11 @@ class TimeManager {
         return (this.hours !== 0 || this.minutes !== 0 || this.seconds !== 0);
     }
 
-
+    /**
+     * Decrements the time with the decrement in argument
+     * @param decrement - absolute value of the time to substract
+     * @returns {number[]|{hours: (*|number), seconds: (*|number), minutes: (*|number)}} - object with the corresponding hours, minutes and seconds
+     */
     decreaseTime(decrement) {
         let seconds = this.seconds;
         let minutes = this.minutes;
@@ -152,7 +159,11 @@ class TimeManager {
         return {hours, minutes, seconds};
     }
 
-
+    /**
+     * Increments the time with the increment in argument
+     * @param increment - absolute value of the time to add
+     * @returns {number[]|{hours: (*|number), seconds: (*|number), minutes: (*|number)}} - object with the corresponding hours, minutes and seconds
+     */
     increaseTime(increment) {
         let seconds = this.seconds;
         let minutes = this.minutes;
@@ -171,5 +182,4 @@ class TimeManager {
 
         return {hours, minutes, seconds};
     }
-
 }

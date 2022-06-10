@@ -124,12 +124,11 @@ class GameManager {
                 return;
             }
 
-            //const player = document.getElementById("status").textContent.split(" ")[0];
             const player = this.CBM.getTurn();
             if (player === "w") {
                 if (precedent_turn === "b") {
                     console.log(this.inputIncrement);
-                    this.TMWhite.updateTime(this.inputIncrement);
+                    this.TMBlack.updateTime(this.inputIncrement);
                     precedent_turn = "w";
                 }
                 else {
@@ -139,7 +138,7 @@ class GameManager {
             }
             else if (player === "b") {
                 if (precedent_turn === "w") {
-                    this.TMBlack.updateTime(this.inputIncrement);
+                    this.TMWhite.updateTime(this.inputIncrement);
                     precedent_turn = "b";
                 }
                 else {
