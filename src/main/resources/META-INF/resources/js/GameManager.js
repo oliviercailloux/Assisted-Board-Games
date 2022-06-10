@@ -49,10 +49,14 @@ class GameManager {
             return;
         }
 
+        this.inputDuration = Number(duration);
+        this.inputIncrement = increment.trim() === '' ? 10 : Number(increment.trim()); //default increment is 10seconds
+
         const objSent = {
             duration: this.inputDuration || 0,
             increment: this.inputIncrement || 0
         };
+
         let gameId;
         database.post('/v0/api/v1/game/new', objSent, '', (id) => {
             return gameId = id;
@@ -127,8 +131,8 @@ class GameManager {
             const player = this.CBM.getTurn();
             if (player === "w") {
                 if (precedent_turn === "b") {
-                    console.log(this.inputIncrement);
                     this.TMBlack.updateTime(this.inputIncrement);
+                    this.TMBlack.displayTime();
                     precedent_turn = "w";
                 }
                 else {
@@ -139,6 +143,7 @@ class GameManager {
             else if (player === "b") {
                 if (precedent_turn === "w") {
                     this.TMWhite.updateTime(this.inputIncrement);
+                    this.TMWhite.displayTime();
                     precedent_turn = "b";
                 }
                 else {
@@ -181,7 +186,6 @@ class GameManager {
             alert("Maximum game duration time is 36000 seconds (10 hours)!");
             return false;
         }
-        this.inputDuration = duration;
         return true;
     }
 
@@ -199,7 +203,6 @@ class GameManager {
             alert("Maximum increment value is 60 seconds!");
             return false;
         }
-        this.inputIncrement = increment.trim() === '' ? 10 : increment.trim(); //default increment is 10seconds
         return true;
     }
 }

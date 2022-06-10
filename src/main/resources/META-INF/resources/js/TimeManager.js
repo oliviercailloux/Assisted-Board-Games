@@ -86,8 +86,7 @@ class TimeManager {
 
         let resultObj;
         if (timeDifference < 0) {
-            timeDifference = Math.abs(timeDifference);
-            resultObj = this.decreaseTime(timeDifference);
+            resultObj = this.decreaseTime(Math.abs(timeDifference));
         }
         else {
             resultObj = this.increaseTime(timeDifference);
