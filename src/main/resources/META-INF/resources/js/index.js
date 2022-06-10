@@ -1,6 +1,6 @@
 // Triggers a function after a button click, here we are going to redirect the user to a selected game page
 document.getElementById("Chess").onclick = () => {
-    window.location.assign("Chess.html");
+    window.location.assign("chess.html");
 };
 
 /*
