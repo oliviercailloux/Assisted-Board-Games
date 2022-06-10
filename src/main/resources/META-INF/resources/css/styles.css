@@ -1,0 +1,169 @@
+/* Author: Kerim HUDAYBERDIYEV */
+html {
+    font-size: 62.5%;               /* 10px */
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 1.4rem;              /* 1.4 * 10 = 14px */
+    box-sizing: border-box;
+    padding: 3rem;
+    font-family: "font-family: 'Open Sans', sans-serif;", sans-serif;
+    font-weight: 400;
+    line-height: 140%;
+    color: #252525;
+    min-height: 100%;
+}
+
+@media only screen and (max-width: 56.25em) {
+    body {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 75em) {
+    html {
+        font-size: 56.25%; } 
+    }
+    
+@media only screen and (max-width: 56.25em) {
+    html {
+        font-size: 50%; 
+    } 
+}
+
+@media only screen and (min-width: 112.5em) {
+    html {
+        font-size: 75%;
+    } 
+}
+
+h1 { 
+    font-size: 2.8rem;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    width: 25%;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+    box-shadow: 0 4px 2px -2px rgba(2, 2, 2, 0.2);
+    text-transform: uppercase;
+    color: #222831;
+}
+
+@media only screen and (max-width: 56.25em) {
+    h1 {
+        font-size: 1.8rem; 
+    } 
+}
+
+h2 {
+    font-size: 2.4rem;
+    color: #222831;
+}
+
+p {
+    height: 25%;
+    color: #222831;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: space-evenly;
+}
+
+.item {
+    order: 1;
+    flex-basis: auto;
+}
+
+@media only screen and (max-width: 56.25em) {
+    .container {
+        flex-wrap: wrap;
+    }
+}
+
+.card {
+    margin: 5%;
+    padding: 2.5%;
+    width: 30rem;
+    height: 43rem;
+    border-style: solid;
+    border-color: #222831;
+    align-items: center;
+    text-align: center;
+    border-radius: 7px;
+}
+
+@media only screen and (max-width: 56.25em) {
+    .card {
+        padding: 1%;
+    }
+}
+
+.card:hover {
+    /*border-color: white;*/
+    box-shadow: 12px 12px #222831;
+    background-color: #75cfb8;          /* #aaaaaa */
+}
+
+.card:hover .logo {
+    color: white;
+}
+
+.card:hover h2 {
+    color: white;
+}
+
+.card:hover p {
+    color: white;
+}
+
+.card:hover button {
+    background-color: white;
+}
+
+.card:hover button span {
+    color: #75cfb8;
+}
+
+.logo {
+    width: 100% !important;
+    height: 45% !important;
+}
+
+button {
+    margin-top: 1rem;
+    border: none;
+    display: inline-block;
+    width: 85%;
+    height: 5rem;
+    border-radius: 50px;
+    background-color: #222831;
+    outline: none;
+}
+
+@media only screen and (max-width: 56.25em) {
+    button {
+        margin-top: 0;
+    }
+}
+
+button:active {
+    transform: translateY(2px) !important;
+    background-color: rgb(240, 234, 234) !important;
+}
+
+button span {
+    color: white;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+}
