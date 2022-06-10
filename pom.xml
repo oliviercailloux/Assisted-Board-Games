@@ -45,7 +45,11 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-jdbc-postgresql</artifactId>
 		</dependency>
-			<dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-resteasy-jsonb</artifactId>
+		</dependency>
+		<dependency>
     		<groupId>javax.json.bind</groupId>
     		<artifactId>javax.json.bind-api</artifactId>
     		<version>1.0</version>

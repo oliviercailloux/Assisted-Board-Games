@@ -1,25 +1,20 @@
 = Documentation
 
-== Summary
+== Original description
+Based on an idea generously provided by Vincent Giroux (thanks to him!)
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[Checkerboard Documentation] with the corresponding https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[class diagram documentation]
+The https://boardgamegeek.com/image/1648160/game-thrones-board-game-second-edition[board] https://boardgamegeek.com/wiki/page/Welcome_to_BoardGameGeek[game] essentially comes in two versions: on site, without a computer, or https://www.yucata.de/en[purely] https://fr.boardgamearena.com/[online]. In the first case, people gather and play around a board and physically embodied game elements. In the second case, people usually play at home.
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game clock documentation]
+The Assisted Board Game concept proposes to combine the advantages of both aspects. (For its detractors: the disadvantages of both aspects.) It is about sharing a moment together, being physically together, but with the help of a computer implementation. This will be particularly welcome for games requiring a https://boardgamegeek.com/image/2836495/republic-rome[lot] of manipulation of pieces and adjustments without decisions, or a https://boardgamegeek.com/image/1822915/zombie-15[long] set-up, but also to save the game, to replay an existing game, or to be assisted in various ways by a computer.
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Game and Player documentation]
+An Assisted Board Game is ideally composed of https://novotelstore.com/fr/table-interactive-play#prettyPhoto[an] https://www.theguardian.com/games/2018/mar/14/playtable-tablet-blockchain-technology-enhance-board-games-blokparty[interactive] https://d2rormqr1qwzpz.cloudfront.net/photos/2012/03/16/55-32402-11672_pax_catan_3_super.jpg[table], which acts as the game board, and one tablet per player. (For this project we will be satisfied with one computer acting as the interactive table and one computer per player).
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Move%20documentation.adoc[Move documentation]
+The aim of this project is to build a generic system that can easily implement a wide range of games. We will start from an existing https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/Doc/README.adoc[project], which has implemented a system for playing chess. The aim will be to extend the functionalities to improve this chess game, but above all to generalise the logic to allow the inclusion of other games, initially similar (checkers...) then more distinct (poker...). The system will only allow the generation of the game engine, the ambition does not extend to the automatic generation of the graphical interface which will have to be programmed manually for each game.
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[PlayerPLaysGames documentation]
+The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
 
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[PlayerState sequence diagram documentation]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/chessboard-js-README.md[chessboard-js-README.md]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Heroku.adoc[documentation Heroku]
-
-* https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Curl-Documentation.adoc[documentation Curl]
-
+== The application 
+ 
 Our goal was to create the interface of the checkers game. The user can access the game from the menu by clicking the Play button of the checkers game.
 
 After pressing this button, it will redirect the user to the selected game. He can start a new game or continue an existing one by using his https://en.wikipedia.org/wiki/Portable_Draughts_Notation[Portable Draughts Notaton] (PDN).
@@ -32,83 +27,40 @@ There is now a "Quit" button to return to the Main Menu.
 We also display in real time the player who has to play (Black or White).
 There is also a move suggestion useful for the novices to know the possible moves of a piece in the game
 
-Screenshot 1:
 
 image::Image/interface_quit.png[]
 
-See: https://github.com/oliviercailloux/Assisted-Board-Games/blob/master/Doc/TODO.adoc[TODO’s].
+See: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/TODO.adoc[TODO's]
 
-=== Play Chess Diagram:
-Complete use case diagram is: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Images/PlayerPlaysGame.SVG[here].
+== The server 
 
-The use case diagram https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-2/Doc/Diagrams/Play_chess.SVG[Play chess] contains two use cases `Play chess` and `Play new chess game` and an actor: the player. This use case will be our main focus at first, meaning that we will need to have a server to record the moves previously played.
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Server%20documentation.adoc#how-the-server-works[How the server works]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Server%20documentation.adoc#set-up-a-server-on-heroku[Set up a server on Heroku]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Server%20documentation.adoc#testing-the-server-with-curl[Testing your server with Curl]
+ 
+== The functional process of the assisted board games
 
-=== Record Chess Move Graphically Diagram:
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[Game scenarios]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course (Sequence Diagram)]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[Game Management (Class diagram)]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game Clock]
+ - the ABG-Tache41 sequence diagram [To be added]
 
-Complete Use Case Diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-3-Amine/Doc/Diagrams/Record_chess_move_graphically.SVG[here]
+== The mechanics of the games
 
-The use case diagram Record Chess Move Graphically contains 2 actors, the player and the server. This Use Case describe the movement of a piece by the player.
-When the player select a chess piece, it will display all the possible moves. Then, the player can change the piece position.
-After the play, the recording of the new position by the server will be done. The server can also recover the moves.
-This Use Case needs to be created first to be connected by the Use Case 1
-
-=== Record Chess Move Diagram:
-
-Complete Use Case Diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-4-Final/Doc/Diagrams/Record_Chess_Move.SVG[here].
-
-The Use Case Diagram Record Chess Move contains the two same actors mentioned above, linked to a Use Case Record Chess Move.
-In this situation, the player have to play before the system records the chess move. After the system recorded the movement, it will update the position and recover the updates from the opposite player. We didn't add all the details in the Use Case Diagram because it was too heavy.
-This Use Case will be our short term main focus.
-
-=== Game Management Class Diagram:
-
-Complete documentation is https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[here].
-
-This diagram show the interactions of the different classes of a game of chess between 2 players.
-
-It represents an overall game: The initialisation, the piece's movement, the in-game clock  and how the game is displayed on the chess board.
-
-image::./Diagrams/GameManagement.SVG[classes,900,750]
-
-* `GameEntity` : The GameEntity class initializes the game of chess by setting up a clock for each player. It allows to define a time constraint for a game. 
-
-*  `PlayerState` : manages all the information about the remaining time of the player, if he lost because he exceeded the time limit, his side (white or black).
-
-* `GameState` : manages all the information about the state of the game at a given time. It manages the state of the board, i.e. how each piece is placed on the board. The class contains two `PlayerState` (one whose turn it is to play and one whose turn it is not).
-
-* `ChessBoard` : create the chess board with all the pieces loaded.
-
-* `MoveEntity` : manage the moves of the pieces on the board.
-
-* `GameDAO` : get the position of a piece on the board. 
-
-== Original description
-Based on an idea generously provided by Vincent Giroux (thanks to him!)
-
-The https://boardgamegeek.com/image/1648160/game-thrones-board-game-second-edition[board] https://boardgamegeek.com/wiki/page/Welcome_to_BoardGameGeek[game] essentially comes in two versions: on site, without a computer, or https://www.yucata.de/en[purely] https://fr.boardgamearena.com/[online]. In the first case, people gather and play around a board and physically embodied game elements. In the second case, people usually play at home.
-
-The Assisted Board Game concept proposes to combine the advantages of both aspects. (For its detractors: the disadvantages of both aspects.) It is about sharing a moment together, being physically together, but with the help of a computer implementation. This will be particularly welcome for games requiring a https://boardgamegeek.com/image/2836495/republic-rome[lot] of manipulation of pieces and adjustments without decisions, or a https://boardgamegeek.com/image/1822915/zombie-15[long] set-up, but also to save the game, to replay an existing game, or to be assisted in various ways by a computer.
-
-An Assisted Board Game is ideally composed of https://novotelstore.com/fr/table-interactive-play#prettyPhoto[an] https://www.theguardian.com/games/2018/mar/14/playtable-tablet-blockchain-technology-enhance-board-games-blokparty[interactive] https://d2rormqr1qwzpz.cloudfront.net/photos/2012/03/16/55-32402-11672_pax_catan_3_super.jpg[table], which acts as the game board, and one tablet per player. (For this project we will be satisfied with one computer acting as the interactive table and one computer per player).
-
-The aim of this project is to build a generic system that can easily implement a wide range of games. We will start from an existing https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-DocTranslate/Doc/README.adoc[project], which has implemented a system for playing chess. The aim will be to extend the functionalities to improve this chess game, but above all to generalise the logic to allow the inclusion of other games, initially similar (checkers...) then more distinct (poker...). The system will only allow the generation of the game engine, the ambition does not extend to the automatic generation of the graphical interface which will have to be programmed manually for each game.
-
-The existing project allows to display the chess board; to play a move; to count the remaining time; it integrates a logic of saving and restoring a game and recovering a historical game, puzzles...
-
-== How the server works
-We use the https://gayerie.dev/udev-javaee/javaee_web/jaxrs.html[JAX-RS] API which allows to implement applications based on the https://developer.mozilla.org/fr/docs/Web/HTTP[HTTP] protocol (but not only).
-
-We have implemented the class `MyApplication.java` which inherits from the class https://docs.oracle.com/javaee/7/api/javax/ws/rs/core/Application.html[`Application.java`]. We use the `@ApplicationPath('/v0')` annotation to give the URI pattern managed by JAX-RS. This class is the entry point of our application.
-The server starts on port 8080 (locally). By navigating to http://localhost:8080/v0 it will render the `index.js` file which is located in `/src/main/resources/META-INF/resources` and thus the JavaScript interface. The latter works by communicating with the server.
-
-image::Diagrams/ClientServer.svg[]
-
-When it receives a request at the address http://localhost:8080/v0/api/v1/game/…, for example, the server calls a method of the `GameResource` class (because it is annotated `@Path("api/v1/game")`). The method called depends on the sequence of the requested address and the verb of the request.
-For example, a request to the address `api/v1/game/new` calls the method `createGame()` (because this method is annotated `@Path("new")`). Another example: a request to `api/v1/help` with the `GET` verb calls the `suggestMove` method (annotated `@GET` of the `HelpResource` class
-(annotated  `api/v1/help`).  You can refer to this https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game_player_management_Documentation.adoc[Documentation] 
-
-These methods usually call an `EntityManager` (part of a Java standard, Java Persistence API)
-which takes care of placing the objects in the server's database or retrieving them.
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Chess%20diagrams%20Basics.adoc#play-chess-diagram[Play chess]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Chess%20diagrams%20Basics.adoc#record-chess-move-diagram[Record Chess Move]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Move%20documentation.adoc[Move documentation]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard interactions]
+ - Descriptions of possible moves and actions in the games [To be added]
+ 
+== The user interface
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Chess%20diagrams%20Basics.adoc#record-chess-move-graphically-diagram[Record Chess Move Graphically]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/chessboard-js-README.md[Getting started with js]
+ - Documentation of the queries linking the front and back [To be added]
+ - Documentation about the graphical interface [To be added]
+ 
+ 
 
 == References
 * https://dominion.games/

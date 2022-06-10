@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.sample_quarkus_heroku;
+package io.github.oliviercailloux.abg;
 
 import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
@@ -60,12 +60,12 @@ public class MoveEntity {
 //    return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), Duration.ZERO);
 //  }
 //
-//  public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move, Duration duration) {
-//    Preconditions.checkArgument(game != null);
-//    Preconditions.checkArgument(move != null);
-//    Preconditions.checkArgument(duration != null);
-//    return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), duration);
-//  }
+	public static MoveEntity createMoveEntity(GameEntity game, MoveDAO move, Duration duration) {
+		Preconditions.checkArgument(game != null);
+		Preconditions.checkArgument(move != null);
+		Preconditions.checkArgument(duration != null);
+		return new MoveEntity(game, move.getFrom(), move.getTo(), move.getPromotion(), duration);
+	}
 
 	public static MoveEntity createMoveEntity(GameEntity game, Move move) {
 		Preconditions.checkArgument(game != null);
