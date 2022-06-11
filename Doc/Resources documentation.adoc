@@ -2,8 +2,6 @@
 
 == GameResource Class
 
-In order to retrieve the games setups, the `GameResource` class communicates with the Database by sending and requesting data with *POST* and *GET* requests.
-
  - `createGames` creates a new game by taking into account the time and increaments chosen by the players. The method calls the *_GameEntity_* class  to instantiate a game into the Database before returning the game ID.
  - `getGame` takes an instantiated game ID as a parameter and then calls the *_getMoves_* method in order to get the moves already saved in the database before returning the FEN that describes the particular board position of the instantiated chess game in question.
  - `getmoves` calls the *_MoveEntity_* class that records every move from a start position `from` to a finish position `to`.
