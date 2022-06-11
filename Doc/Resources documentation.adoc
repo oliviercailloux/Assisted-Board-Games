@@ -4,7 +4,7 @@
 
 In order to retrieve and send the games setups, the class communicates with the database using *POST* and *GET* requests.
 
- - `createGames` creates a new game by taking into account the time and the increment chosen by the players. The method calls the *_GameEntity_* class  to instantiate a game into the Database before returning the game ID.
+ - `createGame` creates a new game by taking into account the time and the increment chosen by the players. The method calls the *_GameEntity_* class  to instantiate a game into the Database before returning the game ID.
  - `getGame` takes an instantiated game ID as a parameter and then calls the *_getMoves_* method in order to get the moves already saved in the database before returning the FEN that describes the particular board position of the instantiated chess game in question.
  - `getMoves` calls the *_MoveEntity_* class that records every move from a start position `from` to a finish position `to`.
  - `getPlayerRemainingTime` identifies a player from the Game ID and the side put as parameters. The method calls the *_playerState_* class that stores some attributes of a player including its remaining time in the game that will be returned by this method.
