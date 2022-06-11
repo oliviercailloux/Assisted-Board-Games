@@ -1,1 +1,16 @@
 
+Superdoc 
+
+`GameRessources` communicate with the DataBase by sending POST and GET queries in order to retrieve the games setups and ...
+ - `getGame` gets the id of the game.
+ - `getmoves` gets the moves of the game.
+ - `getPlayerRemainingTime` get the remaining time.
+ - `createGames`creates a new game by taking into account the time and increaments chosen by the players.
+ - `addMoves` adds a to the DataBase the moves made by each player.
+
+
+`MoveRessources`
+- utiles ???
+
+`HelpRessources`communicate with the DataBase by sending GET queries in order to help players in their game. 
+ - `suggestMove`retrives game ID and moves then generate next legalmoves
