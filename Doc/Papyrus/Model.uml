@@ -323,7 +323,9 @@
         </ownedOperation>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_YWwJoKhcEeuHvIPllWn88Q" name="GameEntity">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJoqhcEeuHvIPllWn88Q" name="startTime" visibility="package" type="_Vg1GANjbEeuxZfZG1hZMcw"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJoqhcEeuHvIPllWn88Q" name="startTime" visibility="package" type="_Vg1GANjbEeuxZfZG1hZMcw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_umX0QOnhEeyHjN3WZX3w1g"/>
+        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJo6hcEeuHvIPllWn88Q" name="clockDuration" visibility="package" type="_TMJjENjaEeuxZfZG1hZMcw"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_YWwJpKhcEeuHvIPllWn88Q" name="clockIncrement" visibility="package" type="_TMJjENjaEeuxZfZG1hZMcw"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_1n1w8dB8Eey1FY_E4E30jg" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" aggregation="composite" association="_1nz7wNB8Eey1FY_E4E30jg">
