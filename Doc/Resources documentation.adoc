@@ -2,7 +2,7 @@
 
 == GameResource Class
 
-In order to retrieve and send the games setups, the class communicates with the database using *POST* and *GET* requests.
+In order to retrieve and send the games setups, this class communicates with the database using *POST* and *GET* requests.
 
  - `createGame` creates a new game by taking into account the time and the increment chosen by the players. The method calls the *_GameEntity_* class  to instantiate a game into the Database before returning the game ID.
  - `getGame` takes an instantiated game ID as a parameter and then calls the *_getMoves_* method in order to get the moves already saved in the database before returning the FEN that describes the particular board position of the instantiated chess game in question.
@@ -11,6 +11,6 @@ In order to retrieve and send the games setups, the class communicates with the 
  - `addMoves` takes a game ID and a move as parameters before sending the move to the Database.
 
 == HelpResource
-communicate with the DataBase by sending GET queries in order to help players in their game.  
+This class communicates with the DataBase by sending GET queries in order to help players in their game by indicating their next possible moves.  
 
- - `suggestMove` retrives game ID and moves then generate next legalmoves
+ - `suggestMove` retrives game ID and the moves to determine the current state of the game. From there it calls the *_generateLegalMoves_* method, each legal move is then tested to determine if they would generate a mate or a stalemate. It returns the list of legalmoves indicating which one would generat a mate or stalemate or neither
