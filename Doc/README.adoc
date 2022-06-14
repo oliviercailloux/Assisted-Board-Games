@@ -39,7 +39,7 @@ See: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/m
 - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Server%20documentation.adoc#testing-the-server-with-curl[Testing your server with Curl]
  
 == The functional process of the assisted board games
-https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/ABG-Tache39/Doc/Resources%20documentation.adoc
+
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[Game scenarios]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course (Sequence Diagram)]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[Game Management (Class diagram)]
