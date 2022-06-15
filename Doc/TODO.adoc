@@ -55,7 +55,9 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Create a sequence diagram which explains how a move for example is saved in the database (describes the classes that come into play for that action).
 . Redo the graphical interface and the quests in js based on the latest jetty version
 . {c} Change package sample_quarkus to abg.
-. Import the Chess Game GUI from Jetty, and test all the features that are repatriated until now (`NewGame`, `loadGame`,`getPlayerRemainingTime`,`addMove`,`getMoves` ).
+. Find a generalization system for ChessBoard and CheckerBoard on Java:
+- Create an abstract class `MyBoard`, and extend it to ChessBoard.
+- Implement `CheckerBoard` class which inherits from `MyBoard`, this class will contain a List of a `PiecePosition`. The class `PiecePosition` must be created too, it represent the position of the piece on the board.
 . Generalise the board by taking inspiration from the checkers board. For example, make a constructor that takes into account the size
 . Re-import every classes from the checker game.(In addition, link the classes to the front)
 . Move the class `helpRessource`, verify what it does, maybe it is suppose to indicate where to place the pieces. 
