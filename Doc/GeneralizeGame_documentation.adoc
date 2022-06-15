@@ -11,8 +11,8 @@ image::./Diagrams/GeneralizeGames.svg[classes,900,750]
 
 === Explanation of the class diagram:
 
-* `MyBoard` : Myboard is an abstract class, it serves as an inheritance for the `chessboard` and `checkerboard` classes
+* `MyBoard` : Myboard is an abstract class, it serves as an inheritance for the `Chessboard` and `Checkerboard` classes
 
-* `CheckerBoard` : CheckerBoard represent the board of the game of chess
+* `CheckerBoard` : CheckerBoard represent the board of the game of checker
 
-* `PiecePosition` : PiecePosition contains a piece attribute, it represents the position of a piece on a checkerboard
+* `PiecePosition` : PiecePosition represent a piece and its position on the board.
