@@ -47,7 +47,7 @@ public class GameResource {
     @Produces(MediaType.TEXT_PLAIN)
     public int createGame(@FormParam("duration") int duration, @FormParam("increment") int increment) {
 	LOGGER.info("POST game/new " + duration + increment);
-	GameEntity game = new GameEntity();
+	GameEntity game = GameEntity.cerateNewGameWithChess();
 	Duration clockIncrement = game.getClockIncrement();
 	if (increment != 0)
 	    clockIncrement = Duration.ofSeconds(increment);

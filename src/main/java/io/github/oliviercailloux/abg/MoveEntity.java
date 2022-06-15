@@ -22,7 +22,6 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "moves")
 @NamedQueries({ @NamedQuery(name = "Move.find", query = "SELECT c FROM MoveEntity c WHERE c.id = :id"),
     @NamedQuery(name = "Move.getLastMoveId",
         query = "SELECT MAX(c.id) FROM MoveEntity c WHERE c.game.id = :id"),

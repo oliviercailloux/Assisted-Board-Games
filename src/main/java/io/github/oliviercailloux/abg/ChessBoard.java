@@ -16,13 +16,12 @@ import javax.persistence.Table;
 
 
 /**
- *
- * @author elbaylot
+ * Il est imporant de garder le meme nom de l'attribut id que la classe mère
+ * 
  *
  */
 @Entity
-@Table(name = "boards")
-public class ChessBoard {
+public class ChessBoard extends MyBoard{
 
 
   public static final ChessBoard STARTING_CHESS_BOARD = new ChessBoard();
@@ -66,7 +65,8 @@ public class ChessBoard {
     return fen;
   }
 
-  public Side getSideToMove() {
+  @Override
+public Side getSideToMove() {
     return sideToMove;
   }
 
@@ -78,7 +78,8 @@ public class ChessBoard {
     return createChessBoard(board);
   }
 
-  public ChessBoard doMoves(List<MoveEntity> moves) throws MoveException {
+  @Override
+public ChessBoard doMoves(List<MoveEntity> moves) throws MoveException {
     final Board board = asBoard();
     for (MoveEntity move : moves) {
       if (!board.doMove(move.asMove(), true)) {
