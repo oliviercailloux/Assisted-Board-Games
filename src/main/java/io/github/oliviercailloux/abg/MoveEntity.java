@@ -23,8 +23,7 @@ import javax.persistence.Table;
  */
 @Entity
 @NamedQueries({ @NamedQuery(name = "Move.find", query = "SELECT c FROM MoveEntity c WHERE c.id = :id"),
-    @NamedQuery(name = "Move.getLastMoveId",
-        query = "SELECT MAX(c.id) FROM MoveEntity c WHERE c.game.id = :id"),
+		@NamedQuery(name = "Move.getLastMoveId", query = "SELECT MAX(c.id) FROM MoveEntity c WHERE c.game.id = :id"),
 		@NamedQuery(name = "Move.getLastMove", query = "SELECT MAX(c.id) FROM MoveEntity c ") })
 @JsonbPropertyOrder({ "from", "to", "promotion", "game" })
 public class MoveEntity {
@@ -36,8 +35,8 @@ public class MoveEntity {
 	Square from;
 	Square to;
 	Piece promotion;
-	 @ManyToOne
-	 GameEntity game;
+	@ManyToOne
+	GameEntity game;
 
 	MoveEntity() {
 		from = Square.NONE;
@@ -45,8 +44,8 @@ public class MoveEntity {
 		promotion = Piece.NONE;
 	}
 
-	MoveEntity( GameEntity gameEntity, Square from, Square to, Piece promotion, Duration duration) {
-		 this.game = Objects.requireNonNull(gameEntity);
+	MoveEntity(GameEntity gameEntity, Square from, Square to, Piece promotion, Duration duration) {
+		this.game = Objects.requireNonNull(gameEntity);
 		this.duration = duration == null ? Duration.ZERO : duration;
 		this.from = from;
 		this.to = to;
@@ -96,7 +95,7 @@ public class MoveEntity {
 	}
 
 	public GameEntity getGame() {
-	    return game;
+		return game;
 	}
 
 	public Duration getDuration() {

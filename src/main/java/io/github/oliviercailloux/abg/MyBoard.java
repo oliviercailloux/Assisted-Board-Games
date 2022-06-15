@@ -17,6 +17,4 @@ public abstract class MyBoard {
 	protected abstract ChessBoard doMoves(List<MoveEntity> moves) throws MoveException;
 
 	protected abstract Side getSideToMove();
-
-
 }

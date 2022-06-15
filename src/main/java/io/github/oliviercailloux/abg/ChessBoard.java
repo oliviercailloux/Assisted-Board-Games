@@ -79,7 +79,7 @@ public Side getSideToMove() {
   }
 
   @Override
-public ChessBoard doMoves(List<MoveEntity> moves) throws MoveException {
+	public ChessBoard doMoves(List<MoveEntity> moves) throws MoveException {
     final Board board = asBoard();
     for (MoveEntity move : moves) {
       if (!board.doMove(move.asMove(), true)) {
