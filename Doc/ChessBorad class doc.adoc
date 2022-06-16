@@ -6,3 +6,15 @@ A given game can be recognized by its ID. Each game is nothing more than a succe
 
 It is therefore easy to understand that for each move it will be necessary to create a new chessboard with its own Fen. This set of created chessboards will be recognized as belonging to the same game because they will have the same ID.
 
+
+*Construction of a ChessBoard*
+
+* a chessboard has 3 attributes, an `id` which is an integer, a `fen` which is a string and the side that played which is an object of type `Side`. 
+* the methods `createChessBoard()` are static factory methods. It is possible from these methods to build a chessboard either with a board or with a given fen. In the case where a fen is transmitted it is transformed into a board using the method `loadFromFen(fen)`.
+* The constructor requires a board, hence the process of transforming a fen into a board.
+
+*Movements on the chessboard*
+
+* It is possible to make one or more movements on the board using the `doMove()` and `doMoves()` methods.
+* Performing a simple movement requires to pass as argument an object of type `MoveEntity` in the case of a simple movement.
+* In the case of multiple moves a list of `MoveEntity` is needed.
