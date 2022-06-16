@@ -16,5 +16,10 @@ It is therefore easy to understand that for each move it will be necessary to cr
 *Movements on the chessboard*
 
 * It is possible to make one or more movements on the board using the `doMove()` and `doMoves()` methods.
-* Performing a simple movement requires to pass as argument an object of type `MoveEntity` in the case of a simple movement.
-* In the case of multiple moves a list of `MoveEntity` is needed.
+* Performing a simple movement requires to pass as argument an object of type `MoveEntity` in the case of a simple movement. In the case of multiple moves a list of `MoveEntity` is needed.
+* In any case, the move, whether single or multiple, will lead to the creation of a `Chessboard` with the method `createChessBoard(board)`. We can specify that even in the case of the multiple movement, only one `Chessboard` will be created. This created `Chessboard` will be different from the one present before the movement by its `fen`.
+
+*Other methods*
+
+* the method *asBoard()* allows to create an object of type `board` from the `fen` of a `Chessboard` using the method `loadFromFen(fen)`.
+* the methods *getId()*, *getFen()* and *getSideToMove()* allow to get the attributes of a given 'Chessboard'
