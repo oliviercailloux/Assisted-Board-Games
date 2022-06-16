@@ -1,0 +1,8 @@
+= ChessBoard class 
+
+Before talking about the class itself, some explanations are necessary. The notation used to save the state of a given game is the https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation[Fen] notation. It is a string that describes precisely the position of each piece in the chessboard.
+
+A given game can be recognized by its ID. Each game is nothing more than a succession of moves and each move leads to a change of state. So a game can be translated as a succession of states of the board. Each state being represented by its https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation[Fen] notation.
+
+It is therefore easy to understand that for each move it will be necessary to create a new chessboard with its own Fen. This set of created chessboards will be recognized as belonging to the same game because they will have the same ID.
+
