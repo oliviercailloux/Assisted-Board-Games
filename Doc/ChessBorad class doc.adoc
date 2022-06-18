@@ -6,6 +6,11 @@ A given game can be recognized by its ID. Each game is nothing more than a succe
 
 It is therefore easy to understand that for each move it will be necessary to create a new chessboard with its own Fen. This set of created chessboards will be recognized as belonging to the same game because they will have the same ID.
 
+*Class Diagram*
+
+_You have below an image showing the class diagram:_
+Link to the diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/ChessBoard.SVG[Here]
+
 
 *Construction of a ChessBoard*
 
