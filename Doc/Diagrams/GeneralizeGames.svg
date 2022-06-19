@@ -91,7 +91,7 @@
                 <path d="M95 51 L717 51 L717 69 L95 69 L95 51 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath18">
-                <path d="M114 52 L241 52 L241 68 L114 68 L114 52 Z"/>
+                <path d="M114 52 L223 52 L223 68 L114 68 L114 52 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath19">
                 <path d="M95 67 L717 67 L717 85 L95 85 L95 67 Z"/>
@@ -112,7 +112,7 @@
                 <path d="M95 113 L717 113 L717 131 L95 131 L95 113 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath25">
-                <path d="M114 114 L312 114 L312 130 L114 130 L114 114 Z"/>
+                <path d="M114 114 L276 114 L276 130 L114 130 L114 114 Z"/>
             </clipPath>
             <clipPath clipPathUnits="userSpaceOnUse" id="clipPath26">
                 <path d="M95 129 L717 129 L717 147 L95 147 L95 129 Z"/>
@@ -710,7 +710,7 @@
             <image width="16" xlink:show="embed" xlink:type="simple" clip-path="url(#clipPath15)" preserveAspectRatio="none" height="16" font-family="'Dialog'" x="363" y="33" font-size="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA2ElEQVR42mNkgIKC&#10;BUf+P3jyCchiBOL/QMgIYTFCREDg/38GOFCU4WWYkGDDyAITuP/4E8OkNDsGYkHu&#10;rINgGm7Av7//GNjZmIk2gOHff1QDwBxmJgZSAZoBjJQZwEqRC4BBzEqCC/6hh8H/&#10;//8YmJmIN+D/fyyB6NewCZwO/qORMIBIIUA2IyOmAUsrvIh2QUzndrihYOBTt/H/&#10;knJPDIX8XKzExwLMVGSwudGP4ZSHPXEGYHMBOMCuvWPQjQ/AEL+8cAOqAfgASDE2&#10;wIicG+/ce4vVCzQFAGcbREC+ym1KAAAAAElFTkSuQmCC" xlink:actuate="onLoad"/>
             <text x="382" font-size="12" y="46" clip-path="url(#clipPath16)" font-family="'Dialog'" stroke="none" xml:space="preserve">GameState</text>
             <image width="16" xlink:show="embed" xlink:type="simple" clip-path="url(#clipPath17)" preserveAspectRatio="none" height="16" font-family="'Dialog'" x="96" y="52" font-size="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA8klEQVR42mNgGAWM&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDpkA8DyVpXr/69tCGAI&#10;rl+P4l8QONoWiDdAIV4A2gwKxJUNgQyMaIEGAqc87PEbAApVt/KVCOciue/KhHCG&#10;/9feMejGB2BovrxwA8SAqxMjGHFaMSH8P0wxThcQAuaPLtMuLwAATIhxVYxYyT0AAAAASUVORK5CYII=" xlink:actuate="onLoad"/>
-            <text x="115" font-size="12" y="65" clip-path="url(#clipPath18)" font-family="'Dialog'" stroke="none" xml:space="preserve"> - board: ChessBoard</text>
+            <text x="115" font-size="12" y="65" clip-path="url(#clipPath18)" font-family="'Dialog'" stroke="none" xml:space="preserve"> - board: MyBoard</text>
             <image width="16" xlink:show="embed" xlink:type="simple" clip-path="url(#clipPath19)" preserveAspectRatio="none" height="16" font-family="'Dialog'" x="96" y="68" font-size="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA8klEQVR42mNgGAWM&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDpkA8DyVpXr/69tCGAI&#10;rl+P4l8QONoWiDdAIV4A2gwKxJUNgQyMaIEGAqc87PEbAApVt/KVCOciue/KhHCG&#10;/9feMejGB2BovrxwA8SAqxMjGHFaMSH8P0wxThcQAuaPLtMuLwAATIhxVYxYyT0AAAAASUVORK5CYII=" xlink:actuate="onLoad"/>
             <text x="115" font-size="12" y="81" clip-path="url(#clipPath20)" font-family="'Dialog'" stroke="none" xml:space="preserve"> - playerstates: EnumMap&lt;Side, PlayerState&gt;</text>
             <line clip-path="url(#clipPath21)" fill="none" x1="90" x2="720" y1="50" y2="50"/>
@@ -718,7 +718,7 @@
             <text x="115" font-size="12" y="111" clip-path="url(#clipPath23)" font-family="'Dialog'" stroke="none" xml:space="preserve"> + of(  in board: ChessBoard,   in whitePlayer: PlayerState,   in blackPlayer: PlayerState): GameState</text>
             <line clip-path="url(#clipPath23)" fill="none" x1="115" x2="716" y1="111" y2="111" stroke-width="0.1"/>
             <image width="16" xlink:show="embed" xlink:type="simple" clip-path="url(#clipPath24)" preserveAspectRatio="none" stroke-width="0.1" height="16" font-family="'Dialog'" x="96" y="114" font-size="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVR42sVTX0hT&#10;URz+7p3OCIqkaMLq0R6CCIRMaCMyr9ushkT17Fq9RNk/iJBk5z5s+BAhBQYh6Hyp&#10;B5W0NufcbCuNFcToIQrxz5g0IsVE5u52d+89HScMYw56CPo9nHN+/L7z8fGd7wD/&#10;u3TlBgIJ0nmlmljb3GQ2OiCWw/FbmyYxQGG+SzfOE+HXePfkNgLhwc3hiZvUSsK0&#10;rAKLK0gnwq8w+fA6vF950v/gCnZWVaGxoQ4jC3oy+agdnU/7IVzuIvNRb1ERV5Ri&#10;aqejXTcASsFxKjRaCbaggtfYtAIKVIbWcO5+DzD1mCtRQJMfxBczHGk1NSCfB3yx&#10;OGYWF/ElkcLBmhrICnCxswd0y+UigcUVonPqHuK+5kClTofI5zhjVNDr/4RjtUbM&#10;/kjhQLUBx48cRWhpB2l2uslcZNPYgonjzDDP1TZsqFxeyUHTFPSNxRH1nMez8Rh4&#10;lcP31RwUlcLjdCAYfPnnK9iEs+joHUBiOYOVjASOee04U4dTHUNw2uqh8TqsrctI&#10;/FpnuD4IFjtKTCwUM9JxoRW8wnjlFGOn0BiE0xug6vTwDg5Bm+7mtg+S+Ra1t7RA&#10;zgGSKiNHdyPNVbJ9FyRNRUZWcfhQLb7l9xEkY2JJkMwnGzHq92E1l8XImA8/M2ms&#10;ScCSlMWwP4h0VsJwwI/TTbbtg5R8+1ysv3SPTE9FCk+VpPvJXqMRHyOsf9/NLagG&#10;Igh2hFwC91efxOp6Q2G6Q5vF0vj+0/oNRdDxkTDUjqQAAAAASUVORK5CYII=" xlink:actuate="onLoad"/>
-            <text x="115" font-size="12" y="127" clip-path="url(#clipPath25)" font-family="'Dialog'" stroke="none" stroke-width="0.1" xml:space="preserve"> + getChessBoard(): ChessBoard</text>
+            <text x="115" font-size="12" y="127" clip-path="url(#clipPath25)" font-family="'Dialog'" stroke="none" stroke-width="0.1" xml:space="preserve"> + getMyBoard(): MyBoard</text>
             <image width="16" xlink:show="embed" xlink:type="simple" clip-path="url(#clipPath26)" preserveAspectRatio="none" stroke-width="0.1" height="16" font-family="'Dialog'" x="96" y="130" font-size="12" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVR42sVTX0hT&#10;URz+7p3OCIqkaMLq0R6CCIRMaCMyr9ushkT17Fq9RNk/iJBk5z5s+BAhBQYh6Hyp&#10;B5W0NufcbCuNFcToIQrxz5g0IsVE5u52d+89HScMYw56CPo9nHN+/L7z8fGd7wD/&#10;u3TlBgIJ0nmlmljb3GQ2OiCWw/FbmyYxQGG+SzfOE+HXePfkNgLhwc3hiZvUSsK0&#10;rAKLK0gnwq8w+fA6vF950v/gCnZWVaGxoQ4jC3oy+agdnU/7IVzuIvNRb1ERV5Ri&#10;aqejXTcASsFxKjRaCbaggtfYtAIKVIbWcO5+DzD1mCtRQJMfxBczHGk1NSCfB3yx&#10;OGYWF/ElkcLBmhrICnCxswd0y+UigcUVonPqHuK+5kClTofI5zhjVNDr/4RjtUbM&#10;/kjhQLUBx48cRWhpB2l2uslcZNPYgonjzDDP1TZsqFxeyUHTFPSNxRH1nMez8Rh4&#10;lcP31RwUlcLjdCAYfPnnK9iEs+joHUBiOYOVjASOee04U4dTHUNw2uqh8TqsrctI&#10;/FpnuD4IFjtKTCwUM9JxoRW8wnjlFGOn0BiE0xug6vTwDg5Bm+7mtg+S+Ra1t7RA&#10;zgGSKiNHdyPNVbJ9FyRNRUZWcfhQLb7l9xEkY2JJkMwnGzHq92E1l8XImA8/M2ms&#10;ScCSlMWwP4h0VsJwwI/TTbbtg5R8+1ysv3SPTE9FCk+VpPvJXqMRHyOsf9/NLagG&#10;Igh2hFwC91efxOp6Q2G6Q5vF0vj+0/oNRdDxkTDUjqQAAAAASUVORK5CYII=" xlink:actuate="onLoad"/>
             <text x="115" font-size="12" y="143" clip-path="url(#clipPath27)" font-family="'Dialog'" stroke="none" stroke-width="0.1" xml:space="preserve"> + isSideToMove(  in side: Side): boolean</text>
             <line clip-path="url(#clipPath28)" fill="none" x1="90" x2="720" y1="96" y2="96"/>
