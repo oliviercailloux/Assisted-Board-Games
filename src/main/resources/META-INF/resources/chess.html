@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="chessboardjs/css/chessboard-0.3.0.css" />
+	<script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="chessboardjs/js/chess.js"></script>
+	<script type="text/javascript" src="chessboardjs/js/chessboard-0.3.0.js"></script>
+	<title>My Assisted Board Games</title>
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+	<div id="wrap">
+		<h1 id="pagetitle">Chess Game</h1>
+
+		<div id="content">
+			<div id="left">
+				<button id="btn-new-game" class="button">New Game</button>
+			</div>
+		
+			<div id="right">
+				<input type="text" id="game-id" placeholder="Enter the game ID"/>
+				<button id="btn-load-game" class="button">Load Game</button>
+			</div>
+	  	</div>
+	  	<br>
+		<div id="board" style="width:400px"></div>
+	</div>
+	<div id="gameinfo">
+		<p>STATUS: <span id="status"></span></p> 	
+		<p>FEN: <span id="fen"></span></p>
+		<p>PGN: <span id="pgn"></span></p>
+		<button id="btn-dark-mode" class="button">Toggle dark mode</button>
+	</div>
+
+	<div class="Clocks">
+		<div class="outer-class">
+			<label for="White-player-clock">White player remaining time:</label>
+			<label for="Black-player-clock">Black player remaining time:</label>
+		</div>
+
+		<div id="White-player-clock">00:00:00</div>
+		<div id="Black-player-clock">00:00:00</div>
+
+		<div class="outer-class">
+			<input id="duration" class="time" type="number" min="0" max="36000" placeholder="Duration in seconds">
+			<input id="increment" class="time" type="number" min="0" max="60" placeholder="Increment in seconds">
+		</div>
+
+<!--		<button id="btn-time">Confirm</button>-->
+	</div>
+
+
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/ChessBoardManager.js"></script>
+	<script type="text/javascript" src="js/TimeManager.js"></script>
+	<script type="text/javascript" src="js/GameManager.js"></script>
+	<script type="text/javascript" src="js/chess.js"></script>
+</body>
+</html>
