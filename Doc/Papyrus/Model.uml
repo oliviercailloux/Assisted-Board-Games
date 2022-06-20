@@ -786,9 +786,23 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bznOzkEeyAbYRurX1OzQ" type="_28bzhezkEeyAbYRurX1OzQ" direction="return"/>
         </ownedOperation>
         <nestedClassifier xmi:type="uml:Class" xmi:id="_28bznezkEeyAbYRurX1OzQ" name="Duration"/>
+        <nestedClassifier xmi:type="uml:Association" xmi:id="_ECIjIPDxEeyYatHX60bGIw" name="Current player" memberEnd="_ECJKMvDxEeyYatHX60bGIw _ECJKM_DxEeyYatHX60bGIw">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ECJKMPDxEeyYatHX60bGIw" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ECJKMfDxEeyYatHX60bGIw" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_ECJKMvDxEeyYatHX60bGIw" name="gamestate" type="_28bznuzkEeyAbYRurX1OzQ" association="_ECIjIPDxEeyYatHX60bGIw"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_ECJKM_DxEeyYatHX60bGIw" name="playerstate" type="_28bzhezkEeyAbYRurX1OzQ" association="_ECIjIPDxEeyYatHX60bGIw"/>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:Association" xmi:id="_Umo3QPDxEeyYatHX60bGIw" name="Other player" memberEnd="_UmqFYvDxEeyYatHX60bGIw _UmqscPDxEeyYatHX60bGIw">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UmqFYPDxEeyYatHX60bGIw" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UmqFYfDxEeyYatHX60bGIw" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_UmqFYvDxEeyYatHX60bGIw" name="gamestate" type="_28bznuzkEeyAbYRurX1OzQ" association="_Umo3QPDxEeyYatHX60bGIw"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_UmqscPDxEeyYatHX60bGIw" name="playerstate" type="_28bzhezkEeyAbYRurX1OzQ" association="_Umo3QPDxEeyYatHX60bGIw"/>
+        </nestedClassifier>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_28bznuzkEeyAbYRurX1OzQ" name="GameState" visibility="private">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzn-zkEeyAbYRurX1OzQ" name="board" visibility="private" type="_28bza-zkEeyAbYRurX1OzQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzn-zkEeyAbYRurX1OzQ" name="board" visibility="private" type="_Ny6bcOzlEeyAbYRurX1OzQ"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzoOzkEeyAbYRurX1OzQ" name="playerstates" visibility="private" type="_28caVezkEeyAbYRurX1OzQ" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzoezkEeyAbYRurX1OzQ" name="chessboard" type="_28bza-zkEeyAbYRurX1OzQ" aggregation="composite" association="_28caSOzkEeyAbYRurX1OzQ">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_28bzouzkEeyAbYRurX1OzQ"/>
@@ -802,18 +816,14 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9CUWo-zlEeyAbYRurX1OzQ"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9CU9sOzlEeyAbYRurX1OzQ" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_uI7ZIezoEeyAbYRurX1OzQ" name="playerstate" type="_28bzhezkEeyAbYRurX1OzQ" aggregation="composite" association="_uI6yEOzoEeyAbYRurX1OzQ">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xl3aEOzoEeyAbYRurX1OzQ" value="2"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xl-HwOzoEeyAbYRurX1OzQ" value="2"/>
-        </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_28bzp-zkEeyAbYRurX1OzQ" name="of" isStatic="true">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzqOzkEeyAbYRurX1OzQ" name="board" type="_28bza-zkEeyAbYRurX1OzQ"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzqOzkEeyAbYRurX1OzQ" name="board" type="_Ny6bcOzlEeyAbYRurX1OzQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzqezkEeyAbYRurX1OzQ" name="whitePlayer" type="_28bzhezkEeyAbYRurX1OzQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzquzkEeyAbYRurX1OzQ" name="blackPlayer" type="_28bzhezkEeyAbYRurX1OzQ"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzq-zkEeyAbYRurX1OzQ" type="_28bznuzkEeyAbYRurX1OzQ" direction="return"/>
         </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_28bzrOzkEeyAbYRurX1OzQ" name="getChessBoard">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzrezkEeyAbYRurX1OzQ" type="_28bza-zkEeyAbYRurX1OzQ" direction="return"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_28bzrOzkEeyAbYRurX1OzQ" name="getMyBoard">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzrezkEeyAbYRurX1OzQ" type="_Ny6bcOzlEeyAbYRurX1OzQ" direction="return"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_28bzruzkEeyAbYRurX1OzQ" name="isSideToMove">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzr-zkEeyAbYRurX1OzQ" name="side" type="_28caHOzkEeyAbYRurX1OzQ"/>
@@ -826,12 +836,6 @@
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9CUWoezlEeyAbYRurX1OzQ" key="nature" value="UML_Nature"/>
           </eAnnotations>
           <ownedEnd xmi:type="uml:Property" xmi:id="_9CU9sezlEeyAbYRurX1OzQ" name="gamestate" type="_28bznuzkEeyAbYRurX1OzQ" association="_9CTvkOzlEeyAbYRurX1OzQ"/>
-        </nestedClassifier>
-        <nestedClassifier xmi:type="uml:Association" xmi:id="_uI6yEOzoEeyAbYRurX1OzQ" memberEnd="_uI7ZIezoEeyAbYRurX1OzQ _uI7ZJOzoEeyAbYRurX1OzQ">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uI6yEezoEeyAbYRurX1OzQ" source="org.eclipse.papyrus">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uI7ZIOzoEeyAbYRurX1OzQ" key="nature" value="UML_Nature"/>
-          </eAnnotations>
-          <ownedEnd xmi:type="uml:Property" xmi:id="_uI7ZJOzoEeyAbYRurX1OzQ" name="gamestate" type="_28bznuzkEeyAbYRurX1OzQ" association="_uI6yEOzoEeyAbYRurX1OzQ"/>
         </nestedClassifier>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_28bzsezkEeyAbYRurX1OzQ" name="GameEntity">
@@ -1031,7 +1035,7 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZyTMUezqEeyAbYRurX1OzQ" type="_4eFt0KnuEeuKIJWfKMwhxw" direction="return"/>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_T_y_AOzmEeyAbYRurX1OzQ" name="CheckerBoard">
+      <packagedElement xmi:type="uml:Class" xmi:id="_T_y_AOzmEeyAbYRurX1OzQ" name="CheckerBoard" visibility="package">
         <generalization xmi:type="uml:Generalization" xmi:id="_mIlwYOzmEeyAbYRurX1OzQ" general="_Ny6bcOzlEeyAbYRurX1OzQ"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jn1D0OzmEeyAbYRurX1OzQ" name="id" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
@@ -1047,10 +1051,8 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_IElX8ezrEeyAbYRurX1OzQ" type="_T_y_AOzmEeyAbYRurX1OzQ" direction="return"/>
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_IElX8uzrEeyAbYRurX1OzQ" name="positions" type="_AKiPUOznEeyAbYRurX1OzQ"/>
         </ownedOperation>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_ZwVoAOzrEeyAbYRurX1OzQ" name="getId">
-          <ownedParameter xmi:type="uml:Parameter" xmi:id="_ZwVoAezrEeyAbYRurX1OzQ" direction="return">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
-          </ownedParameter>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_SvDOEPDyEeyYatHX60bGIw" name="getListPosition">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_SvDOEfDyEeyYatHX60bGIw" type="_AKiPUOznEeyAbYRurX1OzQ" direction="return"/>
         </ownedOperation>
         <nestedClassifier xmi:type="uml:Association" xmi:id="_z4uQsOzsEeyAbYRurX1OzQ" memberEnd="_z4ve0OzsEeyAbYRurX1OzQ _z4wF4OzsEeyAbYRurX1OzQ">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z4u3wOzsEeyAbYRurX1OzQ" source="org.eclipse.papyrus">
@@ -1064,6 +1066,8 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Rll-sOzsEeyAbYRurX1OzQ" name="position" visibility="private" type="_KNXz8OzsEeyAbYRurX1OzQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_X9DQAOzsEeyAbYRurX1OzQ" name="createPiecePosition" isStatic="true">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_X9DQAezsEeyAbYRurX1OzQ" type="_Y_X3YOzmEeyAbYRurX1OzQ" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_dUXR0PDwEeyYatHX60bGIw" name="piece" type="_3LiFENjmEeuQJ9fMQkrPfA"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_g-wf8PDwEeyYatHX60bGIw" name="position" type="_KNXz8OzsEeyAbYRurX1OzQ"/>
         </ownedOperation>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_gkniwOzsEeyAbYRurX1OzQ" name="getPiece">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_gkniwezsEeyAbYRurX1OzQ" type="_3LiFENjmEeuQJ9fMQkrPfA" direction="return"/>
