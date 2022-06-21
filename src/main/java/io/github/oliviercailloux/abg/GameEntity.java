@@ -32,187 +32,176 @@ import org.hibernate.annotations.CreationTimestamp;
  *
  */
 @Entity
-@NamedQueries({
-    @NamedQuery(name = "Game.find", query = "SELECT e FROM GameEntity e WHERE e.id = :id"),
-    @NamedQuery(name = "Game.getLastGameId", query = "SELECT MAX(e.id) FROM GameEntity e")})
+@NamedQueries({ @NamedQuery(name = "Game.find", query = "SELECT e FROM GameEntity e WHERE e.id = :id"),
+		@NamedQuery(name = "Game.getLastGameId", query = "SELECT MAX(e.id) FROM GameEntity e") })
 public class GameEntity {
 
-  public static final String STARTING_FEN_POSITION =
-      "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-  @Id
-  @GeneratedValue
-  int id;
-  @CreationTimestamp
-  Instant startTime;
-  /**
-   * Duration of the game for each side, by default 30 minutes.
-   */
-  Duration clockDuration;
-  /**
-   * Duration of the move increment, by default 10 seconds.
-   */
-  Duration clockIncrement;
-  /**
-   * The initial board with which the game starts.
-   */
-  @OneToOne
-  @Cascade(CascadeType.ALL)
-  MyBoard startBoard;
-  @Cascade(CascadeType.ALL)
-  @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
-  List<MoveEntity> moves;
+	public static final String STARTING_FEN_POSITION = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+	@Id
+	@GeneratedValue
+	int id;
+	@CreationTimestamp
+	Instant startTime;
+	/**
+	 * Duration of the game for each side, by default 30 minutes.
+	 */
+	Duration clockDuration;
+	/**
+	 * Duration of the move increment, by default 10 seconds.
+	 */
+	Duration clockIncrement;
+	/**
+	 * The initial board with which the game starts.
+	 */
+	@OneToOne
+	@Cascade(CascadeType.ALL)
+	MyBoard startBoard;
+	@Cascade(CascadeType.ALL)
+	@OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+	List<MoveEntity> moves;
 
-  public GameEntity() {
-    clockDuration = Duration.ofSeconds(1800);
-    clockIncrement = Duration.ofSeconds(10);
-    moves = new ArrayList<>(); // avoid NPE in tests
-      //startBoard = ChessBoard.createChessBoard();
-  }
-  
-  public static GameEntity cerateNewGameWithChess() {
-	  GameEntity game = new GameEntity();
-	  ChessBoard startBoard = ChessBoard.createChessBoard();
-	  game.setMyBoard(startBoard);
-	  return game;
-}
+	public GameEntity() {
+		clockDuration = Duration.ofSeconds(1800);
+		clockIncrement = Duration.ofSeconds(10);
+		moves = new ArrayList<>(); // avoid NPE in tests
+	}
 
-  public GameEntity(GameState gameState) {
-    this();
-   this.startBoard = gameState.getChessBoard();
-   }
-  
-  
+	public static GameEntity cerateNewGameWithChess() {
+		GameEntity game = new GameEntity();
+		ChessBoard startBoard = ChessBoard.createChessBoard();
+		game.setMyBoard(startBoard);
+		return game;
+	}
 
-  public GameEntity(GameState gameState, Instant startTime, Duration clockDuration,
-      Duration clockIncrement) {
-      this(gameState);
-    this.startTime = startTime;
-    this.clockDuration = clockDuration;
-    this.clockIncrement = clockIncrement;
-  }
+	public GameEntity(GameState gameState) {
+		this();
+		this.startBoard = gameState.getChessBoard();
+	}
 
-  public int getId() {
-    return id;
-  }
+	public GameEntity(GameState gameState, Instant startTime, Duration clockDuration, Duration clockIncrement) {
+		this(gameState);
+		this.startTime = startTime;
+		this.clockDuration = clockDuration;
+		this.clockIncrement = clockIncrement;
+	}
 
-  public Instant getStartTime() {
-    return startTime;
-  }
-  
-  public void setMyBoard(MyBoard board) {
-	  startBoard = board;
-	
-}
+	public int getId() {
+		return id;
+	}
 
-  void setStartTime(Instant startTime) {
-    this.startTime = startTime;
-  }
+	public Instant getStartTime() {
+		return startTime;
+	}
 
-  public List<MoveEntity> getMoves() {
-    return moves;
-  }
+	public void setMyBoard(MyBoard board) {
+		startBoard = board;
 
-  public void addMove(MoveEntity move) {
-    moves.add(move);
-  }
+	}
 
-  public MoveEntity getLastMove() {
-    return moves.get(moves.size() - 1);
-  }
+	void setStartTime(Instant startTime) {
+		this.startTime = startTime;
+	}
 
-  public Duration getClockDuration() {
-    return clockDuration;
-  }
+	public List<MoveEntity> getMoves() {
+		return moves;
+	}
 
-  void setClockDuration(Duration clockDuration) {
-    this.clockDuration = clockDuration;
-  }
+	public void addMove(MoveEntity move) {
+		moves.add(move);
+	}
 
-  public Duration getClockIncrement() {
-    return clockIncrement;
-  }
+	public MoveEntity getLastMove() {
+		return moves.get(moves.size() - 1);
+	}
 
-  private Duration getGameDuration() {
-    return moves.stream().map(MoveEntity::getDuration).reduce(Duration.ZERO, Duration::plus);
-  }
+	public Duration getClockDuration() {
+		return clockDuration;
+	}
 
-public Side getStartSide() {
-  return startBoard.getSideToMove();
-}
+	void setClockDuration(Duration clockDuration) {
+		this.clockDuration = clockDuration;
+	}
 
-  public MyBoard getStartBoard() {
-   return startBoard;
-  }
+	public Duration getClockIncrement() {
+		return clockIncrement;
+	}
 
-  public Duration getCurrentMoveDuration() {
-    final Instant now = Instant.now();
-    final Duration gameDuration = getGameDuration();
-    final Instant lastMove = startTime.plus(gameDuration);
-    return Duration.between(lastMove, now);
-  }
+	private Duration getGameDuration() {
+		return moves.stream().map(MoveEntity::getDuration).reduce(Duration.ZERO, Duration::plus);
+	}
 
-  public Duration getRemainingTime(Side side, boolean withCurrentTurn) {
-    GameState gameState = getGameState();
-    PlayerState playerState = gameState.getPlayerState(side);
-    if (withCurrentTurn) {
-      return playerState.getRemainingTimeAt(Instant.now());
-    }
-    return playerState.getRemainingTime();
-  }
+	public Side getStartSide() {
+		return startBoard.getSideToMove();
+	}
 
-  public Duration getRemainingTime(Side side) {
-    return getRemainingTime(side, false);
-  }
+	public MyBoard getStartBoard() {
+		return startBoard;
+	}
 
-  private Duration computeRemainingTime(Side side) {
-    final IntPredicate turnOf = i -> i % 2 == (side == Side.WHITE ? 0 : 1);
-    Duration timeLeft = clockDuration;
-    final List<Duration> moveDurations =
-        moves.stream().map(MoveEntity::getDuration).collect(Collectors.toList());
-    final List<Duration> blackMoveDurations = IntStream.range(0, moveDurations.size())
-        .filter(turnOf).mapToObj(moveDurations::get).collect(Collectors.toList());
-    final Duration playedDuration =
-        blackMoveDurations.stream().reduce(Duration.ZERO, Duration::plus);
-    timeLeft = timeLeft.minus(playedDuration);
-    final Duration incrementDuration = clockIncrement.multipliedBy(blackMoveDurations.size());
-    timeLeft = timeLeft.plus(incrementDuration);
-    return timeLeft;
-  }
+	public Duration getCurrentMoveDuration() {
+		final Instant now = Instant.now();
+		final Duration gameDuration = getGameDuration();
+		final Instant lastMove = startTime.plus(gameDuration);
+		return Duration.between(lastMove, now);
+	}
 
-  public GameState getGameState() {
-    final ChessBoard board;
-    try {
-      board = startBoard.doMoves(moves);
-    } catch (MoveException e) {
-      // this exception can't happen here since the moves were already validated upon
-      // insertion
-      throw new AssertionError("moves should have been validated");
-    }
-    final Duration gameDuration = getGameDuration();
-    final Instant whiteTimeAtTurnStart = startTime.plus(gameDuration);
-    final Duration whiteRemainingTime = computeRemainingTime(Side.WHITE);
-    final PlayerState whitePlayer =
-        PlayerState.of(Side.WHITE, whiteTimeAtTurnStart, whiteRemainingTime);
-    final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
-    final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
-    final PlayerState blackPlayer =
-        PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
-    return GameState.of(board, whitePlayer, blackPlayer);
-  }
+	public Duration getRemainingTime(Side side, boolean withCurrentTurn) {
+		GameState gameState = getGameState();
+		PlayerState playerState = gameState.getPlayerState(side);
+		if (withCurrentTurn) {
+			return playerState.getRemainingTimeAt(Instant.now());
+		}
+		return playerState.getRemainingTime();
+	}
 
-  public ImmutableList<PlayerState> getPlayerStates() {
-    final List<PlayerState> playerStates = new ArrayList<>();
-    Instant time = startTime;
-    Duration[] remainingTimes = new Duration[] {clockDuration, clockDuration};
-    for (int i = 0; i < moves.size(); i++) {
-      final MoveEntity move = moves.get(i);
-      final int side = i % 2;
-      playerStates
-          .add(PlayerState.of(side == 0 ? Side.WHITE : Side.BLACK, time, remainingTimes[side]));
-      remainingTimes[side] = remainingTimes[side].minus(move.getDuration());
-      remainingTimes[side] = remainingTimes[side].plus(clockIncrement);
-      time = time.plus(move.getDuration());
-    }
-    return ImmutableList.copyOf(playerStates);
-  }
+	public Duration getRemainingTime(Side side) {
+		return getRemainingTime(side, false);
+	}
+
+	private Duration computeRemainingTime(Side side) {
+		final IntPredicate turnOf = i -> i % 2 == (side == Side.WHITE ? 0 : 1);
+		Duration timeLeft = clockDuration;
+		final List<Duration> moveDurations = moves.stream().map(MoveEntity::getDuration).collect(Collectors.toList());
+		final List<Duration> blackMoveDurations = IntStream.range(0, moveDurations.size()).filter(turnOf)
+				.mapToObj(moveDurations::get).collect(Collectors.toList());
+		final Duration playedDuration = blackMoveDurations.stream().reduce(Duration.ZERO, Duration::plus);
+		timeLeft = timeLeft.minus(playedDuration);
+		final Duration incrementDuration = clockIncrement.multipliedBy(blackMoveDurations.size());
+		timeLeft = timeLeft.plus(incrementDuration);
+		return timeLeft;
+	}
+
+	public GameState getGameState() {
+		final ChessBoard board;
+		try {
+			board = startBoard.doMoves(moves);
+		} catch (MoveException e) {
+			// this exception can't happen here since the moves were already validated upon
+			// insertion
+			throw new AssertionError("moves should have been validated");
+		}
+		final Duration gameDuration = getGameDuration();
+		final Instant whiteTimeAtTurnStart = startTime.plus(gameDuration);
+		final Duration whiteRemainingTime = computeRemainingTime(Side.WHITE);
+		final PlayerState whitePlayer = PlayerState.of(Side.WHITE, whiteTimeAtTurnStart, whiteRemainingTime);
+		final Instant blackTimeAtTurnStart = startTime.plus(gameDuration);
+		final Duration blackRemainingTime = computeRemainingTime(Side.BLACK);
+		final PlayerState blackPlayer = PlayerState.of(Side.BLACK, blackTimeAtTurnStart, blackRemainingTime);
+		return GameState.of(board, whitePlayer, blackPlayer);
+	}
+
+	public ImmutableList<PlayerState> getPlayerStates() {
+		final List<PlayerState> playerStates = new ArrayList<>();
+		Instant time = startTime;
+		Duration[] remainingTimes = new Duration[] { clockDuration, clockDuration };
+		for (int i = 0; i < moves.size(); i++) {
+			final MoveEntity move = moves.get(i);
+			final int side = i % 2;
+			playerStates.add(PlayerState.of(side == 0 ? Side.WHITE : Side.BLACK, time, remainingTimes[side]));
+			remainingTimes[side] = remainingTimes[side].minus(move.getDuration());
+			remainingTimes[side] = remainingTimes[side].plus(clockIncrement);
+			time = time.plus(move.getDuration());
+		}
+		return ImmutableList.copyOf(playerStates);
+	}
 }
