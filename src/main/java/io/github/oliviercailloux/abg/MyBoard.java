@@ -10,11 +10,11 @@ import javax.persistence.Id;
 @Entity
 public abstract class MyBoard {
 
-	@Id
-	@GeneratedValue
-	int id;
+    @Id
+    @GeneratedValue
+    int id;
 
-	protected abstract ChessBoard doMoves(List<MoveEntity> moves) throws MoveException;
+    protected abstract ChessBoard doMoves(List<MoveEntity> moves) throws MoveException;
 
-	protected abstract Side getSideToMove();
+    protected abstract Side getSideToMove();
 }
