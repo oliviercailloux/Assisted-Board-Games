@@ -42,9 +42,9 @@ See: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/m
 
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerPlaysGame%20documentation.adoc[Game scenarios]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/PlayerState%20sequence%20diagram%20documentation.adoc[The overall application course (Sequence Diagram)]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Resources%20documentation.adoc[Resources]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/GameManagement_Documentation.adoc[Game Management (Class diagram)]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Game%20clock%20documentation.adoc[Game Clock]
- - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Resources%20documentation.adoc[Resources]
  - the ABG-Tache41 sequence diagram [To be added]
 
 == The mechanics of the games
