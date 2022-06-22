@@ -12,18 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- *
- * @author elbaylot
+ * 
+ * 
  *
  */
 @Entity
-@Table(name = "boards")
-public class ChessBoard {
+public class ChessBoard extends MyBoard {
 
   public static final ChessBoard STARTING_CHESS_BOARD = new ChessBoard();
-  @Id
-  @GeneratedValue
-  int id;
+
   String fen;
   Side sideToMove;
 
@@ -60,6 +57,7 @@ public class ChessBoard {
     return fen;
   }
 
+  @Override
   public Side getSideToMove() {
     return sideToMove;
   }
@@ -72,6 +70,7 @@ public class ChessBoard {
     return createChessBoard(board);
   }
 
+  @Override
   public ChessBoard doMoves(List<MoveEntity> moves) throws MoveException {
     final Board board = asBoard();
     for (MoveEntity move : moves) {
