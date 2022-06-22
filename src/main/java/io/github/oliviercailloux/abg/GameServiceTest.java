@@ -10,22 +10,22 @@ import org.slf4j.LoggerFactory;
 
 @RequestScoped
 public class GameServiceTest {
-	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(GameServiceTest.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(GameServiceTest.class);
 
-	@Inject
-	EntityManager em;
+  @Inject
+  EntityManager em;
 
-	@Inject
-	QueryHelper helper;
+  @Inject
+  QueryHelper helper;
 
-	@Transactional
-	public List<GameEntity> getAll() {
-		return em.createQuery(helper.selectAll(GameEntity.class)).getResultList();
-	}
+  @Transactional
+  public List<GameEntity> getAll() {
+    return em.createQuery(helper.selectAll(GameEntity.class)).getResultList();
+  }
 
-	@Transactional
-	public void persist(GameEntity game) {
-		em.persist(game);
-	}
+  @Transactional
+  public void persist(GameEntity game) {
+    em.persist(game);
+  }
 }

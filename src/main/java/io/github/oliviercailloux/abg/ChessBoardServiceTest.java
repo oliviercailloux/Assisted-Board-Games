@@ -10,22 +10,22 @@ import org.slf4j.LoggerFactory;
 
 @RequestScoped
 public class ChessBoardServiceTest {
-	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(ChessBoardServiceTest.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(ChessBoardServiceTest.class);
 
-	@Inject
-	EntityManager em;
+  @Inject
+  EntityManager em;
 
-	@Inject
-	QueryHelper helper;
+  @Inject
+  QueryHelper helper;
 
-	@Transactional
-	public List<ChessBoard> getAll() {
-		return em.createQuery(helper.selectAll(ChessBoard.class)).getResultList();
-	}
+  @Transactional
+  public List<ChessBoard> getAll() {
+    return em.createQuery(helper.selectAll(ChessBoard.class)).getResultList();
+  }
 
-	@Transactional
-	public void persist(ChessBoard chessboard) {
-		em.persist(chessboard);
-	}
+  @Transactional
+  public void persist(ChessBoard chessboard) {
+    em.persist(chessboard);
+  }
 }

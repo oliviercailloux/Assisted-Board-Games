@@ -1,8 +1,6 @@
 package io.github.oliviercailloux.abg;
 
-
 import static com.google.common.base.Preconditions.checkNotNull;
-
 
 import com.github.bhlangonijr.chesslib.Board;
 import com.github.bhlangonijr.chesslib.Side;
@@ -13,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
 /**
  *
  * @author elbaylot
@@ -24,14 +20,12 @@ import javax.persistence.Table;
 @Table(name = "boards")
 public class ChessBoard {
 
-
   public static final ChessBoard STARTING_CHESS_BOARD = new ChessBoard();
   @Id
   @GeneratedValue
   int id;
   String fen;
   Side sideToMove;
-
 
   ChessBoard() {
     this.fen = GameEntity.STARTING_FEN_POSITION;

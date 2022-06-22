@@ -10,22 +10,22 @@ import org.slf4j.LoggerFactory;
 
 @RequestScoped
 public class MoveService {
-	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(MoveService.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(MoveService.class);
 
-	@Inject
-	EntityManager em;
+  @Inject
+  EntityManager em;
 
-	@Inject
-	QueryHelper helper;
+  @Inject
+  QueryHelper helper;
 
-	@Transactional
-	public List<MoveEntity> getAll() {
-		return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
-	}
+  @Transactional
+  public List<MoveEntity> getAll() {
+    return em.createQuery(helper.selectAll(MoveEntity.class)).getResultList();
+  }
 
-	@Transactional
-	public void persist(MoveEntity move) {
-		em.persist(move);
-	}
+  @Transactional
+  public void persist(MoveEntity move) {
+    em.persist(move);
+  }
 }
