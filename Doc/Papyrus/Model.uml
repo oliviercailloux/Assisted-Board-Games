@@ -296,14 +296,9 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_EL29oKhcEeuHvIPllWn88Q" name="GameState" visibility="private">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_EL29oahcEeuHvIPllWn88Q" name="board" visibility="private" type="_EWvNYKhbEeuHvIPllWn88Q"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_EL29oqhcEeuHvIPllWn88Q" name="playerstates" visibility="private" type="_6uo4gOnfEeyHjN3WZX3w1g" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_qd4Z8dB8Eey1FY_E4E30jg" name="chessboard" type="_EWvNYKhbEeuHvIPllWn88Q" aggregation="composite" association="_qd2kwNB8Eey1FY_E4E30jg">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qd5oENB8Eey1FY_E4E30jg"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qd5oEdB8Eey1FY_E4E30jg" value="1"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_zb0-gOzaEeyAbYRurX1OzQ" name="playerstate" type="_jNMkMKhbEeuHvIPllWn88Q" aggregation="composite" association="_zbx7MOzaEeyAbYRurX1OzQ">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zb0-gezaEeyAbYRurX1OzQ" value="2"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zb1lkOzaEeyAbYRurX1OzQ" value="2"/>
         </ownedAttribute>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_FH6GUKn1EeuKIJWfKMwhxw" name="of" isStatic="true">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_M0W0oKn1EeuKIJWfKMwhxw" name="board" type="_EWvNYKhbEeuHvIPllWn88Q"/>
@@ -472,13 +467,21 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_oEvaoOneEeyHjN3WZX3w1g" name="Move"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_6uo4gOnfEeyHjN3WZX3w1g" name="EnumMap&lt;Side, PlayerState>"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_zbx7MOzaEeyAbYRurX1OzQ" memberEnd="_zb0-gOzaEeyAbYRurX1OzQ _zb1lkezaEeyAbYRurX1OzQ">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zbzwYOzaEeyAbYRurX1OzQ" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zbzwYezaEeyAbYRurX1OzQ" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_zb1lkezaEeyAbYRurX1OzQ" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" association="_zbx7MOzaEeyAbYRurX1OzQ"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_jCXf8OzeEeyAbYRurX1OzQ" client="_Z6164NB7Eey1FY_E4E30jg" supplier="_dG2j4NB7Eey1FY_E4E30jg"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_vOqQgPIqEeySDYhT0gDY3Q" name="Other Player" memberEnd="_vOreovIqEeySDYhT0gDY3Q _vOsFsPIqEeySDYhT0gDY3Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vOreoPIqEeySDYhT0gDY3Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vOreofIqEeySDYhT0gDY3Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_vOreovIqEeySDYhT0gDY3Q" name="playerstate" type="_jNMkMKhbEeuHvIPllWn88Q" association="_vOqQgPIqEeySDYhT0gDY3Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_vOsFsPIqEeySDYhT0gDY3Q" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" association="_vOqQgPIqEeySDYhT0gDY3Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_wioZ0PIqEeySDYhT0gDY3Q" name="Current Player" memberEnd="_wipn8vIqEeySDYhT0gDY3Q _wiqPAPIqEeySDYhT0gDY3Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wipn8PIqEeySDYhT0gDY3Q" source="org.eclipse.papyrus">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wipn8fIqEeySDYhT0gDY3Q" key="nature" value="UML_Nature"/>
+        </eAnnotations>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_wipn8vIqEeySDYhT0gDY3Q" name="playerstate" type="_jNMkMKhbEeuHvIPllWn88Q" association="_wioZ0PIqEeySDYhT0gDY3Q"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="_wiqPAPIqEeySDYhT0gDY3Q" name="gamestate" type="_EL29oKhcEeuHvIPllWn88Q" association="_wioZ0PIqEeySDYhT0gDY3Q"/>
+      </packagedElement>
     </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Model" xmi:id="_F6eGENjkEeuQJ9fMQkrPfA" name="CheckerBoard class diagram">
