@@ -22,6 +22,7 @@ public class ChessBoard extends MyBoard {
   public static final ChessBoard STARTING_CHESS_BOARD = new ChessBoard();
 
   String fen;
+  
   Side sideToMove;
 
   ChessBoard() {
