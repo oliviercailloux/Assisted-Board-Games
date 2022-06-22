@@ -38,7 +38,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . {c} Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
 . Create the repository "state" in the repository "model" and move the classes `GameState` and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
-. Move all the classes from the repository `utils`, no modifation is needed. 
+. {c} Move all the classes from the repository `utils`, no modifation is needed. 
 . {c} Move the classes ChessService and GameRessource from the latest jetty version to the new quarkus version and check if everything works.
 - {c} Implement the methods `createGame()` and `getGame()` of the `GameResource` class and test them.
 - {c} Implement the methods `addMove()` and `getMoves()` of the `GameResource` class, Move `MoveDAO` class and test them, the method `addMove` allow us to test the `MoveDAO` class.
