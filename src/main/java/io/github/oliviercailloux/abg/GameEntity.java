@@ -98,7 +98,6 @@ public class GameEntity {
 
   public void setMyBoard(MyBoard board) {
     startBoard = board;
-
   }
 
   void setStartTime(Instant startTime) {
