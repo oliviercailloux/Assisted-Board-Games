@@ -65,7 +65,7 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . Check the use of the table board after retrieving checker.
 . Display in js a message for the end of a game when the time runs out. Display in js a message for the end of a game when there is a winner.
 . Add a table containing the winners and losers of each match. 
-. Hide the buttons related to the clock during the game.
+. [Not to be done] Hide the buttons related to the clock during the game.
 . Indicate the Id of the game in progress. Display an error message when the id game that wants to be loaded doesn't exist.
 . Add a feature that allows to delete a game from the database. 
 . Do unit tests for these classes: 
