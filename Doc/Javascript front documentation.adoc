@@ -4,6 +4,8 @@ This is a documentation for the front-end of the project in Javascript. The scri
 
 == The different files
 
+There are currently 3 types of file, each with a specific function in mind when created.
+
 === Generic scripts
 
 The script `common.js` contains generic functions that could be useful in other scripts. For now, it only has an object `database` with two functions in relation to the database.
