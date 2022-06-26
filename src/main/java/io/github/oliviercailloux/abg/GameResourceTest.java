@@ -18,33 +18,33 @@ import org.slf4j.LoggerFactory;
 @Path("/game")
 @RequestScoped
 public class GameResourceTest {
-	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(GameResourceTest.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(GameResourceTest.class);
 
-	@Context
-	UriInfo uriInfo;
+  @Context
+  UriInfo uriInfo;
 
-	@Inject
-	GameServiceTest gameS;
+  @Inject
+  GameServiceTest gameS;
 
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public List<Integer> getMoves() {
-		LOGGER.info("Running GET.");
-		final List<GameEntity> allGames = gameS.getAll();
-		LOGGER.info("Returning {} items.", allGames.size());
-		return allGames.stream().map(mv -> mv.getId()).collect(Collectors.toList());
-	}
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public List<Integer> getMoves() {
+    LOGGER.info("Running GET.");
+    final List<GameEntity> allGames = gameS.getAll();
+    LOGGER.info("Returning {} items.", allGames.size());
+    return allGames.stream().map(mv -> mv.getId()).collect(Collectors.toList());
+  }
 
-	@POST
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response postMove() {
-		LOGGER.info("Running POST.");
-		final GameEntity game = new GameEntity();
+  @POST
+  @Produces(MediaType.TEXT_PLAIN)
+  public Response postMove() {
+    LOGGER.info("Running POST.");
+    final GameEntity game = new GameEntity();
 
-		gameS.persist(game);
+    gameS.persist(game);
 
-		LOGGER.info("Redirecting.");
-		return Response.seeOther(uriInfo.getAbsolutePath()).build();
-	}
+    LOGGER.info("Redirecting.");
+    return Response.seeOther(uriInfo.getAbsolutePath()).build();
+  }
 }

@@ -67,17 +67,17 @@ public class GameEntity {
     clockDuration = Duration.ofSeconds(1800);
     clockIncrement = Duration.ofSeconds(10);
     moves = new ArrayList<>(); // avoid NPE in tests
-      startBoard = ChessBoard.createChessBoard();
+    startBoard = ChessBoard.createChessBoard();
   }
 
   public GameEntity(GameState gameState) {
     this();
-   this.startBoard = gameState.getChessBoard();
-   }
+    this.startBoard = gameState.getChessBoard();
+  }
 
   public GameEntity(GameState gameState, Instant startTime, Duration clockDuration,
       Duration clockIncrement) {
-      this(gameState);
+    this(gameState);
     this.startTime = startTime;
     this.clockDuration = clockDuration;
     this.clockIncrement = clockIncrement;
@@ -91,7 +91,7 @@ public class GameEntity {
     return startTime;
   }
 
-  public void setStartTime(Instant startTime) {
+  void setStartTime(Instant startTime) {
     this.startTime = startTime;
   }
 
@@ -123,12 +123,12 @@ public class GameEntity {
     return moves.stream().map(MoveEntity::getDuration).reduce(Duration.ZERO, Duration::plus);
   }
 
-public Side getStartSide() {
-  return startBoard.getSideToMove();
-}
+  public Side getStartSide() {
+    return startBoard.getSideToMove();
+  }
 
   public ChessBoard getStartBoard() {
-   return startBoard;
+    return startBoard;
   }
 
   public Duration getCurrentMoveDuration() {
