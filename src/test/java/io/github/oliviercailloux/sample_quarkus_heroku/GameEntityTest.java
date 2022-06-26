@@ -37,18 +37,16 @@ public class GameEntityTest {
     ArrayList moves = new ArrayList<>(); // avoid NPE in tests
     assertEquals(moves, game.getMoves());
     assertEquals(GameEntity.STARTING_FEN_POSITION, game.getStartBoard().getFen());
-    LOGGER.info("The game entity has been successfully instantiated");
+    LOGGER.info("The game entity has been successfully instantiated by default");
   }  
   
   @Test
   public void testGameEntity() { // Test du constructeur de GameEntity
-    game = new GameEntity(gameState, Instant.);
+    game = new GameEntity(gameState, fixedInstant, Duration.ofSeconds(1800),Duration.ofSeconds(10));
     assertEquals(Duration.ofSeconds(1800), game.getClockDuration());
     assertEquals(Duration.ofSeconds(10), game.getClockIncrement());
-    ArrayList moves = new ArrayList<>(); // avoid NPE in tests
-    assertEquals(moves, game.getMoves());
     assertEquals(GameEntity.STARTING_FEN_POSITION, game.getStartBoard().getFen());
-    LOGGER.info("The game entity has been successfully instantiated");
+    LOGGER.info("The game entity has been successfully instantiated with the parameters");
   }
 
   @Test
@@ -60,13 +58,13 @@ public class GameEntityTest {
 
   }
 
-  @Test
-  public void testcomputeRemainingTime() {
-   
-    game.setStartTime(fixedInstant);
-    assertNotNull(game.getStartTime());
-    assertEquals(fixedInstant, game.getStartTime());
-  }
+//  @Test
+//  public void testcomputeRemainingTime() {
+//   
+//    game.setStartTime(fixedInstant);
+//    assertNotNull(game.getStartTime());
+//    assertEquals(fixedInstant, game.getStartTime());
+//  }
 }
 
 // @Test
