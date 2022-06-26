@@ -79,7 +79,7 @@ class GameManager {
             }
         }
 
-        console.log("loadGame " + gameId);
+        $('#game-id-display').html(gameId);
 
         this.gameId = gameId;
         this.CBM.updateGameId(gameId);
