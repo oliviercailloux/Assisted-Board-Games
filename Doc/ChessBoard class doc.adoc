@@ -1,0 +1,31 @@
+= ChessBoard class 
+
+Before talking about the class itself, some explanations are necessary. The notation used to save the state of a given game is the https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation[Fen] notation. It is a string that describes precisely the position of each piece in the chessboard.
+
+A given game can be recognized by its ID. Each game is nothing more than a succession of moves and each move leads to a change of state. So a game can be translated as a succession of states of the board. Each state being represented by its https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation[Fen] notation.
+
+It is therefore easy to understand that for each move it will be necessary to create a new chessboard with its own Fen. This set of created chessboards will be recognized as belonging to the same game because they will have the same ID.
+
+*Class Diagram*
+
+_You have below an image showing the class diagram:_
+Link to the diagram: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/ChessBoard.svg[Here]
+
+image::./Diagrams/ChessBoard.svg[classes,900,750]
+
+*Construction of a ChessBoard*
+
+* a chessboard has 3 attributes, an `id` which is an integer, a `fen` which is a string and the side that played which is an object of type `Side`. 
+* the methods `createChessBoard()` are static factory methods. It is possible from these methods to build a chessboard either with a board or with a given fen. In the case where a fen is transmitted it is transformed into a board using the method `loadFromFen(fen)`.
+* The constructor requires a board, hence the process of transforming a fen into a board.
+
+*Movements on the chessboard*
+
+* It is possible to make one or more movements on the board using the `doMove()` and `doMoves()` methods.
+* Performing a simple movement requires to pass as argument an object of type `MoveEntity` in the case of a simple movement. In the case of multiple moves a list of `MoveEntity` is needed.
+* In any case, the move, whether single or multiple, will lead to the creation of a `Chessboard` with the method `createChessBoard(board)`. We can specify that even in the case of the multiple movement, only one `Chessboard` will be created. This created `Chessboard` will be different from the one present before the movement by its `fen`.
+
+*Other methods*
+
+* the method *asBoard()* allows to create an object of type `board` from the `fen` of a `Chessboard` using the method `loadFromFen(fen)`.
+* the methods *getId()*, *getFen()* and *getSideToMove()* allow to get the attributes of a given 'Chessboard'

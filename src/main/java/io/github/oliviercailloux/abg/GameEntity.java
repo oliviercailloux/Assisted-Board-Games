@@ -32,7 +32,6 @@ import org.hibernate.annotations.CreationTimestamp;
  *
  */
 @Entity
-@Table(name = "games")
 @NamedQueries({
     @NamedQuery(name = "Game.find", query = "SELECT e FROM GameEntity e WHERE e.id = :id"),
     @NamedQuery(name = "Game.getLastGameId", query = "SELECT MAX(e.id) FROM GameEntity e")})
@@ -58,7 +57,7 @@ public class GameEntity {
    */
   @OneToOne
   @Cascade(CascadeType.ALL)
-  ChessBoard startBoard;
+  MyBoard startBoard;
   @Cascade(CascadeType.ALL)
   @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
   List<MoveEntity> moves;
@@ -67,17 +66,23 @@ public class GameEntity {
     clockDuration = Duration.ofSeconds(1800);
     clockIncrement = Duration.ofSeconds(10);
     moves = new ArrayList<>(); // avoid NPE in tests
-      startBoard = ChessBoard.createChessBoard();
+  }
+
+  public static GameEntity cerateNewGameWithChess() {
+    GameEntity game = new GameEntity();
+    ChessBoard startBoard = ChessBoard.createChessBoard();
+    game.setMyBoard(startBoard);
+    return game;
   }
 
   public GameEntity(GameState gameState) {
     this();
-   this.startBoard = gameState.getChessBoard();
-   }
+    this.startBoard = gameState.getChessBoard();
+  }
 
   public GameEntity(GameState gameState, Instant startTime, Duration clockDuration,
       Duration clockIncrement) {
-      this(gameState);
+    this(gameState);
     this.startTime = startTime;
     this.clockDuration = clockDuration;
     this.clockIncrement = clockIncrement;
@@ -89,6 +94,10 @@ public class GameEntity {
 
   public Instant getStartTime() {
     return startTime;
+  }
+
+  public void setMyBoard(MyBoard board) {
+    startBoard = board;
   }
 
   void setStartTime(Instant startTime) {
@@ -123,12 +132,12 @@ public class GameEntity {
     return moves.stream().map(MoveEntity::getDuration).reduce(Duration.ZERO, Duration::plus);
   }
 
-public Side getStartSide() {
-  return startBoard.getSideToMove();
-}
+  public Side getStartSide() {
+    return startBoard.getSideToMove();
+  }
 
-  public ChessBoard getStartBoard() {
-   return startBoard;
+  public MyBoard getStartBoard() {
+    return startBoard;
   }
 
   public Duration getCurrentMoveDuration() {

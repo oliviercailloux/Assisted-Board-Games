@@ -18,33 +18,33 @@ import org.slf4j.LoggerFactory;
 @Path("/moves")
 @RequestScoped
 public class MoveResource {
-	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(MoveResource.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(MoveResource.class);
 
-	@Context
-	UriInfo uriInfo;
+  @Context
+  UriInfo uriInfo;
 
-	@Inject
-	MoveService moveS;
+  @Inject
+  MoveService moveS;
 
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public List<Integer> getMoves() {
-		LOGGER.info("Running GET.");
-		final List<MoveEntity> allMoves = moveS.getAll();
-		LOGGER.info("Returning {} items.", allMoves.size());
-		return allMoves.stream().map(mv -> mv.getId()).collect(Collectors.toList());
-	}
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public List<Integer> getMoves() {
+    LOGGER.info("Running GET.");
+    final List<MoveEntity> allMoves = moveS.getAll();
+    LOGGER.info("Returning {} items.", allMoves.size());
+    return allMoves.stream().map(mv -> mv.getId()).collect(Collectors.toList());
+  }
 
-	@POST
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response postMove() {
-		LOGGER.info("Running POST.");
-		final MoveEntity move = new MoveEntity();
+  @POST
+  @Produces(MediaType.TEXT_PLAIN)
+  public Response postMove() {
+    LOGGER.info("Running POST.");
+    final MoveEntity move = new MoveEntity();
 
-		moveS.persist(move);
+    moveS.persist(move);
 
-		LOGGER.info("Redirecting.");
-		return Response.seeOther(uriInfo.getAbsolutePath()).build();
-	}
+    LOGGER.info("Redirecting.");
+    return Response.seeOther(uriInfo.getAbsolutePath()).build();
+  }
 }
