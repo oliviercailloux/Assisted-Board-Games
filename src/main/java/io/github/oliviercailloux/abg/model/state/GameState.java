@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import com.github.bhlangonijr.chesslib.Side;
 import io.github.oliviercailloux.abg.ChessBoard;
+import io.github.oliviercailloux.abg.MyBoard;
 import java.util.EnumMap;
 
 /**
@@ -14,9 +15,9 @@ import java.util.EnumMap;
 public class GameState {
 
   private EnumMap<Side, PlayerState> playerStates;
-  private ChessBoard board;
+  private MyBoard board;
 
-  private GameState(ChessBoard board, PlayerState whitePlayer, PlayerState blackPlayer) {
+  private GameState(MyBoard board, PlayerState whitePlayer, PlayerState blackPlayer) {
     requireNonNull(board);
     requireNonNull(whitePlayer);
     requireNonNull(blackPlayer);
@@ -30,7 +31,7 @@ public class GameState {
     return playerStates;
   }
 
-  public ChessBoard getChessBoard() {
+  public MyBoard getChessBoard() {
     return board;
   }
 
@@ -46,7 +47,7 @@ public class GameState {
     return getPlayerState(board.getSideToMove());
   }
 
-  public static GameState of(ChessBoard board, PlayerState whitePlayer, PlayerState blackPlayer) {
+  public static GameState of(MyBoard board, PlayerState whitePlayer, PlayerState blackPlayer) {
     return new GameState(board, whitePlayer, blackPlayer);
   }
 }

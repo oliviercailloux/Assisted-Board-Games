@@ -58,7 +58,7 @@ class GameManager {
         };
 
         let gameId;
-        database.post('/v0/api/v1/game/new', objSent, '', (id) => {
+        database.post('/v0/api/v1/game/chess/new', objSent, '', (id) => {
             return gameId = id;
         });
         this.loadGame(gameId);

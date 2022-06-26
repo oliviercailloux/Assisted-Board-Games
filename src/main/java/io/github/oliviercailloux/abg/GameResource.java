@@ -42,18 +42,25 @@ public class GameResource {
   ChessService chessService;
 
   @POST
-  @Path("new")
+  @Path("{typeGame}/new")
   @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
   @Produces(MediaType.TEXT_PLAIN)
-  public int createGame(@FormParam("duration") int duration,
-      @FormParam("increment") int increment) {
-    LOGGER.info("POST game/new " + duration + increment);
-    GameEntity game = GameEntity.cerateNewGameWithChess();
+  public int createGame(@FormParam("duration") int duration, @FormParam("increment") int increment,
+      @PathParam("typeGame") String typeGame) {
+    LOGGER.info("POST game/{typeGame}/new " + duration + increment);
+    GameEntity game;
+    if (typeGame.equals("chess")) {
+      game = GameEntity.cerateNewGameWithChess();
+    } else {
+      game = GameEntity.cerateNewGameWithChecker();
+    }
+
     Duration clockIncrement = game.getClockIncrement();
     if (increment != 0)
       clockIncrement = Duration.ofSeconds(increment);
     if (duration != 0) {
-      ChessBoard board = ChessBoard.createChessBoard();
+      MyBoard board =
+          typeGame.equals("chess") ? ChessBoard.createChessBoard() : CheckerBoard.initialBoard();
       game = new GameEntity(
           GameState.of(board, PlayerState.of(Side.WHITE), PlayerState.of(Side.BLACK)),
           Instant.now(), Duration.ofSeconds(duration), clockIncrement);
@@ -69,7 +76,7 @@ public class GameResource {
     LOGGER.info("GET game/{}", gameId);
     final GameEntity game = chessService.getGame(gameId);
     final List<MoveEntity> moves = game.getMoves();
-    final ChessBoard board = game.getStartBoard().doMoves(moves);
+    final MyBoard board = game.getStartBoard().doMoves(moves);
     return board.getFen();
   }
 
