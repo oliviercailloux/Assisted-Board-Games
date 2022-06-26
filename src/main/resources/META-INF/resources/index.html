@@ -40,8 +40,105 @@
         </div>-->
     </div>
 
-    <script type="text/javascript" src="js/index.js"></script>
-	<!-- Both of the icons have been downloaded from Fontawesome. Styling was applied. Links: https://fontawesome.com/icons/chess?style=solid
-	an https://fontawesome.com/icons/chess-board?style=solid Licence: https://fontawesome.com/license -->
+
+	<h2>GET Moves</h2>
+	<p> If you want to get  moves of any game, you need to click on Moves then  change its ID in the URL (by default it is 1) </p>
+	<p>
+		<a href="v0/api/v1/game/1/moves">Moves</a>
+	</p>
+	
+	<h2>GET Remaining time player</h2>
+	<p>
+		To test this function, please don't play any move, beacause it need to be a valid move !
+	</p>
+	<form action="http://localhost:8080" method="post" name="myForm" id="myForm2">
+		<div>
+    		<label for="id2">ID of game : </label>
+    		<input name="id2" id="id2" value="1">
+  		</div>
+ 		<div>
+    		<label for="side">Side : black or white</label>
+    		<input name="side" id="side" value="white">
+  		</div>
+  		
+		<input id="submit2" type="button" name="submit2" value="Get Time">
+	</form>
+	
+	<h2>GET Help</h2>
+	<p>
+		To test this function, please instanciate a new game and save its ID !
+	</p>
+	<form action="http://localhost:8080" method="post" name="myFormHelp" id="myFormHelpid">
+		<div>
+    		<label for="idHelp"> ID of the game : </label>
+    		<input name="idHelp" id="idHelp" value="1">
+  		</div>
+  		
+		<input id="submitHelp" type="button" name="submitHelp" value="Get Help">
+	</form>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+    $(document).ready(function(){
+        //click on button submit
+        $("#submit2").on('click', function(){
+            //send ajax
+            let id2 = $("#id2").val();
+			let side = $("#side").val();
+			var url = "v0/api/v1/game/" + id2 + "/clock/" + side ;
+			console.log(id2);
+            $.ajax({
+                url: url, //url where to submit the request
+                type : "GET", //type of action POST || GET
+                dataType : 'json', //data type
+                contentType: 'application/json',
+                success : function(result) {
+                    //you can see the result from the console
+                    //tab of the developer tools
+                    $divb = ("<div>" + side + " : " + result + "</div>");
+                    $("body").append($divb);   
+                },
+                error: function(xhr, resp, text) {
+                    console.log(url);
+                }
+            })
+        });
+    });
+    
+    $(document).ready(function(){
+        //click on button submit
+        $("#submitHelp").on('click', function(){
+            //send ajax
+            let idHelp = $("#idHelp").val();
+			var url = "v0/api/v1/help";
+			console.log(idHelp);
+            $.ajax({
+                url: url, //url where to submit the request
+                type : "GET", //type of action POST || GET
+                dataType : 'json', //data type
+                contentType: 'text/plain',
+                data : {
+                	gid : idHelp
+                },
+                success : function(result) {
+                    //you can see the result from the console
+                    //tab of the developer tools
+                	//$divb = ("<div>" + result + "</div>");
+                    //$("body").append($divb);   
+                    console.log(result);
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr);
+					window.alert(xhr.responseText); 
+  
+                }
+            })
+        });
+    });
+</script>
+	
+	
+	
+
 </body>
 </html>
