@@ -30,7 +30,6 @@ public class GameEntityTest {
   final Instant fixedInstant =
       Instant.now(Clock.fixed(Instant.parse("2022-06-22T10:00:00Z"), ZoneOffset.UTC));
   private static final Logger LOGGER = LoggerFactory.getLogger(GameEntityTest.class);
-  
 
   @Test
   public void testEntity() { // Test du constructeur de GameEntity

@@ -28,14 +28,14 @@ public class ChessBoardTest {
   static MoveEntity moveEntity;
 
   @Test
-  public void testCreateChessBoard() { //Test de la méthode createChessBoard()
+  public void testCreateChessBoard() { // Test de la méthode createChessBoard()
     chessboard = ChessBoard.createChessBoard();
     assertEquals(GameEntity.STARTING_FEN_POSITION, chessboard.getFen());
     assertEquals(Side.WHITE, chessboard.getSideToMove());
   }
 
   @Test
-  public void testCreateChessBoardFromFen() { //Test de la méthode createChessBoard(String fen)
+  public void testCreateChessBoardFromFen() { // Test de la méthode createChessBoard(String fen)
     chessboard =
         ChessBoard.createChessBoard("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1");
     assertEquals("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
