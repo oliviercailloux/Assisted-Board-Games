@@ -53,6 +53,11 @@ public class GameEntityTest {
 
   @Test
   public void testcomputeRemainingTime() {
+    final Instant fixedInstant =
+        Instant.now(Clock.fixed(Instant.parse("2022-06-22T10:00:00Z"), ZoneOffset.UTC));
+    game.setStartTime(fixedInstant);
+    assertNotNull(game.getStartTime());
+    assertEquals(fixedInstant, game.getStartTime());
 
   }
 }

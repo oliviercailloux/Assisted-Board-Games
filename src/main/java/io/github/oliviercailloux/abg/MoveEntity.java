@@ -40,13 +40,13 @@ public class MoveEntity {
 	 @ManyToOne
 	 GameEntity game;
 
-	public MoveEntity() {
+	MoveEntity() {
 		from = Square.NONE;
 		to = Square.NONE;
 		promotion = Piece.NONE;
 	}
 
-	public MoveEntity( GameEntity gameEntity, Square from, Square to, Piece promotion, Duration duration) {
+	MoveEntity( GameEntity gameEntity, Square from, Square to, Piece promotion, Duration duration) {
 		 this.game = Objects.requireNonNull(gameEntity);
 		this.duration = duration == null ? Duration.ZERO : duration;
 		this.from = from;
