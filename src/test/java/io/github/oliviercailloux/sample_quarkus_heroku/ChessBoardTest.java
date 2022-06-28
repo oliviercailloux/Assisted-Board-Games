@@ -20,6 +20,8 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class ChessBoardTest {
   static ChessBoard chessboard;
+  static Board board;
+  List<MoveEntity> moves;
   static Square from;
   static Square to;
   static Piece promotion;
@@ -27,7 +29,6 @@ public class ChessBoardTest {
   static GameEntity game;
   static MoveEntity moveEntity;
 
-  @Test
   public void testCreateChessBoard() {
     chessboard = ChessBoard.createChessBoard();
     assertEquals(GameEntity.STARTING_FEN_POSITION, chessboard.getFen());
@@ -37,7 +38,22 @@ public class ChessBoardTest {
   @Test
   public void testCreateChessBoardFromFen() {
     chessboard = ChessBoard.createChessBoard("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1");
-    assertEquals("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", chessboard.getFen());
+    assertEquals("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", board.getFen());
     assertEquals(Side.BLACK, chessboard.getSideToMove());
+  }
+
+
+  @Test
+  public void testDoMove() throws MoveException {
+    from = Square.A7;
+    to = Square.B3;
+    promotion = Piece.BLACK_KING;
+    game = new GameEntity();
+    move = MoveDAO.createMoveDAO(from, to, promotion);
+    moveEntity = MoveEntity.createMoveEntity(game, move, Duration.ofSeconds(1800));
+    moves = new ArrayList<>();
+    moves.add(moveEntity);
+    board = board.doMoves(moves);
+    assertNotNull(board);
   }
 }

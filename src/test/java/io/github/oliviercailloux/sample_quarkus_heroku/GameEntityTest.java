@@ -48,5 +48,30 @@ public class GameEntityTest {
     assertEquals(GameEntity.STARTING_FEN_POSITION, game.getStartBoard().getFen());
     LOGGER.info("The game entity has been successfully instantiated with the parameters");
   }
+
+  @Test
+  public void testSetStartTime() {
+
+    assertNotNull(game.getStartTime());
+    assertEquals(fixedInstant, game.getStartTime());
+    LOGGER.info("The start time has been successfully instantiated");
+
+  }
+
+//  @Test
+//  public void testcomputeRemainingTime() {
+//   
+//    game.setStartTime(fixedInstant);
+//    assertNotNull(game.getStartTime());
+//    assertEquals(fixedInstant, game.getStartTime());
+//  }
 }
 
+// @Test
+// public void testGetCurrentMoveDuration() {
+// final Instant now = Instant.now();
+//
+// final Duration gameDuration = getGameDuration();
+// final Instant lastMove = startTime.plus(gameDuration);
+// }
+// }
