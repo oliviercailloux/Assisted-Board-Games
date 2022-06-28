@@ -38,36 +38,45 @@ Currently, we have a game of Chess and a game of Checkers, but they are quite br
 . {c} Move the entity `ChessBoard` from the latest jetty version to the new quarkus version and check if everything works
 . Create the repository "state" in the repository "model" and move the classes `GameState` and `PlayerState` from the latest jetty version to the new quarkus version and check if everything works 
 . Move the classes `GameDAO` and `MoveDAO` from the latest jetty version to the new quarkus version and check if everything works
-. Move all the classes from the repository `utils`, no modifation is needed. 
-. Move the classes ChessService and GameRessource from the latest jetty version to the new quarkus version and check if everything works.
+. {c} Move all the classes from the repository `utils`, no modifation is needed. 
+. {c} Move the classes ChessService and GameRessource from the latest jetty version to the new quarkus version and check if everything works.
 - {c} Implement the methods `createGame()` and `getGame()` of the `GameResource` class and test them.
-- Implement the methods `addMove()` and `getMoves()` of the `GameResource` class, Move `MoveDAO` class and test them, the method `addMove` allow us to test the `MoveDAO` class.
-- Merge the two methods `getWhiteRemainingTime` and `getBlackRemainingTime` of the `GameResource` class (version of jetty),    because there is a redundancy in the code then test it. The method retrieves the remaining time of both players. 
-. Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
+- {c} Implement the methods `addMove()` and `getMoves()` of the `GameResource` class, Move `MoveDAO` class and test them, the method `addMove` allow us to test the `MoveDAO` class.
+- {c} Merge the two methods `getWhiteRemainingTime` and `getBlackRemainingTime` of the `GameResource` class (version of jetty),    because there is a redundancy in the code then test it. The method retrieves the remaining time of both players. 
+. {c} Update the https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Diagrams/GameManagement.SVG[Game Management] diagram.
 . {c} Move original documentation on top of README.adoc and create chapters for the general documentation (max 5) and rearrange current documentation in those chapters. Make sure to include space for future documentation, it should be clear what is missing and should be done next.
 . {c} Update and standardize the documentation about `CheckerBoard` existing in two files (https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20class%20diagram%20documentation.adoc[CheckerBoard Class Diagram Documentation] / https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/CheckerBoard%20documentation.adoc[CheckerBoard Documentation]
 . Improve https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/diagrams/Doc/Diagrams/Checkerboard_class_diagram.svg[CheckBoard] diagram.
 . Create a new class diagram to document the ChessBoard class + documentation (similar to CheckerBoard documentation)
 . change the drag and drop move mode to a click and choose (chessbooard.js).
-. Propose a new set of generic classes (class diagrams) in order to generalize our approach of games (for example a Player class from which a ChessPlayer and CheckerPlayer could inherit). It could also be interesting to be more generic about the number of players (it could be more than 2 for example).
-. Document the existing resources (GameResource, HelpResource...) which are different depending on the type of game.
+. {c} Propose a new set of generic classes (class diagrams) in order to generalize our approach of games (for example a Player class from which a ChessPlayer and CheckerPlayer could inherit). It could also be interesting to be more generic about the number of players (it could be more than 2 for example).
+. {c} Document the existing resources (GameResource, HelpResource...) which are different depending on the type of game.
 . Create a diagram with all of the significant classes of the software, including the resources and services.
 . Create a sequence diagram which explains how a move for example is saved in the database (describes the classes that come into play for that action).
-. Redo the graphical interface and the quests in js based on the latest jetty version
+. {c} Redo the graphical interface and the quests in js based on the latest jetty version
 . {c} Change package sample_quarkus to abg.
-. Import the Chess Game GUI from Jetty, and test all the features that are repatriated until now (`NewGame`, `loadGame`,`getPlayerRemainingTime`,`addMove`,`getMoves` ).
+. Find a generalization system for ChessBoard and CheckerBoard on Java:
+- Create an abstract class `MyBoard`, and extend it to ChessBoard.
+- Implement `CheckerBoard` class which inherits from `MyBoard`, this class will contain a List of a `PiecePosition`. The class `PiecePosition` must be created too, it represent the position of the piece on the board.
 . Generalise the board by taking inspiration from the checkers board. For example, make a constructor that takes into account the size
 . Re-import every classes from the checker game.(In addition, link the classes to the front)
-. Move the class `helpRessource`, verify what it does, maybe it is suppose to indicate where to place the pieces. 
+. {c} Move the class `helpRessource`, verify what it does, maybe it is suppose to indicate where to place the pieces. 
 . Display in js the indication from `helpRessource`.
 . Check the use of the table board after retrieving checker.
 . Display in js a message for the end of a game when the time runs out. Display in js a message for the end of a game when there is a winner.
 . Add a table containing the winners and losers of each match. 
-. Display an error message when the id game that wants to be loaded doesn't exist. Hide the buttons related to the clock during the game.
-. Indicate the Id of the game in progress. Display the game history maybe add a foncyionality that allows to name a game 
+. [Not to be done] Hide the buttons related to the clock during the game.
+. Indicate the Id of the game in progress. Display an error message when the id game that wants to be loaded doesn't exist.
 . Add a feature that allows to delete a game from the database. 
-
-
+. Do unit tests for these classes: 
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/src/main/java/io/github/oliviercailloux/abg/ChessBoard.java[`Chessboard`]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/src/main/java/io/github/oliviercailloux/abg/GameEntity.java[`GameEntity`]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/src/main/java/io/github/oliviercailloux/abg/MoveEntity.java[`MoveEntity`]
+- https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/src/main/java/io/github/oliviercailloux/abg/GameResource.java[`GameRessource`]
+- `HelpRessource`
+. Reorganise java files.
+. Display the game history maybe add a fonctionality that allows to name a game.
+. Format the code with the google style patch
 
 == Original specifications (to be translated and adapted)
 * Les clients individuels des joueurs leur permettront de jouer en recevant l’assistance d’un ordinateur : le joueur peut de façon privée (sans le montrer à son adversaire) proposer un coup, et l’ordinateur lui montrera les meilleurs réponses à son coup. En limitant adéquatement la profondeur de recherche de l’ordinateur, cela pourrait permettre aux joueurs d’éviter les erreurs basiques, ou fournir un avantage compensatoire à un joueur plus faible, ou aider à l’apprentissage. (Pour commencer on choisira n’importe quelle façon simple de trouver des coups valables, à terme il serait bon d’utiliser une bibliothèque existante de recherche de bons coups)

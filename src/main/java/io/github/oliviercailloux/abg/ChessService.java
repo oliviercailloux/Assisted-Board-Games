@@ -58,8 +58,8 @@ public class ChessService {
 
   @Transactional
   public <T> void persist(T t) {
-//    em.getTransaction().begin();
+    // em.getTransaction().begin();
     em.persist(t);
-//    em.getTransaction().commit();
+    // em.getTransaction().commit();
   }
 }

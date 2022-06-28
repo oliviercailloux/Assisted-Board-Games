@@ -18,33 +18,33 @@ import org.slf4j.LoggerFactory;
 @Path("/chessboard")
 @RequestScoped
 public class ChessBoardResourceTest {
-	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(ChessBoardResourceTest.class);
+  @SuppressWarnings("unused")
+  private static final Logger LOGGER = LoggerFactory.getLogger(ChessBoardResourceTest.class);
 
-	@Context
-	UriInfo uriInfo;
+  @Context
+  UriInfo uriInfo;
 
-	@Inject
-	ChessBoardServiceTest chessS;
+  @Inject
+  ChessBoardServiceTest chessS;
 
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public List<Integer> getMoves() {
-		LOGGER.info("Running GET.");
-		final List<ChessBoard> allChess = chessS.getAll();
-		LOGGER.info("Returning {} items.", allChess.size());
-		return allChess.stream().map(mv -> mv.getId()).collect(Collectors.toList());
-	}
+  @GET
+  @Produces(MediaType.TEXT_PLAIN)
+  public List<Integer> getMoves() {
+    LOGGER.info("Running GET.");
+    final List<ChessBoard> allChess = chessS.getAll();
+    LOGGER.info("Returning {} items.", allChess.size());
+    return allChess.stream().map(mv -> mv.getId()).collect(Collectors.toList());
+  }
 
-	@POST
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response postMove() {
-		LOGGER.info("Running POST.");
-		final ChessBoard chess = new ChessBoard();
+  @POST
+  @Produces(MediaType.TEXT_PLAIN)
+  public Response postMove() {
+    LOGGER.info("Running POST.");
+    final ChessBoard chess = new ChessBoard();
 
-		chessS.persist(chess);
+    chessS.persist(chess);
 
-		LOGGER.info("Redirecting.");
-		return Response.seeOther(uriInfo.getAbsolutePath()).build();
-	}
+    LOGGER.info("Redirecting.");
+    return Response.seeOther(uriInfo.getAbsolutePath()).build();
+  }
 }
