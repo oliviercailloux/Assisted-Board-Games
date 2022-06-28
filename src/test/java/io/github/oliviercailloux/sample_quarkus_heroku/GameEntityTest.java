@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import com.github.bhlangonijr.chesslib.Side;
 import io.github.oliviercailloux.abg.ChessBoard;
 import io.github.oliviercailloux.abg.GameEntity;
 import io.github.oliviercailloux.abg.model.state.GameState;
@@ -25,9 +26,11 @@ public class GameEntityTest {
 
   static GameEntity game;
   static GameState gameState;
+  static ChessBoard chessBoard;
   final Instant fixedInstant =
       Instant.now(Clock.fixed(Instant.parse("2022-06-22T10:00:00Z"), ZoneOffset.UTC));
   private static final Logger LOGGER = LoggerFactory.getLogger(GameEntityTest.class);
+  
 
   @Test
   public void testEntity() { // Test du constructeur de GameEntity
@@ -36,17 +39,14 @@ public class GameEntityTest {
     assertEquals(Duration.ofSeconds(10), game.getClockIncrement());
     ArrayList moves = new ArrayList<>(); // avoid NPE in tests
     assertEquals(moves, game.getMoves());
-    assertEquals(GameEntity.STARTING_FEN_POSITION, game.getStartBoard().getFen());
     LOGGER.info("The game entity has been successfully instantiated by default");
   }
 
   @Test
-  public void testGameEntity() { // Test du constructeur de GameEntity
-    game =
-        new GameEntity(gameState, fixedInstant, Duration.ofSeconds(1800), Duration.ofSeconds(10));
+  public void testGameEntity() { // Test de la méthode createNewGameWithChess();
+    game = GameEntity.cerateNewGameWithChess();
     assertEquals(Duration.ofSeconds(1800), game.getClockDuration());
     assertEquals(Duration.ofSeconds(10), game.getClockIncrement());
-    assertEquals(GameEntity.STARTING_FEN_POSITION, game.getStartBoard().getFen());
     LOGGER.info("The game entity has been successfully instantiated with the parameters");
   }
 }

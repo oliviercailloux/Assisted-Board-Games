@@ -55,7 +55,6 @@ public class MoveEntityTest {
     assertEquals(Duration.ofSeconds(1800), moveEntity.getGame().getClockDuration());
     assertEquals(Duration.ofSeconds(10), moveEntity.getGame().getClockIncrement());
     assertEquals(Duration.ofSeconds(1800), moveEntity.getGame().getClockDuration());
-    assertEquals(GameEntity.STARTING_FEN_POSITION, moveEntity.getGame().);
     assertEquals(Square.A7, moveEntity.getFrom());
     assertEquals(Square.B3, moveEntity.getTo());
     assertEquals(Piece.BLACK_KING, moveEntity.getPromotion());
