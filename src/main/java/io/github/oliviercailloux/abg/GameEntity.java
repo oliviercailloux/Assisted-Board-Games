@@ -91,7 +91,7 @@ public class GameEntity {
     return startTime;
   }
 
-  public void setStartTime(Instant startTime) {
+  void setStartTime(Instant startTime) {
     this.startTime = startTime;
   }
 
