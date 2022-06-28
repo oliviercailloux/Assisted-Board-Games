@@ -4,8 +4,14 @@ const database = {
             url,
             type: 'GET',
             crossDomain: true,
-            async: false
-        }).done(data => callback(data));
+            async: false,
+            success : function(data) {
+                callback(data);
+            },
+            error: function (xhr, resp, text){
+                window.alert("La game n'existe pas ! changez d'ID"); 
+            }
+        })
     },
 
     post: function(url, data, type = '', callback) {

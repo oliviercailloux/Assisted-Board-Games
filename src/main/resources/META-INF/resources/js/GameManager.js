@@ -100,10 +100,11 @@ class GameManager {
         const url = '/v0/api/v1/game/' + this.gameId + '/moves';
         let moves;
         database.get(url, (data) => {
+        	this.CBM.loadMoves(data);
             return moves = data;
         });
 
-        this.CBM.loadMoves(moves);
+
     }
 
     /**
