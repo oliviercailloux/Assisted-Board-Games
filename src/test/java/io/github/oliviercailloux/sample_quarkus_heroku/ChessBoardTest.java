@@ -20,12 +20,14 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class ChessBoardTest {
   static ChessBoard chessboard;
+  Board board;
   static Square from;
   static Square to;
   static Piece promotion;
   static MoveDAO move;
   static GameEntity game;
   static MoveEntity moveEntity;
+  static Duration duration;
 
   @Test
   public void testCreateChessBoard() { // Test de la méthode createChessBoard()
