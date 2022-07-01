@@ -715,7 +715,6 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzbezkEeyAbYRurX1OzQ" name="fen" visibility="package" type="_28bzg-zkEeyAbYRurX1OzQ"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzbuzkEeyAbYRurX1OzQ" name="sideToMove" visibility="package" type="_28caHOzkEeyAbYRurX1OzQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_28bzb-zkEeyAbYRurX1OzQ" name="getSideToMove">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_28bzcOzkEeyAbYRurX1OzQ" type="_28caHOzkEeyAbYRurX1OzQ" direction="return"/>
         </ownedOperation>
@@ -1029,6 +1028,7 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_fTVlQOzlEeyAbYRurX1OzQ" name="id" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_28bzbuzkEeyAbYRurX1OzQ" name="sideToMove" visibility="package" type="_28caHOzkEeyAbYRurX1OzQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_Q4yN8OzqEeyAbYRurX1OzQ" name="getId" visibility="protected" isAbstract="true">
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_Q4yN8ezqEeyAbYRurX1OzQ" direction="return">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>

@@ -4587,6 +4587,16 @@
           <element xmi:type="uml:Property" href="Model.uml#_fTVlQOzlEeyAbYRurX1OzQ"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_jm7hYezlEeyAbYRurX1OzQ"/>
         </children>
+        <children xmi:type="notation:Shape" xmi:id="_GWwWcOzmEeyAbYRurX1OzQ" type="Property_ClassAttributeLabel">
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_vg3VEOzrEeyAbYRurX1OzQ" name="maskLabel">
+            <stringListValue>visibility</stringListValue>
+            <stringListValue>name</stringListValue>
+            <stringListValue>type</stringListValue>
+            <stringListValue>derived</stringListValue>
+          </styles>
+          <element xmi:type="uml:Property" href="Model.uml#_28bzbuzkEeyAbYRurX1OzQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_GWwWcezmEeyAbYRurX1OzQ"/>
+        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_Qs3EFuzlEeyAbYRurX1OzQ"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_Qs3EF-zlEeyAbYRurX1OzQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_Qs3EGOzlEeyAbYRurX1OzQ"/>
@@ -4669,16 +4679,6 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_E2MipOzmEeyAbYRurX1OzQ" y="15"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_E2MipezmEeyAbYRurX1OzQ" type="Class_AttributeCompartment">
-        <children xmi:type="notation:Shape" xmi:id="_Fs3E4OzmEeyAbYRurX1OzQ" type="Property_ClassAttributeLabel">
-          <styles xmi:type="notation:StringListValueStyle" xmi:id="_v45akOzrEeyAbYRurX1OzQ" name="maskLabel">
-            <stringListValue>visibility</stringListValue>
-            <stringListValue>name</stringListValue>
-            <stringListValue>type</stringListValue>
-            <stringListValue>derived</stringListValue>
-          </styles>
-          <element xmi:type="uml:Property" href="Model.uml#_28bzbOzkEeyAbYRurX1OzQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_Fs3E4ezmEeyAbYRurX1OzQ"/>
-        </children>
         <children xmi:type="notation:Shape" xmi:id="_F-dyQOzmEeyAbYRurX1OzQ" type="Property_ClassAttributeLabel">
           <styles xmi:type="notation:StringListValueStyle" xmi:id="_vK328OzrEeyAbYRurX1OzQ" name="maskLabel">
             <stringListValue>visibility</stringListValue>
@@ -4688,16 +4688,6 @@
           </styles>
           <element xmi:type="uml:Property" href="Model.uml#_28bzbezkEeyAbYRurX1OzQ"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_F-dyQezmEeyAbYRurX1OzQ"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_GWwWcOzmEeyAbYRurX1OzQ" type="Property_ClassAttributeLabel">
-          <styles xmi:type="notation:StringListValueStyle" xmi:id="_vg3VEOzrEeyAbYRurX1OzQ" name="maskLabel">
-            <stringListValue>visibility</stringListValue>
-            <stringListValue>name</stringListValue>
-            <stringListValue>type</stringListValue>
-            <stringListValue>derived</stringListValue>
-          </styles>
-          <element xmi:type="uml:Property" href="Model.uml#_28bzbuzkEeyAbYRurX1OzQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_GWwWcezmEeyAbYRurX1OzQ"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_E2MipuzmEeyAbYRurX1OzQ"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_E2Mip-zmEeyAbYRurX1OzQ"/>
@@ -4741,16 +4731,6 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_dqrv9OzmEeyAbYRurX1OzQ" y="15"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_dqrv9ezmEeyAbYRurX1OzQ" type="Class_AttributeCompartment">
-        <children xmi:type="notation:Shape" xmi:id="_k08XMOzmEeyAbYRurX1OzQ" type="Property_ClassAttributeLabel">
-          <styles xmi:type="notation:StringListValueStyle" xmi:id="_uUoLcOzrEeyAbYRurX1OzQ" name="maskLabel">
-            <stringListValue>visibility</stringListValue>
-            <stringListValue>name</stringListValue>
-            <stringListValue>type</stringListValue>
-            <stringListValue>derived</stringListValue>
-          </styles>
-          <element xmi:type="uml:Property" href="Model.uml#_jn1D0OzmEeyAbYRurX1OzQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_k08XMezmEeyAbYRurX1OzQ"/>
-        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_dqrv9uzmEeyAbYRurX1OzQ"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_dqrv9-zmEeyAbYRurX1OzQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_dqrv-OzmEeyAbYRurX1OzQ"/>
