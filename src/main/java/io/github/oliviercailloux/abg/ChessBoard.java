@@ -21,9 +21,6 @@ public class ChessBoard extends MyBoard {
 
   public static final ChessBoard STARTING_CHESS_BOARD = new ChessBoard();
 
-  String fen;
-  Side sideToMove;
-
   ChessBoard() {
     this.fen = GameEntity.STARTING_FEN_POSITION;
     this.sideToMove = Side.WHITE;
@@ -53,6 +50,7 @@ public class ChessBoard extends MyBoard {
     return id;
   }
 
+  @Override
   public String getFen() {
     return fen;
   }
@@ -71,7 +69,7 @@ public class ChessBoard extends MyBoard {
   }
 
   @Override
-  public ChessBoard doMoves(List<MoveEntity> moves) throws MoveException {
+  public MyBoard doMoves(List<MoveEntity> moves) throws MoveException {
     final Board board = asBoard();
     for (MoveEntity move : moves) {
       if (!board.doMove(move.asMove(), true)) {

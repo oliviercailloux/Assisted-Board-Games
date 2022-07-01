@@ -13,8 +13,12 @@ public abstract class MyBoard {
   @Id
   @GeneratedValue
   int id;
+  Side sideToMove;
+  String fen;
 
-  protected abstract ChessBoard doMoves(List<MoveEntity> moves) throws MoveException;
+  public abstract Side getSideToMove();
 
-  protected abstract Side getSideToMove();
+  public abstract MyBoard doMoves(List<MoveEntity> moves) throws MoveException;
+
+  public abstract String getFen();
 }

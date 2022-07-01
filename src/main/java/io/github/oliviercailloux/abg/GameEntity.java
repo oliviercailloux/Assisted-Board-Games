@@ -62,6 +62,9 @@ public class GameEntity {
   @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
   List<MoveEntity> moves;
 
+  @OneToMany(mappedBy = "checkerBoard")
+  List<PiecePosition> piecePositions;
+
   public GameEntity() {
     clockDuration = Duration.ofSeconds(1800);
     clockIncrement = Duration.ofSeconds(10);
@@ -71,6 +74,13 @@ public class GameEntity {
   public static GameEntity cerateNewGameWithChess() {
     GameEntity game = new GameEntity();
     ChessBoard startBoard = ChessBoard.createChessBoard();
+    game.setMyBoard(startBoard);
+    return game;
+  }
+
+  public static GameEntity cerateNewGameWithChecker() {
+    GameEntity game = new GameEntity();
+    CheckerBoard startBoard = CheckerBoard.initialBoard();
     game.setMyBoard(startBoard);
     return game;
   }
@@ -176,7 +186,7 @@ public class GameEntity {
   }
 
   public GameState getGameState() {
-    final ChessBoard board;
+    final MyBoard board;
     try {
       board = startBoard.doMoves(moves);
     } catch (MoveException e) {
