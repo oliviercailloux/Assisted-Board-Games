@@ -40,7 +40,7 @@ public class HelpResource {
 	LOGGER.info("GET\t/help\tgid={}", gameId);
 	final GameEntity game = chessService.getGame(gameId);
 	final List<MoveEntity> moves = game.getMoves();
-	final ChessBoard chessBoard = ChessBoard.STARTING_CHESS_BOARD.doMoves(moves);
+	final ChessBoard chessBoard = (ChessBoard) ChessBoard.STARTING_CHESS_BOARD.doMoves(moves);
 	// Generate possible moves
 	final MoveList moveList = MoveGenerator.generateLegalMoves(chessBoard.asBoard());
 	final MoveList mated = new MoveList();
