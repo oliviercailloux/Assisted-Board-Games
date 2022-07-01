@@ -59,6 +59,7 @@ See: https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/m
 == The user interface
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Chess%20diagrams%20Basics.adoc#record-chess-move-graphically-diagram[Record Chess Move Graphically]
  - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/chessboard-js-README.md[Getting started with js]
+ - https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/main/Doc/Javascript%20front%20documentation.adoc[Fron-end Documentation]
  - Documentation of the queries linking the front and back [To be added]
  - Documentation about the graphical interface [To be added]
  
