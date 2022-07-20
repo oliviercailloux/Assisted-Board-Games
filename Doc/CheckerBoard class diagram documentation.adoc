@@ -1,13 +1,17 @@
 = CheckerBoard class diagram
 
-This class diagram demonstrates the interactions between CheckerBoard, Square, Piece classes and Side, PieceSort enums.
+This class diagram demonstrates the interactions between https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers/CheckerBoard.java[CheckerBoard], https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers/Square.java[Square], https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers/Piece.java[Piece] classes and https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/src/main/java/io/github/oliviercailloux/assisted_board_games/two_players/Side.java[Side], https://github.com/oliviercailloux-org/projet-assisted-board-games-1/blob/jetty/src/main/java/io/github/oliviercailloux/assisted_board_games/checkers/PieceSort.java[PieceSort] enums.
 
 
 = Explanation of the class diagram
 
 *Checkerboard*
 
+* This implementation of a CheckerBoard is based on a "Manoury’s notation" described by the website source: http://www.ffjd.fr/Web/index.php?page=notation[FFJD - Fédération Française], which helps to facilitate the implementation of `Square` class.
+
 * An instance variable *pieces* of type `MapSquareToPiece` allows to store the position of the pieces on the checkerboard. For example, a piece on the square 1 will be represented by 'Square object : Piece object' entry.
+
+* `newInstance()` is a static factory method. We use it to create default representation of a CheckerBoard at the start of the game. This method is useful for loading an empty game board at the start of the game.
 
 * `given` is a static factory method. We use it to create a board for which we know the position of the pieces. This method is useful for loading a game already started and restoring checkerboard's state. 
 
@@ -26,9 +30,9 @@ This class diagram demonstrates the interactions between CheckerBoard, Square, P
 
 *Square*
 
-* `given` allows to create a *square* given it's number.
+* `given` allows to create a *square* given it's number. In the Checkerboard class, 50 squares are instantiated with the method `newInstance()`.
 
 
 =  Diagram
-
-image::Images/Checkerboard_class_diagram.svg[demonstation,1000,800]
+Here is the class diagram showing the relationships between the three classes 
+:image:Images/Checkerboard_class_diagram.SVG[]

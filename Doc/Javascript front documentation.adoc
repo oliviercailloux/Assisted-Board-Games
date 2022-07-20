@@ -1,0 +1,34 @@
+= Documentation for front in Javascript
+
+This is a documentation for the front-end of the project in Javascript. The scripts are all placed in `src/main/resources/META-INF/resources/js` and we will describe their respectives roles and how you should expand the front going forward.
+
+== The different files
+
+There are currently 3 types of file, each with a specific function in mind when created.
+
+=== Generic scripts
+
+The script `common.js` contains generic functions that could be useful in other scripts. For now, it only has an object `database` with two functions in relation to the database.
+
+* `get(url, callback)` performs a GET request with the URL in argument and executes the callback function when the request is successful.
+
+* `post(url, data, type, callback)` performs a POST request with the URL in argument. It sends the data in argument also, with the type if specified. It executes the callback function when the request is successful.
+
+=== Scripts specific to a page
+
+There is one script for each html page and it should have the same name. For example, the script for `index.html` is `index.js`. This script's main purpose is to execute the actions that the user can perform on the page. 
+
+* In the case of `index.js`, the script redirects the page to the relevant game when the user clicks on the button to play a certain game.
+
+* `chess.js` initializes an instance of GameManager and the chess board. It also  executes the action required by the user when they click on the button corresponding: creating or loading and game.
+
+=== Classes to manage a game
+
+Different classes have been implemented in order to manage a game. Currently, they are only used for the game of chess (with a chess board and two players: black and white) but they can be made more generic in order to adapt to multiple types of game.
+One file contains an eponymous class.
+
+* The class `TimeManager` has one instance per player and its sole purpose is to manage that player's time. 
+
+* The class `ChessBoardManager` is based on the module `chessboardjs` and uses it to play moves on the board and records them in the database.  
+
+* The class `GameManager` manages the overall game, by using the classes `ChessBoardManager` and `TimeManager`.
